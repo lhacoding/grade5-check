@@ -16,6 +16,7 @@
       --yellow: #f6f36d;
       --green: #d9f99d;
       --purple: #ddd6fe;
+      --overall: #dbeafe;
       --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
       --radius: 18px;
     }
@@ -109,16 +110,14 @@
     }
 
     .tab-row,
-    .grade-tabs,
-    .controls {
+    .grade-tabs {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
 
     .school-tab,
-    .grade-tab,
-    .action-btn {
+    .grade-tab {
       border: 1px solid var(--line);
       background: white;
       color: #374151;
@@ -130,8 +129,7 @@
     }
 
     .school-tab:hover,
-    .grade-tab:hover,
-    .action-btn:hover {
+    .grade-tab:hover {
       border-color: var(--primary);
       color: var(--primary);
     }
@@ -144,55 +142,12 @@
       font-weight: 800;
     }
 
-    .summary-grid {
+    .semester-result-grid {
       display: grid;
-      grid-template-columns: 1.25fr 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
     }
 
-    .summary-card {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 18px 20px;
-      background: white;
-    }
-
-    .summary-card.main {
-      background: var(--primary-soft);
-      border-color: #c7d2fe;
-    }
-
-    .summary-label {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .summary-value {
-      font-size: 32px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-    }
-
-    .summary-sub {
-      margin-top: 8px;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    .controls {
-      margin-top: 14px;
-    }
-
-    .action-btn.primary {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-      font-weight: 800;
-    }
-
-    .semester-result-grid,
     .subject-result-grid {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -215,23 +170,27 @@
       line-height: 1.2;
       letter-spacing: -0.03em;
       border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-    }
-
-    .semester-result-title {
       font-size: 18px;
-      color: #111827;
     }
 
     .semester-result-title.grade1 {
       background: var(--yellow);
+      color: #111827;
     }
 
     .semester-result-title.grade2 {
       background: var(--green);
+      color: #111827;
     }
 
     .semester-result-title.grade3 {
       background: var(--purple);
+      color: #111827;
+    }
+
+    .semester-result-title.overall {
+      background: var(--overall);
+      color: #1e3a8a;
     }
 
     .semester-result-body,
@@ -245,10 +204,6 @@
       font-weight: 900;
       color: var(--primary);
       letter-spacing: -0.03em;
-    }
-
-    .subject-result-title {
-      font-size: 26px;
     }
 
     .subject-result-title.korean {
@@ -276,8 +231,33 @@
       color: #155e75;
     }
 
-    .grade-tabs {
+    .summary-sub {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .input-toolbar {
+      align-items: center;
       margin-bottom: 14px;
+    }
+
+    .reset-inline-btn {
+      border: 1px solid #c7d2fe;
+      background: #f8fafc;
+      color: #4f46e5;
+      padding: 9px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 900;
+      transition: 0.15s ease;
+    }
+
+    .reset-inline-btn:hover {
+      background: #eef2ff;
+      border-color: var(--primary);
     }
 
     .semester-wrap {
@@ -465,6 +445,14 @@
       font-size: 13px;
     }
 
+    .subject-select {
+      width: 118px;
+      max-width: 100%;
+      padding-left: 5px;
+      padding-right: 5px;
+      font-size: 13px;
+    }
+
     .excluded-row {
       opacity: 0.48;
     }
@@ -502,14 +490,18 @@
       color: var(--primary);
     }
 
+    @media (max-width: 1100px) {
+      .semester-result-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 980px) {
       .school-groups,
-      .summary-grid,
       .semester-wrap {
         grid-template-columns: 1fr;
       }
 
-      .semester-result-grid,
       .subject-result-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -588,6 +580,16 @@
         font-size: 10px;
       }
 
+      .subject-select {
+        width: 90px;
+        font-size: 10px;
+      }
+
+      .reset-inline-btn {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+
       .semester-header {
         font-size: 18px;
       }
@@ -620,37 +622,6 @@
       </div>
     </section>
 
-    <section class="section" id="summarySection">
-      <div class="section-title">
-        <h2 id="selectedSchoolTitle">해송고등학교</h2>
-        <span class="small-note">반영 과목만 학점 × 등급 가중평균으로 계산</span>
-      </div>
-
-      <div class="summary-grid">
-        <div class="summary-card main">
-          <div class="summary-label">전체 예상 등급</div>
-          <div class="summary-value" id="overallAverage">1.00</div>
-          <div class="summary-sub">전체 학기 기준 평균 등급</div>
-        </div>
-
-        <div class="summary-card">
-          <div class="summary-label">반영 이수학점</div>
-          <div class="summary-value" id="totalCredits">0</div>
-          <div class="summary-sub">내신 반영 과목 학점 합계</div>
-        </div>
-
-        <div class="summary-card">
-          <div class="summary-label">반영 과목 수</div>
-          <div class="summary-value" id="totalSubjects">0</div>
-          <div class="summary-sub">내신 계산에 포함된 과목 수</div>
-        </div>
-      </div>
-
-      <div class="controls">
-        <button class="action-btn primary" id="resetBtn">모두 1등급으로 초기화</button>
-      </div>
-    </section>
-
     <section class="section" id="semesterResultSection">
       <div class="section-title">
         <h2>학기별 예상 등급</h2>
@@ -671,14 +642,15 @@
 
     <section class="section" id="inputSection">
       <div class="section-title">
-        <h2>성적 시뮬레이션 입력</h2>
+        <h2>성적 입력</h2>
         <span class="small-note">등급 선택을 바꾸면 결과가 자동 계산됩니다.</span>
       </div>
 
-      <div class="grade-tabs">
+      <div class="grade-tabs input-toolbar">
         <button class="grade-tab active" data-grade-view="1">1학년</button>
         <button class="grade-tab" data-grade-view="2">2학년</button>
         <button class="grade-tab" data-grade-view="3">3학년</button>
+        <button class="reset-inline-btn" id="resetBtn" type="button">↺ 모두 1등급 초기화</button>
       </div>
 
       <div id="semesterTables"></div>
@@ -692,6 +664,73 @@
     };
 
     const schoolData = {
+      "송도고": {
+        name: "송도고등학교",
+        type: "남고",
+        defaultGrade: 1,
+        semesters: {
+          "1-1": [
+            { subject: "공통국어1", category: "국어", courseType: "공통", credit: 3, grade: 1, included: true },
+            { subject: "공통영어1", category: "영어", courseType: "공통", credit: 3, grade: 1, included: true },
+            { subject: "공통수학1", category: "수학", courseType: "공통", credit: 4, grade: 1, included: true },
+            { subject: "통합과학1", category: "과학", courseType: "공통", credit: 4, grade: 1, included: true },
+            { subject: "통합사회1", category: "사회", courseType: "공통", credit: 4, grade: 1, included: true },
+            { subject: "한국사1", category: "한국사", courseType: "공통", credit: 3, grade: 1, included: true },
+            { subject: "정보", category: "정보", courseType: "공통", credit: 3, grade: 1, included: true }
+          ],
+          "1-2": [
+            { subject: "공통국어2", category: "국어", courseType: "공통", credit: 3, grade: 1, included: true },
+            { subject: "공통영어2", category: "영어", courseType: "공통", credit: 3, grade: 1, included: true },
+            { subject: "공통수학2", category: "수학", courseType: "공통", credit: 4, grade: 1, included: true },
+            { subject: "통합과학2", category: "과학", courseType: "공통", credit: 4, grade: 1, included: true },
+            { subject: "통합사회2", category: "사회", courseType: "공통", credit: 4, grade: 1, included: true },
+            { subject: "한국사2", category: "한국사", courseType: "공통", credit: 3, grade: 1, included: true },
+            { subject: "로봇과공학세계", category: "정보", courseType: "융합", credit: 3, grade: 1, included: true }
+          ],
+          "2-1": [
+            { subject: "문학", category: "국어", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "영어1", category: "영어", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "대수", category: "수학", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "기하", category: "수학", courseType: "진로", credit: 3, grade: 1, included: true },
+            { subject: "물리학", category: "과학", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "화학", category: "과학", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "생명과학", category: "과학", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "지구과학", category: "과학", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "인공지능기초", category: "정보", courseType: "진로", credit: 3, grade: 1, included: true }
+          ],
+          "2-2": [
+            { subject: "화법과언어", category: "국어", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "영어2", category: "영어", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "미적분1", category: "수학", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "미적분2", category: "수학", courseType: "진로", credit: 3, grade: 1, included: true },
+            { subject: "역학과에너지", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
+            { subject: "물질과에너지", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
+            { subject: "세포와물질대사", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
+            { subject: "지구시스템과학", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
+            { subject: "데이터과학", category: "정보", courseType: "융합", credit: 3, grade: 1, included: true }
+          ],
+          "3-1": [
+            { subject: "독서와작문", category: "국어", courseType: "일반", credit: 4, grade: 1, included: true },
+            { subject: "영어독해와작문", category: "영어", courseType: "일반", credit: 4, grade: 1, included: true },
+            { subject: "확률과통계", category: "수학", courseType: "일반", credit: 3, grade: 1, included: true },
+            { subject: "전문수학", category: "수학", courseType: "진로", credit: 3, grade: 1, included: true },
+            { subject: "전자기와양자", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
+            { subject: "화학반응의세계", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
+            {
+              subject: "생물의유전",
+              category: "과학",
+              courseType: "진로",
+              credit: 3,
+              grade: 1,
+              included: true,
+              subjectOptions: [
+                { subject: "생물의유전", category: "과학", courseType: "진로" },
+                { subject: "창의공학설계", category: "정보", courseType: "융합" }
+              ]
+            }
+          ]
+        }
+      },
       "해송고": {
         name: "해송고등학교",
         type: "여고",
@@ -745,7 +784,6 @@
           ]
         }
       },
-      "송도고": null,
       "대건고": null,
       "신송고": null,
       "연송고": null,
@@ -759,15 +797,11 @@
       "3": ["3-1"]
     };
 
-    let selectedSchool = "해송고";
+    let selectedSchool = "송도고";
     let selectedGradeView = "1";
 
     const boysTabs = document.getElementById("boysTabs");
     const girlsTabs = document.getElementById("girlsTabs");
-    const selectedSchoolTitle = document.getElementById("selectedSchoolTitle");
-    const overallAverage = document.getElementById("overallAverage");
-    const totalCredits = document.getElementById("totalCredits");
-    const totalSubjects = document.getElementById("totalSubjects");
     const semesterResults = document.getElementById("semesterResults");
     const subjectResults = document.getElementById("subjectResults");
     const semesterTables = document.getElementById("semesterTables");
@@ -799,11 +833,14 @@
       button.addEventListener("click", () => {
         selectedSchool = school;
         selectedGradeView = "1";
+
         document.querySelectorAll(".school-tab").forEach((btn) => btn.classList.remove("active"));
         button.classList.add("active");
+
         document.querySelectorAll(".grade-tab").forEach((btn) => {
           btn.classList.toggle("active", btn.dataset.gradeView === selectedGradeView);
         });
+
         render();
       });
 
@@ -837,6 +874,29 @@
       };
 
       return typeMap[courseType] || "";
+    }
+
+    function getSubjectOption(item) {
+      if (!item.subjectOptions) {
+        return null;
+      }
+
+      return item.subjectOptions.find((option) => option.subject === item.subject) || item.subjectOptions[0];
+    }
+
+    function getItemSubject(item) {
+      const option = getSubjectOption(item);
+      return option ? option.subject : item.subject;
+    }
+
+    function getItemCategory(item) {
+      const option = getSubjectOption(item);
+      return option ? option.category : item.category;
+    }
+
+    function getItemCourseType(item) {
+      const option = getSubjectOption(item);
+      return option ? option.courseType : item.courseType;
     }
 
     function formatSemesterName(semesterName) {
@@ -923,13 +983,15 @@
 
       Object.values(data.semesters).forEach((semesterSubjects) => {
         semesterSubjects.forEach((item) => {
-          if (!result[item.category] || !isIncluded(item)) {
+          const category = getItemCategory(item);
+
+          if (!result[category] || !isIncluded(item)) {
             return;
           }
 
-          result[item.category].credits += item.credit;
-          result[item.category].weightedGrade += item.credit * item.grade;
-          result[item.category].subjectCount += 1;
+          result[category].credits += item.credit;
+          result[category].weightedGrade += item.credit * item.grade;
+          result[category].subjectCount += 1;
         });
       });
 
@@ -948,10 +1010,6 @@
     function renderReadyMessage() {
       const schoolName = selectedSchool + "등학교";
 
-      selectedSchoolTitle.textContent = schoolName;
-      overallAverage.textContent = "-";
-      totalCredits.textContent = "-";
-      totalSubjects.textContent = "-";
       semesterResults.innerHTML = "";
       subjectResults.innerHTML = "";
 
@@ -960,15 +1018,6 @@
           <strong>${schoolName}</strong> 교육과정 데이터 입력 예정입니다.
         </div>
       `;
-    }
-
-    function renderSummary(data) {
-      const overall = calculateOverall(data);
-
-      selectedSchoolTitle.textContent = data.name;
-      overallAverage.textContent = formatAverage(overall.average);
-      totalCredits.textContent = overall.credits;
-      totalSubjects.textContent = overall.subjects;
     }
 
     function renderSemesterResults(data) {
@@ -990,6 +1039,18 @@
         `;
         semesterResults.appendChild(card);
       });
+
+      const overall = calculateOverall(data);
+      const totalCard = document.createElement("div");
+      totalCard.className = "semester-result";
+      totalCard.innerHTML = `
+        <div class="semester-result-title overall">전체</div>
+        <div class="semester-result-body">
+          <span class="result-value">${formatAverage(overall.average)}</span>
+          <div class="summary-sub">${overall.credits}학점 · ${overall.subjects}과목</div>
+        </div>
+      `;
+      semesterResults.appendChild(totalCard);
     }
 
     function renderSubjectResults(data) {
@@ -1048,31 +1109,42 @@
               </thead>
               <tbody>
                 ${subjects.map((item, index) => {
-                  const categoryClass = getCategoryClass(item.category);
-                  const typeClass = getCourseTypeClass(item.courseType);
+                  const currentSubject = getItemSubject(item);
+                  const currentCategory = getItemCategory(item);
+                  const currentCourseType = getItemCourseType(item);
+                  const categoryClass = getCategoryClass(currentCategory);
+                  const typeClass = getCourseTypeClass(currentCourseType);
                   const included = isIncluded(item);
+
+                  const subjectControl = item.subjectOptions
+                    ? `<select class="subject-select" data-semester="${semesterName}" data-index="${index}" data-field="subject" aria-label="선택 과목">
+                        ${item.subjectOptions.map((option) => `
+                          <option value="${option.subject}" ${currentSubject === option.subject ? "selected" : ""}>${option.subject}</option>
+                        `).join("")}
+                      </select>`
+                    : `<span class="subject-name">${currentSubject}</span>`;
 
                   return `
                     <tr class="${included ? "" : "excluded-row"}">
                       <td>
-                        <span class="pill category-pill ${categoryClass}">${item.category}</span>
+                        <span class="pill category-pill ${categoryClass}">${currentCategory}</span>
                       </td>
                       <td class="subject">
                         <span class="subject-inner">
-                          <span class="pill type-circle ${typeClass}">${item.courseType}</span>
-                          <span class="subject-name">${item.subject}</span>
+                          <span class="pill type-circle ${typeClass}">${currentCourseType}</span>
+                          ${subjectControl}
                         </span>
                       </td>
                       <td class="credit-cell">${item.credit}</td>
                       <td>
-                        <select data-semester="${semesterName}" data-index="${index}" data-field="grade" aria-label="${item.subject} 예상 등급">
+                        <select data-semester="${semesterName}" data-index="${index}" data-field="grade" aria-label="${currentSubject} 예상 등급">
                           ${[1, 2, 3, 4, 5].map((grade) => `
                             <option value="${grade}" ${item.grade === grade ? "selected" : ""}>${grade}</option>
                           `).join("")}
                         </select>
                       </td>
                       <td>
-                        <select class="include-select" data-semester="${semesterName}" data-index="${index}" data-field="included" aria-label="${item.subject} 내신 반영 여부">
+                        <select class="include-select" data-semester="${semesterName}" data-index="${index}" data-field="included" aria-label="${currentSubject} 내신 반영 여부">
                           <option value="true" ${included ? "selected" : ""}>반영</option>
                           <option value="false" ${!included ? "selected" : ""}>미반영</option>
                         </select>
@@ -1095,11 +1167,11 @@
       semesterTables.appendChild(wrap);
 
       document.querySelectorAll("select[data-semester]").forEach((select) => {
-        select.addEventListener("change", handleGradeChange);
+        select.addEventListener("change", handleInputChange);
       });
     }
 
-    function handleGradeChange(event) {
+    function handleInputChange(event) {
       const data = getCurrentSchoolData();
       const semesterName = event.target.dataset.semester;
       const index = Number(event.target.dataset.index);
@@ -1107,6 +1179,15 @@
 
       if (field === "included") {
         data.semesters[semesterName][index].included = event.target.value === "true";
+      } else if (field === "subject") {
+        const item = data.semesters[semesterName][index];
+        item.subject = event.target.value;
+
+        const option = getSubjectOption(item);
+        if (option) {
+          item.category = option.category;
+          item.courseType = option.courseType;
+        }
       } else {
         data.semesters[semesterName][index].grade = Number(event.target.value);
       }
@@ -1125,6 +1206,11 @@
         subjects.forEach((item) => {
           item.grade = data.defaultGrade;
           item.included = true;
+          if (item.subjectOptions && item.subjectOptions.length > 0) {
+            item.subject = item.subjectOptions[0].subject;
+            item.category = item.subjectOptions[0].category;
+            item.courseType = item.subjectOptions[0].courseType;
+          }
         });
       });
 
@@ -1140,7 +1226,6 @@
         return;
       }
 
-      renderSummary(data);
       renderSemesterResults(data);
       renderSubjectResults(data);
       renderTables(data);
