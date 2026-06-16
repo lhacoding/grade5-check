@@ -142,16 +142,18 @@
       font-weight: 800;
     }
 
-    .semester-result-grid {
+    .semester-result-grid,
+    .subject-result-grid {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 10px;
     }
 
+    .semester-result-grid {
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    }
+
     .subject-result-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
     }
 
     .semester-result,
@@ -490,12 +492,6 @@
       color: var(--primary);
     }
 
-    @media (max-width: 1100px) {
-      .semester-result-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
     @media (max-width: 980px) {
       .school-groups,
       .semester-wrap {
@@ -530,7 +526,27 @@
 
       .semester-result-grid,
       .subject-result-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+        gap: 8px;
+      }
+
+      .semester-result-title,
+      .subject-result-title {
+        font-size: 13px;
+        padding: 9px 5px 7px;
+      }
+
+      .semester-result-body,
+      .subject-result-body {
+        padding: 10px 5px 11px;
+      }
+
+      .result-value {
+        font-size: 20px;
+      }
+
+      .summary-sub {
+        font-size: 11px;
       }
 
       th,
