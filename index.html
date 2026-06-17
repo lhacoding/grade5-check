@@ -344,6 +344,16 @@
       color: #155e75;
     }
 
+    .subject-result-title.social {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .subject-result-title.history {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+
     .summary-sub {
       margin-top: 8px;
       font-size: 13px;
@@ -2828,7 +2838,7 @@
     }
 
     function calculateSubjectGroupAverages(data) {
-      const targetCategories = ["국어", "영어", "수학", "과학", "정보"];
+      const targetCategories = ["국어", "영어", "수학", "과학", "사회", "한국사", "정보"];
       const result = {};
 
       targetCategories.forEach((category) => {
@@ -2892,7 +2902,7 @@
           <div class="semester-result-title ${gradeClass}">${formatSemesterName(semesterName)}</div>
           <div class="semester-result-body">
             <span class="result-value">${formatAverage(result.average)}</span>
-            <div class="summary-sub">${selectedAverageScope === "core" ? "국영수과 " : ""}${result.credits}학점</div>
+            <div class="summary-sub">${result.credits}학점</div>
           </div>
         `;
         semesterResults.appendChild(card);
@@ -2907,7 +2917,7 @@
         <div class="semester-result-title overall">학기전체</div>
         <div class="semester-result-body">
           <span class="result-value">${formatAverage(overall.average)}</span>
-          <div class="summary-sub">${selectedAverageScope === "core" ? "국영수과 " : ""}${overall.credits}학점 · ${overall.subjects}과목</div>
+          <div class="summary-sub">${overall.credits}학점</div>
         </div>
       `;
       semesterResults.appendChild(totalFiveCard);
