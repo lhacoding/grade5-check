@@ -3617,24 +3617,54 @@
         .filter((item) => item.average !== null);
     }
 
+    function getAdmissionExpandedRows(type, fiveGradeAverage) {
+      return admissionRecords
+        .filter((row) => row.전형구분 === type)
+        .filter((row) => !shouldExcludeAdmissionRow(row, fiveGradeAverage))
+        .map((row) => ({ row, average: admissionAverage(row) }))
+        .filter((item) => item.average !== null);
+    }
+
     function classifyAdmissionRows(type, convertedNineGrade, selectedMajors, fiveGradeAverage) {
       const base = getAdmissionBaseRows(type, selectedMajors, fiveGradeAverage);
+      const expandedBase = getAdmissionExpandedRows(type, fiveGradeAverage);
       const used = new Set();
       const makeKey = (item) => `${item.row.전형구분}|${item.row.학교}|${item.row.전형명}|${item.row.학과}`;
 
-      function pick(pool, count) {
-        const selected = [];
+      function sortByCloseness(pool, referenceValue) {
+        return [...pool].sort((a, b) => {
+          const distanceA = Math.abs(a.average - referenceValue);
+          const distanceB = Math.abs(b.average - referenceValue);
+          return distanceA - distanceB || a.average - b.average;
+        });
+      }
 
+      function pushUnused(targetList, pool, count) {
         for (const item of pool) {
           const key = makeKey(item);
           if (used.has(key)) {
             continue;
           }
           used.add(key);
-          selected.push(item);
-          if (selected.length >= count) {
+          targetList.push(item);
+          if (targetList.length >= count) {
             break;
           }
+        }
+      }
+
+      function pick(pool, count, fallbackReference) {
+        const selected = [];
+        pushUnused(selected, pool, count);
+
+        // 특정 구간에 해당하는 학과가 부족하면 같은 선택 학과군 안에서 내신과 가장 가까운 자료로 보충합니다.
+        if (selected.length < count) {
+          pushUnused(selected, sortByCloseness(base, fallbackReference), count);
+        }
+
+        // 선택 학과군 자료 자체가 매우 적은 경우에는 전체 공학계열 자료 중 가장 가까운 입결로 한 번 더 보충합니다.
+        if (selected.length < count) {
+          pushUnused(selected, sortByCloseness(expandedBase, fallbackReference), count);
         }
 
         return selected;
@@ -3651,9 +3681,9 @@
         .sort((a, b) => (a.average - (convertedNineGrade + 0.5)) - (b.average - (convertedNineGrade + 0.5)) || a.average - b.average);
 
       return {
-        reach: pick(reach, 2),
-        target: pick(target, 2),
-        safe: pick(safe, 2)
+        reach: pick(reach, 2, convertedNineGrade - 0.05),
+        target: pick(target, 2, convertedNineGrade + 0.15),
+        safe: pick(safe, 2, convertedNineGrade + 0.5)
       };
     }
 
@@ -3677,15 +3707,7 @@
       const meta = getAdmissionCategoryMeta(category);
 
       if (!item) {
-        return `
-          <div class="admission-rec-line">
-            <span class="admission-cat ${meta.className}">${meta.text}</span>
-            <div class="admission-rec-main"><span class="admission-rec-major">조건 부족</span></div>
-            <div class="admission-score-dots">
-              <span class="admission-dot avg missing">-</span><span class="admission-dot missing">-</span><span class="admission-dot missing">-</span><span class="admission-dot missing">-</span><span class="admission-dot missing">-</span>
-            </div>
-          </div>
-        `;
+        return "";
       }
 
       const row = item.row;
