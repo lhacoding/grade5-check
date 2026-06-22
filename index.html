@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5등급제 내신 시뮬레이터</title>
+  <title>5등급제 내신별 지원 대학 예상</title>
   <style>
 
     :root {
@@ -123,10 +123,10 @@
       gap: 10px;
       margin: 0;
       flex: 0 0 auto;
-      font-size: 24px;
+      font-size: 23px;
       line-height: 1.2;
-      font-weight: 950;
-      letter-spacing: -0.055em;
+      font-weight: 900;
+      letter-spacing: -0.045em;
       color: var(--text);
       white-space: nowrap;
     }
@@ -163,11 +163,11 @@
     .small-note {
       flex: 1 1 240px;
       min-width: 0;
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--muted);
       line-height: 1.55;
       text-align: right;
-      font-weight: 650;
+      font-weight: 700;
     }
 
     .school-groups {
@@ -879,65 +879,69 @@
     }
 
 
-    /* 대학 자동 추천 영역 */
+    /* 대학 추천 영역 */
     .admission-recommend-section {
       overflow: hidden;
     }
 
     .admission-recommend-section .section-title {
-      align-items: flex-start;
+      align-items: center;
     }
 
     .admission-recommend-layout {
       display: grid;
-      grid-template-columns: 1fr 1.25fr;
-      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
       align-items: stretch;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
 
     .admission-score-panel,
     .admission-pick-panel {
       min-width: 0;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: #fbfcff;
-      padding: 16px;
-      box-shadow: var(--soft-shadow);
+      border: 1px solid #d8e2f0;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #fcfdff 0%, #f7faff 100%);
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(23, 38, 67, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
 
     .admission-panel-title {
-      margin: 0 0 11px;
+      margin: 0 0 14px;
       font-size: 18px;
-      line-height: 1.2;
-      font-weight: 950;
-      letter-spacing: -0.045em;
+      line-height: 1.25;
+      font-weight: 900;
+      letter-spacing: -0.04em;
       color: var(--text);
     }
 
     .admission-score-grid {
       display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
 
     .admission-score-box {
-      min-height: 86px;
-      border: 1px solid #dce5f2;
+      min-height: 92px;
+      border: 1px solid #dbe4f2;
       border-radius: 16px;
       background: #ffffff;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
     }
 
     .admission-score-label {
       flex: 0 0 auto;
-      padding: 9px 10px 8px;
-      background: #edf3ff;
+      padding: 11px 14px 10px;
+      background: #f1f6ff;
       color: var(--primary-2);
       font-size: 13px;
-      font-weight: 950;
+      font-weight: 900;
       border-bottom: 1px solid #e2e9f4;
       white-space: nowrap;
     }
@@ -947,33 +951,44 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 8px;
+      padding: 12px 10px;
       color: var(--primary-2);
       font-size: 24px;
-      font-weight: 950;
+      font-weight: 900;
       letter-spacing: -0.04em;
       font-variant-numeric: tabular-nums;
       text-align: center;
       white-space: nowrap;
+      background: #ffffff;
     }
 
     .admission-score-value.nine {
-      color: #116138;
-      background: #f7fffa;
+      color: #2c6a43;
+      background: #f7fcf8;
     }
 
-    .admission-scope-note {
-      margin-top: 9px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.45;
+    .admission-scope-note,
+    .admission-help-note {
+      margin-top: 14px;
+      padding: 13px 15px;
+      min-height: 76px;
+      border: 1px solid #dbe4f2;
+      border-radius: 16px;
+      background: #ffffff;
+      color: #5d6d86;
+      font-size: 12.5px;
+      line-height: 1.65;
       font-weight: 700;
+      display: flex;
+      align-items: flex-start;
     }
 
     .admission-major-selects {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 9px;
+      gap: 10px;
+      min-height: 92px;
+      align-items: center;
     }
 
     .admission-major-selects select {
@@ -981,7 +996,7 @@
       min-width: 0;
       height: 48px;
       min-height: 48px;
-      padding: 0 34px 0 13px;
+      padding: 0 34px 0 14px;
       border: 1px solid #cfd8ea;
       border-radius: 14px;
       background: #ffffff;
@@ -989,23 +1004,12 @@
       font-size: 15px;
       font-weight: 850;
       text-align: left;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.85);
     }
 
     .admission-major-selects select:focus {
-      outline: 3px solid rgba(63, 90, 134, 0.18);
+      outline: 3px solid rgba(63, 90, 134, 0.16);
       border-color: #8ea2c4;
-    }
-
-    .admission-help-note {
-      margin: 12px 0 0;
-      padding: 12px 14px;
-      border: 1px dashed #ccd7eb;
-      border-radius: 15px;
-      background: #ffffff;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-      font-weight: 650;
     }
 
     .admission-rec-grid {
@@ -1029,7 +1033,7 @@
       grid-template-columns: 48px minmax(0, 1fr) auto;
       gap: 8px;
       align-items: center;
-      padding: 13px 12px 11px;
+      padding: 14px 18px 12px;
       background: #f5f8fd;
       border-bottom: 1px solid var(--line);
     }
@@ -1037,11 +1041,11 @@
     .admission-rec-head h3 {
       grid-column: 1 / 3;
       margin: 0;
-      font-size: 19px;
-      line-height: 1.2;
-      font-weight: 950;
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 900;
       color: var(--text);
-      letter-spacing: -0.045em;
+      letter-spacing: -0.035em;
     }
 
     .admission-year-labels,
@@ -1067,7 +1071,7 @@
       gap: 8px;
       align-items: center;
       min-height: 58px;
-      padding: 8px 12px;
+      padding: 9px 18px;
       border-bottom: 1px solid #e9eef7;
     }
 
@@ -1096,13 +1100,13 @@
 
     .admission-rec-school {
       margin-right: 6px;
-      font-weight: 900;
+      font-weight: 850;
       color: #172033;
       white-space: nowrap;
     }
 
     .admission-rec-major {
-      font-weight: 850;
+      font-weight: 800;
       color: #172033;
       word-break: keep-all;
       overflow-wrap: anywhere;
@@ -1110,11 +1114,11 @@
 
     .admission-rec-admission {
       display: block;
-      margin-top: 3px;
+      margin-top: 4px;
       color: #596887;
       font-size: 12px;
-      line-height: 1.25;
-      font-weight: 650;
+      line-height: 1.3;
+      font-weight: 600;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1194,8 +1198,8 @@
       .admission-rec-line {
         grid-template-columns: 44px minmax(0, 1fr) auto;
         gap: 6px;
-        padding-left: 9px;
-        padding-right: 9px;
+        padding-left: 14px;
+        padding-right: 14px;
       }
 
       .admission-year-labels,
@@ -1212,24 +1216,24 @@
       }
 
       .admission-rec-head h3 {
-        font-size: 17px;
+        font-size: 16px;
       }
     }
 
     @media (max-width: 560px) {
       .admission-recommend-layout {
-        gap: 10px;
-        margin-bottom: 10px;
+        gap: 12px;
+        margin-bottom: 12px;
       }
 
       .admission-score-panel,
       .admission-pick-panel {
-        padding: 11px;
+        padding: 14px;
       }
 
       .admission-panel-title {
-        margin-bottom: 8px;
-        font-size: 16px;
+        margin-bottom: 9px;
+        font-size: 15px;
       }
 
       .admission-score-value {
@@ -1239,6 +1243,7 @@
       .admission-major-selects {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 5px;
+        min-height: auto;
       }
 
       .admission-major-selects select {
@@ -1299,6 +1304,7 @@
       .admission-major-selects {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 4px;
+        min-height: auto;
       }
 
       .admission-major-selects select {
@@ -1337,12 +1343,27 @@
 
 
   </style>
+
+<style>
+  .admission-scope-note,
+  .admission-help-note {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    border: 0 !important;
+  }
+  .admission-major-selects {
+    min-height: auto !important;
+  }
+</style>
+
 </head>
 <body>
   <main class="page">
     <header class="hero">
-      <h1>5등급제 내신 시뮬레이터</h1>
-      <p>학교별 이수과목과 학점을 기준으로 예상 등급을 바꾸어 보며 학기별 평균과 전체 평균을 비교합니다.</p>
+      <h1>5등급제 내신별 지원 대학 예상</h1>
+      <p>이과 학생의 권장 이수과목을 기준으로 내신을 계산하고, 9등급제 예상 범위로 환산하여 공학계열 수시 입결과 비교합니다.</p>
     </header>
 
     <section class="section school-section">
@@ -1402,13 +1423,13 @@
 
     <section class="section admission-recommend-section" id="admissionRecommendSection">
       <div class="section-title">
-        <h2>대학 자동 추천</h2>
-        <span class="small-note">계산된 5등급제 내신을 9등급제 예상 범위로 환산해 공학계열 수시 입결과 비교합니다.</span>
+        <h2>지원 대학 예상</h2>
+        <span class="small-note">환산 내신을 기준으로 공학계열 수시 입결과 비교합니다.</span>
       </div>
 
       <div class="admission-recommend-layout">
         <div class="admission-score-panel">
-          <h3 class="admission-panel-title">자동 계산 결과</h3>
+          <h3 class="admission-panel-title">계산 결과</h3>
           <div class="admission-score-grid">
             <div class="admission-score-box">
               <span class="admission-score-label">5등급제 내신</span>
@@ -1419,7 +1440,7 @@
               <strong class="admission-score-value nine" id="admissionNineRange">-</strong>
             </div>
           </div>
-          <div class="admission-scope-note" id="admissionScopeNote">전체 과목 기준으로 계산됩니다.</div>
+          <div class="admission-scope-note" id="admissionScopeNote" aria-hidden="true"></div>
         </div>
 
         <div class="admission-pick-panel">
@@ -1429,7 +1450,7 @@
             <select id="admissionMajor2" aria-label="추천 학과 2"></select>
             <select id="admissionMajor3" aria-label="추천 학과 3"></select>
           </div>
-          <p class="admission-help-note">상향·소신·적정은 입결 평균과 환산 내신의 단순 비교입니다. 실제 지원 가능성은 전형방법, 수능최저, 학생부 경쟁력, 모집인원까지 함께 확인해야 합니다.</p>
+          <p class="admission-help-note" aria-hidden="true"></p>
         </div>
       </div>
 
@@ -1437,7 +1458,7 @@
       <div class="admission-rec-empty" id="admissionRecommendEmpty">추천받을 학과를 1개 이상 선택해 주세요.</div>
     </section>
 
-    <footer class="site-footer">5등급제 내신 시뮬레이터 · 송도이샘로봇</footer>
+    <footer class="site-footer">5등급제 내신별 지원 대학 예상 · 송도이샘로봇</footer>
   </main>
 
 
@@ -1445,7 +1466,7 @@
 
   <script>
     const schoolTabs = {
-      boys: ["송도고", "대건고", "신송고", "연송고"],
+      boys: ["대건고", "송도고", "신송고", "연송고"],
       girls: ["해송고", "박문여고", "인천여고"]
     };
 
@@ -3143,7 +3164,7 @@
       "3": ["3-1"]
     };
 
-    let selectedSchool = "송도고";
+    let selectedSchool = "해송고";
     let selectedGradeView = "1";
     let selectedAverageScope = "all";
 
@@ -3752,7 +3773,7 @@
       if (!data) {
         admissionFiveGrade.textContent = "-";
         admissionNineRange.textContent = "-";
-        admissionScopeNote.textContent = "교육과정 데이터가 입력된 학교를 선택하면 자동 추천이 표시됩니다.";
+        admissionScopeNote.textContent = "2026 고2 3,910명(5등급제) · 2025 고3 7,025명(9등급제) 누적 비율 매칭 자료 참고";
         admissionRecommendArea.innerHTML = "";
         admissionRecommendEmpty.style.display = "block";
         admissionRecommendEmpty.textContent = "교육과정 데이터가 입력된 학교를 선택해 주세요.";
@@ -3767,7 +3788,7 @@
 
       admissionFiveGrade.textContent = formatAverage(fiveGradeAverage);
       admissionNineRange.textContent = range ? `${formatNineRangeValue(range.high)} ~ ${formatNineRangeValue(range.low)}` : "-";
-      admissionScopeNote.textContent = `${scopeText} 기준 · ${overall.credits}학점 반영 · 추천 비교는 예상 범위의 상한값을 기준으로 계산됩니다.`;
+      admissionScopeNote.textContent = "2026 고2 3,910명(5등급제) · 2025 고3 7,025명(9등급제) 누적 비율 매칭 자료 참고";
 
       if (!Number.isFinite(convertedNineGrade)) {
         admissionRecommendArea.innerHTML = "";
