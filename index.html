@@ -1484,16 +1484,64 @@
   </style>
 
 <style>
-  .admission-scope-note,
-  .admission-help-note {
+  .admission-scope-note {
     display: none !important;
     margin: 0 !important;
     padding: 0 !important;
     min-height: 0 !important;
     border: 0 !important;
   }
+
   .admission-major-selects {
     min-height: auto !important;
+  }
+
+  .admission-help-note {
+    display: flex !important;
+    margin: 10px 0 0 !important;
+    padding: 9px 12px !important;
+    min-height: 40px !important;
+    border: 1px dashed #cbd8ee !important;
+    border-radius: 14px !important;
+    background: #ffffff !important;
+    color: #66758c !important;
+    font-size: clamp(10px, 0.86vw, 12px) !important;
+    line-height: 1.25 !important;
+    font-weight: 650 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: keep-all;
+  }
+
+  .admission-pick-title-row {
+    margin-bottom: 12px !important;
+  }
+
+  /* 학과 선택 영역: 선택 박스 아래 안내문을 넣어 계산 결과 박스와 시각 균형을 맞춤 */
+  @media (min-width: 981px) {
+    .admission-major-selects {
+      min-height: auto !important;
+      align-items: stretch !important;
+    }
+
+    .admission-major-selects select {
+      height: 48px;
+      min-height: 48px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .admission-help-note {
+      margin-top: 8px !important;
+      padding: 8px 7px !important;
+      min-height: 36px !important;
+      font-size: 9.4px !important;
+      line-height: 1.25 !important;
+    }
   }
 </style>
 
@@ -1562,7 +1610,7 @@
 
     <section class="section admission-recommend-section" id="admissionRecommendSection">
       <div class="section-title">
-        <h2>지원 대학 예상</h2>
+        <h2>지원가능 대학 및 학과 추천</h2>
         <span class="small-note">환산 내신을 기준으로 공학계열 수시 입결과 비교합니다.</span>
       </div>
 
@@ -1592,7 +1640,7 @@
             <select id="admissionMajor2" aria-label="추천 학과 2"></select>
             <select id="admissionMajor3" aria-label="추천 학과 3"></select>
           </div>
-          <p class="admission-help-note" aria-hidden="true"></p>
+          <p class="admission-help-note">입결 평균 기준 단순 비교 · 전형방법·수능최저·학생부 경쟁력 확인 필요</p>
         </div>
       </div>
 
