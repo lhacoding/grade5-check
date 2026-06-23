@@ -117,6 +117,34 @@
       color:#071833;
       box-shadow:0 7px 18px rgba(20,42,92,.12);
     }
+    /* 학과 선택 + 여대 제외 토글 버튼 묶음 */
+    .major-with-toggle {
+      display:flex;
+      gap:8px;
+      align-items:stretch;
+    }
+    .major-with-toggle select { flex:1 1 auto; min-width:0; }
+    .womens-toggle {
+      flex:0 0 auto;
+      height:48px;
+      padding:0 14px;
+      border:1px solid #cfd8ea;
+      border-radius:14px;
+      background:#f1f5fb;
+      color:#1c2c49;
+      font-weight:700;
+      font-size:15px;
+      white-space:nowrap;
+      cursor:pointer;
+      transition:.16s ease;
+    }
+    .womens-toggle:hover { border-color:#9fb4d8; }
+    .womens-toggle.active {
+      background:#0c2f6b;
+      border-color:#0c2f6b;
+      color:#fff;
+      box-shadow:0 7px 18px rgba(12,47,107,.22);
+    }
     select,
     input[type="number"] {
       width:100%;
@@ -576,6 +604,7 @@
       .label { font-size:13px; margin-bottom:6px; }
       .tabs, select, input[type="number"] { height:42px; border-radius:14px; }
       .tab, select, input[type="number"] { font-size:14px; }
+      .womens-toggle { height:42px; font-size:13px; padding:0 11px; }
       .section-title { gap:11px; margin-bottom:14px; }
       .section-title .check { width:36px; height:36px; font-size:21px; }
       .section-title h2 { font-size:25px; }
@@ -607,6 +636,7 @@
       .label { display:none; }
       .tabs, select, input[type="number"] { height:38px; }
       .tab, select, input[type="number"] { font-size:12.5px; padding-left:8px; padding-right:8px; }
+      .womens-toggle { height:38px; font-size:12px; padding:0 9px; }
       .section-title h2 { font-size:22px; }
       .section-title .check { width:32px; height:32px; font-size:19px; }
       .mobile-major { font-size:16px; }
@@ -2054,6 +2084,445 @@
       }
     }
 
+
+    /* 최종 보정: 좁은 화면에서 학교·학과별 입결 조회도 추천 결과처럼 원형 값으로 표시 */
+    @media (max-width:760px) {
+      :root {
+        --main-score-w:46px;
+        --main-score-h:34px;
+        --main-score-gap:5px;
+      }
+
+      #mainTableWrap {
+        display:none !important;
+      }
+
+      #mainMobile {
+        display:block !important;
+      }
+
+      .content-card:has(#mainMobile) {
+        background:transparent !important;
+        border:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+      }
+
+      .main-mobile-card {
+        width:100% !important;
+        border:1px solid var(--line) !important;
+        border-radius:20px !important;
+        background:#fff !important;
+        overflow:hidden !important;
+        box-shadow:var(--shadow-soft) !important;
+      }
+
+      .main-mobile-head {
+        display:grid !important;
+        grid-template-columns:minmax(0,1fr) auto !important;
+        gap:10px !important;
+        align-items:center !important;
+        padding:14px 14px 12px !important;
+        background:#f7f9fe !important;
+        border-bottom:1px solid var(--line) !important;
+      }
+
+      .main-mobile-head h3 {
+        margin:0 !important;
+        color:#061634 !important;
+        font-size:18px !important;
+        line-height:1.2 !important;
+        font-weight:850 !important;
+        letter-spacing:-.025em !important;
+      }
+
+      .main-year-labels {
+        display:grid !important;
+        grid-template-columns:repeat(5,var(--main-score-w)) !important;
+        gap:var(--main-score-gap) !important;
+        justify-content:end !important;
+        align-items:center !important;
+        color:#4b5a76 !important;
+        font-size:11px !important;
+        line-height:1.1 !important;
+        font-weight:800 !important;
+        text-align:center !important;
+        white-space:nowrap !important;
+      }
+
+      .mobile-list .mobile-item {
+        display:grid !important;
+        grid-template-columns:minmax(0,1fr) auto !important;
+        gap:10px !important;
+        align-items:center !important;
+        min-height:66px !important;
+        margin:0 !important;
+        border:0 !important;
+        border-bottom:1px solid #e9eef7 !important;
+        border-radius:0 !important;
+        background:#fff !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+      }
+
+      .mobile-list .mobile-item:last-child {
+        border-bottom:0 !important;
+      }
+
+      .mobile-list .mobile-main {
+        min-width:0 !important;
+        display:block !important;
+        padding:11px 0 11px 14px !important;
+        border:0 !important;
+        background:#fff !important;
+      }
+
+      .mobile-list .mobile-school {
+        display:inline !important;
+        margin:0 6px 0 0 !important;
+        color:#061634 !important;
+        font-size:15px !important;
+        line-height:1.28 !important;
+        font-weight:650 !important;
+        letter-spacing:-.018em !important;
+      }
+
+      .mobile-list .mobile-major {
+        display:inline !important;
+        color:#061634 !important;
+        font-size:15px !important;
+        line-height:1.28 !important;
+        font-weight:600 !important;
+        word-break:keep-all !important;
+        overflow-wrap:anywhere !important;
+      }
+
+      .mobile-list .mobile-admission {
+        display:block !important;
+        margin-top:3px !important;
+        color:#596887 !important;
+        font-size:11.5px !important;
+        line-height:1.25 !important;
+        font-weight:400 !important;
+        white-space:normal !important;
+        overflow:visible !important;
+        text-overflow:clip !important;
+      }
+
+      .mobile-list .mobile-scores {
+        min-width:0 !important;
+        display:grid !important;
+        grid-template-columns:repeat(5,var(--main-score-w)) !important;
+        gap:var(--main-score-gap) !important;
+        justify-content:end !important;
+        align-items:center !important;
+        padding:0 14px 0 0 !important;
+        background:transparent !important;
+      }
+
+      .mobile-list .mobile-score {
+        min-width:0 !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        padding:0 !important;
+        border:0 !important;
+        background:transparent !important;
+      }
+
+      .mobile-list .mobile-score b {
+        display:none !important;
+      }
+
+      .score-pill {
+        width:var(--main-score-w) !important;
+        min-width:var(--main-score-w) !important;
+        height:var(--main-score-h) !important;
+        padding:0 !important;
+        border:1px solid #d8e2f2 !important;
+        border-radius:999px !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        color:#0d1f43 !important;
+        background:#fbfdff !important;
+        font-size:12.5px !important;
+        line-height:1 !important;
+        font-weight:700 !important;
+        font-variant-numeric:tabular-nums !important;
+        white-space:nowrap !important;
+      }
+
+      .score-pill.missing {
+        color:#8b95a8 !important;
+      }
+    }
+
+    @media (max-width:560px) {
+      :root {
+        --main-score-w:39px;
+        --main-score-h:30px;
+        --main-score-gap:3px;
+      }
+
+      .main-mobile-head {
+        padding:12px 10px 10px !important;
+        gap:6px !important;
+      }
+
+      .main-mobile-head h3 {
+        font-size:16px !important;
+      }
+
+      .main-year-labels {
+        font-size:9.5px !important;
+      }
+
+      .mobile-list .mobile-item {
+        grid-template-columns:minmax(0,1fr) auto !important;
+        gap:6px !important;
+        min-height:60px !important;
+      }
+
+      .mobile-list .mobile-main {
+        padding:10px 0 10px 10px !important;
+      }
+
+      .mobile-list .mobile-school,
+      .mobile-list .mobile-major {
+        font-size:13px !important;
+        line-height:1.24 !important;
+      }
+
+      .mobile-list .mobile-admission {
+        font-size:10.2px !important;
+      }
+
+      .mobile-list .mobile-scores {
+        padding-right:10px !important;
+      }
+
+      .score-pill {
+        font-size:11px !important;
+        font-weight:650 !important;
+      }
+    }
+
+    @media (max-width:420px) {
+      :root {
+        --main-score-w:34px;
+        --main-score-h:28px;
+        --main-score-gap:2px;
+      }
+
+      .main-mobile-head {
+        padding:11px 8px 9px !important;
+      }
+
+      .main-mobile-head h3 {
+        font-size:15px !important;
+      }
+
+      .main-year-labels {
+        font-size:8.5px !important;
+      }
+
+      .mobile-list .mobile-item {
+        gap:5px !important;
+        min-height:56px !important;
+      }
+
+      .mobile-list .mobile-main {
+        padding-left:8px !important;
+      }
+
+      .mobile-list .mobile-school,
+      .mobile-list .mobile-major {
+        font-size:11.8px !important;
+      }
+
+      .mobile-list .mobile-admission {
+        font-size:9.2px !important;
+      }
+
+      .mobile-list .mobile-scores {
+        padding-right:8px !important;
+      }
+
+      .score-pill {
+        font-size:10px !important;
+      }
+    }
+
+
+    /* 요청 반영: 추천 영역 명칭 변경 후 전체 결과 글자 무게를 더 가볍게 조정 */
+    .recommend-card .section-title h2 {
+      font-weight:800 !important;
+      letter-spacing:-.03em !important;
+    }
+
+    .recommend-card .section-title p {
+      font-weight:400 !important;
+      color:#6f7b8f !important;
+    }
+
+    .recommend-card .rec-head h3,
+    .main-mobile-head h3 {
+      font-weight:780 !important;
+      color:#071833 !important;
+    }
+
+    .recommend-card .year-labels,
+    .main-year-labels {
+      font-weight:600 !important;
+      color:#4f5f7d !important;
+    }
+
+    .recommend-card .rec-school,
+    .recommend-card .rec-major,
+    .mobile-list .mobile-school,
+    .mobile-list .mobile-major {
+      font-weight:500 !important;
+      color:#071833 !important;
+    }
+
+    .recommend-card .rec-admission,
+    .mobile-list .mobile-admission {
+      font-weight:400 !important;
+      color:#536381 !important;
+    }
+
+    .recommend-card .dot,
+    .score-pill {
+      font-weight:600 !important;
+      color:#071833 !important;
+    }
+
+    .recommend-card .cat {
+      font-weight:700 !important;
+    }
+
+
+    /* 요청 반영: 여대 제외 버튼은 위쪽 조회 필터가 아니라 추천 영역 학과 선택 안에 배치 */
+    .pick-title-row {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin:0 0 12px;
+    }
+    .pick-title-row .pick-title {
+      margin:0 !important;
+    }
+    .pick-title-row .womens-toggle {
+      height:36px !important;
+      min-width:78px !important;
+      padding:0 13px !important;
+      border-radius:999px !important;
+      font-size:13px !important;
+      font-weight:750 !important;
+    }
+    @media (max-width:620px) {
+      .pick-title-row .womens-toggle {
+        height:34px !important;
+        min-width:74px !important;
+        font-size:12px !important;
+        padding:0 11px !important;
+      }
+    }
+
+
+
+    /* 요청 반영: 아래 추천 결과도 넓을 때는 큰 숫자, 좁아지면 캡슐형 점수로 전환 */
+    .recommend-card .rec-head {
+      grid-template-columns:56px minmax(0,1fr) auto !important;
+      gap:12px !important;
+      align-items:center !important;
+    }
+    .recommend-card .rec-head h3 {
+      grid-column:1 / 3 !important;
+    }
+    .recommend-card .year-labels,
+    .recommend-card .dots {
+      display:grid !important;
+      grid-template-columns:repeat(4, 62px) !important;
+      gap:14px !important;
+      justify-content:end !important;
+      align-items:center !important;
+    }
+    .recommend-card .year-labels span {
+      display:block !important;
+      text-align:center !important;
+    }
+    .recommend-card .rec-line {
+      grid-template-columns:56px minmax(0,1fr) auto !important;
+      gap:12px !important;
+      align-items:center !important;
+    }
+    .recommend-card .dot {
+      width:auto !important;
+      min-width:0 !important;
+      height:auto !important;
+      padding:0 !important;
+      border:0 !important;
+      border-radius:0 !important;
+      background:transparent !important;
+      box-shadow:none !important;
+      display:block !important;
+      text-align:center !important;
+      font-size:16px !important;
+      font-weight:620 !important;
+      line-height:1.2 !important;
+      color:#071833 !important;
+    }
+
+    @media (max-width:920px) {
+      .recommend-card .year-labels,
+      .recommend-card .dots {
+        grid-template-columns:repeat(4, 56px) !important;
+        gap:10px !important;
+      }
+      .recommend-card .dot {
+        font-size:15px !important;
+      }
+    }
+
+    @media (max-width:620px) {
+      .recommend-card .year-labels,
+      .recommend-card .dots {
+        grid-template-columns:repeat(4, 40px) !important;
+        gap:4px !important;
+      }
+      .recommend-card .dot {
+        width:40px !important;
+        min-width:40px !important;
+        height:28px !important;
+        padding:0 !important;
+        border:1px solid #d8e2f2 !important;
+        border-radius:999px !important;
+        background:#fbfdff !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        font-size:10.5px !important;
+        font-weight:600 !important;
+      }
+    }
+
+    @media (max-width:460px) {
+      .recommend-card .year-labels,
+      .recommend-card .dots {
+        grid-template-columns:repeat(4, 36px) !important;
+        gap:3px !important;
+      }
+      .recommend-card .dot {
+        width:36px !important;
+        min-width:36px !important;
+        height:26px !important;
+        font-size:10px !important;
+      }
+    }
+
   </style>
 
 </head>
@@ -2061,7 +2530,7 @@
   <header class="top-hero">
     <div class="hero-inner">
       <h1>공학계열 수시 입결 조회</h1>
-      <p>전형·지역·학교·학과별 최근 입결 확인 및 5등급제 내신 기반 자동 추천</p>
+      <p>전형·지역·학교·학과별 최근 입결 확인 및 지원가능 대학·학과 추천</p>
     </div>
   </header>
 
@@ -2124,13 +2593,16 @@
       <div class="section-title">
         <span class="check">✓</span>
         <div>
-          <h2>5등급제 내신 기반 자동 추천</h2>
-          <p>관심 학과와 5등급제 내신을 입력하면 9등급제 예상 범위와 추천군을 확인할 수 있습니다.</p>
+          <h2>지원가능 대학 및 학과 추천</h2>
+          <p>관심 학과와 5등급제 내신을 입력하면 9등급제 예상 범위와 지원가능 대학·학과를 확인할 수 있습니다.</p>
         </div>
       </div>
       <div class="recommend-top">
         <div class="pick-box">
-          <h3 class="pick-title">학과 선택</h3>
+          <div class="pick-title-row">
+            <h3 class="pick-title">학과 선택</h3>
+            <button id="excludeWomensBtn" type="button" class="womens-toggle" aria-pressed="false" title="남학생 지원 불가 여자대학교를 결과에서 제외합니다">여대 제외</button>
+          </div>
           <div class="major-selects">
             <select id="recMajor1" aria-label="추천 학과 1"></select>
             <select id="recMajor2" aria-label="추천 학과 2"></select>
@@ -2159,7 +2631,7 @@
   <script>
     const DATA = JSON.parse(document.getElementById('records-json').textContent);
     const CONVERSION = JSON.parse(document.getElementById('conversion-json').textContent);
-    const state = { type:'교과전형', region:'서울' };
+    const state = { type:'교과전형', region:'서울', excludeWomens:false };
     const SCORE_YEARS = ['2026','2025','2024','2023'];
     const RECOMMEND_MAJOR_GROUPS = [
       { label:'기계공학과', keywords:['기계','기계공학','기계시스템','기계설계','기계로봇','기계자동차'] },
@@ -2193,6 +2665,7 @@
     const regionTabs = $('regionTabs');
     const schoolSelect = $('schoolSelect');
     const majorSelect = $('majorSelect');
+    const excludeWomensBtn = $('excludeWomensBtn');
     const mainBody = $('mainBody');
     const mainTableWrap = $('mainTableWrap');
     const mainMobile = $('mainMobile');
@@ -2224,6 +2697,15 @@
       const vals = SCORE_YEARS.map(y => numeric(row[y])).filter(v => v !== null);
       if (!vals.length) return null;
       return vals.reduce((a,b)=>a+b,0) / vals.length;
+    }
+    // 여대(여자대학교) 여부 판별 함수
+    function isWomensUniversity(schoolName) {
+      const school = String(schoolName ?? '').replace(/\s/g,'');
+      return school.includes('여자대') || school.includes('여대');
+    }
+    // '여대 제외'가 켜져 있으면 여대를 결과에서 걸러낸다.
+    function passWomensFilter(row) {
+      return !state.excludeWomens || !isWomensUniversity(row.학교);
     }
     function rowsByTypeRegion() { return DATA.filter(row => row.전형구분 === state.type && row.지역그룹 === state.region); }
     function optionList(values, allLabel) { return `<option value="__ALL__">${esc(allLabel)}</option>` + values.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join(''); }
@@ -2279,19 +2761,26 @@
           <div class="grid-cell score-cell" role="cell">${avg === null ? '-' : fmt(avg)}</div>
         </div>`;
       }).join('');
-      mainMobile.innerHTML = rows.map(row => {
+
+      const scorePill = (value, isMissing = numeric(value) === null) => `<span class="score-pill ${isMissing ? 'missing' : ''}">${esc(value)}</span>`;
+      const mobileRows = rows.map(row => {
         const avg = avg3(row);
         return `<article class="mobile-item">
           <div class="mobile-main"><span class="mobile-school">${esc(row.학교)}</span><span class="mobile-major">${esc(row.학과)}</span><span class="mobile-admission">${esc(row.전형명)}</span></div>
-          <div class="mobile-scores">
-            <div class="mobile-score"><b>2026</b><span>${displayScore(row['2026'])}</span></div>
-            <div class="mobile-score"><b>2025</b><span>${displayScore(row['2025'])}</span></div>
-            <div class="mobile-score"><b>2024</b><span>${displayScore(row['2024'])}</span></div>
-            <div class="mobile-score"><b>2023</b><span>${displayScore(row['2023'])}</span></div>
-            <div class="mobile-score"><b>평균</b><span>${avg === null ? '-' : fmt(avg)}</span></div>
+          <div class="mobile-scores" aria-label="연도별 입결">
+            <div class="mobile-score">${scorePill(displayScore(row['2026']))}</div>
+            <div class="mobile-score">${scorePill(displayScore(row['2025']))}</div>
+            <div class="mobile-score">${scorePill(displayScore(row['2024']))}</div>
+            <div class="mobile-score">${scorePill(displayScore(row['2023']))}</div>
+            <div class="mobile-score">${scorePill(avg === null ? '-' : fmt(avg), avg === null)}</div>
           </div>
         </article>`;
       }).join('');
+
+      mainMobile.innerHTML = `<div class="main-mobile-card">
+        <div class="main-mobile-head"><h3>학교·학과</h3><div class="main-year-labels"><span>2026</span><span>2025</span><span>2024</span><span>2023</span><span>평균</span></div></div>
+        ${mobileRows}
+      </div>`;
     }
 
     function updateRecommendPlaceholderStyle() {
@@ -2361,8 +2850,8 @@
         .map(row => ({ row, avg: avg3(row), exactMatch }))
         .filter(item => item.avg !== null);
 
-      const exactRows = DATA.filter(row => row.전형구분 === type && majorMatches(row.학과, selected));
-      const broadRows = DATA.filter(row => row.전형구분 === type);
+      const exactRows = DATA.filter(row => row.전형구분 === type && passWomensFilter(row) && majorMatches(row.학과, selected));
+      const broadRows = DATA.filter(row => row.전형구분 === type && passWomensFilter(row));
       const merged = [];
       const seen = new Set();
 
@@ -2450,6 +2939,13 @@
     regionTabs.addEventListener('click', e => { const btn=e.target.closest('.tab'); if(!btn) return; state.region=btn.dataset.value; setActiveTab(regionTabs,state.region); populateSchools(); populateMajors(); refreshAll(); });
     schoolSelect.addEventListener('change', () => { populateMajors(); refreshAll(); });
     majorSelect.addEventListener('change', refreshAll);
+    // 여대 제외 토글: 지원가능 대학 및 학과 추천 결과에만 반영
+    excludeWomensBtn.addEventListener('click', () => {
+      state.excludeWomens = !state.excludeWomens;
+      excludeWomensBtn.classList.toggle('active', state.excludeWomens);
+      excludeWomensBtn.setAttribute('aria-pressed', String(state.excludeWomens));
+      renderRecommend();
+    });
     gradeInput.addEventListener('input', renderRecommend);
     clearGrade.addEventListener('click', () => { gradeInput.value=''; renderRecommend(); gradeInput.focus(); });
     recMajorSelects.forEach(s => s.addEventListener('change', () => { updateRecommendPlaceholderStyle(); renderRecommend(); }));
