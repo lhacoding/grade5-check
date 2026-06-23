@@ -983,6 +983,48 @@
       align-items: flex-start;
     }
 
+    .admission-pick-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 0 0 14px;
+    }
+
+    .admission-pick-title-row .admission-panel-title {
+      margin: 0;
+    }
+
+    .admission-womens-toggle {
+      flex: 0 0 auto;
+      height: 36px;
+      min-width: 78px;
+      padding: 0 13px;
+      border: 1px solid #cfd8ea;
+      border-radius: 999px;
+      background: #f1f5fb;
+      color: #1c2c49;
+      font-size: 13px;
+      font-weight: 750;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease, background 0.14s ease, color 0.14s ease;
+    }
+
+    .admission-womens-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #9fb4d8;
+      background: #f8fbff;
+      box-shadow: 0 7px 16px rgba(23, 38, 67, 0.09);
+    }
+
+    .admission-womens-toggle.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 8px 18px rgba(23, 38, 67, 0.18);
+    }
+
     .admission-major-selects {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1100,13 +1142,13 @@
 
     .admission-rec-school {
       margin-right: 6px;
-      font-weight: 850;
+      font-weight: 500;
       color: #172033;
       white-space: nowrap;
     }
 
     .admission-rec-major {
-      font-weight: 800;
+      font-weight: 500;
       color: #172033;
       word-break: keep-all;
       overflow-wrap: anywhere;
@@ -1118,7 +1160,7 @@
       color: #596887;
       font-size: 12px;
       line-height: 1.3;
-      font-weight: 600;
+      font-weight: 400;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1352,6 +1394,20 @@
       }
     }
 
+    @media (max-width: 520px) {
+      .admission-pick-title-row {
+        margin-bottom: 10px;
+        gap: 7px;
+      }
+
+      .admission-womens-toggle {
+        height: 34px;
+        min-width: 74px;
+        padding: 0 10px;
+        font-size: 12px;
+      }
+    }
+
     @media (max-width: 430px) {
       .admission-score-grid {
         grid-template-columns: 1fr 1fr;
@@ -1527,7 +1583,10 @@
         </div>
 
         <div class="admission-pick-panel">
-          <h3 class="admission-panel-title">학과 선택</h3>
+          <div class="admission-pick-title-row">
+            <h3 class="admission-panel-title">학과 선택</h3>
+            <button id="admissionExcludeWomensBtn" type="button" class="admission-womens-toggle" aria-pressed="false" title="남학생 지원 불가 여자대학교를 추천 결과에서 제외합니다">여대 제외</button>
+          </div>
           <div class="admission-major-selects">
             <select id="admissionMajor1" aria-label="추천 학과 1"></select>
             <select id="admissionMajor2" aria-label="추천 학과 2"></select>
@@ -3258,6 +3317,7 @@
     let selectedSchool = "해송고";
     let selectedGradeView = "1";
     let selectedAverageScope = "all";
+    let admissionExcludeWomens = false;
 
     const boysTabs = document.getElementById("boysTabs");
     const girlsTabs = document.getElementById("girlsTabs");
@@ -3272,6 +3332,7 @@
     const admissionScopeNote = document.getElementById("admissionScopeNote");
     const admissionRecommendArea = document.getElementById("admissionRecommendArea");
     const admissionRecommendEmpty = document.getElementById("admissionRecommendEmpty");
+    const admissionExcludeWomensBtn = document.getElementById("admissionExcludeWomensBtn");
     const admissionMajorSelects = [
       document.getElementById("admissionMajor1"),
       document.getElementById("admissionMajor2"),
@@ -3694,6 +3755,15 @@
         .some((group) => group.keywords.some((keyword) => text.includes(normalizeAdmissionMajorText(keyword))));
     }
 
+    function isAdmissionWomensUniversity(schoolName) {
+      const school = String(schoolName ?? "").replace(/\s/g, "");
+      return school.includes("여자대") || school.includes("여대");
+    }
+
+    function passAdmissionWomensFilter(row) {
+      return !admissionExcludeWomens || !isAdmissionWomensUniversity(row.학교);
+    }
+
     function isExcludedAdmissionTopMainSchool(schoolName) {
       const school = String(schoolName || "").replace(/\s/g, "");
 
@@ -3723,6 +3793,7 @@
     function getAdmissionBaseRows(type, selectedMajors, fiveGradeAverage) {
       return admissionRecords
         .filter((row) => row.전형구분 === type)
+        .filter((row) => passAdmissionWomensFilter(row))
         .filter((row) => admissionMajorMatches(row.학과, selectedMajors))
         .filter((row) => !shouldExcludeAdmissionRow(row, fiveGradeAverage))
         .map((row) => ({ row, average: admissionAverage(row) }))
@@ -3732,6 +3803,7 @@
     function getAdmissionExpandedRows(type, fiveGradeAverage) {
       return admissionRecords
         .filter((row) => row.전형구분 === type)
+        .filter((row) => passAdmissionWomensFilter(row))
         .filter((row) => !shouldExcludeAdmissionRow(row, fiveGradeAverage))
         .map((row) => ({ row, average: admissionAverage(row) }))
         .filter((item) => item.average !== null);
@@ -4152,6 +4224,13 @@
     });
 
     resetBtn.addEventListener("click", resetAllGrades);
+
+    admissionExcludeWomensBtn.addEventListener("click", () => {
+      admissionExcludeWomens = !admissionExcludeWomens;
+      admissionExcludeWomensBtn.classList.toggle("active", admissionExcludeWomens);
+      admissionExcludeWomensBtn.setAttribute("aria-pressed", String(admissionExcludeWomens));
+      renderAdmissionRecommend(getCurrentSchoolData());
+    });
 
     admissionMajorSelects.forEach((select) => {
       select.addEventListener("change", () => renderAdmissionRecommend(getCurrentSchoolData()));
