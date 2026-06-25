@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학생부종합 고교유형별 입학자 수</title>
+<style>
+  :root {
+    --bg:#eef3fb;
+    --panel:#ffffff;
+    --ink:#071833;
+    --muted:#66758c;
+    --line:#d9e1ef;
+    --line2:#edf2f8;
+    --navy:#172744;
+    --navy2:#263b62;
+    --soft:#f7faff;
+    --chip:#f4f8ff;
+    --shadow:0 18px 42px rgba(33,55,95,.12);
+    --shadow-soft:0 10px 28px rgba(31,49,81,.08);
+    --radius:22px;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0;
+    background:linear-gradient(180deg,#eef3fb 0%,#f7f9fd 58%,#ffffff 100%);
+    color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+    letter-spacing:-.02em;
+  }
+  .top-hero {
+    padding:18px 0 12px;
+    background:transparent;
+  }
+  .hero-inner,
+  .page {
+    width:min(1180px, calc(100% - 24px));
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .hero-inner {
+    padding:20px 24px 21px;
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:26px;
+    background:
+      radial-gradient(circle at 92% 12%, rgba(132,146,212,.55), transparent 34%),
+      linear-gradient(135deg,#172744 0%,#263b62 56%,#6475bd 100%);
+    color:#fff;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .top-hero h1 {
+    margin:0;
+    font-size:30px;
+    line-height:1.12;
+    font-weight:900;
+    letter-spacing:-.052em;
+    white-space:nowrap;
+    word-break:keep-all;
+  }
+  .top-hero p {
+    margin:8px 0 0;
+    max-width:940px;
+    color:rgba(255,255,255,.82);
+    font-size:14.3px;
+    line-height:1.52;
+    font-weight:600;
+  }
+  .page {
+    padding-bottom:48px;
+  }
+  .panel {
+    background:rgba(255,255,255,.97);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+  .section {
+    padding:22px;
+    margin-bottom:18px;
+  }
+  .section-title {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:16px;
+  }
+  .section-title h2 {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0;
+    color:var(--ink);
+    font-size:22px;
+    line-height:1.22;
+    font-weight:950;
+    letter-spacing:-.045em;
+    white-space:nowrap;
+  }
+  .section-title h2::before {
+    content:"✓";
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:var(--navy);
+    color:#fff;
+    font-size:16px;
+    font-weight:950;
+    flex:0 0 auto;
+    box-shadow:0 8px 18px rgba(23,39,68,.16);
+  }
+  .tools {
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .data-year-label {
+    justify-self:end;
+    align-self:start;
+    margin-top:2px;
+    color:#5f6e86;
+    font-size:12px;
+    line-height:1.2;
+    font-weight:850;
+    white-space:nowrap;
+  }
+  .guide-desc {
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    margin:0 0 13px;
+    padding:11px 13px;
+    border:1px solid #dbe5f3;
+    border-radius:15px;
+    background:linear-gradient(180deg,#fbfdff 0%,#f6f9ff 100%);
+    color:#3b4b63;
+    font-size:13px;
+    line-height:1.48;
+    font-weight:650;
+    word-break:keep-all;
+  }
+  .guide-desc strong {
+    flex:0 0 auto;
+    color:#172744;
+    font-size:12.5px;
+    font-weight:950;
+    white-space:nowrap;
+  }
+  .guide-desc span {
+    min-width:0;
+  }
+  input, select {
+    height:42px;
+    border:1px solid #cfd8ea;
+    border-radius:14px;
+    background:#fff;
+    color:var(--ink);
+    padding:0 13px;
+    font-size:14px;
+    font-weight:700;
+    outline:none;
+  }
+  input:focus, select:focus {
+    border-color:#8299c4;
+    box-shadow:0 0 0 3px rgba(38,58,95,.12);
+  }
+  .type-filter {
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:0 0 14px;
+  }
+  .type-btn {
+    min-height:36px;
+    padding:8px 13px;
+    border:1px solid #d6dfed;
+    border-radius:999px;
+    background:#fff;
+    color:#243654;
+    font-size:13px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.14s ease;
+  }
+  .type-btn.active {
+    background:var(--navy);
+    border-color:var(--navy);
+    color:#fff;
+    box-shadow:0 8px 18px rgba(23,38,67,.18);
+  }
+  .highlight-grid {
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:10px;
+  }
+  .highlight-card {
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:14px;
+    background:#fff;
+    box-shadow:var(--shadow-soft);
+  }
+  .highlight-card h3 {
+    margin:0 0 10px;
+    color:#1d3153;
+    font-size:14px;
+    font-weight:950;
+  }
+  .rank-item {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    padding:7px 0;
+    border-top:1px dashed #dce5f2;
+    font-size:12.5px;
+  }
+  .rank-item:first-of-type { border-top:0; }
+  .rank-item b {
+    min-width:0;
+    color:#172033;
+    font-weight:800;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .rank-item span {
+    color:#172744;
+    font-weight:950;
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+  .table-wrap {
+    width:100%;
+    overflow-x:auto;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 8px 22px rgba(31,49,81,.04) inset;
+  }
+  table {
+    width:100%;
+    min-width:760px;
+    table-layout:fixed;
+    border-collapse:separate;
+    border-spacing:0;
+    font-size:14.5px;
+  }
+  thead th {
+    padding:12px 9px;
+    border-right:1px solid #e7edf6;
+    border-bottom:1px solid var(--line);
+    background:#f3f7fd;
+    color:#172744;
+    text-align:center;
+    font-weight:950;
+    white-space:nowrap;
+  }
+  thead th:first-child { width:28%; }
+  thead th:nth-child(2) { width:12%; }
+  tbody th,
+  tbody td {
+    padding:12px 9px;
+    border-right:1px solid var(--line2);
+    border-bottom:1px solid var(--line2);
+    white-space:nowrap;
+    font-variant-numeric:tabular-nums;
+  }
+  tbody th {
+    color:#172643;
+    text-align:left;
+    font-weight:850;
+    background:#fbfcff;
+  }
+  tbody td {
+    text-align:center;
+    font-weight:850;
+    color:#172643;
+  }
+  tbody tr:hover th,
+  tbody tr:hover td { background:#fbfdff; }
+  thead th:last-child,
+  tbody td:last-child { border-right:0; }
+  .total-col {
+    color:#111827;
+    font-weight:950;
+    background:#f8fbff;
+  }
+  .zero {
+    background:#f7f9fc;
+    color:#9aa5b6;
+    font-weight:700;
+  }
+  .mobile-list { display:none; }
+  .mobile-card {
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+    overflow:hidden;
+    box-shadow:var(--shadow-soft);
+    margin-bottom:10px;
+  }
+  .mobile-card-head {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:8px;
+    align-items:center;
+    padding:13px 14px 11px;
+    border-bottom:1px solid #e8eef7;
+    background:#fbfcff;
+  }
+  .mobile-univ {
+    color:#0b1d3a;
+    font-size:16px;
+    font-weight:900;
+    line-height:1.25;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .mobile-total {
+    min-height:27px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 10px;
+    border:1px solid #d5e0ef;
+    border-radius:999px;
+    background:#f3f7ff;
+    color:#172744;
+    font-size:12px;
+    font-weight:950;
+    white-space:nowrap;
+  }
+  .mobile-counts {
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:7px;
+    padding:12px 12px 13px;
+  }
+  .count-chip {
+    min-width:0;
+    border:1px solid #dbe5f3;
+    border-radius:999px;
+    background:#fff;
+    padding:7px 6px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(31,49,81,.04);
+  }
+  .count-chip small {
+    display:block;
+    color:#5f6e86;
+    font-size:10.5px;
+    line-height:1;
+    font-weight:850;
+  }
+  .count-chip strong {
+    display:block;
+    margin-top:4px;
+    color:#172744;
+    font-size:13px;
+    line-height:1;
+    font-weight:950;
+    font-variant-numeric:tabular-nums;
+  }
+  .note {
+    margin:12px 2px 0;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.65;
+    font-weight:650;
+  }
+  footer {
+    margin-top:22px;
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    font-weight:850;
+  }
+  @media (max-width:1100px) {
+    .highlight-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  }
+  @media (max-width:920px) {
+    .section-title { align-items:stretch; flex-direction:column; gap:10px; }
+    .section-title h2 { white-space:nowrap; }
+    .tools { justify-content:stretch; display:grid; grid-template-columns:1fr 1fr; }
+    input, select { width:100%; }
+    .table-wrap { display:none; }
+    .mobile-list { display:block; }
+  }
+  @media (max-width:720px) {
+    .top-hero { padding:14px 0 10px; }
+    .hero-inner,
+    .page { width:calc(100% - 14px); }
+    .hero-inner { padding:16px 17px 17px; border-radius:21px; }
+    .top-hero h1 { font-size:22px; letter-spacing:-.058em; }
+    .top-hero p { margin-top:6px; font-size:12.5px; }
+    .section { padding:14px; border-radius:18px; }
+    .highlight-grid { grid-template-columns:1fr; gap:9px; }
+  }
+  @media (max-width:520px) {
+    .top-hero { padding:9px 0 8px; }
+    .hero-inner,
+    .page { width:calc(100% - 10px); }
+    .hero-inner { padding:13px 13px 14px; border-radius:18px; }
+    .top-hero h1 { font-size:18.5px; letter-spacing:-.072em; }
+    .top-hero p { margin-top:5px; font-size:11.5px; line-height:1.42; }
+    .tools { grid-template-columns:1fr; }
+    .type-filter { gap:6px; }
+    .type-btn { min-height:34px; padding:7px 10px; font-size:12px; }
+    .mobile-card-head { grid-template-columns:1fr; }
+    .mobile-univ { white-space:normal; }
+    .mobile-total { justify-self:start; }
+    .mobile-counts { grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+  }
+  @media (max-width:370px) {
+    .top-hero h1 { font-size:17px; letter-spacing:-.078em; }
+    .hero-inner { padding-left:11px; padding-right:11px; }
+  }
+
+  /* 모바일·좁은 화면 카드형 목록 compact 보정 */
+  @media (max-width:920px) {
+    .section-title {
+      flex-direction:row;
+      align-items:center;
+      gap:10px;
+    }
+    .section-title h2 {
+      flex:0 0 auto;
+      font-size:21px;
+    }
+    .tools {
+      flex:1 1 320px;
+      min-width:0;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(150px,.72fr);
+      gap:8px;
+    }
+    .type-filter {
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      gap:7px;
+      padding-bottom:2px;
+      scrollbar-width:none;
+    }
+    .type-filter::-webkit-scrollbar { display:none; }
+    .type-btn {
+      flex:0 0 auto;
+      min-height:35px;
+      padding:7px 13px;
+      font-size:12.5px;
+    }
+    .mobile-card {
+      margin-bottom:9px;
+      border-radius:17px;
+    }
+    .mobile-card-head {
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:8px;
+      padding:13px 14px 10px;
+    }
+    .mobile-univ {
+      white-space:nowrap;
+      font-size:16px;
+    }
+    .mobile-counts {
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:7px;
+      padding:11px 12px 12px;
+    }
+    .count-chip {
+      min-width:0;
+      padding:7px 4px;
+      border-radius:999px;
+    }
+    .count-chip small {
+      font-size:10.2px;
+      letter-spacing:-.035em;
+    }
+    .count-chip strong {
+      font-size:13px;
+    }
+  }
+  @media (max-width:720px) {
+    .section-title {
+      display:grid;
+      grid-template-columns:1fr;
+      align-items:stretch;
+      gap:10px;
+    }
+    .tools {
+      grid-template-columns:minmax(0,1fr) minmax(138px,.68fr);
+    }
+    input, select {
+      height:40px;
+      padding-left:12px;
+      padding-right:12px;
+      font-size:13px;
+    }
+  }
+  @media (max-width:520px) {
+    .section-title h2 {
+      font-size:20px;
+      gap:8px;
+    }
+    .section-title h2::before {
+      width:26px;
+      height:26px;
+      flex-basis:26px;
+      font-size:15px;
+    }
+    .tools {
+      grid-template-columns:minmax(0,1fr) minmax(126px,.62fr);
+      gap:7px;
+    }
+    .type-filter {
+      gap:6px;
+      margin-bottom:12px;
+    }
+    .type-btn {
+      min-height:33px;
+      padding:7px 10px;
+      font-size:12px;
+    }
+    .mobile-card-head {
+      grid-template-columns:minmax(0,1fr) auto;
+      padding:12px 12px 9px;
+    }
+    .mobile-univ {
+      white-space:nowrap;
+      font-size:15.5px;
+    }
+    .mobile-total {
+      min-height:25px;
+      padding:0 8px;
+      font-size:11.5px;
+    }
+    .mobile-counts {
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:5px;
+      padding:10px 10px 11px;
+    }
+    .count-chip {
+      padding:6px 2px;
+    }
+    .count-chip small {
+      font-size:9.5px;
+    }
+    .count-chip strong {
+      margin-top:3px;
+      font-size:12.2px;
+    }
+  }
+  @media (max-width:390px) {
+    .tools {
+      grid-template-columns:1fr;
+    }
+    .mobile-counts {
+      gap:4px;
+      padding-left:8px;
+      padding-right:8px;
+    }
+    .count-chip small { font-size:9px; }
+    .count-chip strong { font-size:11.5px; }
+    .mobile-total { font-size:11px; padding:0 7px; }
+  }
+
+
+  /* 최종 카드형 반응형 보정: 학과별 입결조회 카드와 같은 한 줄 구조 */
+  main.page > .panel.section:first-child {
+    margin-top:0;
+  }
+  main.page > .panel.section {
+    overflow:hidden;
+  }
+  main.page > .panel.section .section-title {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:start;
+    gap:8px 12px;
+    margin-bottom:14px;
+  }
+  main.page > .panel.section .section-title h2 {
+    min-width:0;
+    font-size:23px;
+    white-space:nowrap;
+  }
+  main.page > .panel.section .tools {
+    justify-self:end;
+    width:min(520px, 100%);
+    display:grid;
+    grid-template-columns:minmax(170px,1fr) minmax(140px,.72fr);
+    gap:8px;
+  }
+  main.page > .panel.section .type-filter {
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    scrollbar-width:none;
+    margin-bottom:14px;
+  }
+  main.page > .panel.section .type-filter::-webkit-scrollbar { display:none; }
+  main.page > .panel.section .type-btn { flex:0 0 auto; }
+  .mobile-card-head {
+    grid-template-columns:minmax(0,1fr) auto;
+  }
+  .mobile-univ {
+    white-space:nowrap;
+  }
+  .mobile-counts {
+    grid-template-columns:repeat(5,minmax(0,1fr));
+  }
+  @media (max-width:920px) {
+    main.page > .panel.section .section-title {
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:7px;
+    }
+    main.page > .panel.section .section-title h2 {
+      font-size:22px;
+    }
+    .data-year-label {
+      font-size:11px;
+      margin-top:4px;
+    }
+    main.page > .panel.section .tools {
+      width:100%;
+      grid-template-columns:minmax(160px,1fr) minmax(132px,.68fr);
+    }
+  }
+  @media (max-width:620px) {
+    main.page > .panel.section .section-title {
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:6px;
+    }
+    main.page > .panel.section .tools {
+      justify-self:stretch;
+      grid-template-columns:minmax(0,1fr) minmax(122px,.62fr);
+    }
+    main.page > .panel.section .section-title h2 {
+      font-size:18.5px;
+      letter-spacing:-.06em;
+    }
+    .data-year-label {
+      font-size:10px;
+      letter-spacing:-.045em;
+      margin-top:3px;
+    }
+    .mobile-counts {
+      gap:5px;
+      padding-left:10px;
+      padding-right:10px;
+    }
+  }
+  @media (max-width:390px) {
+    main.page > .panel.section .tools {
+      grid-template-columns:1fr;
+    }
+    .mobile-counts {
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:4px;
+      padding-left:8px;
+      padding-right:8px;
+    }
+  }
+
+
+  /* 좁은 화면 최종 보정: 학교·인원은 한 줄, 고교유형은 상단 헤더로 고정 */
+  @media (max-width:920px) {
+    .table-wrap { display:none; }
+    .mobile-list {
+      display:block;
+      width:100%;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      box-shadow:0 8px 22px rgba(31,49,81,.04) inset;
+    }
+    .mobile-table {
+      width:100%;
+    }
+    .mobile-table-head,
+    .mobile-table-row {
+      display:grid;
+      grid-template-columns:minmax(150px,1.35fr) repeat(5,minmax(42px,.48fr));
+      align-items:center;
+      column-gap:0;
+    }
+    .mobile-table-head {
+      background:#f3f7fd;
+      border-bottom:1px solid var(--line);
+      color:#172744;
+      font-size:11px;
+      font-weight:950;
+      line-height:1;
+      text-align:center;
+    }
+    .mobile-table-head > div {
+      min-width:0;
+      padding:11px 3px 10px;
+      border-right:1px solid #e7edf6;
+      white-space:nowrap;
+    }
+    .mobile-table-head > div:first-child {
+      padding-left:12px;
+      text-align:left;
+    }
+    .mobile-table-head > div:last-child,
+    .mobile-table-row > div:last-child {
+      border-right:0;
+    }
+    .mobile-table-row {
+      min-height:52px;
+      border-bottom:1px solid var(--line2);
+      background:#fff;
+    }
+    .mobile-table-row:last-child {
+      border-bottom:0;
+    }
+    .mobile-table-row > div {
+      min-width:0;
+      padding:10px 4px;
+      border-right:1px solid #edf2f8;
+    }
+    .mobile-school-cell {
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding-left:12px !important;
+      white-space:nowrap;
+    }
+    .mobile-school-name {
+      min-width:0;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      color:#0b1d3a;
+      font-size:13.2px;
+      line-height:1.1;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    .mobile-school-total {
+      flex:0 0 auto;
+      color:#172744;
+      font-size:11px;
+      line-height:1;
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .mobile-type-num {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:28px;
+      width:100%;
+      max-width:44px;
+      margin:0 auto;
+      border:1px solid #dbe5f3;
+      border-radius:999px;
+      background:#fff;
+      color:#172744;
+      font-size:12.2px;
+      line-height:1;
+      font-weight:900;
+      font-variant-numeric:tabular-nums;
+    }
+    .mobile-type-num.zero {
+      background:#f7f9fc;
+      color:#9aa5b6;
+      font-weight:750;
+    }
+    .mobile-empty {
+      padding:18px 12px;
+      color:#66758c;
+      font-size:13px;
+      font-weight:800;
+      text-align:center;
+    }
+  }
+  @media (max-width:620px) {
+    .mobile-table-head,
+    .mobile-table-row {
+      grid-template-columns:minmax(132px,1.25fr) repeat(5,minmax(38px,.45fr));
+    }
+    .mobile-school-name { font-size:12.6px; }
+    .mobile-school-total { font-size:10.5px; }
+    .mobile-type-num {
+      min-height:27px;
+      max-width:40px;
+      font-size:11.6px;
+    }
+  }
+  @media (max-width:430px) {
+    .section { padding-left:8px; padding-right:8px; }
+    .mobile-table-head,
+    .mobile-table-row {
+      grid-template-columns:minmax(116px,1.15fr) repeat(5,minmax(34px,.42fr));
+    }
+    .mobile-table-head > div {
+      padding-left:2px;
+      padding-right:2px;
+      font-size:9.7px;
+      letter-spacing:-.06em;
+    }
+    .mobile-table-head > div:first-child {
+      padding-left:10px;
+    }
+    .mobile-school-cell {
+      gap:4px;
+      padding-left:10px !important;
+    }
+    .mobile-school-name { font-size:11.8px; }
+    .mobile-school-total { font-size:9.8px; }
+    .mobile-type-num {
+      min-height:25px;
+      max-width:34px;
+      font-size:10.6px;
+    }
+  }
+
+  @media (max-width:520px) {
+    .guide-desc {
+      display:block;
+      padding:10px 11px;
+      font-size:11.8px;
+      line-height:1.45;
+      border-radius:13px;
+    }
+    .guide-desc strong {
+      display:block;
+      margin-bottom:3px;
+      font-size:11.5px;
+    }
+  }
+
+  @media (max-width:430px) {
+    main.page > .panel.section .section-title {
+      gap:4px;
+    }
+    main.page > .panel.section .section-title h2 {
+      font-size:17.2px;
+      letter-spacing:-.07em;
+    }
+    .data-year-label {
+      font-size:9.2px;
+      letter-spacing:-.065em;
+    }
+  }
+  @media (max-width:370px) {
+    main.page > .panel.section .section-title h2 {
+      font-size:16.2px;
+    }
+    .data-year-label {
+      font-size:8.6px;
+    }
+  }
+
+
+  /* 최종 요청 반영: 설명 라벨 제거, 모바일 숫자 원형 배지 제거 */
+  .guide-desc {
+    display:block;
+    margin:0 0 13px;
+    padding:11px 13px;
+    border:1px solid #dbe5f3;
+    border-radius:15px;
+    background:linear-gradient(180deg,#fbfdff 0%,#f6f9ff 100%);
+    color:#3b4b63;
+    font-size:13px;
+    line-height:1.5;
+    font-weight:650;
+    word-break:keep-all;
+  }
+  .guide-desc strong { display:none; }
+  .guide-desc span { display:inline; }
+  @media (max-width:920px) {
+    .mobile-type-num {
+      display:block;
+      width:100%;
+      max-width:none;
+      min-height:0;
+      margin:0;
+      padding:0;
+      border:0;
+      border-radius:0;
+      background:transparent;
+      color:#172744;
+      font-size:12.2px;
+      line-height:1.2;
+      font-weight:900;
+      text-align:center;
+      font-variant-numeric:tabular-nums;
+    }
+    .mobile-type-num.zero {
+      background:transparent;
+      color:#9aa5b6;
+      font-weight:750;
+    }
+  }
+  @media (max-width:620px) {
+    .guide-desc {
+      padding:10px 11px;
+      font-size:11.8px;
+      line-height:1.45;
+      border-radius:13px;
+    }
+    .mobile-type-num { font-size:11.6px; }
+  }
+  @media (max-width:430px) {
+    .mobile-type-num { font-size:10.8px; }
+  }
+
+</style>
+  <style id="responsive-fix">
+    /* 반응형 보완: 여백을 먼저 줄이고, 더 줄일 수 없을 때만 줄바꿈 */
+    .page{ width:min(1180px, calc(100% - clamp(10px,4vw,24px)))!important; }
+    .highlight-grid{ grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))!important; gap:clamp(6px,1.4vw,12px)!important; }
+  </style>
+</head>
+<body>
+<header class="top-hero">
+  <div class="hero-inner">
+    <h1>학생부종합 고교유형별 입학자 수</h1>
+  </div>
+</header>
+<main class="page">
+  <section class="panel section">
+    <div class="section-title">
+      <h2>대학별 고교유형 입학자 수</h2>
+      <div class="data-year-label">2025학년도 입학생 기준 자료</div>
+    </div>
+    <div class="guide-desc">
+      상위권 학생부종합전형은 특목고·자사고 입학자 비중이 높은 대학이 있습니다. 일반고 학생은 고교유형별 입학자 수와 입결 등급을 함께 확인해 지원 가능성을 판단하는 자료로 활용하세요.
+    </div>
+    <div class="table-wrap">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>대학/전형</th>
+            <th>총인원</th>
+            <th>영재고</th>
+            <th>과고</th>
+            <th>자사고</th>
+            <th>외고</th>
+            <th>일반고</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="mobile-list" id="mobileList"></div>
+  </section>
+  <footer>학생부종합 고교유형별 입학자 수 · 송도이샘로봇</footer>
+</main>
+<script>
+const rows = [{"univ": "서울대(일반)", "total": 1415, "cnt_general": 471, "cnt_autonomous": 187, "cnt_science": 121, "cnt_foreign": 249, "cnt_gifted": 354, "pct_general": 33.29, "pct_autonomous": 13.22, "pct_science": 8.55, "pct_foreign": 17.6, "pct_gifted": 25.02, "highlight": ["pct_general", "pct_autonomous"]}, {"univ": "서울대(지균)", "total": 482, "cnt_general": 464, "cnt_autonomous": 14, "cnt_science": 0, "cnt_foreign": 0, "cnt_gifted": 0, "pct_general": 96.27, "pct_autonomous": 2.9, "pct_science": 0, "pct_foreign": 0, "pct_gifted": 0, "highlight": []}, {"univ": "연세대(일반)", "total": 583, "cnt_general": 400, "cnt_autonomous": 71, "cnt_science": 5, "cnt_foreign": 90, "cnt_gifted": 17, "pct_general": 68.61, "pct_autonomous": 12.18, "pct_science": 0.86, "pct_foreign": 15.44, "pct_gifted": 2.92, "highlight": []}, {"univ": "연세대(활동형)", "total": 196, "cnt_general": 81, "cnt_autonomous": 5, "cnt_science": 0, "cnt_foreign": 17, "cnt_gifted": 0, "pct_general": 41.33, "pct_autonomous": 2.55, "pct_science": 0, "pct_foreign": 8.67, "pct_gifted": 0, "highlight": ["pct_general", "pct_autonomous"]}, {"univ": "고려대", "total": 1241, "cnt_general": 631, "cnt_autonomous": 268, "cnt_science": 54, "cnt_foreign": 261, "cnt_gifted": 27, "pct_general": 50.85, "pct_autonomous": 21.6, "pct_science": 4.35, "pct_foreign": 21.03, "pct_gifted": 2.18, "highlight": []}, {"univ": "서강대", "total": 526, "cnt_general": 143, "cnt_autonomous": 132, "cnt_science": 21, "cnt_foreign": 211, "cnt_gifted": 16, "pct_general": 27.19, "pct_autonomous": 25.1, "pct_science": 3.99, "pct_foreign": 40.11, "pct_gifted": 3.04, "highlight": []}, {"univ": "성균관대", "total": 989, "cnt_general": 401, "cnt_autonomous": 230, "cnt_science": 127, "cnt_foreign": 204, "cnt_gifted": 22, "pct_general": 40.55, "pct_autonomous": 23.26, "pct_science": 12.84, "pct_foreign": 20.63, "pct_gifted": 2.22, "highlight": []}, {"univ": "한양대(일반)", "total": 674, "cnt_general": 265, "cnt_autonomous": 196, "cnt_science": 24, "cnt_foreign": 153, "cnt_gifted": 36, "pct_general": 39.32, "pct_autonomous": 29.08, "pct_science": 3.56, "pct_foreign": 22.7, "pct_gifted": 5.34, "highlight": []}, {"univ": "한양대(지균)", "total": 178, "cnt_general": 76, "cnt_autonomous": 57, "cnt_science": 0, "cnt_foreign": 45, "cnt_gifted": 0, "pct_general": 42.7, "pct_autonomous": 32.02, "pct_science": 0, "pct_foreign": 25.28, "pct_gifted": 0, "highlight": []}, {"univ": "이화여대", "total": 992, "cnt_general": 820, "cnt_autonomous": 17, "cnt_science": 1, "cnt_foreign": 150, "cnt_gifted": 2, "pct_general": 82.66, "pct_autonomous": 1.71, "pct_science": 0.1, "pct_foreign": 15.12, "pct_gifted": 0.2, "highlight": []}, {"univ": "중앙대", "total": 769, "cnt_general": 480, "cnt_autonomous": 73, "cnt_science": 47, "cnt_foreign": 156, "cnt_gifted": 10, "pct_general": 62.42, "pct_autonomous": 9.49, "pct_science": 6.11, "pct_foreign": 20.29, "pct_gifted": 1.3, "highlight": []}, {"univ": "경희대", "total": 1121, "cnt_general": 830, "cnt_autonomous": 37, "cnt_science": 8, "cnt_foreign": 202, "cnt_gifted": 5, "pct_general": 74.04, "pct_autonomous": 3.3, "pct_science": 0.71, "pct_foreign": 18.02, "pct_gifted": 0.45, "highlight": []}, {"univ": "한국외대", "total": 1026, "cnt_general": 738, "cnt_autonomous": 22, "cnt_science": 0, "cnt_foreign": 261, "cnt_gifted": 0, "pct_general": 71.93, "pct_autonomous": 2.14, "pct_science": 0.0, "pct_foreign": 25.44, "pct_gifted": 0, "highlight": []}, {"univ": "건국대", "total": 806, "cnt_general": 651, "cnt_autonomous": 57, "cnt_science": 6, "cnt_foreign": 84, "cnt_gifted": 6, "pct_general": 80.77, "pct_autonomous": 7.07, "pct_science": 0.74, "pct_foreign": 10.42, "pct_gifted": 0.74, "highlight": []}, {"univ": "동국대", "total": 673, "cnt_general": 606, "cnt_autonomous": 1, "cnt_science": 0, "cnt_foreign": 58, "cnt_gifted": 0, "pct_general": 90.04, "pct_autonomous": 0.15, "pct_science": 0, "pct_foreign": 8.62, "pct_gifted": 0, "highlight": []}, {"univ": "홍익대", "total": 441, "cnt_general": 411, "cnt_autonomous": 3, "cnt_science": 0, "cnt_foreign": 24, "cnt_gifted": 0, "pct_general": 93.2, "pct_autonomous": 0.68, "pct_science": 0, "pct_foreign": 5.44, "pct_gifted": 0, "highlight": []}, {"univ": "숙명여대", "total": 424, "cnt_general": 294, "cnt_autonomous": 45, "cnt_science": 1, "cnt_foreign": 84, "cnt_gifted": 0, "pct_general": 69.34, "pct_autonomous": 10.61, "pct_science": 0.24, "pct_foreign": 19.81, "pct_gifted": 0, "highlight": []}, {"univ": "숭실대", "total": 625, "cnt_general": 555, "cnt_autonomous": 14, "cnt_science": 0, "cnt_foreign": 40, "cnt_gifted": 0, "pct_general": 88.8, "pct_autonomous": 2.24, "pct_science": 0, "pct_foreign": 6.4, "pct_gifted": 0, "highlight": []}, {"univ": "국민대", "total": 367, "cnt_general": 345, "cnt_autonomous": 2, "cnt_science": 1, "cnt_foreign": 17, "cnt_gifted": 0, "pct_general": 94.01, "pct_autonomous": 0.54, "pct_science": 0.27, "pct_foreign": 4.63, "pct_gifted": 0, "highlight": []}, {"univ": "세종대", "total": 474, "cnt_general": 416, "cnt_autonomous": 5, "cnt_science": 6, "cnt_foreign": 10, "cnt_gifted": 0, "pct_general": 87.76, "pct_autonomous": 1.05, "pct_science": 1.27, "pct_foreign": 2.11, "pct_gifted": 0, "highlight": []}, {"univ": "광운대", "total": 572, "cnt_general": 554, "cnt_autonomous": 6, "cnt_science": 0, "cnt_foreign": 9, "cnt_gifted": 0, "pct_general": 96.85, "pct_autonomous": 1.05, "pct_science": 0, "pct_foreign": 1.57, "pct_gifted": 0, "highlight": []}, {"univ": "서울과기대", "total": 502, "cnt_general": 397, "cnt_autonomous": 34, "cnt_science": 45, "cnt_foreign": 19, "cnt_gifted": 0, "pct_general": 79.08, "pct_autonomous": 6.77, "pct_science": 8.96, "pct_foreign": 3.78, "pct_gifted": 0, "highlight": []}, {"univ": "성신여대", "total": 566, "cnt_general": 517, "cnt_autonomous": 0, "cnt_science": 0, "cnt_foreign": 42, "cnt_gifted": 0, "pct_general": 91.34, "pct_autonomous": 0, "pct_science": 0, "pct_foreign": 7.42, "pct_gifted": 0, "highlight": []}, {"univ": "서울여대", "total": 423, "cnt_general": 400, "cnt_autonomous": 2, "cnt_science": 1, "cnt_foreign": 19, "cnt_gifted": 0, "pct_general": 94.56, "pct_autonomous": 0.47, "pct_science": 0.24, "pct_foreign": 4.49, "pct_gifted": 0, "highlight": []}, {"univ": "덕성여대", "total": 281, "cnt_general": 276, "cnt_autonomous": 2, "cnt_science": 0, "cnt_foreign": 3, "cnt_gifted": 0, "pct_general": 98.22, "pct_autonomous": 0.71, "pct_science": 0, "pct_foreign": 1.07, "pct_gifted": 0, "highlight": []}, {"univ": "동덕여대", "total": 156, "cnt_general": 143, "cnt_autonomous": 0, "cnt_science": 0, "cnt_foreign": 5, "cnt_gifted": 0, "pct_general": 91.67, "pct_autonomous": 0, "pct_science": 0, "pct_foreign": 3.21, "pct_gifted": 0, "highlight": []}];
+const labels = [
+  ["영재고", "cnt_gifted"],
+  ["과고", "cnt_science"],
+  ["자사고", "cnt_autonomous"],
+  ["외고", "cnt_foreign"],
+  ["일반고", "cnt_general"]
+];
+let activeType = "all";
+
+function comma(n) { return Number(n || 0).toLocaleString("ko-KR"); }
+
+function renderRanking() {
+  document.getElementById("ranking").innerHTML = labels.map(([label, countKey]) => {
+    const top = [...rows].sort((a, b) => Number(b[countKey]) - Number(a[countKey])).slice(0, 4);
+    return `<article class="highlight-card"><h3>${label} 입학자 수 TOP 4</h3>${top.map(r => `<div class="rank-item"><b title="${r.univ}">${r.univ}</b><span>${comma(r[countKey])}명</span></div>`).join("")}</article>`;
+  }).join("");
+}
+
+function getList() {
+  return rows.map((r, i) => ({...r, sourceIndex:i}));
+}
+
+function cell(value, className="") {
+  const num = Number(value || 0);
+  const cls = [className, num === 0 ? "zero" : ""].filter(Boolean).join(" ");
+  return `<td class="${cls}">${comma(num)}</td>`;
+}
+
+function renderDesktop(list) {
+  const body = list.map(r => `
+    <tr>
+      <th>${r.univ}</th>
+      ${cell(r.total, "total-col")}
+      ${labels.map(([label, key]) => cell(r[key], "")).join("")}
+    </tr>
+  `).join("");
+  document.querySelector("#dataTable tbody").innerHTML = body || `<tr><td colspan="7" style="text-align:center;padding:24px;">검색 결과가 없습니다.</td></tr>`;
+}
+
+function renderMobile(list) {
+  const head = `
+    <div class="mobile-table-head">
+      <div>학교·인원</div>
+      ${labels.map(([label]) => `<div>${label}</div>`).join("")}
+    </div>`;
+
+  const body = list.map(r => `
+    <article class="mobile-table-row">
+      <div class="mobile-school-cell">
+        <strong class="mobile-school-name" title="${r.univ}">${r.univ}</strong>
+        <span class="mobile-school-total">${comma(r.total)}명</span>
+      </div>
+      ${labels.map(([label, key]) => {
+        const num = Number(r[key] || 0);
+        return `<div><span class="mobile-type-num ${num === 0 ? "zero" : ""}">${comma(num)}</span></div>`;
+      }).join("")}
+    </article>
+  `).join("");
+
+  document.getElementById("mobileList").innerHTML = list.length
+    ? `<div class="mobile-table">${head}${body}</div>`
+    : `<div class="mobile-table">${head}<div class="mobile-empty">검색 결과가 없습니다.</div></div>`;
+}
+
+function renderTable() {
+  const list = getList();
+  renderDesktop(list);
+  renderMobile(list);
+}
+
+renderTable();
+</script>
+</body>
+</html>
