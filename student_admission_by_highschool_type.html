@@ -688,7 +688,7 @@
     .mobile-table-head,
     .mobile-table-row {
       display:grid;
-      grid-template-columns:minmax(150px,1.35fr) repeat(5,minmax(42px,.48fr));
+      grid-template-columns:minmax(0,1.2fr) minmax(50px,.55fr) repeat(5,minmax(38px,.46fr));
       align-items:center;
       column-gap:0;
     }
@@ -786,7 +786,7 @@
   @media (max-width:620px) {
     .mobile-table-head,
     .mobile-table-row {
-      grid-template-columns:minmax(132px,1.25fr) repeat(5,minmax(38px,.45fr));
+      grid-template-columns:minmax(0,1.12fr) minmax(46px,.5fr) repeat(5,minmax(34px,.43fr));
     }
     .mobile-school-name { font-size:12.6px; }
     .mobile-school-total { font-size:10.5px; }
@@ -800,7 +800,7 @@
     .section { padding-left:8px; padding-right:8px; }
     .mobile-table-head,
     .mobile-table-row {
-      grid-template-columns:minmax(116px,1.15fr) repeat(5,minmax(34px,.42fr));
+      grid-template-columns:minmax(0,1fr) minmax(42px,.46fr) repeat(5,minmax(30px,.4fr));
     }
     .mobile-table-head > div {
       padding-left:2px;
@@ -920,6 +920,8 @@
     /* 반응형 보완: 여백을 먼저 줄이고, 더 줄일 수 없을 때만 줄바꿈 */
     .page{ width:min(1180px, calc(100% - clamp(10px,4vw,24px)))!important; }
     .highlight-grid{ grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))!important; gap:clamp(6px,1.4vw,12px)!important; }
+    /* 인원(전체) 별도 칸 */
+    .mobile-total-cell{ display:flex; align-items:center; justify-content:center; padding:10px 4px; border-right:1px solid #edf2f8; white-space:nowrap; font-size:12px; font-weight:800; color:#1c2c49; }
   </style>
 </head>
 <body>
@@ -1001,7 +1003,8 @@ function renderDesktop(list) {
 function renderMobile(list) {
   const head = `
     <div class="mobile-table-head">
-      <div>학교·인원</div>
+      <div>학교</div>
+      <div>인원</div>
       ${labels.map(([label]) => `<div>${label}</div>`).join("")}
     </div>`;
 
@@ -1009,8 +1012,8 @@ function renderMobile(list) {
     <article class="mobile-table-row">
       <div class="mobile-school-cell">
         <strong class="mobile-school-name" title="${r.univ}">${r.univ}</strong>
-        <span class="mobile-school-total">${comma(r.total)}명</span>
       </div>
+      <div class="mobile-total-cell">${comma(r.total)}명</div>
       ${labels.map(([label, key]) => {
         const num = Number(r[key] || 0);
         return `<div><span class="mobile-type-num ${num === 0 ? "zero" : ""}">${comma(num)}</span></div>`;
