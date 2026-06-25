@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>5등급제 → 9등급제 예상 범위표</title>
+  <style>
+    :root {
+      --bg: #f4f7ff;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d8e0ef;
+      --blue: #5379dd;
+      --navy: #233868;
+      --range: #14613c;
+      --five-bg: #e8efff;
+      --five-ink: #233868;
+      --nine-bg: #e8f7ef;
+      --nine-ink: #14613c;
+      --shadow: 0 12px 30px rgba(30, 55, 105, .12);
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #e9efff 0, var(--bg) 38%, #f8faff 100%);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Pretendard", "Noto Sans KR", Arial, sans-serif;
+    }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 18px 16px 28px; }
+    .hero {
+      border-radius: 26px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #4e73da 0%, #7e9eea 100%);
+      color: #fff;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+    }
+    .hero-title { text-align: center; padding: 18px 18px 12px; }
+    h1 { margin: 0; font-size: clamp(25px, 3.4vw, 39px); letter-spacing: -0.045em; line-height: 1.12; }
+    .sub { margin-top: 6px; font-size: 14px; opacity: .92; }
+    .calculator {
+      background: #fff;
+      color: var(--ink);
+      padding: 14px;
+      display: grid;
+      grid-template-columns: minmax(260px, 420px) 1fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+    .input-card, .result-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fbfcff;
+      padding: 14px;
+    }
+    .input-card h2 { margin: 0 0 9px; font-size: 19px; letter-spacing: -0.025em; }
+    .input-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+    input[type="number"] {
+      width: 100%;
+      border: 1px solid #c8d3e6;
+      border-radius: 13px;
+      padding: 12px 13px;
+      font-size: 16px;
+      outline: none;
+      background: white;
+    }
+    input:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(82,119,217,.14); }
+    button {
+      border: none;
+      border-radius: 13px;
+      padding: 0 17px;
+      background: var(--navy);
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .result-card {
+      display: grid;
+      grid-template-columns: minmax(110px, .9fr) 34px minmax(190px, 1.5fr);
+      gap: 10px;
+      align-items: stretch;
+      background: linear-gradient(180deg, #fbfdff, #eef4ff);
+      padding: 12px;
+    }
+    .result-box {
+      background: #ffffff;
+      border: 1px solid #dbe4f2;
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 92px;
+    }
+    .result-box.input-value { text-align: center; }
+    .result-box.range-value { text-align: left; }
+    .result-label {
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      padding: 9px 12px;
+      text-align: center;
+      border-bottom: 1px solid #dbe4f2;
+    }
+    .result-label.five-label {
+      background: var(--five-bg);
+      color: var(--five-ink);
+    }
+    .result-label.nine-label {
+      background: var(--nine-bg);
+      color: var(--nine-ink);
+    }
+    .result-number {
+      background: #ffffff;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 58px;
+    }
+    .result-grade {
+      font-size: clamp(28px, 3.1vw, 38px);
+      line-height: 1;
+      font-weight: 950;
+      color: var(--navy);
+      letter-spacing: -0.045em;
+    }
+    .result-range {
+      font-size: clamp(31px, 4.2vw, 48px);
+      line-height: .98;
+      font-weight: 950;
+      color: var(--range);
+      letter-spacing: -0.055em;
+      white-space: nowrap;
+    }
+    .result-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+      font-size: 24px;
+      font-weight: 950;
+    }
+    .result-note {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .table-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px; }
+    .table-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 10px; }
+    .table-title h2 { margin: 0; font-size: 21px; letter-spacing: -0.03em; }
+    .mini-note { color: var(--muted); font-size: 12px; }
+    .range-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .range-block { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: white; }
+    .block-title {
+      background: #e8efff;
+      color: var(--navy);
+      font-weight: 900;
+      text-align: center;
+      padding: 8px 6px;
+      border-bottom: 1px solid var(--line);
+      letter-spacing: -0.02em;
+    }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 13px; }
+    th, td { padding: 6px 5px; border-bottom: 1px solid #edf1f7; text-align: center; white-space: nowrap; }
+    tr:last-child td { border-bottom: none; }
+    th { color: #26334d; font-weight: 900; }
+    th:nth-child(1) { background: var(--five-bg); color: var(--five-ink); }
+    th:nth-child(2) { background: var(--nine-bg); color: var(--nine-ink); }
+    td { background: #ffffff; }
+    td:first-child { font-weight: 900; color: var(--navy); }
+    td:last-child { font-weight: 900; color: var(--range); }
+    tr.active td { background: #fff6e4; }
+    .footer { color: var(--muted); font-size: 11px; text-align: right; padding: 8px 2px 0; }
+    @media (max-width: 1080px) { .range-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 720px) {
+      .wrap { padding: 12px 8px 24px; }
+      .hero { border-radius: 20px; }
+      .calculator { grid-template-columns: 1fr; padding: 10px; }
+      .input-row { grid-template-columns: 1fr; }
+      button { padding: 12px 16px; }
+      .result-card { grid-template-columns: 1fr; gap: 8px; }
+      .result-arrow { transform: rotate(90deg); }
+      .result-box.range-value { text-align: center; }
+      .result-number { align-items: center; }
+      .result-range { white-space: normal; }
+      .range-grid { grid-template-columns: 1fr; }
+      .table-title { display: block; }
+      .mini-note { margin-top: 4px; }
+    }
+    @media print {
+      @page { size: A4 landscape; margin: 8mm; }
+      body { background: white; }
+      .wrap { max-width: none; padding: 0; }
+      .hero, .table-card { box-shadow: none; }
+      .hero-title { padding: 10px 12px 6px; }
+      .calculator { padding: 8px; grid-template-columns: 1fr; }
+      .input-card { display: none; }
+      .result-card { padding: 8px; grid-template-columns: 100px 24px 1fr; }
+      .result-box { min-height: 52px; }
+      .result-label { padding: 5px 8px; font-size: 10px; }
+      .result-number { min-height: 38px; padding: 7px 8px; }
+      .result-grade { font-size: 20px; }
+      .result-range { font-size: 28px; }
+      .table-card { padding: 8px; }
+      .range-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+      th, td { padding: 4px 3px; font-size: 10px; }
+      .block-title { padding: 5px; }
+    }
+  
+
+    /* 2026-06-25 디자인 통일 보정 */
+    :root {
+      --bg:#f3f6fb !important;
+      --panel:#ffffff !important;
+      --ink:#071833 !important;
+      --muted:#66758c !important;
+      --line:#d9e1ef !important;
+      --blue:#6475bd !important;
+      --navy:#172744 !important;
+      --range:#116138 !important;
+      --five-bg:#e8f0ff !important;
+      --five-ink:#172744 !important;
+      --nine-bg:#e8f7ef !important;
+      --nine-ink:#116138 !important;
+      --shadow:0 18px 42px rgba(33,55,95,.12) !important;
+      --radius:22px !important;
+    }
+    body {
+      background:linear-gradient(180deg,#eef3fb 0%,#f7f9fd 58%,#ffffff 100%) !important;
+      color:#071833 !important;
+      font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    }
+    .wrap {
+      max-width:1180px !important;
+      padding:26px 17px 44px !important;
+    }
+    .hero {
+      border:1px solid rgba(255,255,255,.28) !important;
+      border-radius:28px !important;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(132,146,212,.55), transparent 34%),
+        linear-gradient(135deg,#172744 0%,#263b62 56%,#6475bd 100%) !important;
+      box-shadow:0 18px 42px rgba(23,39,68,.18) !important;
+      margin-bottom:18px !important;
+    }
+    .hero-title {
+      padding:26px 32px 18px !important;
+      text-align:left !important;
+    }
+    h1 {
+      font-size:clamp(30px,3.2vw,42px) !important;
+      line-height:1.14 !important;
+      font-weight:900 !important;
+      letter-spacing:-.045em !important;
+    }
+    .sub {
+      margin-top:10px !important;
+      color:rgba(255,255,255,.82) !important;
+      font-size:15.5px !important;
+      line-height:1.45 !important;
+      font-weight:650 !important;
+    }
+    .calculator {
+      border-top:1px solid rgba(255,255,255,.18) !important;
+      background:rgba(255,255,255,.97) !important;
+      padding:14px !important;
+    }
+    .input-card, .result-card, .table-card, .range-block {
+      border-color:#d9e1ef !important;
+      box-shadow:0 10px 28px rgba(31,49,81,.08) !important;
+    }
+    button {
+      background:#172744 !important;
+    }
+    input[type="number"] {
+      border-color:#cfd8ea !important;
+    }
+    th, td {
+      border-bottom-color:#edf2f8 !important;
+    }
+    @media (max-width:720px) {
+      .wrap { padding:12px 8px 28px !important; }
+      .hero { border-radius:20px !important; }
+      .hero-title { padding:18px 18px 14px !important; text-align:left !important; }
+      h1 { font-size:27px !important; }
+      .sub { font-size:13px !important; }
+    }
+
+
+
+    /* 2026-06-25 제목 크기·본문 가독성·페이지 폭 최종 보정 */
+    .wrap {
+      max-width:1180px !important;
+      padding:24px 17px 44px !important;
+    }
+    .hero {
+      border-radius:26px !important;
+      margin-bottom:18px !important;
+    }
+    .hero-title {
+      padding:22px 30px 16px !important;
+      text-align:left !important;
+    }
+    h1 {
+      font-size:clamp(26px,2.55vw,36px) !important;
+      line-height:1.16 !important;
+      font-weight:900 !important;
+      letter-spacing:-.042em !important;
+    }
+    .calculator {
+      padding:14px !important;
+      gap:12px !important;
+    }
+    .input-card h2,
+    .table-title h2 {
+      font-size:20px !important;
+      line-height:1.25 !important;
+    }
+    .result-box {
+      min-height:82px !important;
+    }
+    .result-label {
+      padding:8px 12px !important;
+      font-size:13px !important;
+    }
+    .result-number {
+      min-height:52px !important;
+      padding:10px 13px !important;
+    }
+    .result-grade {
+      font-size:clamp(25px,2.55vw,34px) !important;
+    }
+    .result-range {
+      font-size:clamp(27px,3.15vw,40px) !important;
+      letter-spacing:-.045em !important;
+    }
+    .table-card {
+      padding:14px !important;
+    }
+    .range-grid {
+      gap:10px !important;
+    }
+    .block-title {
+      padding:9px 6px !important;
+      font-size:15px !important;
+    }
+    table {
+      font-size:14px !important;
+    }
+    th, td {
+      padding:7px 6px !important;
+    }
+    @media (max-width:860px) {
+      .hero-title { padding:20px 24px 15px !important; }
+      h1 { font-size:clamp(24px,5vw,32px) !important; }
+      .result-range { font-size:clamp(25px,5.8vw,36px) !important; }
+    }
+    @media (max-width:720px) {
+      .wrap { padding:12px 8px 28px !important; }
+      .hero-title { padding:17px 18px 13px !important; }
+      h1 { font-size:24px !important; }
+      table { font-size:13.5px !important; }
+    }
+
+
+    /* 2026-06-25 환산 결과 영역 정렬·잘림 방지 보정 */
+    .result-box.range-value {
+      text-align:center !important;
+    }
+    .result-box.range-value .result-number {
+      align-items:center !important;
+      text-align:center !important;
+      padding-left:8px !important;
+      padding-right:8px !important;
+      overflow:hidden !important;
+    }
+    .result-range {
+      max-width:100% !important;
+      font-size:clamp(23px,2.35vw,34px) !important;
+      line-height:1.05 !important;
+      letter-spacing:-.025em !important;
+      white-space:nowrap !important;
+      text-align:center !important;
+    }
+    @media (max-width:900px) {
+      .result-range {
+        font-size:clamp(22px,4.3vw,30px) !important;
+      }
+    }
+    @media (max-width:720px) {
+      .result-range {
+        font-size:clamp(24px,8vw,34px) !important;
+        white-space:nowrap !important;
+      }
+    }
+
+
+    /* 2026-06-25 최종 반응형 보정: 제목 고정, 계산기 중간 폭 유지 */
+    h1 {
+      font-size: 32px !important;
+      line-height: 1.15 !important;
+      white-space: nowrap !important;
+    }
+    .calculator {
+      grid-template-columns: minmax(236px, .82fr) minmax(0, 1.18fr) !important;
+      gap: 12px !important;
+      align-items: stretch !important;
+    }
+    .input-card, .result-card {
+      min-width: 0 !important;
+    }
+    .input-row {
+      grid-template-columns: minmax(0, 1fr) 84px !important;
+      gap: 8px !important;
+    }
+    #calcBtn {
+      min-width: 84px !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+    .result-card {
+      grid-template-columns: minmax(92px, .78fr) 24px minmax(172px, 1.42fr) !important;
+      gap: 8px !important;
+    }
+    .result-arrow {
+      transform: none !important;
+      min-width: 24px !important;
+    }
+    .result-range {
+      font-size: 31px !important;
+    }
+
+    @media (max-width: 720px) and (min-width: 561px) {
+      .wrap {
+        padding: 12px 8px 28px !important;
+      }
+      .hero-title {
+        padding: 18px 18px 13px !important;
+      }
+      h1 {
+        font-size: 32px !important;
+      }
+      .calculator {
+        grid-template-columns: minmax(218px, .76fr) minmax(0, 1.24fr) !important;
+        gap: 10px !important;
+        padding: 10px !important;
+      }
+      .input-card, .result-card {
+        padding: 10px !important;
+        border-radius: 16px !important;
+      }
+      .input-card h2 {
+        font-size: 19px !important;
+        margin-bottom: 8px !important;
+      }
+      .input-row {
+        grid-template-columns: minmax(0, 1fr) 82px !important;
+        gap: 8px !important;
+      }
+      input[type="number"] {
+        height: 44px !important;
+        padding: 10px 12px !important;
+      }
+      #calcBtn {
+        min-width: 82px !important;
+        height: 44px !important;
+        padding: 0 8px !important;
+        font-size: 13px !important;
+      }
+      .result-card {
+        grid-template-columns: minmax(86px, .74fr) 22px minmax(158px, 1.46fr) !important;
+        gap: 8px !important;
+      }
+      .result-box {
+        min-height: 74px !important;
+        border-radius: 14px !important;
+      }
+      .result-label {
+        padding: 7px 8px !important;
+        font-size: 12.5px !important;
+      }
+      .result-number {
+        min-height: 48px !important;
+        padding: 8px 7px !important;
+      }
+      .result-grade {
+        font-size: 28px !important;
+      }
+      .result-range {
+        font-size: 28px !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-title {
+        padding: 17px 18px 12px !important;
+      }
+      h1 {
+        font-size: 25px !important;
+        white-space: normal !important;
+        line-height: 1.16 !important;
+      }
+      .calculator {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        padding: 10px !important;
+      }
+      .input-row {
+        grid-template-columns: 1fr !important;
+      }
+      #calcBtn {
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 44px !important;
+      }
+      .result-card {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+      }
+      .result-arrow {
+        transform: rotate(90deg) !important;
+      }
+      .result-range {
+        font-size: 31px !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      h1 {
+        font-size: 23px !important;
+      }
+      .result-range {
+        font-size: 28px !important;
+      }
+    }
+
+</style>
+  <style id="responsive-fix">
+    /* 반응형 보완: 여백을 먼저 줄이고, 더 줄일 수 없을 때만 줄바꿈 */
+    /* 제목 밴드와 본문 카드를 다른 페이지처럼 분리 */
+    .hero{ overflow:visible!important; }
+    /* 제목 밴드 위·아래 여백을 제목에 맞춰 대칭으로 줄임 */
+    .hero-title{ padding:clamp(13px,1.6vw,17px) clamp(18px,3vw,30px)!important; }
+    .calculator{
+      grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))!important;
+      gap:clamp(8px,1.6vw,16px)!important;
+      border:1px solid #d9e1ef!important; border-top:1px solid #d9e1ef!important;
+      border-radius:22px!important; box-shadow:0 12px 30px rgba(31,49,81,.08)!important;
+      margin-bottom:16px!important; padding:clamp(12px,2vw,18px)!important;
+    }
+    .range-grid{ grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))!important; gap:clamp(8px,1.4vw,10px)!important; }
+    /* 범위표: 5등급제 칸을 좁히고 9등급제 범위 칸을 넓혀 헤더 잘림 방지 */
+    .range-block table th:nth-child(1), .range-block table td:nth-child(1){ width:33%!important; }
+    .range-block table th:nth-child(2), .range-block table td:nth-child(2){ width:67%!important; }
+    .range-block table th, .range-block table td{ padding-left:4px!important; padding-right:6px!important; }
+    .range-block table th{ white-space:normal!important; word-break:keep-all!important; line-height:1.2; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero-title">
+        <h1>5등급제 → 9등급제 예상 범위</h1>
+      </div>
+    </header>
+
+    <section class="calculator" aria-label="등급 변환기">
+        <div class="input-card">
+          <h2>5등급제 내신 입력</h2>
+          <div class="input-row">
+            <input id="gradeInput" type="number" min="1" max="5" step="0.01" value="1.30" aria-label="5등급제 내신 입력" />
+            <button id="calcBtn" type="button">변환하기</button>
+          </div>
+        </div>
+        <div id="result" class="result-card" aria-live="polite"></div>
+    </section>
+
+    <main class="table-card">
+      <div class="table-title">
+        <h2>5등급제 · 9등급제 예상 범위표</h2>
+      </div>
+      <div id="rangeGrid" class="range-grid"></div>
+    </main>
+  </div>
+
+<script>
+const DATA = [{"five": 1.0, "pdfLow": 1.0, "pdfAvg": 1.18, "pdfHigh": 1.38, "regionLow": 1.45, "regionHigh": 1.51, "finalLow": 1.0, "finalHigh": 1.38}, {"five": 1.05, "pdfLow": 1.19, "pdfAvg": 1.36, "pdfHigh": 1.52, "regionLow": 1.55, "regionHigh": 1.6, "finalLow": 1.19, "finalHigh": 1.52}, {"five": 1.1, "pdfLow": 1.39, "pdfAvg": 1.51, "pdfHigh": 1.62, "regionLow": 1.66, "regionHigh": 1.69, "finalLow": 1.39, "finalHigh": 1.62}, {"five": 1.15, "pdfLow": 1.48, "pdfAvg": 1.63, "pdfHigh": 1.76, "regionLow": 1.76, "regionHigh": 1.81, "finalLow": 1.48, "finalHigh": 1.76}, {"five": 1.2, "pdfLow": 1.59, "pdfAvg": 1.73, "pdfHigh": 1.88, "regionLow": 1.83, "regionHigh": 1.89, "finalLow": 1.59, "finalHigh": 1.88}, {"five": 1.25, "pdfLow": 1.76, "pdfAvg": 1.85, "pdfHigh": 1.96, "regionLow": 1.89, "regionHigh": 1.99, "finalLow": 1.76, "finalHigh": 1.96}, {"five": 1.3, "pdfLow": 1.83, "pdfAvg": 1.95, "pdfHigh": 2.08, "regionLow": 1.94, "regionHigh": 2.1, "finalLow": 1.83, "finalHigh": 2.08}, {"five": 1.35, "pdfLow": 1.94, "pdfAvg": 2.05, "pdfHigh": 2.19, "regionLow": 2.02, "regionHigh": 2.19, "finalLow": 1.94, "finalHigh": 2.19}, {"five": 1.4, "pdfLow": 2.03, "pdfAvg": 2.14, "pdfHigh": 2.29, "regionLow": 2.1, "regionHigh": 2.29, "finalLow": 2.03, "finalHigh": 2.29}, {"five": 1.45, "pdfLow": 2.15, "pdfAvg": 2.25, "pdfHigh": 2.38, "regionLow": 2.21, "regionHigh": 2.38, "finalLow": 2.15, "finalHigh": 2.38}, {"five": 1.5, "pdfLow": 2.1, "pdfAvg": 2.34, "pdfHigh": 2.46, "regionLow": 2.32, "regionHigh": 2.46, "finalLow": 2.1, "finalHigh": 2.46}, {"five": 1.55, "pdfLow": 2.32, "pdfAvg": 2.42, "pdfHigh": 2.55, "regionLow": 2.36, "regionHigh": 2.55, "finalLow": 2.32, "finalHigh": 2.55}, {"five": 1.6, "pdfLow": 2.34, "pdfAvg": 2.48, "pdfHigh": 2.61, "regionLow": 2.4, "regionHigh": 2.63, "finalLow": 2.34, "finalHigh": 2.61}, {"five": 1.65, "pdfLow": 2.52, "pdfAvg": 2.61, "pdfHigh": 2.73, "regionLow": 2.44, "regionHigh": 2.72, "finalLow": 2.52, "finalHigh": 2.73}, {"five": 1.7, "pdfLow": 2.55, "pdfAvg": 2.69, "pdfHigh": 2.83, "regionLow": 2.51, "regionHigh": 2.8, "finalLow": 2.55, "finalHigh": 2.83}, {"five": 1.75, "pdfLow": 2.63, "pdfAvg": 2.79, "pdfHigh": 2.93, "regionLow": 2.59, "regionHigh": 2.89, "finalLow": 2.63, "finalHigh": 2.93}, {"five": 1.8, "pdfLow": 2.69, "pdfAvg": 2.82, "pdfHigh": 3.03, "regionLow": 2.67, "regionHigh": 2.98, "finalLow": 2.69, "finalHigh": 3.03}, {"five": 1.85, "pdfLow": 2.84, "pdfAvg": 2.97, "pdfHigh": 3.13, "regionLow": 2.76, "regionHigh": 3.07, "finalLow": 2.84, "finalHigh": 3.13}, {"five": 1.9, "pdfLow": 2.91, "pdfAvg": 3.06, "pdfHigh": 3.25, "regionLow": 2.85, "regionHigh": 3.16, "finalLow": 2.91, "finalHigh": 3.25}, {"five": 1.95, "pdfLow": 2.97, "pdfAvg": 3.15, "pdfHigh": 3.29, "regionLow": 2.94, "regionHigh": 3.26, "finalLow": 2.97, "finalHigh": 3.29}, {"five": 2.0, "pdfLow": 3.07, "pdfAvg": 3.21, "pdfHigh": 3.38, "regionLow": 3.03, "regionHigh": 3.35, "finalLow": 3.07, "finalHigh": 3.38}, {"five": 2.05, "pdfLow": 3.15, "pdfAvg": 3.33, "pdfHigh": 3.5, "regionLow": 3.13, "regionHigh": 3.45, "finalLow": 3.15, "finalHigh": 3.5}, {"five": 2.1, "pdfLow": 3.24, "pdfAvg": 3.4, "pdfHigh": 3.57, "regionLow": 3.23, "regionHigh": 3.54, "finalLow": 3.24, "finalHigh": 3.57}, {"five": 2.15, "pdfLow": 3.39, "pdfAvg": 3.53, "pdfHigh": 3.69, "regionLow": 3.33, "regionHigh": 3.64, "finalLow": 3.39, "finalHigh": 3.69}, {"five": 2.2, "pdfLow": 3.46, "pdfAvg": 3.6, "pdfHigh": 3.75, "regionLow": 3.41, "regionHigh": 3.73, "finalLow": 3.46, "finalHigh": 3.75}, {"five": 2.25, "pdfLow": 3.54, "pdfAvg": 3.68, "pdfHigh": 3.83, "regionLow": 3.48, "regionHigh": 3.81, "finalLow": 3.54, "finalHigh": 3.83}, {"five": 2.3, "pdfLow": 3.64, "pdfAvg": 3.77, "pdfHigh": 3.93, "regionLow": 3.56, "regionHigh": 3.89, "finalLow": 3.64, "finalHigh": 3.93}, {"five": 2.35, "pdfLow": 3.72, "pdfAvg": 3.86, "pdfHigh": 4.0, "regionLow": 3.64, "regionHigh": 3.97, "finalLow": 3.72, "finalHigh": 4.0}, {"five": 2.4, "pdfLow": 3.83, "pdfAvg": 3.97, "pdfHigh": 4.14, "regionLow": 3.73, "regionHigh": 4.04, "finalLow": 3.83, "finalHigh": 4.14}, {"five": 2.45, "pdfLow": 3.87, "pdfAvg": 4.03, "pdfHigh": 4.18, "regionLow": 3.82, "regionHigh": 4.11, "finalLow": 3.87, "finalHigh": 4.18}, {"five": 2.5, "pdfLow": 3.93, "pdfAvg": 4.11, "pdfHigh": 4.24, "regionLow": 3.91, "regionHigh": 4.18, "finalLow": 3.93, "finalHigh": 4.24}, {"five": 2.55, "pdfLow": 4.04, "pdfAvg": 4.2, "pdfHigh": 4.33, "regionLow": 4.0, "regionHigh": 4.26, "finalLow": 4.04, "finalHigh": 4.33}, {"five": 2.6, "pdfLow": 4.13, "pdfAvg": 4.27, "pdfHigh": 4.44, "regionLow": 4.09, "regionHigh": 4.34, "finalLow": 4.13, "finalHigh": 4.44}, {"five": 2.65, "pdfLow": 4.24, "pdfAvg": 4.38, "pdfHigh": 4.54, "regionLow": 4.18, "regionHigh": 4.42, "finalLow": 4.24, "finalHigh": 4.54}, {"five": 2.7, "pdfLow": 4.29, "pdfAvg": 4.45, "pdfHigh": 4.57, "regionLow": 4.26, "regionHigh": 4.5, "finalLow": 4.29, "finalHigh": 4.57}, {"five": 2.75, "pdfLow": 4.39, "pdfAvg": 4.54, "pdfHigh": 4.67, "regionLow": 4.34, "regionHigh": 4.58, "finalLow": 4.39, "finalHigh": 4.67}, {"five": 2.8, "pdfLow": 4.52, "pdfAvg": 4.62, "pdfHigh": 4.78, "regionLow": 4.41, "regionHigh": 4.66, "finalLow": 4.52, "finalHigh": 4.78}, {"five": 2.85, "pdfLow": 4.57, "pdfAvg": 4.71, "pdfHigh": 4.83, "regionLow": 4.49, "regionHigh": 4.76, "finalLow": 4.57, "finalHigh": 4.83}, {"five": 2.9, "pdfLow": 4.64, "pdfAvg": 4.78, "pdfHigh": 4.92, "regionLow": 4.57, "regionHigh": 4.85, "finalLow": 4.64, "finalHigh": 4.92}, {"five": 2.95, "pdfLow": 4.7, "pdfAvg": 4.86, "pdfHigh": 5.04, "regionLow": 4.65, "regionHigh": 4.95, "finalLow": 4.7, "finalHigh": 5.04}, {"five": 3.0, "pdfLow": 4.83, "pdfAvg": 4.94, "pdfHigh": 5.07, "regionLow": 4.73, "regionHigh": 5.04, "finalLow": 4.83, "finalHigh": 5.07}, {"five": 3.05, "pdfLow": 4.87, "pdfAvg": 5.04, "pdfHigh": 5.18, "regionLow": 4.82, "regionHigh": 5.13, "finalLow": 4.87, "finalHigh": 5.18}, {"five": 3.1, "pdfLow": 5.0, "pdfAvg": 5.14, "pdfHigh": 5.28, "regionLow": 4.92, "regionHigh": 5.22, "finalLow": 5.0, "finalHigh": 5.28}, {"five": 3.15, "pdfLow": 5.07, "pdfAvg": 5.21, "pdfHigh": 5.36, "regionLow": 5.01, "regionHigh": 5.29, "finalLow": 5.07, "finalHigh": 5.36}, {"five": 3.2, "pdfLow": 5.14, "pdfAvg": 5.3, "pdfHigh": 5.43, "regionLow": 5.09, "regionHigh": 5.37, "finalLow": 5.14, "finalHigh": 5.43}, {"five": 3.25, "pdfLow": 5.23, "pdfAvg": 5.37, "pdfHigh": 5.52, "regionLow": 5.16, "regionHigh": 5.44, "finalLow": 5.23, "finalHigh": 5.52}, {"five": 3.3, "pdfLow": 5.31, "pdfAvg": 5.46, "pdfHigh": 5.61, "regionLow": 5.24, "regionHigh": 5.52, "finalLow": 5.31, "finalHigh": 5.61}, {"five": 3.35, "pdfLow": 5.38, "pdfAvg": 5.52, "pdfHigh": 5.68, "regionLow": 5.32, "regionHigh": 5.6, "finalLow": 5.38, "finalHigh": 5.68}, {"five": 3.4, "pdfLow": 5.5, "pdfAvg": 5.63, "pdfHigh": 5.79, "regionLow": 5.4, "regionHigh": 5.68, "finalLow": 5.5, "finalHigh": 5.79}, {"five": 3.45, "pdfLow": 5.54, "pdfAvg": 5.7, "pdfHigh": 5.85, "regionLow": 5.49, "regionHigh": 5.76, "finalLow": 5.54, "finalHigh": 5.85}, {"five": 3.5, "pdfLow": 5.68, "pdfAvg": 5.8, "pdfHigh": 5.93, "regionLow": 5.58, "regionHigh": 5.84, "finalLow": 5.68, "finalHigh": 5.93}, {"five": 3.55, "pdfLow": 5.68, "pdfAvg": 5.84, "pdfHigh": 6.03, "regionLow": 5.67, "regionHigh": 5.92, "finalLow": 5.68, "finalHigh": 6.03}, {"five": 3.6, "pdfLow": 5.77, "pdfAvg": 5.96, "pdfHigh": 6.1, "regionLow": 5.75, "regionHigh": 6.0, "finalLow": 5.77, "finalHigh": 6.1}, {"five": 3.65, "pdfLow": 5.89, "pdfAvg": 6.05, "pdfHigh": 6.2, "regionLow": 5.84, "regionHigh": 6.07, "finalLow": 5.89, "finalHigh": 6.2}, {"five": 3.7, "pdfLow": 6.0, "pdfAvg": 6.11, "pdfHigh": 6.21, "regionLow": 5.91, "regionHigh": 6.15, "finalLow": 6.0, "finalHigh": 6.21}, {"five": 3.75, "pdfLow": 6.07, "pdfAvg": 6.2, "pdfHigh": 6.33, "regionLow": 5.98, "regionHigh": 6.23, "finalLow": 6.07, "finalHigh": 6.33}, {"five": 3.8, "pdfLow": 6.11, "pdfAvg": 6.27, "pdfHigh": 6.42, "regionLow": 6.04, "regionHigh": 6.3, "finalLow": 6.11, "finalHigh": 6.42}, {"five": 3.85, "pdfLow": 6.22, "pdfAvg": 6.37, "pdfHigh": 6.52, "regionLow": 6.11, "regionHigh": 6.38, "finalLow": 6.22, "finalHigh": 6.52}, {"five": 3.9, "pdfLow": 6.33, "pdfAvg": 6.48, "pdfHigh": 6.58, "regionLow": 6.2, "regionHigh": 6.45, "finalLow": 6.33, "finalHigh": 6.58}, {"five": 3.95, "pdfLow": 6.41, "pdfAvg": 6.56, "pdfHigh": 6.71, "regionLow": 6.28, "regionHigh": 6.52, "finalLow": 6.41, "finalHigh": 6.71}, {"five": 4.0, "pdfLow": 6.54, "pdfAvg": 6.65, "pdfHigh": 6.79, "regionLow": 6.37, "regionHigh": 6.59, "finalLow": 6.54, "finalHigh": 6.79}, {"five": 4.05, "pdfLow": 6.59, "pdfAvg": 6.74, "pdfHigh": 6.89, "regionLow": 6.46, "regionHigh": 6.68, "finalLow": 6.59, "finalHigh": 6.89}, {"five": 4.1, "pdfLow": 6.69, "pdfAvg": 6.84, "pdfHigh": 7.0, "regionLow": 6.56, "regionHigh": 6.78, "finalLow": 6.69, "finalHigh": 7.0}, {"five": 4.15, "pdfLow": 6.78, "pdfAvg": 6.91, "pdfHigh": 7.04, "regionLow": 6.65, "regionHigh": 6.87, "finalLow": 6.78, "finalHigh": 7.04}, {"five": 4.2, "pdfLow": 6.89, "pdfAvg": 7.01, "pdfHigh": 7.12, "regionLow": 6.73, "regionHigh": 6.95, "finalLow": 6.89, "finalHigh": 7.12}, {"five": 4.25, "pdfLow": 6.97, "pdfAvg": 7.1, "pdfHigh": 7.21, "regionLow": 6.81, "regionHigh": 7.04, "finalLow": 6.97, "finalHigh": 7.21}, {"five": 4.3, "pdfLow": 7.07, "pdfAvg": 7.2, "pdfHigh": 7.32, "regionLow": 6.88, "regionHigh": 7.12, "finalLow": 7.07, "finalHigh": 7.32}, {"five": 4.35, "pdfLow": 7.17, "pdfAvg": 7.31, "pdfHigh": 7.48, "regionLow": 6.96, "regionHigh": 7.23, "finalLow": 7.17, "finalHigh": 7.48}, {"five": 4.4, "pdfLow": 7.22, "pdfAvg": 7.38, "pdfHigh": 7.56, "regionLow": 7.04, "regionHigh": 7.33, "finalLow": 7.22, "finalHigh": 7.56}, {"five": 4.45, "pdfLow": 7.29, "pdfAvg": 7.42, "pdfHigh": 7.53, "regionLow": 7.12, "regionHigh": 7.44, "finalLow": 7.29, "finalHigh": 7.53}, {"five": 4.5, "pdfLow": 7.37, "pdfAvg": 7.51, "pdfHigh": 7.64, "regionLow": 7.2, "regionHigh": 7.54, "finalLow": 7.37, "finalHigh": 7.64}, {"five": 4.55, "pdfLow": 7.46, "pdfAvg": 7.6, "pdfHigh": 7.72, "regionLow": 7.26, "regionHigh": 7.65, "finalLow": 7.46, "finalHigh": 7.72}, {"five": 4.6, "pdfLow": 7.58, "pdfAvg": 7.75, "pdfHigh": 8.0, "regionLow": 7.3, "regionHigh": 7.76, "finalLow": 7.58, "finalHigh": 8.0}, {"five": 4.65, "pdfLow": 7.73, "pdfAvg": 7.9, "pdfHigh": 8.03, "regionLow": 7.35, "regionHigh": 7.92, "finalLow": 7.73, "finalHigh": 8.03}, {"five": 4.7, "pdfLow": 7.83, "pdfAvg": 7.96, "pdfHigh": 8.1, "regionLow": 7.46, "regionHigh": 8.07, "finalLow": 7.83, "finalHigh": 8.1}, {"five": 4.75, "pdfLow": 7.88, "pdfAvg": 8.07, "pdfHigh": 8.27, "regionLow": 7.59, "regionHigh": 8.23, "finalLow": 7.88, "finalHigh": 8.27}, {"five": 4.8, "pdfLow": 7.93, "pdfAvg": 8.14, "pdfHigh": 8.33, "regionLow": 7.67, "regionHigh": 8.38, "finalLow": 7.93, "finalHigh": 8.33}, {"five": 4.85, "pdfLow": 8.04, "pdfAvg": 8.25, "pdfHigh": 8.45, "regionLow": 7.86, "regionHigh": 8.54, "finalLow": 8.04, "finalHigh": 8.45}, {"five": 4.9, "pdfLow": 8.29, "pdfAvg": 8.49, "pdfHigh": 8.69, "regionLow": 8.24, "regionHigh": 8.69, "finalLow": 8.29, "finalHigh": 8.69}, {"five": 4.95, "pdfLow": 8.42, "pdfAvg": 8.64, "pdfHigh": 8.8, "regionLow": 8.62, "regionHigh": 8.85, "finalLow": 8.42, "finalHigh": 8.8}, {"five": 5.0, "pdfLow": 8.59, "pdfAvg": 8.74, "pdfHigh": 8.88, "regionLow": 9.0, "regionHigh": 9.0, "finalLow": 8.59, "finalHigh": 8.88}];
+const $ = (id) => document.getElementById(id);
+const grid = $('rangeGrid');
+
+function fmt(n) { return Number(n).toFixed(2); }
+function nearestRow(value) {
+  let v = Number(value);
+  if (Number.isNaN(v)) v = 1;
+  v = Math.max(1, Math.min(5, v));
+  return DATA.reduce((best, row) => Math.abs(row.five - v) < Math.abs(best.five - v) ? row : best, DATA[0]);
+}
+function renderResult(row, rawValue) {
+  const inputValue = Number(rawValue);
+  const gradeText = Number.isNaN(inputValue) ? fmt(row.five) : fmt(inputValue);
+  const note = Math.abs(inputValue - row.five) > 0.001 ? `<div class="result-note">가까운 기준 ${fmt(row.five)}</div>` : ``;
+  $('result').innerHTML = `
+    <div class="result-box input-value">
+      <div class="result-label five-label">5등급제</div>
+      <div class="result-number">
+        <div class="result-grade">${gradeText}</div>
+        ${note}
+      </div>
+    </div>
+    <div class="result-arrow">→</div>
+    <div class="result-box range-value">
+      <div class="result-label nine-label">9등급제 예상 범위</div>
+      <div class="result-number">
+        <div class="result-range">${fmt(row.finalLow)} ~ ${fmt(row.finalHigh)}</div>
+      </div>
+    </div>
+  `;
+}
+function groupRows() {
+  return [
+    { title: '5등급제 1점대', rows: DATA.filter(r => r.five >= 1 && r.five < 2) },
+    { title: '5등급제 2점대', rows: DATA.filter(r => r.five >= 2 && r.five < 3) },
+    { title: '5등급제 3점대', rows: DATA.filter(r => r.five >= 3 && r.five < 4) },
+    { title: '5등급제 4~5점대', rows: DATA.filter(r => r.five >= 4 && r.five <= 5) }
+  ];
+}
+function renderTable(activeFive=null) {
+  grid.innerHTML = groupRows().map(group => `
+    <section class="range-block">
+      <div class="block-title">${group.title}</div>
+      <table>
+        <thead><tr><th>5등급제</th><th>9등급제 예상 범위</th></tr></thead>
+        <tbody>
+          ${group.rows.map(row => `
+            <tr class="${activeFive !== null && fmt(row.five) === fmt(activeFive) ? 'active' : ''}">
+              <td>${fmt(row.five)}</td>
+              <td>${fmt(row.finalLow)} ~ ${fmt(row.finalHigh)}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </section>
+  `).join('');
+}
+function runCalc() {
+  const val = $('gradeInput').value;
+  const row = nearestRow(val);
+  renderResult(row, val);
+  renderTable(row.five);
+}
+$('calcBtn').addEventListener('click', runCalc);
+$('gradeInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') runCalc(); });
+renderTable();
+renderResult(nearestRow(1.30), 1.30);
+</script>
+</body>
+</html>
