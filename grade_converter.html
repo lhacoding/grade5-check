@@ -545,6 +545,12 @@
     .hero{ overflow:visible!important; }
     /* 제목 밴드 위·아래 여백을 제목에 맞춰 대칭으로 줄임 */
     .hero-title{ padding:clamp(13px,1.6vw,17px) clamp(18px,3vw,30px)!important; }
+    /* 결과 카드: 9등급 범위 숫자가 칸을 넘지 않도록 크기 조정 */
+    .result-range{ font-size:clamp(20px,2.3vw,30px)!important; letter-spacing:-.02em!important; white-space:nowrap!important; }
+    .result-card{ grid-template-columns:minmax(0,.9fr) 26px minmax(0,1.5fr)!important; }
+    .result-box{ min-width:0!important; }
+    .result-box.range-value{ min-width:0!important; }
+    .result-number{ padding-left:9px!important; padding-right:9px!important; overflow:hidden!important; }
     .calculator{
       grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))!important;
       gap:clamp(8px,1.6vw,16px)!important;
@@ -564,7 +570,7 @@
   <div class="wrap">
     <header class="hero">
       <div class="hero-title">
-        <h1>5등급제 → 9등급제 예상 범위</h1>
+        <h1>내신 5등급제 → 9등급제 환산</h1>
       </div>
     </header>
 
