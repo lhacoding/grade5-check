@@ -1925,6 +1925,204 @@
   }
 </style>
 
+
+
+<style id="admission-recommend-compact-line-fix">
+  /* 요청 반영: 스마트폰/좁은 노트북에서도 입결 캡슐을 아래로 내리지 않고 한 줄 compact 배치 */
+  .admission-rec-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 430px), 1fr)) !important;
+    gap: clamp(10px, 1.35vw, 16px) !important;
+  }
+
+  @media (min-width: 1040px) {
+    .admission-rec-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .admission-rec-head,
+    .admission-rec-line {
+      grid-template-columns: 42px minmax(0, 1fr) auto !important;
+      gap: 6px !important;
+      align-items: center !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+
+    .admission-rec-head h3 {
+      grid-column: 1 / 3 !important;
+      font-size: 16px !important;
+      white-space: nowrap !important;
+    }
+
+    .admission-year-labels,
+    .admission-score-dots {
+      grid-column: 3 !important;
+      display: grid !important;
+      grid-template-columns: repeat(5, 36px) !important;
+      gap: 3px !important;
+      width: auto !important;
+      margin-top: 0 !important;
+      justify-content: end !important;
+    }
+
+    .admission-year-labels span {
+      font-size: 9.5px !important;
+      line-height: 1 !important;
+      white-space: nowrap !important;
+    }
+
+    .admission-dot {
+      width: 36px !important;
+      min-width: 36px !important;
+      height: 26px !important;
+      padding: 0 !important;
+      font-size: 9.5px !important;
+      font-weight: 700 !important;
+    }
+
+    .admission-rec-line {
+      min-height: 48px !important;
+      padding-top: 7px !important;
+      padding-bottom: 7px !important;
+    }
+
+    .admission-cat {
+      width: 42px !important;
+      min-width: 42px !important;
+      height: 24px !important;
+      font-size: 10px !important;
+      padding: 0 !important;
+    }
+
+    .admission-rec-main {
+      min-width: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .admission-rec-school,
+    .admission-rec-major {
+      display: inline !important;
+      font-size: 12.5px !important;
+      line-height: 1.22 !important;
+      font-weight: 650 !important;
+      white-space: nowrap !important;
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+    }
+
+    .admission-rec-admission {
+      display: block !important;
+      margin-top: 2px !important;
+      font-size: 9.8px !important;
+      line-height: 1.15 !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .admission-rec-card {
+      border-radius: 16px !important;
+    }
+
+    .admission-rec-head,
+    .admission-rec-line {
+      grid-template-columns: 40px minmax(0, 1fr) auto !important;
+      gap: 5px !important;
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+    }
+
+    .admission-rec-head h3 {
+      font-size: 15px !important;
+    }
+
+    .admission-year-labels,
+    .admission-score-dots {
+      grid-template-columns: repeat(5, 32px) !important;
+      gap: 2px !important;
+    }
+
+    .admission-year-labels span {
+      font-size: 8.2px !important;
+    }
+
+    .admission-dot {
+      width: 32px !important;
+      min-width: 32px !important;
+      height: 24px !important;
+      font-size: 8.8px !important;
+    }
+
+    .admission-rec-line {
+      min-height: 46px !important;
+      padding-top: 6px !important;
+      padding-bottom: 6px !important;
+    }
+
+    .admission-cat {
+      width: 40px !important;
+      min-width: 40px !important;
+      height: 23px !important;
+      font-size: 9.5px !important;
+    }
+
+    .admission-rec-school,
+    .admission-rec-major {
+      font-size: 11.2px !important;
+      line-height: 1.18 !important;
+      letter-spacing: -0.045em !important;
+    }
+
+    .admission-rec-admission {
+      font-size: 8.7px !important;
+      line-height: 1.12 !important;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .admission-rec-head,
+    .admission-rec-line {
+      grid-template-columns: 38px minmax(0, 1fr) auto !important;
+      gap: 4px !important;
+      padding-left: 7px !important;
+      padding-right: 7px !important;
+    }
+
+    .admission-year-labels,
+    .admission-score-dots {
+      grid-template-columns: repeat(5, 29px) !important;
+      gap: 2px !important;
+    }
+
+    .admission-dot {
+      width: 29px !important;
+      min-width: 29px !important;
+      height: 23px !important;
+      font-size: 8px !important;
+    }
+
+    .admission-cat {
+      width: 38px !important;
+      min-width: 38px !important;
+      font-size: 9px !important;
+    }
+
+    .admission-rec-school,
+    .admission-rec-major {
+      font-size: 10.2px !important;
+      letter-spacing: -0.055em !important;
+    }
+
+    .admission-rec-admission {
+      font-size: 8px !important;
+    }
+  }
+</style>
+
 </head>
 <body>
 <main class="page">
