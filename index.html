@@ -2244,6 +2244,155 @@
   }
 </style>
 
+
+
+<style id="result-card-compact-fix">
+  /* 학기별·교과군별 예상 등급: 여백을 줄이고 넓은 화면에서는 최대한 한 줄 배치 */
+  #semesterResultSection,
+  #subjectResultSection {
+    padding: clamp(12px, 1.45vw, 16px) !important;
+    margin-top: clamp(10px, 1.2vw, 14px) !important;
+    margin-bottom: clamp(10px, 1.2vw, 14px) !important;
+  }
+
+  #semesterResultSection .section-title,
+  #subjectResultSection .section-title {
+    margin-bottom: clamp(7px, 0.9vw, 10px) !important;
+  }
+
+  #semesterResultSection .section-title h2,
+  #subjectResultSection .section-title h2 {
+    font-size: clamp(20px, 1.75vw, 24px) !important;
+    line-height: 1.14 !important;
+  }
+
+  #semesterResultSection .average-filter-buttons {
+    gap: 7px !important;
+  }
+
+  #semesterResultSection .average-filter-btn {
+    min-height: 34px !important;
+    padding: 7px 14px !important;
+    font-size: 13px !important;
+  }
+
+  #semesterResultSection .semester-result-grid,
+  #subjectResultSection .subject-result-grid {
+    gap: clamp(7px, 0.9vw, 11px) !important;
+    align-items: stretch !important;
+  }
+
+  @media (min-width: 1040px) {
+    #semesterResultSection .semester-result-grid,
+    #subjectResultSection .subject-result-grid {
+      grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    }
+  }
+
+  #semesterResultSection .semester-result,
+  #subjectResultSection .subject-result {
+    min-height: 88px !important;
+    border-radius: 15px !important;
+    box-shadow: 0 5px 16px rgba(23, 38, 67, 0.045) !important;
+  }
+
+  #semesterResultSection .semester-result-title,
+  #subjectResultSection .subject-result-title {
+    padding: 7px 5px 6px !important;
+    font-size: clamp(12px, 0.95vw, 14px) !important;
+    line-height: 1.12 !important;
+    white-space: nowrap !important;
+  }
+
+  #semesterResultSection .semester-result-body,
+  #subjectResultSection .subject-result-body {
+    min-height: 48px !important;
+    padding: 7px 5px 8px !important;
+  }
+
+  #semesterResultSection .result-value,
+  #subjectResultSection .result-value {
+    font-size: clamp(20px, 2vw, 28px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  #semesterResultSection .summary-sub,
+  #subjectResultSection .summary-sub {
+    margin-top: 3px !important;
+    font-size: clamp(9px, 0.85vw, 11.5px) !important;
+    line-height: 1.22 !important;
+  }
+
+  #semesterResultSection .nine-range-simple {
+    margin-top: 2px !important;
+    font-size: clamp(14px, 1.3vw, 18px) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.035em !important;
+    white-space: nowrap !important;
+  }
+
+  @media (max-width: 1039px) {
+    #semesterResultSection .semester-result-grid,
+    #subjectResultSection .subject-result-grid {
+      grid-template-columns: repeat(auto-fit, minmax(108px, 1fr)) !important;
+    }
+
+    #semesterResultSection .semester-result,
+    #subjectResultSection .subject-result {
+      min-height: 84px !important;
+    }
+  }
+
+  @media (max-width: 700px) {
+    #semesterResultSection,
+    #subjectResultSection {
+      padding: 10px 8px !important;
+    }
+
+    #semesterResultSection .semester-result-grid,
+    #subjectResultSection .subject-result-grid {
+      grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)) !important;
+      gap: 7px !important;
+    }
+
+    #semesterResultSection .semester-result,
+    #subjectResultSection .subject-result {
+      min-height: 76px !important;
+      border-radius: 13px !important;
+    }
+
+    #semesterResultSection .semester-result-title,
+    #subjectResultSection .subject-result-title {
+      padding: 6px 3px 5px !important;
+      font-size: 11.5px !important;
+    }
+
+    #semesterResultSection .semester-result-body,
+    #subjectResultSection .subject-result-body {
+      min-height: 42px !important;
+      padding: 6px 3px 7px !important;
+    }
+
+    #semesterResultSection .result-value,
+    #subjectResultSection .result-value {
+      font-size: 19px !important;
+    }
+  }
+
+  @media (max-width: 430px) {
+    #semesterResultSection .semester-result-grid,
+    #subjectResultSection .subject-result-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+
+    #semesterResultSection .summary-sub,
+    #subjectResultSection .summary-sub {
+      font-size: 9px !important;
+    }
+  }
+</style>
+
 </head>
 <body>
 <main class="page">
