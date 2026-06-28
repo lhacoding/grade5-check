@@ -463,127 +463,203 @@
   }
 </style>
 
-<style id="laptop-fit-one-screen">
-  /* 노트북·데스크톱 화면 전용: 스마트폰은 유지, 노트북에서는 한 화면에 전체가 보이도록 compact 조정 */
+<style id="laptop-breathing-room">
+  /* 노트북·데스크톱 화면 전용: 스마트폰 레이아웃은 유지하고, 넓은 화면에서는 여백과 글자 크기를 키워 아래 빈 공간을 줄임 */
   @media (min-width: 981px) {
     .wrap {
-      padding: 14px 0 24px !important;
+      padding: 20px 0 44px !important;
     }
 
     .hero {
-      padding: 20px 30px 22px !important;
-      border-radius: 24px !important;
+      padding: 30px 34px 32px !important;
+      border-radius: 28px !important;
     }
 
     .hero h1 {
-      font-size: clamp(30px, 2.65vw, 38px) !important;
-      line-height: 1.12 !important;
-      letter-spacing: -0.07em !important;
+      font-size: clamp(34px, 3.1vw, 46px) !important;
+      line-height: 1.13 !important;
+      letter-spacing: -0.072em !important;
     }
 
     .frame-area {
-      padding: 40px 0 42px !important;
+      padding: 54px 0 58px !important;
     }
 
     .axis-label.top,
     .axis-label.bottom {
-      min-height: 34px !important;
-      padding: 0 15px !important;
-      font-size: 18px !important;
+      min-height: 38px !important;
+      padding: 0 18px !important;
+      font-size: 21px !important;
     }
 
-    .axis-label.top { top: 5px !important; }
-    .axis-label.bottom { bottom: 5px !important; }
+    .axis-label.top { top: 7px !important; }
+    .axis-label.bottom { bottom: 7px !important; }
 
     .axis-label.left,
     .axis-label.right {
-      min-width: 36px !important;
-      min-height: 92px !important;
-      padding: 12px 7px !important;
-      font-size: 17px !important;
+      min-width: 40px !important;
+      min-height: 104px !important;
+      padding: 14px 8px !important;
+      font-size: 19px !important;
     }
 
     .matrix-legend {
-      top: 7px !important;
+      top: 9px !important;
       right: 48px !important;
-      gap: 6px !important;
+      gap: 8px !important;
     }
 
     .matrix-legend span {
-      min-height: 26px !important;
-      padding: 0 9px !important;
-      font-size: 11.5px !important;
+      min-height: 29px !important;
+      padding: 0 11px !important;
+      font-size: 12.5px !important;
     }
 
     .matrix {
-      border-radius: 22px !important;
+      border-radius: 25px !important;
     }
 
     .quadrant {
-      min-height: auto !important;
-      padding: 8px 8px 9px !important;
+      min-height: 228px !important;
+      padding: 12px 10px 13px !important;
     }
 
     .chips {
-      grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-      gap: 5px !important;
+      grid-template-columns: repeat(auto-fit, minmax(108px, 1fr)) !important;
+      gap: 8px !important;
     }
 
     .q2 .chips {
-      grid-template-columns: repeat(2, minmax(135px, 165px)) !important;
-      gap: 6px !important;
+      grid-template-columns: repeat(2, minmax(160px, 190px)) !important;
+      gap: 9px !important;
       justify-content: center !important;
     }
 
     .chip {
-      min-height: 38px !important;
-      padding: 4px 4px !important;
-      border-radius: 9px !important;
+      min-height: 47px !important;
+      padding: 6px 5px !important;
+      border-radius: 11px !important;
     }
 
     .chip .u {
-      font-size: 14px !important;
-      line-height: 1.02 !important;
+      font-size: 16px !important;
+      line-height: 1.03 !important;
     }
 
     .chip .t,
     .chip .min {
-      font-size: 10px !important;
-      line-height: 1.05 !important;
+      font-size: 11.2px !important;
+      line-height: 1.08 !important;
     }
 
     .chip .meta {
-      gap: 3px !important;
-    }
-
-    .footer-title {
-      margin-top: 10px !important;
-      font-size: 12.2px !important;
-      line-height: 1.35 !important;
-    }
-  }
-
-  @media (min-width: 981px) and (max-width: 1200px) {
-    .hero h1 {
-      font-size: clamp(28px, 3.1vw, 34px) !important;
-    }
-
-    .chips {
       gap: 4px !important;
     }
 
+    .footer-title {
+      margin-top: 16px !important;
+      font-size: 13.5px !important;
+      line-height: 1.45 !important;
+    }
+  }
+</style>
+
+
+
+<style id="laptop-table-inner-gap-final-fix">
+  /* 노트북·데스크톱 화면에서만 표 안쪽 위아래 여백을 아주 조금 줄여 전체 높이를 안정화 */
+  @media (min-width: 981px) {
+    .frame-area {
+      padding-top: 50px !important;
+      padding-bottom: 50px !important;
+    }
+
+    .quadrant {
+      min-height: 220px !important;
+      padding-top: 9px !important;
+      padding-bottom: 10px !important;
+    }
+
+    .chips {
+      gap: 7px !important;
+    }
+
+    .q2 .chips {
+      gap: 8px !important;
+    }
+
     .chip {
-      min-height: 36px !important;
-      padding: 3px 3px !important;
+      min-height: 45px !important;
+      padding-top: 5px !important;
+      padding-bottom: 5px !important;
     }
 
-    .chip .u {
-      font-size: 13px !important;
+    .footer-title {
+      margin-top: 12px !important;
+    }
+  }
+
+  @media (min-width: 981px) and (max-height: 760px) {
+    .frame-area {
+      padding-top: 48px !important;
+      padding-bottom: 46px !important;
     }
 
-    .chip .t,
-    .chip .min {
-      font-size: 9.3px !important;
+    .quadrant {
+      min-height: 216px !important;
+      padding-top: 8px !important;
+      padding-bottom: 9px !important;
+    }
+
+    .chip {
+      min-height: 44px !important;
+    }
+  }
+</style>
+
+
+<style id="title-hero-compact-final">
+  /* 최종 요청 반영: 제목 글자와 제목 배경 박스의 위아래 높이 축소 */
+  @media (min-width: 981px) {
+    .wrap {
+      padding-top: 14px !important;
+    }
+
+    .hero {
+      padding-top: 22px !important;
+      padding-bottom: 23px !important;
+      padding-left: 32px !important;
+      padding-right: 32px !important;
+      border-radius: 25px !important;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 2.65vw, 40px) !important;
+      line-height: 1.12 !important;
+      letter-spacing: -0.068em !important;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .hero {
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
+
+    .hero h1 {
+      font-size: 24px !important;
+      line-height: 1.12 !important;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero {
+      padding-top: 13px !important;
+      padding-bottom: 14px !important;
+    }
+
+    .hero h1 {
+      font-size: 19px !important;
     }
   }
 </style>
@@ -703,7 +779,7 @@ const DATA={
 
 const LABELS={gyo:"교과", jong:"종합"};
 function chip(d){
-  const title=`[${LABELS[d.type]}] ${d.uni} ${d.t}${d.min ? ' · 최저 '+d.min : ' · 최저 없음'}`;
+  const title=`[${LABELS[d.type]}] ${d.uni} ${d.t}${d.min ? ' 최저 '+d.min : ' 최저 없음'}`;
   return `<div class="chip ${d.type}" title="${title}">
     <span class="u">${d.uni}</span>
     <span class="meta">
