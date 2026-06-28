@@ -664,15 +664,241 @@
   }
 </style>
 
+<style id="unified-page-header-style">
+  :root{ --unified-top-width:min(1180px, calc(100% - 24px)); }
+
+  html, body{
+    max-width:100% !important;
+    overflow-x:hidden !important;
+  }
+
+  /* 모든 페이지 공통 제목 박스: 본문 카드와 같은 좌우 기준으로 중앙 정렬 */
+  .site-hero{
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    position:relative !important;
+    left:auto !important;
+    transform:none !important;
+    display:block !important;
+    width:var(--unified-top-width) !important;
+    max-width:var(--unified-top-width) !important;
+    margin:14px auto 12px !important;
+    padding:22px 30px 24px !important;
+    border:1px solid rgba(255,255,255,.28) !important;
+    border-radius:24px !important;
+    background:
+      radial-gradient(circle at 92% 12%, rgba(132,146,212,.55), transparent 34%),
+      linear-gradient(135deg,#172744 0%,#263b62 56%,#6475bd 100%) !important;
+    color:#fff !important;
+    box-shadow:0 18px 42px rgba(23,39,68,.16) !important;
+    overflow:hidden !important;
+    text-align:left !important;
+  }
+  .site-hero h1{
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    margin:0 !important;
+    color:#fff !important;
+    font-size:clamp(25px,2.55vw,34px) !important;
+    line-height:1.14 !important;
+    font-weight:900 !important;
+    letter-spacing:-.055em !important;
+    word-break:keep-all !important;
+    text-shadow:none !important;
+  }
+  .site-hero p{
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    margin:9px 0 0 !important;
+    max-width:960px !important;
+    color:rgba(255,255,255,.84) !important;
+    font-size:14px !important;
+    line-height:1.48 !important;
+    font-weight:700 !important;
+    letter-spacing:-.035em !important;
+    word-break:keep-all !important;
+    text-shadow:none !important;
+  }
+
+  /* 모든 페이지 공통 메뉴: 제목 박스와 동일 폭으로 중앙 정렬 */
+  .global-menu-section{
+    position:relative !important;
+    left:auto !important;
+    transform:none !important;
+    display:block !important;
+    width:var(--unified-top-width) !important;
+    max-width:var(--unified-top-width) !important;
+    margin:0 auto 18px !important;
+    padding:7px !important;
+    border:1px solid #d6dfed !important;
+    border-radius:20px !important;
+    background:rgba(255,255,255,.98) !important;
+    box-shadow:0 12px 30px rgba(31,49,81,.08) !important;
+  }
+  .global-menu-grid{
+    display:grid !important;
+    grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+    gap:6px !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  .global-menu-button{
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-width:0 !important;
+    min-height:36px !important;
+    padding:0 7px !important;
+    border:1px solid #cfd8ea !important;
+    border-radius:999px !important;
+    background:#f8fbff !important;
+    color:#071833 !important;
+    text-align:center !important;
+    text-decoration:none !important;
+    font-size:clamp(11px,.9vw,13px) !important;
+    line-height:1.12 !important;
+    font-weight:900 !important;
+    letter-spacing:-.045em !important;
+    white-space:nowrap !important;
+    box-shadow:none !important;
+    transition:background .14s ease, color .14s ease, border-color .14s ease, transform .14s ease !important;
+  }
+  .global-menu-button:hover,
+  .global-menu-button:focus{
+    transform:translateY(-1px) !important;
+    border-color:#172744 !important;
+    background:#172744 !important;
+    color:#fff !important;
+    outline:none !important;
+  }
+  .global-menu-button.active{
+    border-color:#172744 !important;
+    background:#172744 !important;
+    color:#fff !important;
+    box-shadow:0 8px 18px rgba(23,39,68,.17) !important;
+  }
+
+  /* 공통 상단 아래 본문 시작 여백 보정 */
+  .site-hero + .global-menu-section + .page,
+  .site-hero + .global-menu-section + main.page,
+  .site-hero + .global-menu-section + .wrap{
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+  .unified-footer{
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    display:block !important;
+    width:var(--unified-top-width) !important;
+    max-width:var(--unified-top-width) !important;
+    position:relative !important;
+    left:auto !important;
+    transform:none !important;
+    margin:22px auto 0 !important;
+    padding:8px 8px 6px !important;
+    border:0 !important;
+    background:transparent !important;
+    color:#5f6e86 !important;
+    text-align:center !important;
+    font-size:13px !important;
+    line-height:1.35 !important;
+    font-weight:800 !important;
+    letter-spacing:-.035em !important;
+    box-shadow:none !important;
+  }
+
+  @media (max-width:860px){
+    :root{ --unified-top-width:min(1180px, calc(100% - 16px)); }
+    .site-hero{
+      margin:10px auto 10px !important;
+      padding:18px 18px 19px !important;
+      border-radius:20px !important;
+    }
+    .site-hero h1{
+      font-size:clamp(22px,5.5vw,28px) !important;
+      line-height:1.16 !important;
+    }
+    .site-hero p{
+      margin-top:7px !important;
+      font-size:12.8px !important;
+      line-height:1.42 !important;
+    }
+    .global-menu-section{
+      margin:0 auto 12px !important;
+      padding:6px !important;
+      border-radius:17px !important;
+    }
+    .global-menu-grid{
+      grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+      gap:5px !important;
+    }
+    .global-menu-button{
+      min-height:34px !important;
+      padding:0 5px !important;
+      font-size:11.2px !important;
+    }
+    .unified-footer{
+      font-size:12px !important;
+      margin:16px auto 0 !important;
+    }
+  }
+
+  @media (max-width:430px){
+    :root{ --unified-top-width:min(1180px, calc(100% - 16px)); }
+    .site-hero{
+      margin:7px auto 8px !important;
+      padding:15px 14px 16px !important;
+      border-radius:18px !important;
+    }
+    .site-hero h1{
+      font-size:20px !important;
+      letter-spacing:-.06em !important;
+    }
+    .site-hero p{
+      font-size:11.7px !important;
+      line-height:1.38 !important;
+    }
+    .global-menu-section{
+      padding:5px !important;
+      border-radius:15px !important;
+    }
+    .global-menu-grid{
+      gap:4px !important;
+    }
+    .global-menu-button{
+      min-height:32px !important;
+      padding:0 3px !important;
+      font-size:10px !important;
+      letter-spacing:-.06em !important;
+    }
+    .unified-footer{
+      font-size:11.5px !important;
+    }
+  }
+
+  @media (max-width:350px){
+    .global-menu-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+  }
+</style>
+
 </head>
 <body>
+<header class="site-hero" aria-label="페이지 제목">
+  <h1>2028 공학계열 수시 수능최저 면접 정리</h1>
+  <p>공학계열 주요 수시 전형을 수능최저 적용 여부와 면접 여부 기준으로 비교합니다.</p>
+</header>
+<section class="global-menu-section" aria-label="전체 페이지 메뉴">
+  <div class="global-menu-grid">
+    <a class="global-menu-button" href="index.html#inputSection">내신입력 예측</a>
+    <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
+    <a class="global-menu-button active" href="2028_engineering_quadrant_final.html" aria-current="page">수능최저 면접</a>
+    <a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
+    <a class="global-menu-button" href="grade_converter.html">5→9등급 환산</a>
+    <a class="global-menu-button" href="student_admission_by_highschool_type.html">학종 고교유형</a>
+  </div>
+</section>
 <div class="wrap">
-  <header class="hero">
-    <div>
-      <h1>2028 공학계열 수시 수능최저 면접 정리</h1>
-    </div>
-  </header>
-  <div class="frame-scroll">
+<div class="frame-scroll">
     <div class="frame-area">
       <span class="axis-label top">수능최저O</span>
       <span class="axis-label bottom">수능최저X</span>
@@ -706,7 +932,7 @@
       </main>
     </div>
   </div>
-  <p class="footer-title">2028 공학계열 수시 수능최저 면접 정리 송도이샘로봇</p>
+  <footer class="unified-footer">2028 공학계열 수시 수능최저 면접 정리 [ 송도이샘로봇 ]</footer>
 </div>
 
 <script>
