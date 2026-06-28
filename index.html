@@ -2433,6 +2433,61 @@
     }
   }
 </style>
+
+
+<style id="quick-link-width-tight-final">
+  /* 바로가기 메뉴 최종 보정: 좌우 여백을 크게 줄이고, 폭이 줄어도 최대한 여러 개가 한 줄에 배치되도록 조정 */
+  .quick-link-section {
+    padding: 8px !important;
+  }
+
+  .quick-link-grid {
+    grid-template-columns: repeat(auto-fit, minmax(138px, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  .quick-link-button {
+    min-height: 38px !important;
+    padding: 6px 4px !important;
+    border-radius: 999px !important;
+    font-size: clamp(11px, 0.96vw, 13px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.065em !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  @media (max-width: 760px) {
+    .quick-link-section {
+      width: calc(100% - 10px) !important;
+      padding: 7px !important;
+    }
+
+    .quick-link-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 5px !important;
+    }
+
+    .quick-link-button {
+      min-height: 34px !important;
+      padding: 5px 1px !important;
+      font-size: clamp(9.4px, 2.62vw, 10.8px) !important;
+      letter-spacing: -0.08em !important;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .quick-link-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .quick-link-button {
+      font-size: 10.4px !important;
+    }
+  }
+</style>
 </head>
 <body>
 <main class="page">
