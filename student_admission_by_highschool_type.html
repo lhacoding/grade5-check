@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>학생부종합 고교유형별 입학자 수</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <style>
   :root {
     --bg:#eef3fb;
@@ -923,13 +925,240 @@
     /* 인원(전체) 별도 칸 */
     .mobile-total-cell{ display:flex; align-items:center; justify-content:center; padding:10px 4px; border-right:1px solid #edf2f8; white-space:nowrap; font-size:12px; font-weight:800; color:#1c2c49; }
   </style>
+
+<style id="unified-page-header-style">
+  :root{ --unified-top-width:min(1180px, calc(100% - 24px)); }
+
+  html, body{
+    max-width:100% !important;
+    overflow-x:hidden !important;
+  }
+
+  /* 모든 페이지 공통 제목 박스: 본문 카드와 같은 좌우 기준으로 중앙 정렬 */
+  .site-hero{
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    position:relative !important;
+    left:auto !important;
+    transform:none !important;
+    display:block !important;
+    width:var(--unified-top-width) !important;
+    max-width:var(--unified-top-width) !important;
+    margin:14px auto 12px !important;
+    padding:22px 30px 24px !important;
+    border:1px solid rgba(255,255,255,.28) !important;
+    border-radius:24px !important;
+    background:
+      radial-gradient(circle at 92% 12%, rgba(132,146,212,.55), transparent 34%),
+      linear-gradient(135deg,#172744 0%,#263b62 56%,#6475bd 100%) !important;
+    color:#fff !important;
+    box-shadow:0 18px 42px rgba(23,39,68,.16) !important;
+    overflow:hidden !important;
+    text-align:left !important;
+  }
+  .site-hero h1{
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    margin:0 !important;
+    color:#fff !important;
+    font-size:clamp(25px,2.55vw,34px) !important;
+    line-height:1.14 !important;
+    font-weight:900 !important;
+    letter-spacing:-.055em !important;
+    word-break:keep-all !important;
+    text-shadow:none !important;
+  }
+  .site-hero p{
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    margin:9px 0 0 !important;
+    max-width:960px !important;
+    color:rgba(255,255,255,.84) !important;
+    font-size:14px !important;
+    line-height:1.48 !important;
+    font-weight:700 !important;
+    letter-spacing:-.035em !important;
+    word-break:keep-all !important;
+    text-shadow:none !important;
+  }
+
+  /* 모든 페이지 공통 메뉴: 제목 박스와 동일 폭으로 중앙 정렬 */
+  .global-menu-section{
+    position:relative !important;
+    left:auto !important;
+    transform:none !important;
+    display:block !important;
+    width:var(--unified-top-width) !important;
+    max-width:var(--unified-top-width) !important;
+    margin:0 auto 18px !important;
+    padding:7px !important;
+    border:1px solid #d6dfed !important;
+    border-radius:20px !important;
+    background:rgba(255,255,255,.98) !important;
+    box-shadow:0 12px 30px rgba(31,49,81,.08) !important;
+  }
+  .global-menu-grid{
+    display:grid !important;
+    grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+    gap:6px !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  .global-menu-button{
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-width:0 !important;
+    min-height:36px !important;
+    padding:0 7px !important;
+    border:1px solid #cfd8ea !important;
+    border-radius:999px !important;
+    background:#f8fbff !important;
+    color:#071833 !important;
+    text-align:center !important;
+    text-decoration:none !important;
+    font-size:clamp(11px,.9vw,13px) !important;
+    line-height:1.12 !important;
+    font-weight:900 !important;
+    letter-spacing:-.045em !important;
+    white-space:nowrap !important;
+    box-shadow:none !important;
+    transition:background .14s ease, color .14s ease, border-color .14s ease, transform .14s ease !important;
+  }
+  .global-menu-button:hover,
+  .global-menu-button:focus{
+    transform:translateY(-1px) !important;
+    border-color:#172744 !important;
+    background:#172744 !important;
+    color:#fff !important;
+    outline:none !important;
+  }
+  .global-menu-button.active{
+    border-color:#172744 !important;
+    background:#172744 !important;
+    color:#fff !important;
+    box-shadow:0 8px 18px rgba(23,39,68,.17) !important;
+  }
+
+  /* 공통 상단 아래 본문 시작 여백 보정 */
+  .site-hero + .global-menu-section + .page,
+  .site-hero + .global-menu-section + main.page,
+  .site-hero + .global-menu-section + .wrap{
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+  .unified-footer{
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
+    display:block !important;
+    width:var(--unified-top-width) !important;
+    max-width:var(--unified-top-width) !important;
+    position:relative !important;
+    left:auto !important;
+    transform:none !important;
+    margin:22px auto 0 !important;
+    padding:8px 8px 6px !important;
+    border:0 !important;
+    background:transparent !important;
+    color:#5f6e86 !important;
+    text-align:center !important;
+    font-size:13px !important;
+    line-height:1.35 !important;
+    font-weight:800 !important;
+    letter-spacing:-.035em !important;
+    box-shadow:none !important;
+  }
+
+  @media (max-width:860px){
+    :root{ --unified-top-width:min(1180px, calc(100% - 16px)); }
+    .site-hero{
+      margin:10px auto 10px !important;
+      padding:18px 18px 19px !important;
+      border-radius:20px !important;
+    }
+    .site-hero h1{
+      font-size:clamp(22px,5.5vw,28px) !important;
+      line-height:1.16 !important;
+    }
+    .site-hero p{
+      margin-top:7px !important;
+      font-size:12.8px !important;
+      line-height:1.42 !important;
+    }
+    .global-menu-section{
+      margin:0 auto 12px !important;
+      padding:6px !important;
+      border-radius:17px !important;
+    }
+    .global-menu-grid{
+      grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+      gap:5px !important;
+    }
+    .global-menu-button{
+      min-height:34px !important;
+      padding:0 5px !important;
+      font-size:11.2px !important;
+    }
+    .unified-footer{
+      font-size:12px !important;
+      margin:16px auto 0 !important;
+    }
+  }
+
+  @media (max-width:430px){
+    :root{ --unified-top-width:min(1180px, calc(100% - 16px)); }
+    .site-hero{
+      margin:7px auto 8px !important;
+      padding:15px 14px 16px !important;
+      border-radius:18px !important;
+    }
+    .site-hero h1{
+      font-size:20px !important;
+      letter-spacing:-.06em !important;
+    }
+    .site-hero p{
+      font-size:11.7px !important;
+      line-height:1.38 !important;
+    }
+    .global-menu-section{
+      padding:5px !important;
+      border-radius:15px !important;
+    }
+    .global-menu-grid{
+      gap:4px !important;
+    }
+    .global-menu-button{
+      min-height:32px !important;
+      padding:0 3px !important;
+      font-size:10px !important;
+      letter-spacing:-.06em !important;
+    }
+    .unified-footer{
+      font-size:11.5px !important;
+    }
+  }
+
+  @media (max-width:350px){
+    .global-menu-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+  }
+</style>
+
 </head>
 <body>
-<header class="top-hero">
-  <div class="hero-inner">
-    <h1>학생부종합 고교유형별 입학자 수</h1>
-  </div>
+<header class="site-hero" aria-label="페이지 제목">
+  <h1>학생부종합 고교유형별 입학자 수</h1>
+  <p>대학별 학생부종합전형 입학생의 고교유형 분포를 확인해 지원 전략에 참고합니다.</p>
 </header>
+<section class="global-menu-section" aria-label="전체 페이지 메뉴">
+  <div class="global-menu-grid">
+    <a class="global-menu-button" href="index.html#inputSection">내신입력 예측</a>
+    <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
+    <a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a>
+    <a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
+    <a class="global-menu-button" href="grade_converter.html">5→9등급 환산</a>
+    <a class="global-menu-button active" href="student_admission_by_highschool_type.html" aria-current="page">학종 고교유형</a>
+  </div>
+</section>
 <main class="page">
   <section class="panel section">
     <div class="section-title">
@@ -957,7 +1186,7 @@
     </div>
     <div class="mobile-list" id="mobileList"></div>
   </section>
-  <footer>학생부종합 고교유형별 입학자 수 · 송도이샘로봇</footer>
+  <footer class="unified-footer">학생부종합 고교유형별 입학자 수 [ 송도이샘로봇 ]</footer>
 </main>
 <script>
 const rows = [{"univ": "서울대(일반)", "total": 1415, "cnt_general": 471, "cnt_autonomous": 187, "cnt_science": 121, "cnt_foreign": 249, "cnt_gifted": 354, "pct_general": 33.29, "pct_autonomous": 13.22, "pct_science": 8.55, "pct_foreign": 17.6, "pct_gifted": 25.02, "highlight": ["pct_general", "pct_autonomous"]}, {"univ": "서울대(지균)", "total": 482, "cnt_general": 464, "cnt_autonomous": 14, "cnt_science": 0, "cnt_foreign": 0, "cnt_gifted": 0, "pct_general": 96.27, "pct_autonomous": 2.9, "pct_science": 0, "pct_foreign": 0, "pct_gifted": 0, "highlight": []}, {"univ": "연세대(일반)", "total": 583, "cnt_general": 400, "cnt_autonomous": 71, "cnt_science": 5, "cnt_foreign": 90, "cnt_gifted": 17, "pct_general": 68.61, "pct_autonomous": 12.18, "pct_science": 0.86, "pct_foreign": 15.44, "pct_gifted": 2.92, "highlight": []}, {"univ": "연세대(활동형)", "total": 196, "cnt_general": 81, "cnt_autonomous": 5, "cnt_science": 0, "cnt_foreign": 17, "cnt_gifted": 0, "pct_general": 41.33, "pct_autonomous": 2.55, "pct_science": 0, "pct_foreign": 8.67, "pct_gifted": 0, "highlight": ["pct_general", "pct_autonomous"]}, {"univ": "고려대", "total": 1241, "cnt_general": 631, "cnt_autonomous": 268, "cnt_science": 54, "cnt_foreign": 261, "cnt_gifted": 27, "pct_general": 50.85, "pct_autonomous": 21.6, "pct_science": 4.35, "pct_foreign": 21.03, "pct_gifted": 2.18, "highlight": []}, {"univ": "서강대", "total": 526, "cnt_general": 143, "cnt_autonomous": 132, "cnt_science": 21, "cnt_foreign": 211, "cnt_gifted": 16, "pct_general": 27.19, "pct_autonomous": 25.1, "pct_science": 3.99, "pct_foreign": 40.11, "pct_gifted": 3.04, "highlight": []}, {"univ": "성균관대", "total": 989, "cnt_general": 401, "cnt_autonomous": 230, "cnt_science": 127, "cnt_foreign": 204, "cnt_gifted": 22, "pct_general": 40.55, "pct_autonomous": 23.26, "pct_science": 12.84, "pct_foreign": 20.63, "pct_gifted": 2.22, "highlight": []}, {"univ": "한양대(일반)", "total": 674, "cnt_general": 265, "cnt_autonomous": 196, "cnt_science": 24, "cnt_foreign": 153, "cnt_gifted": 36, "pct_general": 39.32, "pct_autonomous": 29.08, "pct_science": 3.56, "pct_foreign": 22.7, "pct_gifted": 5.34, "highlight": []}, {"univ": "한양대(지균)", "total": 178, "cnt_general": 76, "cnt_autonomous": 57, "cnt_science": 0, "cnt_foreign": 45, "cnt_gifted": 0, "pct_general": 42.7, "pct_autonomous": 32.02, "pct_science": 0, "pct_foreign": 25.28, "pct_gifted": 0, "highlight": []}, {"univ": "이화여대", "total": 992, "cnt_general": 820, "cnt_autonomous": 17, "cnt_science": 1, "cnt_foreign": 150, "cnt_gifted": 2, "pct_general": 82.66, "pct_autonomous": 1.71, "pct_science": 0.1, "pct_foreign": 15.12, "pct_gifted": 0.2, "highlight": []}, {"univ": "중앙대", "total": 769, "cnt_general": 480, "cnt_autonomous": 73, "cnt_science": 47, "cnt_foreign": 156, "cnt_gifted": 10, "pct_general": 62.42, "pct_autonomous": 9.49, "pct_science": 6.11, "pct_foreign": 20.29, "pct_gifted": 1.3, "highlight": []}, {"univ": "경희대", "total": 1121, "cnt_general": 830, "cnt_autonomous": 37, "cnt_science": 8, "cnt_foreign": 202, "cnt_gifted": 5, "pct_general": 74.04, "pct_autonomous": 3.3, "pct_science": 0.71, "pct_foreign": 18.02, "pct_gifted": 0.45, "highlight": []}, {"univ": "한국외대", "total": 1026, "cnt_general": 738, "cnt_autonomous": 22, "cnt_science": 0, "cnt_foreign": 261, "cnt_gifted": 0, "pct_general": 71.93, "pct_autonomous": 2.14, "pct_science": 0.0, "pct_foreign": 25.44, "pct_gifted": 0, "highlight": []}, {"univ": "건국대", "total": 806, "cnt_general": 651, "cnt_autonomous": 57, "cnt_science": 6, "cnt_foreign": 84, "cnt_gifted": 6, "pct_general": 80.77, "pct_autonomous": 7.07, "pct_science": 0.74, "pct_foreign": 10.42, "pct_gifted": 0.74, "highlight": []}, {"univ": "동국대", "total": 673, "cnt_general": 606, "cnt_autonomous": 1, "cnt_science": 0, "cnt_foreign": 58, "cnt_gifted": 0, "pct_general": 90.04, "pct_autonomous": 0.15, "pct_science": 0, "pct_foreign": 8.62, "pct_gifted": 0, "highlight": []}, {"univ": "홍익대", "total": 441, "cnt_general": 411, "cnt_autonomous": 3, "cnt_science": 0, "cnt_foreign": 24, "cnt_gifted": 0, "pct_general": 93.2, "pct_autonomous": 0.68, "pct_science": 0, "pct_foreign": 5.44, "pct_gifted": 0, "highlight": []}, {"univ": "숙명여대", "total": 424, "cnt_general": 294, "cnt_autonomous": 45, "cnt_science": 1, "cnt_foreign": 84, "cnt_gifted": 0, "pct_general": 69.34, "pct_autonomous": 10.61, "pct_science": 0.24, "pct_foreign": 19.81, "pct_gifted": 0, "highlight": []}, {"univ": "숭실대", "total": 625, "cnt_general": 555, "cnt_autonomous": 14, "cnt_science": 0, "cnt_foreign": 40, "cnt_gifted": 0, "pct_general": 88.8, "pct_autonomous": 2.24, "pct_science": 0, "pct_foreign": 6.4, "pct_gifted": 0, "highlight": []}, {"univ": "국민대", "total": 367, "cnt_general": 345, "cnt_autonomous": 2, "cnt_science": 1, "cnt_foreign": 17, "cnt_gifted": 0, "pct_general": 94.01, "pct_autonomous": 0.54, "pct_science": 0.27, "pct_foreign": 4.63, "pct_gifted": 0, "highlight": []}, {"univ": "세종대", "total": 474, "cnt_general": 416, "cnt_autonomous": 5, "cnt_science": 6, "cnt_foreign": 10, "cnt_gifted": 0, "pct_general": 87.76, "pct_autonomous": 1.05, "pct_science": 1.27, "pct_foreign": 2.11, "pct_gifted": 0, "highlight": []}, {"univ": "광운대", "total": 572, "cnt_general": 554, "cnt_autonomous": 6, "cnt_science": 0, "cnt_foreign": 9, "cnt_gifted": 0, "pct_general": 96.85, "pct_autonomous": 1.05, "pct_science": 0, "pct_foreign": 1.57, "pct_gifted": 0, "highlight": []}, {"univ": "서울과기대", "total": 502, "cnt_general": 397, "cnt_autonomous": 34, "cnt_science": 45, "cnt_foreign": 19, "cnt_gifted": 0, "pct_general": 79.08, "pct_autonomous": 6.77, "pct_science": 8.96, "pct_foreign": 3.78, "pct_gifted": 0, "highlight": []}, {"univ": "성신여대", "total": 566, "cnt_general": 517, "cnt_autonomous": 0, "cnt_science": 0, "cnt_foreign": 42, "cnt_gifted": 0, "pct_general": 91.34, "pct_autonomous": 0, "pct_science": 0, "pct_foreign": 7.42, "pct_gifted": 0, "highlight": []}, {"univ": "서울여대", "total": 423, "cnt_general": 400, "cnt_autonomous": 2, "cnt_science": 1, "cnt_foreign": 19, "cnt_gifted": 0, "pct_general": 94.56, "pct_autonomous": 0.47, "pct_science": 0.24, "pct_foreign": 4.49, "pct_gifted": 0, "highlight": []}, {"univ": "덕성여대", "total": 281, "cnt_general": 276, "cnt_autonomous": 2, "cnt_science": 0, "cnt_foreign": 3, "cnt_gifted": 0, "pct_general": 98.22, "pct_autonomous": 0.71, "pct_science": 0, "pct_foreign": 1.07, "pct_gifted": 0, "highlight": []}, {"univ": "동덕여대", "total": 156, "cnt_general": 143, "cnt_autonomous": 0, "cnt_science": 0, "cnt_foreign": 5, "cnt_gifted": 0, "pct_general": 91.67, "pct_autonomous": 0, "pct_science": 0, "pct_foreign": 3.21, "pct_gifted": 0, "highlight": []}];
