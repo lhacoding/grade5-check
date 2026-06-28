@@ -4776,15 +4776,34 @@
       }
     };
 
+    const directSciencePriority = ["물리학", "화학", "생명과학", "지구과학"];
+
+    function sortDirectSubjectOptions(group, subjects) {
+      if (group !== "science") {
+        return subjects.slice().sort((a, b) => a.localeCompare(b, "ko"));
+      }
+
+      const priorityMap = new Map(directSciencePriority.map((subject, index) => [subject, index]));
+
+      return subjects.slice().sort((a, b) => {
+        const aPriority = priorityMap.has(a) ? priorityMap.get(a) : 999;
+        const bPriority = priorityMap.has(b) ? priorityMap.get(b) : 999;
+
+        if (aPriority !== bPriority) {
+          return aPriority - bPriority;
+        }
+
+        return a.localeCompare(b, "ko");
+      });
+    }
+
     function makeDirectOptions(group, courseType = "일반", includeNone = false) {
       const category = directCategoryMap[group];
       const noneOption = includeNone
         ? [{ subject: "없음", category, courseType: "없음", included: false }]
         : [];
 
-      const options = (directInputSubjectOptions[group] || [])
-        .slice()
-        .sort((a, b) => a.localeCompare(b, "ko"))
+      const options = sortDirectSubjectOptions(group, directInputSubjectOptions[group] || [])
         .map((subject) => ({
           subject,
           category,
