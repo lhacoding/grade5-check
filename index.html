@@ -1800,6 +1800,24 @@
       grid-template-columns: 1fr !important;
     }
   }
+
+
+  /* 직접입력에서 '없음'으로 선택한 과목은 계산에서 제외하고 흐리게 표시 */
+  tr.is-none-row td {
+    background: #f8fafc !important;
+    color: #94a3b8 !important;
+  }
+
+  .none-value {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    min-height: 28px;
+    color: #94a3b8;
+    font-weight: 900;
+  }
+
 </style>
   <style id="responsive-fix">
     /* 반응형 보완: 여백(칸 간격·페이지 바깥여백)을 먼저 줄이고, 더 줄일 수 없을 때만 줄바꿈 */
@@ -2708,6 +2726,246 @@
   }
 </style>
 
+
+<style id="direct-input-final-fix">
+  /* 직접입력 탭 추가: 남고·여고·직접입력 3개 영역 균형 배치 */
+  .school-groups,
+  .school-section .school-groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .direct-input-group h3 {
+    background: linear-gradient(135deg, #e7f2ff 0%, #d8e8ff 100%) !important;
+  }
+
+  .credit-cell select {
+    width: 54px;
+    min-width: 54px;
+  }
+
+  @media (max-width: 900px) {
+    .school-groups,
+    .school-section .school-groups {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .school-groups,
+    .school-section .school-groups {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (min-width: 561px) {
+    .subject-select {
+      width: 132px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .credit-cell select {
+      width: 44px;
+      min-width: 44px;
+    }
+  }
+</style>
+
+
+
+<style id="subject-select-left-align-final-fix">
+  /* 과목 선택 드롭다운 명칭 정렬: 학점/등급 선택은 가운데 유지, 과목명만 왼쪽 정렬 */
+  .subject-select {
+    text-align: left !important;
+    text-align-last: left !important;
+    padding-left: 10px !important;
+    padding-right: 24px !important;
+  }
+
+  .subject-select option {
+    text-align: left !important;
+  }
+
+  @media (max-width: 560px) {
+    .subject-select {
+      padding-left: 7px !important;
+      padding-right: 18px !important;
+    }
+  }
+</style>
+
+
+
+<style id="course-type-subject-gap-fix">
+  /* 공통·일반·진로 라벨과 과목명 사이 간격 보정 */
+  .subject-inner {
+    gap: 12px !important;
+  }
+
+  @media (max-width: 560px) {
+    .subject-inner {
+      gap: 9px !important;
+    }
+  }
+</style>
+
+
+
+<style id="subject-column-balance-v12">
+  /* 과목유형 라벨과 과목명 사이 여백을 유지하면서 과목 선택칸이 학점 칸과 겹치지 않도록 보정 */
+  table {
+    table-layout: fixed !important;
+  }
+
+  .category-col { width: 22% !important; }
+  .subject-col { width: 38% !important; }
+  .credit { width: 16% !important; }
+  .grade { width: 24% !important; }
+
+  td.subject {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    overflow: hidden !important;
+  }
+
+  .subject-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .subject-inner .pill {
+    flex: 0 0 45px !important;
+  }
+
+  .subject-name {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .subject-select {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+  @media (max-width: 560px) {
+    .category-col { width: 22% !important; }
+    .subject-col { width: 39% !important; }
+    .credit { width: 15% !important; }
+    .grade { width: 24% !important; }
+
+    td.subject {
+      padding-left: 6px !important;
+      padding-right: 6px !important;
+    }
+
+    .subject-inner {
+      gap: 10px !important;
+    }
+
+    .subject-inner .pill {
+      flex-basis: 36px !important;
+    }
+  }
+</style>
+
+
+
+<style id="direct-input-readability-v13">
+  /* 직접입력은 선택 과목명이 길어질 수 있으므로 1·2학기 카드를 세로 배치해 과목명이 잘리지 않도록 함 */
+  #semesterTables .semester-wrap.direct-input-semester-wrap:not(.single-semester-view) {
+    grid-template-columns: 1fr !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap .subject-col {
+    width: 43% !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap .credit {
+    width: 14% !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap .grade {
+    width: 21% !important;
+  }
+</style>
+
+
+
+<style id="direct-input-responsive-v14">
+  /* 직접입력: 과목명이 들어갈 수 있는 폭에서는 1·2학기를 좌우 배치하고, 좁은 화면에서만 세로 배치 */
+  #semesterTables .semester-wrap.direct-input-semester-wrap:not(.single-semester-view) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap .category-col {
+    width: 21% !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap .subject-col {
+    width: 43% !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap .credit {
+    width: 15% !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap .grade {
+    width: 21% !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap th,
+  #semesterTables .semester-wrap.direct-input-semester-wrap td {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap td.subject {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap .subject-inner {
+    gap: 11px !important;
+  }
+
+  #semesterTables .semester-wrap.direct-input-semester-wrap .subject-select {
+    font-size: 13px !important;
+    padding-left: 8px !important;
+    padding-right: 18px !important;
+  }
+
+  @media (max-width: 1120px) {
+    #semesterTables .semester-wrap.direct-input-semester-wrap:not(.single-semester-view) {
+      grid-template-columns: 1fr !important;
+    }
+
+    #semesterTables .semester-wrap.direct-input-semester-wrap .category-col {
+      width: 22% !important;
+    }
+
+    #semesterTables .semester-wrap.direct-input-semester-wrap .subject-col {
+      width: 43% !important;
+    }
+
+    #semesterTables .semester-wrap.direct-input-semester-wrap .credit {
+      width: 14% !important;
+    }
+
+    #semesterTables .semester-wrap.direct-input-semester-wrap .grade {
+      width: 21% !important;
+    }
+  }
+</style>
+
 </head>
 <body>
 <header class="site-hero" aria-label="페이지 제목">
@@ -2738,6 +2996,10 @@
 <div class="school-group">
 <h3>여고</h3>
 <div class="tab-row" id="girlsTabs"></div>
+</div>
+<div class="school-group direct-input-group">
+<h3>직접입력</h3>
+<div class="tab-row" id="directTabs"></div>
 </div>
 </div>
 </section>
@@ -2869,18 +3131,7 @@
             { subject: "전문수학", category: "수학", courseType: "진로", credit: 3, grade: 1, included: true },
             { subject: "전자기와양자", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
             { subject: "화학반응의세계", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
-            {
-              subject: "생물의유전",
-              category: "과학",
-              courseType: "진로",
-              credit: 3,
-              grade: 1,
-              included: true,
-              subjectOptions: [
-                { subject: "생물의유전", category: "과학", courseType: "진로" },
-                { subject: "창의공학설계", category: "정보", courseType: "융합" }
-              ]
-            }
+            { subject: "생명의유전", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true }
           ]
         }
       },
@@ -2932,7 +3183,7 @@
             { subject: "미적분2", category: "수학", courseType: "진로", credit: 3, grade: 1, included: true },
             { subject: "전자기와양자", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
             { subject: "화학반응의세계", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
-            { subject: "생물의유전", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
+            { subject: "생명의유전", category: "과학", courseType: "진로", credit: 3, grade: 1, included: true },
             { subject: "소프트웨어와생활", category: "정보", courseType: "융합", credit: 3, grade: 1, included: true }
           ]
         }
@@ -3549,26 +3800,6 @@
                                 "included": true
                         },
                         {
-                                "subject": "생태와환경",
-                                "category": "과학",
-                                "courseType": "진로",
-                                "credit": 2,
-                                "grade": 1,
-                                "included": true,
-                                "subjectOptions": [
-                                        {
-                                                "subject": "생태와환경",
-                                                "category": "과학",
-                                                "courseType": "진로"
-                                        },
-                                        {
-                                                "subject": "인간과경제활동",
-                                                "category": "사회",
-                                                "courseType": "진로"
-                                        }
-                                ]
-                        },
-                        {
                                 "subject": "전자기와양자",
                                 "category": "과학",
                                 "courseType": "진로",
@@ -3585,7 +3816,7 @@
                                 "included": true
                         },
                         {
-                                "subject": "생물의 유전",
+                                "subject": "생명의 유전",
                                 "category": "과학",
                                 "courseType": "진로",
                                 "credit": 3,
@@ -4484,7 +4715,7 @@
                                 "included": true
                         },
                         {
-                                "subject": "생물의유전",
+                                "subject": "생명의유전",
                                 "category": "과학",
                                 "courseType": "진로",
                                 "credit": 3,
@@ -4504,6 +4735,156 @@
 }
     };
 
+    const directInputSubjectOptions = {
+      korean: ["독서와작문", "매체의사소통", "문학", "화법과언어"],
+      math: ["경제수학", "기하", "미적분2", "인공지능수학", "확률과통계"],
+      science: ["물리학", "물질과 에너지", "생명과학", "생명의 유전", "세포와 물질대사", "역학과 에너지", "전자기와 양자", "지구과학", "지구시스템과학", "행성과 우주과학", "화학", "화학 반응의 세계"],
+      info: ["데이터과학", "로봇과 공학세계", "소프트웨어와생활", "인공지능 기초", "정보"]
+    };
+
+    const directCategoryMap = {
+      korean: "국어",
+      math: "수학",
+      science: "과학",
+      info: "정보"
+    };
+
+    const directCourseTypeMap = {
+      korean: {},
+      math: {
+        "기하": "진로",
+        "미적분2": "진로",
+        "경제수학": "진로",
+        "인공지능수학": "진로"
+      },
+      science: {
+        "역학과 에너지": "진로",
+        "물질과 에너지": "진로",
+        "세포와 물질대사": "진로",
+        "지구시스템과학": "진로",
+        "전자기와 양자": "진로",
+        "화학 반응의 세계": "진로",
+        "생명의 유전": "진로",
+        "행성과 우주과학": "진로"
+      },
+      info: {
+        "로봇과 공학세계": "융합",
+        "정보": "융합",
+        "인공지능 기초": "진로",
+        "데이터과학": "융합",
+        "소프트웨어와생활": "융합"
+      }
+    };
+
+    function makeDirectOptions(group, courseType = "일반", includeNone = false) {
+      const category = directCategoryMap[group];
+      const noneOption = includeNone
+        ? [{ subject: "없음", category, courseType: "없음", included: false }]
+        : [];
+
+      const options = (directInputSubjectOptions[group] || [])
+        .slice()
+        .sort((a, b) => a.localeCompare(b, "ko"))
+        .map((subject) => ({
+          subject,
+          category,
+          courseType: directCourseTypeMap[group]?.[subject] || courseType,
+          included: true
+        }));
+
+      return [...noneOption, ...options];
+    }
+
+    function findDirectOption(subjectOptions, subject) {
+      if (!subjectOptions || subjectOptions.length === 0) {
+        return null;
+      }
+
+      return subjectOptions.find((option) => option.subject === subject) || subjectOptions[0];
+    }
+
+    function makeDirectItem({ subject, category, courseType = "일반", credit = 3, options = null, includeNone = false }) {
+      const subjectOptions = options ? makeDirectOptions(options, courseType, includeNone) : null;
+      const selectedOption = findDirectOption(subjectOptions, subject);
+
+      return {
+        subject: selectedOption ? selectedOption.subject : subject,
+        category: selectedOption ? selectedOption.category : category,
+        courseType: selectedOption ? selectedOption.courseType : courseType,
+        credit,
+        defaultCredit: credit,
+        defaultSubject: selectedOption ? selectedOption.subject : subject,
+        defaultCategory: selectedOption ? selectedOption.category : category,
+        defaultCourseType: selectedOption ? selectedOption.courseType : courseType,
+        defaultIncluded: selectedOption ? selectedOption.included !== false : true,
+        creditOptions: [3, 4],
+        grade: 1,
+        included: selectedOption ? selectedOption.included !== false : true,
+        ...(subjectOptions ? { subjectOptions } : {})
+      };
+    }
+
+    function makeDirectSubjectSlots(group, count, defaults = [], courseType = "일반") {
+      return Array.from({ length: count }, (_, index) => makeDirectItem({
+        subject: defaults[index] || "없음",
+        category: directCategoryMap[group],
+        courseType,
+        options: group,
+        includeNone: true
+      }));
+    }
+
+    function makeDirectSemester(semesterName) {
+      const [grade, term] = semesterName.split("-");
+
+      if (grade === "1") {
+        return [
+          makeDirectItem({ subject: `공통국어${term}`, category: "국어", courseType: "공통" }),
+          makeDirectItem({ subject: `공통영어${term}`, category: "영어", courseType: "공통" }),
+          makeDirectItem({ subject: `공통수학${term}`, category: "수학", courseType: "공통" }),
+          makeDirectItem({ subject: `통합과학${term}`, category: "과학", courseType: "공통" }),
+          makeDirectItem({ subject: `통합사회${term}`, category: "사회", courseType: "공통" }),
+          makeDirectItem({ subject: `한국사${term}`, category: "한국사", courseType: "공통" }),
+          ...makeDirectSubjectSlots("info", 1)
+        ];
+      }
+
+      if (grade === "2") {
+        const fixedMathSubject = term === "1" ? "대수" : "미적분1";
+
+        return [
+          makeDirectItem({ subject: term === "1" ? "문학" : "독서와작문", category: "국어", courseType: "일반", options: "korean" }),
+          makeDirectItem({ subject: `영어${term}`, category: "영어", courseType: "일반" }),
+          makeDirectItem({ subject: fixedMathSubject, category: "수학", courseType: "일반" }),
+          ...makeDirectSubjectSlots("math", 2),
+          ...makeDirectSubjectSlots("science", 4),
+          ...makeDirectSubjectSlots("info", 1)
+        ];
+      }
+
+      return [
+        makeDirectItem({ subject: "문학", category: "국어", courseType: "일반", options: "korean" }),
+        makeDirectItem({ subject: "영어독해와작문", category: "영어", courseType: "일반" }),
+        ...makeDirectSubjectSlots("math", 3),
+        ...makeDirectSubjectSlots("science", 4),
+        ...makeDirectSubjectSlots("info", 1)
+      ];
+    }
+
+    schoolTabs.direct = ["직접입력"];
+    schoolData["직접입력"] = {
+      name: "직접입력",
+      type: "직접입력",
+      defaultGrade: 1,
+      semesters: {
+        "1-1": makeDirectSemester("1-1"),
+        "1-2": makeDirectSemester("1-2"),
+        "2-1": makeDirectSemester("2-1"),
+        "2-2": makeDirectSemester("2-2"),
+        "3-1": makeDirectSemester("3-1")
+      }
+    };
+
     const semesterByGrade = {
       "1": ["1-1", "1-2"],
       "2": ["2-1", "2-2"],
@@ -4517,6 +4898,7 @@
 
     const boysTabs = document.getElementById("boysTabs");
     const girlsTabs = document.getElementById("girlsTabs");
+    const directTabs = document.getElementById("directTabs");
     const semesterResults = document.getElementById("semesterResults");
     const subjectResults = document.getElementById("subjectResults");
     const semesterTables = document.getElementById("semesterTables");
@@ -4566,6 +4948,7 @@
     function createSchoolTabs() {
       boysTabs.innerHTML = "";
       girlsTabs.innerHTML = "";
+      directTabs.innerHTML = "";
 
       schoolTabs.boys.forEach((school) => {
         boysTabs.appendChild(createSchoolButton(school));
@@ -4573,6 +4956,10 @@
 
       schoolTabs.girls.forEach((school) => {
         girlsTabs.appendChild(createSchoolButton(school));
+      });
+
+      schoolTabs.direct.forEach((school) => {
+        directTabs.appendChild(createSchoolButton(school));
       });
     }
 
@@ -4653,6 +5040,11 @@
     function getItemCourseType(item) {
       const option = getSubjectOption(item);
       return option ? option.courseType : item.courseType;
+    }
+
+    function getItemIncluded(item) {
+      const option = getSubjectOption(item);
+      return option ? option.included !== false : item.included !== false;
     }
 
     function formatSemesterName(semesterName) {
@@ -4799,6 +5191,10 @@
     }
 
     function shouldUseForAverage(item) {
+      if (!getItemIncluded(item)) {
+        return false;
+      }
+
       if (selectedAverageScope === "core") {
         return ["국어", "영어", "수학", "과학"].includes(getItemCategory(item));
       }
@@ -4866,6 +5262,10 @@
 
       Object.values(data.semesters).forEach((semesterSubjects) => {
         semesterSubjects.forEach((item) => {
+          if (!getItemIncluded(item)) {
+            return;
+          }
+
           const category = getItemCategory(item);
 
           if (!result[category]) {
@@ -5281,7 +5681,8 @@
 
       const semesters = semesterByGrade[selectedGradeView];
       const wrap = document.createElement("div");
-      wrap.className = `semester-wrap ${semesters.length === 1 ? "single-semester-view" : ""}`.trim();
+      const isDirectInputMode = data.type === "직접입력" || data.name === "직접입력";
+      wrap.className = `semester-wrap ${semesters.length === 1 ? "single-semester-view" : ""} ${isDirectInputMode ? "direct-input-semester-wrap" : ""}`.trim();
 
       semesters.forEach((semesterName) => {
         const subjects = data.semesters[semesterName] || [];
@@ -5307,6 +5708,7 @@
                   const currentSubject = getItemSubject(item);
                   const currentCategory = getItemCategory(item);
                   const currentCourseType = getItemCourseType(item);
+                  const isIncluded = getItemIncluded(item);
                   const categoryClass = getCategoryClass(currentCategory);
                   const typeClass = getCourseTypeClass(currentCourseType);
 
@@ -5319,7 +5721,7 @@
                     : `<span class="subject-name">${currentSubject}</span>`;
 
                   return `
-                    <tr>
+                    <tr class="${isIncluded ? "" : "is-none-row"}">
                       <td>
                         <span class="pill category-pill ${categoryClass}">${currentCategory}</span>
                       </td>
@@ -5329,13 +5731,25 @@
                           ${subjectControl}
                         </span>
                       </td>
-                      <td class="credit-cell">${item.credit}</td>
+                      <td class="credit-cell">
+                        ${!isIncluded
+                          ? `<span class="none-value">-</span>`
+                          : item.creditOptions
+                            ? `<select data-semester="${semesterName}" data-index="${index}" data-field="credit" aria-label="${currentSubject} 학점">
+                                ${item.creditOptions.map((credit) => `
+                                  <option value="${credit}" ${item.credit === credit ? "selected" : ""}>${credit}</option>
+                                `).join("")}
+                              </select>`
+                            : item.credit}
+                      </td>
                       <td>
-                        <select data-semester="${semesterName}" data-index="${index}" data-field="grade" aria-label="${currentSubject} 예상 등급">
-                          ${[1, 2, 3, 4, 5].map((grade) => `
-                            <option value="${grade}" ${item.grade === grade ? "selected" : ""}>${grade}</option>
-                          `).join("")}
-                        </select>
+                        ${!isIncluded
+                          ? `<span class="none-value">-</span>`
+                          : `<select data-semester="${semesterName}" data-index="${index}" data-field="grade" aria-label="${currentSubject} 예상 등급">
+                              ${[1, 2, 3, 4, 5].map((grade) => `
+                                <option value="${grade}" ${item.grade === grade ? "selected" : ""}>${grade}</option>
+                              `).join("")}
+                            </select>`}
                       </td>
                     </tr>
                   `;
@@ -5380,7 +5794,10 @@
         if (option) {
           item.category = option.category;
           item.courseType = option.courseType;
+          item.included = option.included !== false;
         }
+      } else if (field === "credit") {
+        data.semesters[semesterName][index].credit = Number(event.target.value);
       } else {
         data.semesters[semesterName][index].grade = Number(event.target.value);
       }
@@ -5398,10 +5815,20 @@
       Object.values(data.semesters).forEach((subjects) => {
         subjects.forEach((item) => {
           item.grade = data.defaultGrade;
+          if (item.creditOptions && item.creditOptions.length > 0) {
+            item.credit = item.defaultCredit || item.creditOptions[0];
+          }
           if (item.subjectOptions && item.subjectOptions.length > 0) {
-            item.subject = item.subjectOptions[0].subject;
-            item.category = item.subjectOptions[0].category;
-            item.courseType = item.subjectOptions[0].courseType;
+            const defaultOption = item.subjectOptions.find((option) => option.subject === item.defaultSubject) || item.subjectOptions[0];
+            item.subject = defaultOption.subject;
+            item.category = defaultOption.category;
+            item.courseType = defaultOption.courseType;
+            item.included = defaultOption.included !== false;
+          } else {
+            item.subject = item.defaultSubject || item.subject;
+            item.category = item.defaultCategory || item.category;
+            item.courseType = item.defaultCourseType || item.courseType;
+            item.included = item.defaultIncluded !== false;
           }
         });
       });
