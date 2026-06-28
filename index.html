@@ -2393,6 +2393,46 @@
   }
 </style>
 
+
+
+<style id="quick-link-mobile-compact-final">
+  /* 스마트폰 바로가기 메뉴: 버튼을 한 줄에 최대한 많이 배치 */
+  @media (max-width: 560px) {
+    .quick-link-section {
+      width: calc(100% - 16px) !important;
+      padding: 8px !important;
+      border-radius: 16px !important;
+    }
+
+    .quick-link-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 6px !important;
+    }
+
+    .quick-link-button {
+      min-height: 36px !important;
+      padding: 6px 2px !important;
+      border-radius: 999px !important;
+      font-size: clamp(9.6px, 2.72vw, 11.2px) !important;
+      line-height: 1.1 !important;
+      letter-spacing: -0.07em !important;
+      white-space: nowrap !important;
+      word-break: keep-all !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+  }
+
+  @media (max-width: 340px) {
+    .quick-link-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .quick-link-button {
+      font-size: 10.5px !important;
+    }
+  }
+</style>
 </head>
 <body>
 <main class="page">
@@ -2402,10 +2442,10 @@
 </header>
 <section class="section quick-link-section" id="quickLinks">
 <div class="quick-link-grid">
-<a class="quick-link-button primary" href="#inputSection">내신 입력·예측</a>
-<a class="quick-link-button" href="2028_ad.html" rel="noopener noreferrer" target="_blank">2028 대입전형</a>
-<a class="quick-link-button" href="2028_engineering_quadrant_final.html" rel="noopener noreferrer" target="_blank">수능최저·면접</a>
+<a class="quick-link-button primary" href="#inputSection">내신입력 예측</a>
 <a class="quick-link-button" href="engineering_admission.html" rel="noopener noreferrer" target="_blank">공학 수시 입결</a>
+<a class="quick-link-button" href="2028_engineering_quadrant_final.html" rel="noopener noreferrer" target="_blank">수능최저 면접</a>
+<a class="quick-link-button" href="2028_ad.html" rel="noopener noreferrer" target="_blank">2028 대입전형</a>
 <a class="quick-link-button" href="grade_converter.html" rel="noopener noreferrer" target="_blank">5→9등급 환산</a>
 <a class="quick-link-button" href="student_admission_by_highschool_type.html" rel="noopener noreferrer" target="_blank">학종 고교유형</a>
 </div>
