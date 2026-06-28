@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2028 수도권 공학계열 수시 · 면접 × 수능최저</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<style>
+  :root{
+    --bg:#eef3fb;
+    --paper:#ffffff;
+    --ink:#0b1830;
+    --muted:#5d6b80;
+    --line:#d8e1ee;
+    --line-strong:#bdc9db;
+    --navy:#172744;
+    --navy2:#273b65;
+    --violet:#7480c8;
+    --blue:#244c9f;
+    --blue-soft:#eef4ff;
+    --blue-line:#c7d7f6;
+    --green:#0f7a67;
+    --green-soft:#eaf6f2;
+    --green-line:#bde1d5;
+    --orange:#b46a13;
+    --shadow:0 18px 42px rgba(25,43,74,.11);
+    --shadow-soft:0 8px 20px rgba(25,43,74,.07);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:linear-gradient(180deg,#e9eef6 0%,#f8faff 58%,#ffffff 100%);
+    color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+    letter-spacing:-.025em;
+  }
+  .wrap{
+    width:min(1160px, calc(100% - 24px));
+    margin:0 auto;
+    padding:16px 0 28px;
+  }
+
+  .hero{
+    display:block;
+    padding:25px 30px 26px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:26px;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(132,146,212,.62), transparent 34%),
+      linear-gradient(135deg,var(--navy) 0%,var(--navy2) 58%,var(--violet) 100%);
+    color:#fff;
+    box-shadow:var(--shadow);
+  }
+  .hero h1{
+    margin:0;
+    font-size:clamp(28px,3vw,40px);
+    line-height:1.12;
+    font-weight:950;
+    letter-spacing:-.075em;
+    word-break:keep-all;
+  }
+  .hero p{
+    margin:8px 0 0;
+    max-width:790px;
+    color:rgba(255,255,255,.82);
+    font-size:14px;
+    line-height:1.5;
+    font-weight:700;
+    word-break:keep-all;
+  }
+
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .dot.jong{background:var(--blue);} 
+  .dot.gyo{background:var(--green);}
+
+  .guide{
+    margin:16px 0 12px;
+    padding:17px 20px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:#fff;
+    box-shadow:var(--shadow-soft);
+  }
+  .guide p{
+    margin:0;
+    color:#23344f;
+    font-size:14.5px;
+    line-height:1.55;
+    font-weight:750;
+    word-break:keep-all;
+  }
+
+  .frame-scroll{overflow-x:visible;}
+  .frame-area{
+    position:relative;
+    width:100%;
+    margin:0 auto;
+    padding:38px 0 38px;
+  }
+  .axis-label{
+    position:absolute;
+    z-index:5;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid #d3ddec;
+    box-shadow:0 8px 20px rgba(25,43,74,.09);
+    color:#0d1d36;
+    font-weight:950;
+    letter-spacing:-.055em;
+    white-space:nowrap;
+  }
+  .axis-label.top,.axis-label.bottom{
+    left:50%;
+    transform:translateX(-50%);
+    min-height:33px;
+    padding:0 14px;
+    font-size:18px;
+  }
+  .axis-label.top{top:3px;}
+  .axis-label.bottom{bottom:3px;}
+
+  .axis-label.left,.axis-label.right{
+    top:50%;
+    min-width:34px;
+    min-height:90px;
+    padding:12px 7px;
+    border-radius:999px;
+    font-size:17px;
+    line-height:1.05;
+    writing-mode:vertical-rl;
+    text-orientation:upright;
+    letter-spacing:-.08em;
+  }
+  .axis-label.left{
+    left:-42px;
+    transform:translate(0,-50%);
+  }
+  .axis-label.right{
+    right:-42px;
+    transform:translate(0,-50%);
+  }
+
+  .matrix-legend{
+    position:absolute;
+    top:4px;
+    right:46px;
+    z-index:6;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:6px;
+  }
+  .matrix-legend span{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    min-height:26px;
+    padding:0 9px;
+    border:1px solid #d6e0ed;
+    border-radius:999px;
+    background:rgba(255,255,255,.94);
+    color:#334155;
+    font-size:11.5px;
+    font-weight:850;
+    white-space:nowrap;
+    box-shadow:0 6px 14px rgba(25,43,74,.06);
+  }
+
+  .matrix{
+    border:1px solid var(--line-strong);
+    border-radius:23px;
+    background:#fff;
+    box-shadow:var(--shadow-soft);
+    overflow:hidden;
+  }
+  .quad-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .quadrant{
+    min-width:0;
+    min-height:169px;
+    padding:8px 8px 9px;
+    background:#fff;
+  }
+  .q1,.q3{border-right:1px solid var(--line-strong);}
+  .q1,.q2{border-bottom:1px solid var(--line-strong);}
+  .q1,.q2{background:linear-gradient(180deg,#fffcf7 0%,#ffffff 43%);}
+  .q3,.q4{background:linear-gradient(180deg,#fbfdff 0%,#ffffff 45%);}
+
+  .q-meta{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    min-height:19px;
+    margin-bottom:5px;
+  }
+  .metric{
+    display:inline-flex;
+    align-items:baseline;
+    gap:4px;
+    color:#0e1e37;
+    font-size:14px;
+    line-height:1;
+    font-weight:950;
+    white-space:nowrap;
+  }
+  .metric small{
+    color:#56657b;
+    font-size:11px;
+    font-weight:900;
+  }
+
+  .chips{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(92px,1fr));
+    gap:5px;
+    align-content:start;
+  }
+  .q2 .chips{
+    grid-template-columns:repeat(2,minmax(124px,150px));
+    justify-content:center;
+  }
+  .chip{
+    min-height:37px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:2px;
+    padding:4px 4px;
+    border:1px solid #cfd8e6;
+    border-radius:9px;
+    background:#fff;
+    text-align:center;
+    box-shadow:0 2px 7px rgba(25,43,74,.035);
+  }
+  .chip.jong{background:var(--blue-soft);border-color:var(--blue-line);}
+  .chip.gyo{background:var(--green-soft);border-color:var(--green-line);}
+  .chip .u{
+    max-width:100%;
+    color:#0d1a2f;
+    font-size:14px;
+    line-height:1.02;
+    font-weight:950;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .chip .meta{
+    max-width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:3px;
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    overflow:hidden;
+  }
+  .chip .t{
+    color:#4e5e73;
+    font-size:10.5px;
+    line-height:1.05;
+    font-weight:800;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .chip .min{
+    color:var(--orange);
+    font-size:10.5px;
+    line-height:1.05;
+    font-weight:950;
+    flex:0 0 auto;
+  }
+
+  .footer-title{
+    margin:10px 4px 0;
+    color:#48586e;
+    font-size:12.2px;
+    line-height:1.35;
+    font-weight:850;
+    text-align:center;
+    word-break:keep-all;
+  }
+
+  @media (max-width:980px){
+    .wrap{width:calc(100% - 16px);}
+    .hero{padding:19px 19px 20px;border-radius:22px;}
+    .hero h1{font-size:26px;}
+    .guide{padding:15px 16px;}
+    .guide p{font-size:13.5px;}
+    .frame-scroll{overflow-x:visible;padding-bottom:0;}
+    .frame-area{
+      width:100%;
+      min-width:0;
+      padding:38px 34px 38px;
+    }
+    .axis-label.left{
+      left:0;
+      transform:translate(0,-50%);
+    }
+    .axis-label.right{
+      right:0;
+      transform:translate(0,-50%);
+    }
+    .chips{
+      grid-template-columns:repeat(auto-fit,minmax(82px,1fr));
+      gap:4px;
+    }
+    .q2 .chips{
+      grid-template-columns:repeat(auto-fit,minmax(92px,1fr));
+      justify-content:stretch;
+    }
+    .chip{min-height:36px;padding:4px 3px;}
+    .chip .u{font-size:13px;}
+    .chip .t,.chip .min{font-size:9.8px;}
+    .matrix-legend{right:42px;}
+  }
+
+  @media (max-width:720px){
+    .wrap{width:calc(100% - 12px);padding-top:10px;}
+    .hero h1{font-size:22px;}
+    .hero p{font-size:12.5px;}
+    .frame-area{
+      padding:38px 10px 38px;
+    }
+    .axis-label.left,
+    .axis-label.right{
+      display:none;
+    }
+    .axis-label.top,
+    .axis-label.bottom{
+      font-size:16px;
+      min-height:30px;
+      padding:0 12px;
+    }
+    .matrix-legend{
+      position:static;
+      justify-content:flex-end;
+      margin:0 2px 7px;
+    }
+    .matrix-legend span{
+      min-height:24px;
+      font-size:10.8px;
+      padding:0 8px;
+    }
+    .matrix{border-radius:18px;}
+    .quad-grid{
+      grid-template-columns:1fr;
+    }
+    .quadrant{
+      min-height:auto;
+      padding:8px;
+    }
+    .q1,.q3{
+      border-right:0;
+    }
+    .q1,.q2,.q3{
+      border-bottom:1px solid var(--line-strong);
+    }
+    .q-meta{
+      justify-content:flex-start;
+      margin-bottom:6px;
+    }
+    .q-meta::before{
+      content:attr(data-label);
+      margin-right:auto;
+      color:#10203a;
+      font-size:13px;
+      font-weight:950;
+      letter-spacing:-.045em;
+    }
+    .chips{
+      grid-template-columns:repeat(auto-fit,minmax(94px,1fr));
+    }
+    .chip .u{font-size:13.2px;}
+  }
+
+  @media (max-width:430px){
+    .hero{padding:16px 15px;border-radius:19px;}
+    .hero h1{font-size:20px;}
+    .guide p{font-size:13px;}
+    .frame-area{padding-left:2px;padding-right:2px;}
+    .chips{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+    .chip .u{font-size:13px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <h1>2028 수도권 공학계열 수시 전형 정리</h1>
+      <p>면접 여부와 수능최저 적용 여부를 기준으로 주요 전형을 비교했습니다.</p>
+    </div>
+  </header>
+
+
+  <section class="guide">
+    <p>학생부교과·종합 전형을 면접과 수능최저 기준으로 네 구역에 정리했습니다.</p>
+  </section>
+
+  <div class="frame-scroll">
+    <div class="frame-area">
+      <span class="axis-label top">수능최저O</span>
+      <span class="axis-label bottom">수능최저X</span>
+      <span class="axis-label left">면접X</span>
+      <span class="axis-label right">면접O</span>
+
+      <div class="matrix-legend" aria-label="전형 구분">
+        <span><i class="dot gyo"></i>학생부교과</span>
+        <span><i class="dot jong"></i>학생부종합</span>
+      </div>
+
+      <main class="matrix" aria-label="면접 여부와 수능최저 적용 여부에 따른 전형 4분면 표">
+        <section class="quad-grid">
+          <article class="quadrant q1" id="q1">
+            <div class="q-meta" data-label="면접X · 수능최저O"><div class="metric" id="metric-q1"></div></div>
+            <div class="chips" id="cards-q1"></div>
+          </article>
+          <article class="quadrant q2" id="q2">
+            <div class="q-meta" data-label="면접O · 수능최저O"><div class="metric" id="metric-q2"></div></div>
+            <div class="chips" id="cards-q2"></div>
+          </article>
+          <article class="quadrant q3" id="q3">
+            <div class="q-meta" data-label="면접X · 수능최저X"><div class="metric" id="metric-q3"></div></div>
+            <div class="chips" id="cards-q3"></div>
+          </article>
+          <article class="quadrant q4" id="q4">
+            <div class="q-meta" data-label="면접O · 수능최저X"><div class="metric" id="metric-q4"></div></div>
+            <div class="chips" id="cards-q4"></div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+  <p class="footer-title">2028 수도권 공학계열 수시 전형 정리 · 송도이샘로봇</p>
+</div>
+
+<script>
+const DATA={
+  q1:[
+    {type:"jong",uni:"한양대",t:"학업형",min:"3합7",c:true},
+    {type:"jong",uni:"성균관대",t:"융합인재",min:"3합6",c:true},
+    {type:"jong",uni:"중앙대",t:"최저학종 UP",min:"3합6",c:true},
+    {type:"jong",uni:"경희대",t:"네오 서류형",min:"2합5",c:true},
+    {type:"jong",uni:"서강대",t:"종합 일반2",min:"3합7",c:true},
+    {type:"jong",uni:"한국외대",t:"종합 서류형",min:"2합6",c:true},
+    {type:"gyo",uni:"연세대",t:"추천형",min:"2합4~5",c:true},
+    {type:"gyo",uni:"서강대",t:"지역균형",min:"3개3등급",c:true},
+    {type:"gyo",uni:"성균관대",t:"추천인재",min:"3합6~7",c:true},
+    {type:"gyo",uni:"한양대",t:"추천형",min:"3개3등급",c:true},
+    {type:"gyo",uni:"중앙대",t:"지역균형",min:"3합7",c:true},
+    {type:"gyo",uni:"경희대",t:"지역균형",min:"2합5",c:true},
+    {type:"gyo",uni:"한국외대",t:"학교장추천",min:"2합5",c:true},
+    {type:"gyo",uni:"서울시립대",t:"지역균형",min:"3합7",c:true},
+    {type:"gyo",uni:"국민대",t:"교과성적우수",min:"2합7",c:true},
+    {type:"gyo",uni:"숭실대",t:"학생부우수",min:"2합6",c:true},
+    {type:"gyo",uni:"세종대",t:"지역균형",min:"자연2합",c:false},
+    {type:"gyo",uni:"단국대",t:"지역균형",min:"자연2합",c:false},
+    {type:"gyo",uni:"인하대",t:"지역균형",min:"2합5",c:true},
+  ],
+  q2:[
+    {type:"jong",uni:"고려대",t:"학업우수",min:"4합9",c:true},
+    {type:"jong",uni:"연세대",t:"종합인재형",min:"2합4~5",c:true},
+  ],
+  q3:[
+    {type:"gyo",uni:"고려대",t:"학교추천",min:"",c:true},
+    {type:"gyo",uni:"광운대",t:"지역균형",min:"",c:false},
+    {type:"gyo",uni:"인천대",t:"교과성적우수",min:"",c:false},
+    {type:"gyo",uni:"한국공학대",t:"교과전형",min:"",c:false},
+    {type:"gyo",uni:"한양대 ERICA",t:"지역균형",min:"",c:false},
+    {type:"jong",uni:"고려대",t:"계열적합",min:"",c:true},
+    {type:"jong",uni:"서강대",t:"종합 일반1",min:"",c:false},
+    {type:"jong",uni:"성균관대",t:"탐구인재",min:"",c:true},
+    {type:"jong",uni:"서울시립대",t:"학종II 서류",min:"",c:false},
+    {type:"jong",uni:"국민대",t:"학교생활우수",min:"",c:false},
+    {type:"jong",uni:"세종대",t:"창의 서류형",min:"",c:false},
+    {type:"jong",uni:"인하대",t:"미래 서류형",min:"",c:true},
+    {type:"jong",uni:"광운대",t:"참빛 서류형",min:"",c:false},
+    {type:"jong",uni:"한국공학대",t:"학종 서류형",min:"",c:false},
+    {type:"jong",uni:"한양대 ERICA",t:"학종 서류형",min:"",c:false},
+  ],
+  q4:[
+    {type:"jong",uni:"서울대",t:"지역균형",min:"",c:true},
+    {type:"jong",uni:"서울대",t:"일반전형",min:"",c:true},
+    {type:"jong",uni:"연세대",t:"탐구인재형",min:"",c:false},
+    {type:"jong",uni:"한양대",t:"면접형",min:"",c:true},
+    {type:"jong",uni:"성균관대",t:"성균인재",min:"",c:true},
+    {type:"jong",uni:"성균관대",t:"과학인재",min:"",c:true},
+    {type:"jong",uni:"중앙대",t:"탐구 CORE",min:"",c:true},
+    {type:"jong",uni:"중앙대",t:"모두의 ALL",min:"",c:true},
+    {type:"jong",uni:"경희대",t:"네오 면접형",min:"",c:true},
+    {type:"jong",uni:"한국외대",t:"종합 면접형",min:"",c:false},
+    {type:"jong",uni:"서울시립대",t:"학종I 면접",min:"",c:false},
+    {type:"jong",uni:"국민대",t:"국민프런티어",min:"",c:false},
+    {type:"jong",uni:"숭실대",t:"SSU미래인재",min:"",c:false},
+    {type:"jong",uni:"세종대",t:"창의 면접형",min:"",c:false},
+    {type:"jong",uni:"단국대",t:"DKU 면접형",min:"",c:false},
+    {type:"jong",uni:"광운대",t:"참빛 면접형",min:"",c:false},
+    {type:"jong",uni:"인천대",t:"자기추천",min:"",c:false},
+    {type:"jong",uni:"인하대",t:"미래 면접형",min:"",c:true},
+    {type:"jong",uni:"한국공학대",t:"학종 면접형",min:"",c:false},
+    {type:"jong",uni:"한양대 ERICA",t:"학종 면접형",min:"",c:false},
+  ],
+};
+
+const LABELS={gyo:"교과", jong:"종합"};
+function chip(d){
+  const title=`[${LABELS[d.type]}] ${d.uni} ${d.t}${d.min ? ' · 최저 '+d.min : ' · 최저 없음'}`;
+  return `<div class="chip ${d.type}" title="${title}">
+    <span class="u">${d.uni}</span>
+    <span class="meta">
+      <span class="t">${d.t}</span>
+      ${d.min ? `<span class="min">${d.min}</span>` : ""}
+    </span>
+  </div>`;
+}
+function render(){
+  const total=Object.values(DATA).reduce((sum,arr)=>sum+arr.length,0);
+  const typeOrder={gyo:0, jong:1};
+  Object.keys(DATA).forEach(q=>{
+    const ordered=[...DATA[q]].sort((a,b)=>(typeOrder[a.type]-typeOrder[b.type]));
+    document.getElementById(`cards-${q}`).innerHTML=ordered.map(chip).join('');
+    const pct=total ? (DATA[q].length/total*100).toFixed(1) : '0.0';
+    document.getElementById(`metric-${q}`).innerHTML=`${DATA[q].length}개 <small>(${pct}%)</small>`;
+  });
+}
+render();
+</script>
+</body>
+</html>
