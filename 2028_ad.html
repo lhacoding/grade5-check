@@ -920,20 +920,34 @@
 
 
 <style id="footer-position-fix-2028-ad">
-  /* 2028 대입 전형 변화 정리 페이지: 하단 문구가 과하게 아래로 내려가지 않도록 보정 */
+  /* 2028 대입 전형 변화 정리 페이지: 하단 문구 여백 보정 */
   body > .container main{
-    padding-bottom:0 !important;
+    padding-bottom:12px !important;
   }
+
   body > .container main > section:last-child{
-    margin-bottom:6px !important;
+    margin-bottom:18px !important;
   }
+
   .unified-footer{
-    margin-top:4px !important;
-    padding-top:4px !important;
+    margin-top:14px !important;
+    padding-top:8px !important;
+    padding-bottom:12px !important;
   }
+
   @media (max-width:860px){
+    body > .container main{
+      padding-bottom:10px !important;
+    }
+
+    body > .container main > section:last-child{
+      margin-bottom:14px !important;
+    }
+
     .unified-footer{
-      margin-top:4px !important;
+      margin-top:12px !important;
+      padding-top:8px !important;
+      padding-bottom:10px !important;
     }
   }
 </style>
