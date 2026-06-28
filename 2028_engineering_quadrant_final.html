@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>2028 수도권 공학계열 수시 · 면접 × 수능최저</title>
+<title>2028 공학계열 수시 수능최저·면접 정리</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <style>
@@ -387,21 +387,89 @@
     .chip .u{font-size:13px;}
   }
 </style>
+
+<style id="compact-responsive-final">
+  /* 제목 아래 설명 제거 후 상단 여백 축소 */
+  .hero{
+    padding:22px 30px 23px !important;
+  }
+  .guide{
+    display:none !important;
+  }
+
+  /* 화면 폭이 줄어들 때 4분면 안쪽 여백과 카드 간격을 먼저 줄임 */
+  @media (max-width:980px){
+    .wrap{width:calc(100% - 12px) !important;}
+    .hero{padding:17px 17px 18px !important;}
+    .frame-area{padding:34px 26px 34px !important;}
+    .quadrant{padding:7px !important;}
+    .chips{
+      grid-template-columns:repeat(auto-fit,minmax(74px,1fr)) !important;
+      gap:3px !important;
+    }
+    .q2 .chips{
+      grid-template-columns:repeat(auto-fit,minmax(74px,1fr)) !important;
+      justify-content:stretch !important;
+    }
+    .chip{
+      min-height:33px !important;
+      padding:3px 3px !important;
+      border-radius:8px !important;
+    }
+    .chip .u{font-size:12.2px !important;line-height:1 !important;}
+    .chip .t,.chip .min{font-size:9px !important;line-height:1.02 !important;}
+    .chip .meta{gap:2px !important;}
+  }
+
+  @media (max-width:720px){
+    .wrap{width:calc(100% - 8px) !important;padding-top:8px !important;}
+    .hero{padding:15px 14px 16px !important;}
+    .hero h1{font-size:20px !important;}
+    .frame-area{padding:0 2px !important;}
+    .matrix-legend{margin:0 1px 5px !important;gap:4px !important;}
+    .matrix-legend span{min-height:22px !important;font-size:10px !important;padding:0 7px !important;}
+    .quadrant{padding:6px 5px 6px !important;}
+    .q-meta{min-height:24px !important;margin-bottom:5px !important;}
+    .q-meta::before{padding:4px 7px !important;font-size:11.5px !important;}
+    .chips{
+      grid-template-columns:repeat(auto-fit,minmax(76px,1fr)) !important;
+      gap:3px !important;
+    }
+    .chip{
+      min-height:31px !important;
+      padding:3px 2px !important;
+      border-radius:7px !important;
+    }
+    .chip .u{font-size:11.7px !important;line-height:1 !important;}
+    .chip .t,.chip .min{font-size:8.6px !important;line-height:1.02 !important;}
+  }
+
+  @media (max-width:430px){
+    .wrap{width:calc(100% - 6px) !important;}
+    .hero h1{font-size:19px !important;}
+    .chips{
+      grid-template-columns:repeat(auto-fit,minmax(72px,1fr)) !important;
+      gap:3px !important;
+    }
+    .chip{min-height:30px !important;}
+    .chip .u{font-size:11.2px !important;}
+    .chip .t,.chip .min{font-size:8.2px !important;}
+  }
+
+  @media (max-width:360px){
+    .chips{grid-template-columns:repeat(auto-fit,minmax(66px,1fr)) !important;}
+    .chip .u{font-size:10.5px !important;}
+    .chip .t,.chip .min{font-size:7.8px !important;}
+  }
+</style>
 </head>
 <body>
 <div class="wrap">
   <header class="hero">
     <div>
-      <h1>2028 수도권 공학계열 수시 전형 정리</h1>
-      <p>면접 여부와 수능최저 적용 여부를 기준으로 주요 전형을 비교했습니다.</p>
+      <h1>2028 공학계열 수시 수능최저 면접 정리</h1>
     </div>
   </header>
-
-
-  <section class="guide">
-    <p>학생부교과·종합 전형을 면접과 수능최저 기준으로 네 구역에 정리했습니다.</p>
-  </section>
-
   <div class="frame-scroll">
     <div class="frame-area">
       <span class="axis-label top">수능최저O</span>
@@ -436,7 +504,7 @@
       </main>
     </div>
   </div>
-  <p class="footer-title">2028 수도권 공학계열 수시 전형 정리 · 송도이샘로봇</p>
+  <p class="footer-title">2028 공학계열 수시 수능최저·면접 정리 · 송도이샘로봇</p>
 </div>
 
 <script>
