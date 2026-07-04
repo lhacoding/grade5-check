@@ -1,661 +1,668 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2028 대입 전형 변화 정리</title>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2028 공학계열 수시 수능최저 면접 정리</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <style>
-    :root {
-      --bg: #f6f8fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --primary: #1d4ed8;
-      --primary-dark: #1e3a8a;
-      --line: #e5e7eb;
-      --thead: #eff6ff;
-      --accent: #dbeafe;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    body {
-      margin: 0;
-      max-width: 100%;
-      overflow-x: hidden;
-      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-
-
-
-
-
-    .container {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    /* 메뉴: 처음에는 제목 아래에 있고, 스크롤하면 화면 상단에 고정 */
-    nav {
-      position: relative;
-      z-index: 9999;
-      width: 100%;
-      margin: 0 auto 20px;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-top: none;
-      border-radius: 0 0 22px 22px;
-      background: rgba(255, 255, 255, 0.97);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 10px 24px rgba(30, 58, 138, 0.14);
-    }
-
-    /* 스크롤 후 상단 고정 상태 */
-    nav.nav-fixed {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(1180px, calc(100% - 32px));
-      margin: 0;
-    }
-
-    nav ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(8, minmax(0, 1fr));
-      gap: 6px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 0;
-      min-height: 36px;
-      padding: 8px 3px;
-      border: 1px solid #cfdcff;
-      border-radius: 10px;
-      background: linear-gradient(180deg, #f3f7ff 0%, #e8f0ff 100%);
-      color: #1e3a8a;
-      text-align: center;
-      text-decoration: none;
-      font-size: 0.76rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
-      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    nav a:hover {
-      background: linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%);
-      border-color: #93c5fd;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.15);
-    }
-
-    main {
-      padding-bottom: 24px;
-    }
-
-    section {
-      width: 100%;
-      margin: 16px 0;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--card);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
-    }
-
-    section h2 {
-      margin: 0 0 10px;
-      padding-bottom: 8px;
-      border-bottom: 3px solid var(--accent);
-      color: #111827;
-      font-size: clamp(1.35rem, 2vw, 1.85rem);
-      letter-spacing: -0.035em;
-      line-height: 1.3;
-    }
-
-    h3 {
-      margin: 14px 0 8px;
-      color: var(--primary-dark);
-      font-size: 1.2rem;
-      letter-spacing: -0.03em;
-    }
-
-    h4 {
-      margin: 10px 0 6px;
-      color: #374151;
-      font-size: 1.02rem;
-    }
-
-    .note {
-      margin: 4px 0 8px;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .table-wrap {
-      width: 100%;
-      max-width: 100%;
-      margin: 8px 0 12px;
-      overflow-x: hidden;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: white;
-    }
-
-    table {
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      border-collapse: collapse;
-      table-layout: auto;
-      font-size: clamp(0.84rem, 0.88vw, 0.95rem);
-    }
-
-    th,
-    td {
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: clamp(5px, 0.55vw, 8px) clamp(5px, 0.65vw, 10px);
-      text-align: center;
-      vertical-align: middle;
-      word-break: keep-all;
-      overflow-wrap: break-word;
-      line-height: 1.32;
-    }
-
-    th:last-child,
-    td:last-child {
-      border-right: none;
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    thead th {
-      background: var(--thead);
-      color: #1e3a8a;
-      font-weight: 800;
-      white-space: normal;
-      letter-spacing: -0.03em;
-    }
-
-    tbody td:first-child {
-      background: #fafafa;
-      color: #111827;
-      font-weight: 700;
-    }
-
-
-    .susi-table th:first-child,
-    .susi-table td:first-child {
-      width: 120px;
-      white-space: nowrap;
-    }
-
-    .susi-table td:nth-child(2) {
-      width: 30%;
-      font-weight: 400;
-    }
-
-    .susi-table thead th {
-      font-weight: 800;
-      color: #1e3a8a;
-      text-align: center;
-    }
-
-    .keep-together {
-      white-space: nowrap;
-    }
-
-    /* [4] 학생부종합전형 표: 표 폭과 열 폭을 고정해 좌우 여백 균형 조정 */
-    .jonghap-wrap {
-      max-width: 1120px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .jonghap-table {
-      table-layout: fixed;
-    }
-
-    .jonghap-table th:nth-child(1),
-    .jonghap-table td:nth-child(1) {
-      width: 14%;
-      white-space: nowrap;
-    }
-
-    .jonghap-table th:nth-child(2),
-    .jonghap-table td:nth-child(2) {
-      width: 32%;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-
-    .jonghap-table th:nth-child(3),
-    .jonghap-table td:nth-child(3) {
-      width: 28%;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-
-    .jonghap-table th:nth-child(4),
-    .jonghap-table td:nth-child(4) {
-      width: 26%;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-
-
-    /* [5] 논술전형 표: 일반/메디컬 열 좌우 여백과 폭 균형 조정 */
-    .essay-table {
-      table-layout: fixed;
-    }
-
-    .essay-table th:nth-child(1),
-    .essay-table td:nth-child(1) {
-      width: 16%;
-    }
-
-    .essay-table th:nth-child(2),
-    .essay-table td:nth-child(2),
-    .essay-table th:nth-child(3),
-    .essay-table td:nth-child(3) {
-      width: 42%;
-      padding-left: 12px;
-      padding-right: 12px;
-      text-align: center;
-    }
-
-
-
-    /* [6] 수시 전형 최종 비교: 다른 표와 좌우 폭이 맞도록 전체 폭 사용 */
-    .final-compare-wrap {
-      max-width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .final-compare-table {
-      table-layout: fixed;
-    }
-
-    .final-compare-table thead th {
-      color: #1e3a8a;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .final-compare-table th:nth-child(1),
-    .final-compare-table td:nth-child(1) {
-      width: 18%;
-      white-space: nowrap;
-    }
-
-    .final-compare-table td:nth-child(1) {
-      font-weight: 700;
-    }
-
-    .final-compare-table th:nth-child(2),
-    .final-compare-table td:nth-child(2) {
-      width: 22%;
-    }
-
-    .final-compare-table td:nth-child(2) {
-      font-weight: 400;
-    }
-
-    .final-compare-table th:nth-child(3),
-    .final-compare-table td:nth-child(3) {
-      width: 35%;
-    }
-
-    .final-compare-table th:nth-child(4),
-    .final-compare-table td:nth-child(4) {
-      width: 25%;
-    }
-
-    .right,
-    .center {
-      text-align: center;
-    }
-
-    .summary {
-      margin-top: 10px;
-      padding: 12px 14px;
-      border-left: 6px solid var(--primary);
-      border-radius: 16px;
-      background: #eff6ff;
-      color: #1e3a8a;
-      font-weight: 700;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin: 8px 0 12px;
-    }
-
-    .mini-card {
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: #f8fafc;
-    }
-
-    .mini-card strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--primary-dark);
-      font-size: 1.05rem;
-    }
-
-    .sub-option td {
-      border-top: 1px dashed #cbd5e1;
-    }
-
-    .footer {
-      padding: 16px 10px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    .keep-chunk {
-      white-space: nowrap;
-      display: inline-block;
-    }
-
-    #nav-placeholder {
-      display: none;
-      height: 0;
-    }
-
-    @media (max-width: 900px) {
-      section {
-        padding: 14px 12px;
-      }
-
-      .mini-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 700px) {
-      .container {
-        width: calc(100% - 20px);
-      }
-
-
-
-
-
-      nav {
-        width: 100%;
-        margin: 0 auto 12px;
-        padding: 7px 6px;
-        border-radius: 0 0 16px 16px;
-      }
-
-      nav.nav-fixed {
-        left: 10px;
-        right: 10px;
-        transform: none;
-        width: calc(100% - 20px);
-      }
-
-      nav ul {
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-        gap: 4px;
-      }
-
-      nav a {
-        min-height: 30px;
-        padding: 6px 1px;
-        border-radius: 7px;
-        font-size: clamp(0.42rem, 1.35vw, 0.54rem);
-        line-height: 1.1;
-        letter-spacing: -0.045em;
-        white-space: nowrap;
-      }
-
-      section {
-        margin: 12px 0;
-        padding: 12px 8px;
-        border-radius: 16px;
-      }
-
-      section h2 {
-        font-size: 1.22rem;
-      }
-
-      h3 {
-        font-size: 1rem;
-      }
-
-      .table-wrap {
-        border-radius: 12px;
-      }
-
-      .final-compare-wrap {
-        max-width: 100%;
-      }
-
-      .final-compare-table th:nth-child(1),
-      .final-compare-table td:nth-child(1),
-      .final-compare-table th:nth-child(2),
-      .final-compare-table td:nth-child(2),
-      .final-compare-table th:nth-child(3),
-      .final-compare-table td:nth-child(3),
-      .final-compare-table th:nth-child(4),
-      .final-compare-table td:nth-child(4) {
-        width: auto;
-      }
-
-
-      .jonghap-wrap {
-        max-width: 100%;
-      }
-
-      .jonghap-table th:nth-child(1),
-      .jonghap-table td:nth-child(1),
-      .jonghap-table th:nth-child(2),
-      .jonghap-table td:nth-child(2),
-      .jonghap-table th:nth-child(3),
-      .jonghap-table td:nth-child(3),
-      .jonghap-table th:nth-child(4),
-      .jonghap-table td:nth-child(4) {
-        width: auto;
-        padding-left: 2px;
-        padding-right: 2px;
-      }
-
-      .essay-table th:nth-child(1),
-      .essay-table td:nth-child(1),
-      .essay-table th:nth-child(2),
-      .essay-table td:nth-child(2),
-      .essay-table th:nth-child(3),
-      .essay-table td:nth-child(3) {
-        width: auto;
-        padding-left: 2px;
-        padding-right: 2px;
-      }
-
-      table,
-      table.jeongsi-table,
-      table.quant-table,
-      table.susi-table,
-      table.col-adjust,
-      table.qual-table,
-      table.final-compare-table {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        table-layout: auto;
-        font-size: clamp(0.58rem, 1.95vw, 0.72rem);
-      }
-
-      colgroup,
-      col {
-        width: auto;
-      }
-
-      th,
-      td,
-      table.jeongsi-table th,
-      table.jeongsi-table td,
-      table.quant-table th,
-      table.quant-table td,
-      table.susi-table th,
-      table.susi-table td,
-      table.col-adjust th,
-      table.col-adjust td,
-      table.qual-table th,
-      table.qual-table td,
-      table.final-compare-table th,
-      table.final-compare-table td {
-        padding: clamp(3px, 0.6vw, 5px) clamp(1px, 0.35vw, 3px);
-        font-size: inherit;
-        line-height: 1.18;
-        white-space: normal;
-        word-break: keep-all;
-        overflow-wrap: break-word;
-      }
-
-      th {
-        letter-spacing: -0.04em;
-      }
-
-      td {
-        letter-spacing: -0.03em;
-      }
-    }
-
-    @media (max-width: 430px) {
-      nav ul {
-        gap: 3px;
-      }
-
-      nav a {
-        font-size: clamp(0.39rem, 1.28vw, 0.49rem);
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-      table,
-      table.jeongsi-table,
-      table.quant-table,
-      table.susi-table,
-      table.col-adjust,
-      table.qual-table,
-      table.final-compare-table {
-        font-size: clamp(0.54rem, 1.82vw, 0.66rem);
-      }
-
-      th,
-      td {
-        padding-left: 0;
-        padding-right: 0;
-        line-height: 1.16;
-      }
-    }
-
-    @media (max-width: 360px) {
-      nav a {
-        font-size: 0.43rem;
-      }
-    }
-  </style>
-  <style id="family-theme">
-    /* ===== 다른 페이지와 통일된 디자인(네이비 제목 밴드 + 분리 카드 + 반응형) ===== */
-    :root{ --primary:#172744; --primary-dark:#0f1d33; --line:#d9e1ef; --thead:#f1f6ff; --accent:#6475bd; }
-    body{ background:linear-gradient(180deg,#eef3fb 0%,#f7f9fd 58%,#ffffff 100%)!important; color:#0b1d3a!important; }
-
-
-
-
-
-    /* 본문 폭(바깥여백을 먼저 줄임) */
-    .container{ width:min(1180px, calc(100% - clamp(14px,4vw,34px)))!important; }
-
-    /* 목차 pill: 네이비 톤 */
-    nav{ border:1px solid #d9e1ef!important; background:rgba(255,255,255,.97)!important; border-radius:18px!important; box-shadow:0 10px 28px rgba(31,49,81,.08)!important; }
-    nav.nav-fixed{ width:min(1180px, calc(100% - clamp(14px,4vw,34px)))!important; }
-    nav a{ background:#f1f5fb!important; border:1px solid #cfd8ea!important; color:#1c2c49!important; border-radius:999px!important; font-weight:800!important; box-shadow:none!important; }
-    nav a:hover,nav a:focus{ background:#172744!important; border-color:#172744!important; color:#fff!important; transform:translateY(-1px); }
-
-    /* 섹션: 분리된 흰 카드 */
-    section{
-      background:#fff!important; border:1px solid #d9e1ef!important; border-radius:22px!important;
-      box-shadow:0 12px 30px rgba(31,49,81,.08)!important;
-      padding:clamp(15px,2.3vw,24px)!important; margin:clamp(12px,2vw,18px) 0!important;
-    }
-    section h2{ color:#172744!important; letter-spacing:-.03em!important; border-bottom-color:#e3e9f3!important; }
-
-    /* 표: 통일 톤 */
-    thead th{ background:#f1f6ff!important; color:#172744!important; }
-    th, td{ border-color:#edf2f8!important; }
-    tbody td:first-child, tbody th:first-child{ color:#172744!important; font-weight:800!important; }
-    /* 비교·요약 성격 표는 네이비 헤더로 강조 */
-    .final-compare-table thead th, .susi-table thead th{ background:#233868!important; color:#fff!important; }
-
-    /* 마무리 정리 박스: 배경을 밝게 조정 */
-    .summary.closing-callout{
-      margin-top:clamp(14px,2vw,18px)!important;
-      padding:clamp(16px,2.3vw,22px) clamp(18px,2.6vw,26px)!important;
-      border:1px solid #d9e1ef!important;
-      border-left:6px solid #6475bd!important;
-      border-radius:18px!important;
-      color:#172744!important;
-      background:#f4f7fd!important;
-      box-shadow:0 8px 20px rgba(31,49,81,.08)!important;
-    }
-    .closing-label{
-      display:none!important;
-    }
-    .closing-head{
-      margin:0 0 8px!important; font-size:clamp(17px,2.05vw,23px); font-weight:900;
-      letter-spacing:-.03em; line-height:1.34; color:#172744!important; word-break:keep-all;
-    }
-    .closing-sub{
-      margin:0!important; font-size:clamp(13.2px,1.45vw,15.2px); font-weight:600;
-      line-height:1.62; color:#475569!important; word-break:keep-all;
-    }
-  </style>
-
-  <style id="title-size-balance-fix">
-
-
-
-    @media (max-width:700px){
-
-
-
-    }
-  </style>
+  :root{
+    --bg:#eef3fb;
+    --paper:#ffffff;
+    --ink:#0b1830;
+    --muted:#5d6b80;
+    --line:#d8e1ee;
+    --line-strong:#bdc9db;
+    --navy:#172744;
+    --navy2:#273b65;
+    --violet:#7480c8;
+    --blue:#244c9f;
+    --blue-soft:#eef4ff;
+    --blue-line:#c7d7f6;
+    --green:#0f7a67;
+    --green-soft:#eaf6f2;
+    --green-line:#bde1d5;
+    --orange:#b46a13;
+    --shadow:0 18px 42px rgba(25,43,74,.11);
+    --shadow-soft:0 8px 20px rgba(25,43,74,.07);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:linear-gradient(180deg,#e9eef6 0%,#f8faff 58%,#ffffff 100%);
+    color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+    letter-spacing:-.025em;
+  }
+  .wrap{
+    width:min(1160px, calc(100% - 24px));
+    margin:0 auto;
+    padding:16px 0 28px;
+  }
+
+  .hero{
+    display:block;
+    padding:25px 30px 26px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:26px;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(132,146,212,.62), transparent 34%),
+      linear-gradient(135deg,var(--navy) 0%,var(--navy2) 58%,var(--violet) 100%);
+    color:#fff;
+    box-shadow:var(--shadow);
+  }
+  .hero h1{
+    margin:0;
+    font-size:clamp(28px,3vw,40px);
+    line-height:1.12;
+    font-weight:950;
+    letter-spacing:-.075em;
+    word-break:keep-all;
+  }
+  .hero p{
+    margin:8px 0 0;
+    max-width:790px;
+    color:rgba(255,255,255,.82);
+    font-size:14px;
+    line-height:1.5;
+    font-weight:700;
+    word-break:keep-all;
+  }
+
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .dot.jong{background:var(--blue);} 
+  .dot.gyo{background:var(--green);}
+
+  .guide{
+    margin:16px 0 12px;
+    padding:17px 20px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:#fff;
+    box-shadow:var(--shadow-soft);
+  }
+  .guide p{
+    margin:0;
+    color:#23344f;
+    font-size:14.5px;
+    line-height:1.55;
+    font-weight:750;
+    word-break:keep-all;
+  }
+
+  .frame-scroll{overflow-x:visible;}
+  .frame-area{
+    position:relative;
+    width:100%;
+    margin:0 auto;
+    padding:38px 0 38px;
+  }
+  .axis-label{
+    position:absolute;
+    z-index:5;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid #d3ddec;
+    box-shadow:0 8px 20px rgba(25,43,74,.09);
+    color:#0d1d36;
+    font-weight:950;
+    letter-spacing:-.055em;
+    white-space:nowrap;
+  }
+  .axis-label.top,.axis-label.bottom{
+    left:50%;
+    transform:translateX(-50%);
+    min-height:33px;
+    padding:0 14px;
+    font-size:18px;
+  }
+  .axis-label.top{top:3px;}
+  .axis-label.bottom{bottom:3px;}
+
+  .axis-label.left,.axis-label.right{
+    top:50%;
+    min-width:34px;
+    min-height:90px;
+    padding:12px 7px;
+    border-radius:999px;
+    font-size:17px;
+    line-height:1.05;
+    writing-mode:vertical-rl;
+    text-orientation:upright;
+    letter-spacing:-.08em;
+  }
+  .axis-label.left{
+    left:-42px;
+    transform:translate(0,-50%);
+  }
+  .axis-label.right{
+    right:-42px;
+    transform:translate(0,-50%);
+  }
+
+  .matrix-legend{
+    position:absolute;
+    top:4px;
+    right:46px;
+    z-index:6;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:6px;
+  }
+  .matrix-legend span{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    min-height:26px;
+    padding:0 9px;
+    border:1px solid #d6e0ed;
+    border-radius:999px;
+    background:rgba(255,255,255,.94);
+    color:#334155;
+    font-size:11.5px;
+    font-weight:850;
+    white-space:nowrap;
+    box-shadow:0 6px 14px rgba(25,43,74,.06);
+  }
+
+  .matrix{
+    border:1px solid var(--line-strong);
+    border-radius:23px;
+    background:#fff;
+    box-shadow:var(--shadow-soft);
+    overflow:hidden;
+  }
+  .quad-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .quadrant{
+    min-width:0;
+    min-height:169px;
+    padding:8px 8px 9px;
+    background:#fff;
+  }
+  .q1,.q3{border-right:1px solid var(--line-strong);}
+  .q1,.q2{border-bottom:1px solid var(--line-strong);}
+  .q1{background:linear-gradient(180deg,#fff5d8 0%,#fffdf6 100%);} /* 수능최저O · 면접X */
+  .q2{background:linear-gradient(180deg,#ffeadf 0%,#fff9f5 100%);} /* 수능최저O · 면접O */
+  .q3{background:linear-gradient(180deg,#f1ecff 0%,#fcfbff 100%);} /* 수능최저X · 면접X */
+  .q4{background:linear-gradient(180deg,#f2f0ea 0%,#fffdf8 100%);} /* 수능최저X · 면접O */
+
+  .q-meta{
+    display:none;
+  }
+
+  .chips{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(92px,1fr));
+    gap:5px;
+    align-content:start;
+  }
+  .q2 .chips{
+    grid-template-columns:repeat(2,minmax(124px,150px));
+    justify-content:center;
+  }
+  .chip{
+    min-height:37px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:2px;
+    padding:4px 4px;
+    border:1px solid #cfd8e6;
+    border-radius:9px;
+    background:#fff;
+    text-align:center;
+    box-shadow:0 2px 7px rgba(25,43,74,.035);
+  }
+  .chip.jong{background:var(--blue-soft);border-color:var(--blue-line);}
+  .chip.gyo{background:var(--green-soft);border-color:var(--green-line);}
+  .chip .u{
+    max-width:100%;
+    color:#0d1a2f;
+    font-size:14px;
+    line-height:1.02;
+    font-weight:950;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .chip .meta{
+    max-width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:3px;
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    overflow:hidden;
+  }
+  .chip .t{
+    color:#4e5e73;
+    font-size:10.5px;
+    line-height:1.05;
+    font-weight:800;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .chip .min{
+    color:var(--orange);
+    font-size:10.5px;
+    line-height:1.05;
+    font-weight:950;
+    flex:0 0 auto;
+  }
+
+  .footer-title{
+    margin:10px 4px 0;
+    color:#48586e;
+    font-size:12.2px;
+    line-height:1.35;
+    font-weight:850;
+    text-align:center;
+    word-break:keep-all;
+  }
+
+  @media (max-width:980px){
+    .wrap{width:calc(100% - 16px);}
+    .hero{padding:19px 19px 20px;border-radius:22px;}
+    .hero h1{font-size:26px;}
+    .guide{padding:15px 16px;}
+    .guide p{font-size:13.5px;}
+    .frame-scroll{overflow-x:visible;padding-bottom:0;}
+    .frame-area{
+      width:100%;
+      min-width:0;
+      padding:38px 34px 38px;
+    }
+    .axis-label.left{
+      left:0;
+      transform:translate(0,-50%);
+    }
+    .axis-label.right{
+      right:0;
+      transform:translate(0,-50%);
+    }
+    .chips{
+      grid-template-columns:repeat(auto-fit,minmax(82px,1fr));
+      gap:4px;
+    }
+    .q2 .chips{
+      grid-template-columns:repeat(auto-fit,minmax(92px,1fr));
+      justify-content:stretch;
+    }
+    .chip{min-height:36px;padding:4px 3px;}
+    .chip .u{font-size:13px;}
+    .chip .t,.chip .min{font-size:9.8px;}
+    .matrix-legend{right:42px;}
+  }
+
+  @media (max-width:720px){
+    .wrap{width:calc(100% - 12px);padding-top:10px;}
+    .hero h1{font-size:22px;}
+    .hero p{font-size:12.5px;}
+    .frame-area{
+      padding:0 10px 0;
+    }
+    .axis-label.left,
+    .axis-label.right,
+    .axis-label.top,
+    .axis-label.bottom{
+      display:none;
+    }
+    .matrix-legend{
+      position:static;
+      justify-content:flex-end;
+      margin:0 2px 7px;
+    }
+    .matrix-legend span{
+      min-height:24px;
+      font-size:10.8px;
+      padding:0 8px;
+    }
+    .matrix{border-radius:18px;}
+    .quad-grid{
+      grid-template-columns:1fr;
+    }
+    .quadrant{
+      min-height:auto;
+      padding:8px;
+    }
+    .q1,.q3{
+      border-right:0;
+    }
+    .q1,.q2,.q3{
+      border-bottom:1px solid var(--line-strong);
+    }
+
+    /* 스마트폰 화면에서는 각 구역이 세로로 쌓이므로 배경색을 다르게 해 구분 */
+    /* 스마트폰에서는 전형색(교과=연두, 종합=파랑)과 겹치지 않도록 구역 배경색을 별도 계열로 구분 */
+    .q1{background:linear-gradient(180deg,#fff5d8 0%,#fffdf6 100%);} /* 수능최저O · 면접X */
+    .q2{background:linear-gradient(180deg,#ffeadf 0%,#fff9f5 100%);} /* 수능최저O · 면접O */
+    .q3{background:linear-gradient(180deg,#f1ecff 0%,#fcfbff 100%);} /* 수능최저X · 면접X */
+    .q4{background:linear-gradient(180deg,#f2f0ea 0%,#fffdf8 100%);} /* 수능최저X · 면접O */
+
+    .q-meta{
+      display:flex;
+      justify-content:flex-start;
+      align-items:center;
+      min-height:28px;
+      margin-bottom:7px;
+    }
+    .q-meta::before{
+      content:attr(data-label);
+      margin-right:auto;
+      padding:5px 9px;
+      border:1px solid rgba(120,135,160,.24);
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      color:#10203a;
+      font-size:13px;
+      font-weight:950;
+      letter-spacing:-.045em;
+      box-shadow:0 3px 8px rgba(25,43,74,.035);
+    }
+    .chips{
+      grid-template-columns:repeat(auto-fit,minmax(94px,1fr));
+    }
+    .chip .u{font-size:13.2px;}
+  }
+
+  @media (max-width:430px){
+    .hero{padding:16px 15px;border-radius:19px;}
+    .hero h1{font-size:20px;}
+    .guide p{font-size:13px;}
+    .frame-area{padding-left:2px;padding-right:2px;}
+    .chips{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+    .chip .u{font-size:13px;}
+  }
+</style>
+
+<style id="compact-responsive-final">
+  /* 제목 아래 설명 제거 후 상단 여백 축소 */
+  .hero{
+    padding:22px 30px 23px !important;
+  }
+  .guide{
+    display:none !important;
+  }
+
+  /* 화면 폭이 줄어들 때 4분면 안쪽 여백과 카드 간격을 먼저 줄임 */
+  @media (max-width:980px){
+    .wrap{width:calc(100% - 12px) !important;}
+    .hero{padding:17px 17px 18px !important;}
+    .frame-area{padding:34px 26px 34px !important;}
+    .quadrant{padding:7px !important;}
+    .chips{
+      grid-template-columns:repeat(auto-fit,minmax(74px,1fr)) !important;
+      gap:3px !important;
+    }
+    .q2 .chips{
+      grid-template-columns:repeat(auto-fit,minmax(74px,1fr)) !important;
+      justify-content:stretch !important;
+    }
+    .chip{
+      min-height:33px !important;
+      padding:3px 3px !important;
+      border-radius:8px !important;
+    }
+    .chip .u{font-size:12.2px !important;line-height:1 !important;}
+    .chip .t,.chip .min{font-size:9px !important;line-height:1.02 !important;}
+    .chip .meta{gap:2px !important;}
+  }
+
+  @media (max-width:720px){
+    .wrap{width:calc(100% - 8px) !important;padding-top:8px !important;}
+    .hero{padding:15px 14px 16px !important;}
+    .hero h1{font-size:20px !important;}
+    .frame-area{padding:0 2px !important;}
+    .matrix-legend{margin:0 1px 5px !important;gap:4px !important;}
+    .matrix-legend span{min-height:22px !important;font-size:10px !important;padding:0 7px !important;}
+    .quadrant{padding:6px 5px 6px !important;}
+    .q-meta{min-height:24px !important;margin-bottom:5px !important;}
+    .q-meta::before{padding:4px 7px !important;font-size:11.5px !important;}
+    .chips{
+      grid-template-columns:repeat(auto-fit,minmax(76px,1fr)) !important;
+      gap:3px !important;
+    }
+    .chip{
+      min-height:31px !important;
+      padding:3px 2px !important;
+      border-radius:7px !important;
+    }
+    .chip .u{font-size:11.7px !important;line-height:1 !important;}
+    .chip .t,.chip .min{font-size:8.6px !important;line-height:1.02 !important;}
+  }
+
+  @media (max-width:430px){
+    .wrap{width:calc(100% - 6px) !important;}
+    .hero h1{font-size:19px !important;}
+    .chips{
+      grid-template-columns:repeat(auto-fit,minmax(72px,1fr)) !important;
+      gap:3px !important;
+    }
+    .chip{min-height:30px !important;}
+    .chip .u{font-size:11.2px !important;}
+    .chip .t,.chip .min{font-size:8.2px !important;}
+  }
+
+  @media (max-width:360px){
+    .chips{grid-template-columns:repeat(auto-fit,minmax(66px,1fr)) !important;}
+    .chip .u{font-size:10.5px !important;}
+    .chip .t,.chip .min{font-size:7.8px !important;}
+  }
+</style>
+
+<style id="laptop-breathing-room">
+  /* 노트북·데스크톱 화면 전용: 스마트폰 레이아웃은 유지하고, 넓은 화면에서는 여백과 글자 크기를 키워 아래 빈 공간을 줄임 */
+  @media (min-width: 981px) {
+    .wrap {
+      padding: 20px 0 44px !important;
+    }
+
+    .hero {
+      padding: 30px 34px 32px !important;
+      border-radius: 28px !important;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 3.1vw, 46px) !important;
+      line-height: 1.13 !important;
+      letter-spacing: -0.072em !important;
+    }
+
+    .frame-area {
+      padding: 54px 0 58px !important;
+    }
+
+    .axis-label.top,
+    .axis-label.bottom {
+      min-height: 38px !important;
+      padding: 0 18px !important;
+      font-size: 21px !important;
+    }
+
+    .axis-label.top { top: 7px !important; }
+    .axis-label.bottom { bottom: 7px !important; }
+
+    .axis-label.left,
+    .axis-label.right {
+      min-width: 40px !important;
+      min-height: 104px !important;
+      padding: 14px 8px !important;
+      font-size: 19px !important;
+    }
+
+    .matrix-legend {
+      top: 9px !important;
+      right: 48px !important;
+      gap: 8px !important;
+    }
+
+    .matrix-legend span {
+      min-height: 29px !important;
+      padding: 0 11px !important;
+      font-size: 12.5px !important;
+    }
+
+    .matrix {
+      border-radius: 25px !important;
+    }
+
+    .quadrant {
+      min-height: 228px !important;
+      padding: 12px 10px 13px !important;
+    }
+
+    .chips {
+      grid-template-columns: repeat(auto-fit, minmax(108px, 1fr)) !important;
+      gap: 8px !important;
+    }
+
+    .q2 .chips {
+      grid-template-columns: repeat(2, minmax(160px, 190px)) !important;
+      gap: 9px !important;
+      justify-content: center !important;
+    }
+
+    .chip {
+      min-height: 47px !important;
+      padding: 6px 5px !important;
+      border-radius: 11px !important;
+    }
+
+    .chip .u {
+      font-size: 16px !important;
+      line-height: 1.03 !important;
+    }
+
+    .chip .t,
+    .chip .min {
+      font-size: 11.2px !important;
+      line-height: 1.08 !important;
+    }
+
+    .chip .meta {
+      gap: 4px !important;
+    }
+
+    .footer-title {
+      margin-top: 16px !important;
+      font-size: 13.5px !important;
+      line-height: 1.45 !important;
+    }
+  }
+</style>
+
+
+
+<style id="laptop-table-inner-gap-final-fix">
+  /* 노트북·데스크톱 화면에서만 표 안쪽 위아래 여백을 아주 조금 줄여 전체 높이를 안정화 */
+  @media (min-width: 981px) {
+    .frame-area {
+      padding-top: 50px !important;
+      padding-bottom: 50px !important;
+    }
+
+    .quadrant {
+      min-height: 220px !important;
+      padding-top: 9px !important;
+      padding-bottom: 10px !important;
+    }
+
+    .chips {
+      gap: 7px !important;
+    }
+
+    .q2 .chips {
+      gap: 8px !important;
+    }
+
+    .chip {
+      min-height: 45px !important;
+      padding-top: 5px !important;
+      padding-bottom: 5px !important;
+    }
+
+    .footer-title {
+      margin-top: 12px !important;
+    }
+  }
+
+  @media (min-width: 981px) and (max-height: 760px) {
+    .frame-area {
+      padding-top: 48px !important;
+      padding-bottom: 46px !important;
+    }
+
+    .quadrant {
+      min-height: 216px !important;
+      padding-top: 8px !important;
+      padding-bottom: 9px !important;
+    }
+
+    .chip {
+      min-height: 44px !important;
+    }
+  }
+</style>
+
+
+<style id="title-hero-compact-final">
+  /* 최종 요청 반영: 제목 글자와 제목 배경 박스의 위아래 높이 축소 */
+  @media (min-width: 981px) {
+    .wrap {
+      padding-top: 14px !important;
+    }
+
+    .hero {
+      padding-top: 22px !important;
+      padding-bottom: 23px !important;
+      padding-left: 32px !important;
+      padding-right: 32px !important;
+      border-radius: 25px !important;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 2.65vw, 40px) !important;
+      line-height: 1.12 !important;
+      letter-spacing: -0.068em !important;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .hero {
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
+
+    .hero h1 {
+      font-size: 24px !important;
+      line-height: 1.12 !important;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero {
+      padding-top: 13px !important;
+      padding-bottom: 14px !important;
+    }
+
+    .hero h1 {
+      font-size: 19px !important;
+    }
+  }
+</style>
 
 <style id="unified-page-header-style">
   :root{ --unified-top-width:min(1180px, calc(100% - 24px)); }
@@ -709,31 +716,6 @@
   }
 </style>
 
-
-<style id="footer-position-fix-2028-ad">
-  /* 2028 대입 전형 변화 정리 페이지: 하단 문구 여백 보정 */
-  body > .container main{
-    padding-bottom:12px !important;
-  }
-
-  body > .container main > section:last-child{
-    margin-bottom:18px !important;
-  }
-
-
-
-  @media (max-width:860px){
-    body > .container main{
-      padding-bottom:10px !important;
-    }
-
-    body > .container main > section:last-child{
-      margin-bottom:14px !important;
-    }
-
-
-  }
-</style>
 
 <style id="rule-system-layer">
 /* ==========================================================================
@@ -798,7 +780,7 @@ select:focus-visible, input:focus-visible, button:focus-visible, a:focus-visible
 }
 
 /* ---------- 페이지 카드 패딩 토큰 통일 ---------- */
-.container .table-wrap, .summary{ padding:var(--pad-card) !important; }
+
 
 @media (prefers-reduced-motion: reduce){
   *{ transition:none !important; animation:none !important; }
@@ -872,12 +854,8 @@ body{
 /* ---------- 전역 메뉴 (기준과 동일) ---------- */
 .global-menu-section{
   width:var(--unified-top-width); max-width:none;
-  margin:var(--gap-lg) auto !important;
-  padding:0 !important;
-  background:transparent !important;
-  border:0 !important;
-  border-radius:0 !important;
-  box-shadow:none !important;
+  margin:var(--gap-lg) auto; padding:0;
+  background:transparent; border:0; box-shadow:none;
 }
 .global-menu-grid{
   --item-min:112px;
@@ -946,711 +924,148 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
 .site-hero h1{ font-size:var(--fs-h1) !important; font-weight:850 !important; line-height:1.1 !important; }
 .site-hero p{ font-size:var(--fs-h3) !important; font-weight:600 !important; }
 </style>
-
-
-<style id="section-heading-check-icon-fix">
-  /* 섹션 제목 앞 번호([1]~[8])를 네이비 체크 원형 표시로 통일 */
-  section h2{
-    display:flex !important;
-    align-items:center !important;
-    gap:clamp(7px, .9vw, 10px) !important;
-    word-break:keep-all;
-  }
-
-  section h2::before{
-    content:"✓";
-    flex:0 0 auto;
-    width:1.6em;
-    height:1.6em;
-    border-radius:50%;
-    background:#172744;
-    color:#fff;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    font-size:.56em;
-    font-weight:900;
-    line-height:1;
-  }
-</style>
-
-
-<style id="body-readability-font-size-fix">
-  /* 본문 가독성 개선: 상단 히어로·메뉴 크기는 유지하고, 섹션 본문/표 글자만 약간 확대 */
-  main,
-  section,
-  section p,
-  section li,
-  .note,
-  .summary,
-  .mini-card,
-  .closing-sub{
-    font-size:clamp(15px, .42vw + 13.5px, 18px) !important;
-  }
-
-  table,
-  table.jeongsi-table,
-  table.quant-table,
-  table.susi-table,
-  table.col-adjust,
-  table.qual-table,
-  table.final-compare-table{
-    font-size:clamp(0.94rem, .32vw + .84rem, 1.04rem) !important;
-  }
-
-  th,
-  td,
-  table.jeongsi-table th,
-  table.jeongsi-table td,
-  table.quant-table th,
-  table.quant-table td,
-  table.susi-table th,
-  table.susi-table td,
-  table.col-adjust th,
-  table.col-adjust td,
-  table.qual-table th,
-  table.qual-table td,
-  table.final-compare-table th,
-  table.final-compare-table td{
-    line-height:1.38 !important;
-  }
-
-  @media (max-width:700px){
-    table,
-    table.jeongsi-table,
-    table.quant-table,
-    table.susi-table,
-    table.col-adjust,
-    table.qual-table,
-    table.final-compare-table{
-      font-size:clamp(0.72rem, 2.15vw, 0.86rem) !important;
-    }
-
-    th,
-    td,
-    table.jeongsi-table th,
-    table.jeongsi-table td,
-    table.quant-table th,
-    table.quant-table td,
-    table.susi-table th,
-    table.susi-table td,
-    table.col-adjust th,
-    table.col-adjust td,
-    table.qual-table th,
-    table.qual-table td,
-    table.final-compare-table th,
-    table.final-compare-table td{
-      line-height:1.24 !important;
-    }
-  }
-
-  @media (max-width:430px){
-    table,
-    table.jeongsi-table,
-    table.quant-table,
-    table.susi-table,
-    table.col-adjust,
-    table.qual-table,
-    table.final-compare-table{
-      font-size:clamp(0.68rem, 2.05vw, 0.80rem) !important;
-    }
-  }
-</style>
-
-
-
-<style id="table-width-header-callout-final-fix">
-  /* [4] 학생부종합전형 표만 작아 보이던 원인 제거:
-     jonghap-wrap의 1120px 최대폭과 가운데 정렬을 없애 다른 표와 같은 전체 폭을 사용한다. */
-  .jonghap-wrap{
-    width:100% !important;
-    max-width:100% !important;
-    margin-left:0 !important;
-    margin-right:0 !important;
-  }
-
-  .jonghap-table{
-    width:100% !important;
-    table-layout:fixed !important;
-    font-size:clamp(0.96rem, .32vw + .86rem, 1.06rem) !important;
-  }
-
-  /* 표 제목줄 색상 통일: 일부는 하늘색, 일부는 진한 파랑으로 보이던 것을 모두 네이비로 통일 */
-  thead th,
-  .susi-table thead th,
-  .final-compare-table thead th,
-  .jonghap-table thead th,
-  .essay-table thead th,
-  .quant-table thead th{
-    background:#233868 !important;
-    color:#ffffff !important;
-    border-color:#d8e1ef !important;
-    font-weight:850 !important;
-  }
-
-  /* 섹션 제목은 배경 없이 깔끔하게, 하단선은 연한 회색으로 통일 */
-  section h2{
-    background:transparent !important;
-    border-bottom:3px solid #e3e9f3 !important;
-  }
-
-  /* 마지막 핵심 문장 박스: 일반 요약 박스와 다르게 보이도록 결론 카드 디자인 적용 */
-  .summary.closing-callout{
-    position:relative !important;
-    overflow:hidden !important;
-    margin-top:clamp(16px,2.2vw,22px) !important;
-    padding:clamp(20px,2.7vw,30px) clamp(22px,3vw,34px) !important;
-    border:0 !important;
-    border-radius:22px !important;
-    background:linear-gradient(135deg,#172744 0%,#233868 58%,#52639d 100%) !important;
-    color:#ffffff !important;
-    box-shadow:0 18px 38px rgba(23,39,68,.18) !important;
-  }
-
-  .summary.closing-callout::before{
-    content:"";
-    position:absolute;
-    inset:auto -70px -90px auto;
-    width:230px;
-    height:230px;
-    border-radius:50%;
-    background:rgba(255,255,255,.12);
-    pointer-events:none;
-  }
-
-  .summary.closing-callout::after{
-    content:none !important;
-    display:none !important;
-  }
-
-  .closing-head{
-    position:relative;
-    z-index:1;
-    max-width:none;
-    margin:0 0 8px !important;
-    color:#ffffff !important;
-    font-size:clamp(20px,1.45vw + 15px,30px) !important;
-    font-weight:900 !important;
-    line-height:1.32 !important;
-    letter-spacing:-.035em !important;
-    word-break:keep-all;
-  }
-
-  .closing-sub{
-    position:relative;
-    z-index:1;
-    max-width:980px;
-    margin:0 !important;
-    color:rgba(255,255,255,.86) !important;
-    font-size:clamp(15px,.45vw + 13px,18px) !important;
-    font-weight:650 !important;
-    line-height:1.62 !important;
-    word-break:keep-all;
-  }
-
-  @media (max-width:700px){
-    .jonghap-table{
-      font-size:clamp(0.72rem,2.15vw,0.86rem) !important;
-    }
-
-    .summary.closing-callout{
-      padding:18px 16px !important;
-      border-radius:18px !important;
-    }
-
-
-    .closing-head{
-      max-width:none;
-      font-size:clamp(18px,4.3vw,23px) !important;
-    }
-  }
-</style>
-
 </head>
-
 <body>
 <header class="site-hero" aria-label="페이지 제목">
-  <h1>2028 대입 전형 변화 정리</h1>
-  <p>2028 대입에서 교과·종합·논술·정시 전형의 주요 변화를 한눈에 정리합니다.</p>
+  <h1>2028 공학계열 수시 수능최저 면접 정리</h1>
+  <p>공학계열 주요 수시 전형을 수능최저 적용 여부와 면접 여부 기준으로 비교합니다.</p>
 </header>
 <section class="global-menu-section" aria-label="전체 페이지 메뉴">
   <div class="global-menu-grid">
     <a class="global-menu-button" href="index.html#inputSection">내신입력 예측</a>
     <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
-    <a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a>
-    <a class="global-menu-button active" href="2028_ad.html" aria-current="page">2028 대입전형</a>
+    <a class="global-menu-button active" href="2028_engineering_quadrant_final.html" aria-current="page">수능최저 면접</a>
+    <a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
     <a class="global-menu-button" href="grade_converter.html">5→9등급 환산</a>
     <a class="global-menu-button" href="student_admission_by_highschool_type.html">학종 고교유형</a>
   </div>
 </section>
-<div class="container">
-    <nav aria-label="페이지 목차">
-      <ul>
-        <li><a href="#section1">평가 체계</a></li>
-        <li><a href="#section2">교과전형</a></li>
-        <li><a href="#section3">교과 정성평가</a></li>
-        <li><a href="#section4">종합전형</a></li>
-        <li><a href="#section5">논술전형</a></li>
-        <li><a href="#section6">수시 최저</a></li>
-        <li><a href="#section7">정시 학생부</a></li>
-        <li><a href="#section8">핵심 요약</a></li>
-      </ul>
-    </nav>
-    <div id="nav-placeholder"></div>
+<div class="wrap">
+<div class="frame-scroll">
+    <div class="frame-area">
+      <span class="axis-label top">수능최저O</span>
+      <span class="axis-label bottom">수능최저X</span>
+      <span class="axis-label left">면접X</span>
+      <span class="axis-label right">면접O</span>
 
-    <main>
-<section id="section1">
-        <h2>2028 대입, 평가 체계의 큰 틀은 유지</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>구분</th>
-                <th>학생부교과</th>
-                <th>학생부종합</th>
-                <th>논술</th>
-                <th>정시(수능)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>2015 교육과정 평가요소</td>
-                <td>9등급제 정량평가<br>수능최저<br>정성평가(상위대학)</td>
-                <td>이수과목<br>학업성취도<br>비교과<br>수능최저(일부 전형 제외)</td>
-                <td>대학별고사<br>수능최저</td>
-                <td>수능성적<br>학생부(상위대학)</td>
-              </tr>
-              <tr>
-                <td>2022 교육과정 평가요소</td>
-                <td>5등급제 정량평가<br>수능최저<br>정성평가(상위대학)</td>
-                <td>이수과목<br>학업성취도<br>비교과<br>수능최저(일부 전형 제외)</td>
-                <td>대학별고사<br>수능최저</td>
-                <td>수능성적<br>학생부(상위대학)</td>
-              </tr>
-              <tr>
-                <td>변화 내용</td>
-                <td>9등급제 → 5등급제 변화<br>변별력 확보 필요성 증가</td>
-                <td>큰 변화 없음<br>다양한 과목 개설로 선발 용이</td>
-                <td>큰 변화 없음</td>
-                <td>큰 변화 없음</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-<section id="section2">
-        <h2>교과전형, 재학생에게 유리한 구조</h2>
+      <div class="matrix-legend" aria-label="전형 구분">
+        <span><i class="dot gyo"></i>학생부교과</span>
+        <span><i class="dot jong"></i>학생부종합</span>
+      </div>
 
-        <h3>1) 학생부교과 선발인원</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>대학</th>
-                <th>2027학년도</th>
-                <th>2028학년도</th>
-                <th>증감</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>서울대학교</td><td class="right">511</td><td class="right">728</td><td class="right">+217</td></tr>
-              <tr><td>고려대학교</td><td class="right">648</td><td class="right">672</td><td class="right">+24</td></tr>
-              <tr><td>연세대학교</td><td class="right">501</td><td class="right">564</td><td class="right">+63</td></tr>
-              <tr><td>서강대학교</td><td class="right">178</td><td class="right">180</td><td class="right">+2</td></tr>
-              <tr><td>성균관대학교</td><td class="right">429</td><td class="right">415</td><td class="right">-14</td></tr>
-              <tr><td>한양대학교</td><td class="right">336</td><td class="right">506</td><td class="right">+170</td></tr>
-              <tr><td>이화여자대학교</td><td class="right">377</td><td class="right">377</td><td class="right">-</td></tr>
-              <tr><td>중앙대학교</td><td class="right">498</td><td class="right">505</td><td class="right">+7</td></tr>
-              <tr><td>경희대학교</td><td class="right">604</td><td class="right">580</td><td class="right">-24</td></tr>
-              <tr><td>한국외국어대학교</td><td class="right">200</td><td class="right">200</td><td class="right">-</td></tr>
-              <tr><td>서울시립대학교</td><td class="right">241</td><td class="right">346</td><td class="right">+105</td></tr>
-              <tr><td>건국대학교</td><td class="right">346</td><td class="right">348</td><td class="right">+2</td></tr>
-              <tr><td>동국대학교</td><td class="right">410</td><td class="right">470</td><td class="right">+60</td></tr>
-              <tr><td>홍익대학교</td><td class="right">307</td><td class="right">420</td><td class="right">+113</td></tr>
-              <tr><td>숙명여자대학교</td><td class="right">287</td><td class="right">314</td><td class="right">+27</td></tr>
-              <tr><td><strong>합계</strong></td><td class="right"><strong>5,873</strong></td><td class="right"><strong>6,626</strong></td><td class="right"><strong>+753</strong></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>2) 학생부교과 전형 지원자격</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>대학</th>
-                <th>지원자격</th>
-                <th>추천 인원</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>고려대학교</td><td class="center">재학생</td><td class="center">12명</td></tr>
-              <tr><td>연세대학교</td><td class="center">재학생</td><td class="center">10명</td></tr>
-              <tr><td>서강대학교</td><td class="center">재학생</td><td class="center">없음</td></tr>
-              <tr><td>성균관대학교</td><td class="center">재학생</td><td class="center">없음</td></tr>
-              <tr><td>한양대학교</td><td class="center">재학생</td><td class="center">없음</td></tr>
-              <tr><td>이화여자대학교</td><td class="center">재학생</td><td class="center">20명</td></tr>
-              <tr><td>중앙대학교</td><td class="center">재학생</td><td class="center">20명</td></tr>
-              <tr><td>경희대학교</td><td class="center">재학생</td><td class="center">없음</td></tr>
-              <tr><td>한국외국어대학교</td><td class="center">재학생</td><td class="center">없음</td></tr>
-              <tr><td>서울시립대학교</td><td class="center">재학생</td><td class="center">없음</td></tr>
-              <tr><td>건국대학교</td><td class="center">제한없음</td><td class="center">없음</td></tr>
-              <tr><td>동국대학교</td><td class="center">제한없음</td><td class="center">없음</td></tr>
-              <tr><td>홍익대학교</td><td class="center">재학생</td><td class="center">없음</td></tr>
-              <tr><td>숙명여자대학교</td><td class="center">재학생</td><td class="center">없음</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-<section id="section3">
-        <h2>교과전형, 정성평가 확대</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>대학</th>
-                <th>전형방법</th>
-                <th>정성평가</th>
-                <th>반영교과</th>
-                <th>성취도(A~E) 반영</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>고려대학교</td><td>교과80 + 서류20</td><td class="center">O</td><td class="center">전 교과</td><td>석차등급, 성취도</td></tr>
-              <tr><td>연세대학교</td><td>1단계: 교과100<br>2단계: 1단계80 + 서류20</td><td class="center">O</td><td class="center">주요 교과</td><td>석차등급 70%, 성취도 30%</td></tr>
-              <tr><td>서강대학교</td><td>교과90 + 출결10</td><td class="center">X</td><td class="center">전 교과</td><td>석차등급 80%, 성취도 10%</td></tr>
-              <tr><td>성균관대학교</td><td>정량70 + 정성30</td><td class="center">O</td><td class="center">전 교과</td><td>-</td></tr>
-              <tr><td>한양대학교</td><td>교과60 + 학생부종합40</td><td class="center">O</td><td class="center">주요교과</td><td>-</td></tr>
-              <tr><td>이화여자대학교</td><td>교과80 + 출결5 + 서류15</td><td class="center">O</td><td class="center">주요교과</td><td>-</td></tr>
-              <tr><td>중앙대학교</td><td>교과90 + 출결10</td><td class="center">X</td><td class="center">전 교과</td><td>-</td></tr>
-              <tr><td>경희대학교</td><td>교과70(출결, 봉사 포함) + 교과종합30</td><td class="center">O</td><td class="center">주요교과</td><td>-</td></tr>
-              <tr><td>한국외국어대학교</td><td>교과70 + 서류30</td><td class="center">O</td><td class="center">주요교과</td><td>-</td></tr>
-              <tr><td>서울시립대학교</td><td>교과60 + 서류40</td><td class="center">O</td><td class="center">전 교과</td><td>-</td></tr>
-              <tr><td>건국대학교</td><td>교과정량70 + 교과정성30</td><td class="center">O</td><td class="center">일부교과</td><td>-</td></tr>
-              <tr><td>동국대학교</td><td>교과70 + 서류종합30</td><td class="center">O</td><td class="center">일부교과</td><td>-</td></tr>
-              <tr><td>홍익대학교</td><td>교과95 + 출결5</td><td class="center">X</td><td class="center">주요교과</td><td>석차등급, 성취도</td></tr>
-              <tr><td>숙명여자대학교</td><td>교과70 + 서류30</td><td class="center">O</td><td class="center">주요교과</td><td>성취도(70% 또는 30%)</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="section4">
-        <h2>학생부종합전형 수능최저 적용 현황</h2>
-
-        <div class="table-wrap jonghap-wrap">
-          <table class="susi-table jonghap-table">
-            <thead>
-              <tr>
-                <th>대학</th>
-                <th>수능최저 미적용 종합전형</th>
-                <th>수능최저 적용 종합전형</th>
-                <th>2028학년도 수능최저</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>고려대학교</td><td>계열적합(556)</td><td>학업우수(823)</td><td>4합9</td></tr>
-              <tr><td>연세대학교</td><td><span class="keep-chunk">탐구미래형(399)</span>, <span class="keep-chunk">종합인재형(124)</span></td><td>종합인재형(891)</td><td>2합4~5 + 영어 3등급</td></tr>
-              <tr><td>서강대학교</td><td>일반Ⅰ(497)</td><td>일반Ⅱ(74)</td><td>3합7</td></tr>
-              <tr><td>성균관대학교</td><td><span class="keep-chunk">탐구인재(568)</span>, <span class="keep-chunk">성균인재(222)</span>, <span class="keep-chunk">과학인재(155)</span></td><td>융합인재(325)</td><td>3합6</td></tr>
-              <tr><td>한양대학교</td><td>면접형(266)</td><td>학업형(811)</td><td>3합7</td></tr>
-              <tr><td>이화여자대학교</td><td>면접(181)</td><td>미래인재-서류형(931)</td><td>3합5~7</td></tr>
-              <tr><td>중앙대학교</td><td><span class="keep-chunk">CAU융합형인재 CORE(499)</span>, <span class="keep-chunk">CAU융합형인재 ALL(384)</span></td><td>CAU융합형인재 UP(114)</td><td>3합6</td></tr>
-              <tr><td>경희대학교</td><td>면접형(754)</td><td>네오르네상스-서류형(345)</td><td>2합5</td></tr>
-              <tr><td>한국외국어대학교</td><td>면접형(325)</td><td>서류형(248)</td><td>2합6</td></tr>
-              <tr><td>서울시립대학교</td><td>종합(424)</td><td>-</td><td>-</td></tr>
-              <tr><td>건국대학교</td><td>KU자기추천(910)</td><td>-</td><td>-</td></tr>
-              <tr><td>동국대학교</td><td>DoDream(894)</td><td>-</td><td>-</td></tr>
-              <tr><td>홍익대학교</td><td>면접형(23)</td><td>학교생활우수자-서류형(434)</td><td>2합5</td></tr>
-              <tr><td>숙명여자대학교</td><td><span class="keep-chunk">면접형(361)</span>, <span class="keep-chunk">소프트웨어인재(35)</span></td><td>-</td><td>-</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="section5">
-        <h2>논술전형 수능최저학력기준</h2>
-
-        <div class="table-wrap">
-          <table class="susi-table essay-table">
-            <thead>
-              <tr>
-                <th>대학</th>
-                <th>논술 일반 수능최저</th>
-                <th>논술 메디컬 수능최저</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>고려대학교</td><td>4합8 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
-              <tr><td>연세대학교</td><td>3합6 <span class="keep-together">(탐구 각각 반영)</span> <span class="keep-together">(국어/수학 포함, 영어 3등급)</span></td><td>약학: 3합5 <span class="keep-together">(탐구 각각 반영)</span> <span class="keep-together">(국어/수학 포함, 영어 3등급)</span></td></tr>
-              <tr><td>서강대학교</td><td>3합7 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
-              <tr><td>성균관대학교</td><td>3합5~6 <span class="keep-together">(탐구 각각 반영)</span></td><td>의예: 4합5 <span class="keep-together">(탐구 2과목)</span></td></tr>
-              <tr><td>한양대학교</td><td>3합7 <span class="keep-together">(탐구 1과목)</span></td><td>의예: 3합4 <span class="keep-together">(탐구 2과목)</span></td></tr>
-              <tr><td>이화여자대학교</td><td>3합7 <span class="keep-together">(탐구 1과목)</span><br>* 스크랜튼: 3합5</td><td>의예: 4합5 <span class="keep-together">(탐구 1과목)</span><br>약학: 4합6 <span class="keep-together">(탐구 1과목)</span></td></tr>
-              <tr><td>중앙대학교</td><td>3합6 <span class="keep-together">(탐구 각각 반영)</span></td><td>의학: 4합5 <span class="keep-together">(탐구 2과목)</span><br>약학: 4합5 <span class="keep-together">(탐구 각각 반영)</span></td></tr>
-              <tr><td>경희대학교</td><td>2합5 <span class="keep-together">(탐구 1과목)</span></td><td>의/한/치/약: 3합4 <span class="keep-together">(탐구 1과목)</span></td></tr>
-              <tr><td>한국외국어대학교</td><td>2합5 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
-              <tr><td>서울시립대학교</td><td>3합7 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
-              <tr><td>건국대학교</td><td>3합8 <span class="keep-together">(탐구 1과목)</span></td><td>수의예: 3합4 <span class="keep-together">(탐구 2과목)</span></td></tr>
-              <tr><td>동국대학교</td><td>2합5 <span class="keep-together">(탐구 각각 반영)</span></td><td>약학: 3합4 <span class="keep-together">(탐구 각각 반영)</span></td></tr>
-              <tr><td>홍익대학교</td><td>2합5 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
-              <tr><td>숙명여자대학교</td><td>2합5 <span class="keep-together">(탐구 1과목)</span></td><td>약학: 3합4 <span class="keep-together">(탐구 1과목, 수학 포함)</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="section6">
-        <h2>수시 전형의 수능최저 최종 비교</h2>
-
-        <div class="table-wrap final-compare-wrap">
-          <table class="final-compare-table">
-            <thead>
-              <tr>
-                <th>대학</th>
-                <th>학생부교과</th>
-                <th>학생부종합</th>
-                <th>논술</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>서울대학교</td><td>-</td><td>없음</td><td>-</td></tr>
-              <tr><td>고려대학교</td><td>없음</td><td>학업우수: 4합9</td><td>4합8</td></tr>
-              <tr><td>연세대학교</td><td>2합4~5(영어 3등급)</td><td>종합인재: 2합4~5(영어 3등급)</td><td>3합6</td></tr>
-              <tr><td>서강대학교</td><td>3개 영역 3등급</td><td>일반2: 3합7</td><td>3합7</td></tr>
-              <tr><td>성균관대학교</td><td>3합6~7</td><td>융합인재: 3합6</td><td>3합5~6</td></tr>
-              <tr><td>한양대학교</td><td>3개 영역 3등급</td><td>학업형: 3합7</td><td>3합7</td></tr>
-              <tr><td>이화여자대학교</td><td>3합7</td><td>서류형: 3합5~7</td><td>3합5~7</td></tr>
-              <tr><td>중앙대학교</td><td>3합7</td><td>최저학종: 3합6</td><td>3합6*</td></tr>
-              <tr><td>경희대학교</td><td>2합5</td><td>서류형: 2합5</td><td>2합5</td></tr>
-              <tr><td>한국외국어대학교</td><td>2합5</td><td>서류형: 2합6</td><td>2합5</td></tr>
-              <tr><td>서울시립대학교</td><td>3합7</td><td>없음</td><td>3합7</td></tr>
-              <tr><td>건국대학교</td><td>3합8</td><td>없음</td><td>3합8</td></tr>
-              <tr><td>동국대학교</td><td>없음</td><td>없음</td><td>2합5</td></tr>
-              <tr><td>홍익대학교</td><td>2합5</td><td>서류형: 2합5</td><td>2합5</td></tr>
-              <tr><td>숙명여자대학교</td><td>없음</td><td>없음</td><td>2합5</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-<section id="section7">
-        <h2>정시에서도 학생부 반영 확대</h2>
-
-        <h3>1) 주요 15개 대학 정시 모집 전형방법</h3>
-        
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>대학</th>
-                <th>전형</th>
-                <th>전형 방법</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>서울대학교</td><td class="center">-</td><td>1단계(3배수): 수능100<br>2단계: 수능60 + 교과역량평가40</td></tr>
-              <tr><td rowspan="2">고려대학교</td><td class="center">일반</td><td>수능100</td></tr>
-              <tr class="sub-option"><td class="center">교과우수</td><td>수능80 + 교과20</td></tr>
-              <tr><td>연세대학교</td><td class="center">-</td><td>수능90 + 서류10</td></tr>
-              <tr><td rowspan="2">서강대학교</td><td class="center">일반</td><td>수능100</td></tr>
-              <tr class="sub-option"><td class="center">지역균형</td><td>수능80 + 교과10 + 출결10</td></tr>
-              <tr><td rowspan="3">성균관대학교</td><td class="center">일반</td><td>수능100</td></tr>
-              <tr class="sub-option"><td class="center">특화</td><td>수능100</td></tr>
-              <tr class="sub-option"><td class="center">융합인재</td><td>학생부100 (*사범계열만 선발)</td></tr>
-              <tr><td>한양대학교</td><td class="center">-</td><td>수능90 + 학생부종합10</td></tr>
-              <tr><td rowspan="2">이화여자대학교</td><td class="center">수능</td><td>수능100</td></tr>
-              <tr class="sub-option"><td class="center">수능-학생부</td><td>수능85 + 서류15</td></tr>
-              <tr><td rowspan="2">중앙대학교</td><td class="center">수능89</td><td>수능89 + 출결11</td></tr>
-              <tr class="sub-option"><td class="center">수능67</td><td>수능67 + 서류33</td></tr>
-              <tr><td rowspan="2">경희대학교</td><td class="center">수능</td><td>수능100</td></tr>
-              <tr class="sub-option"><td class="center">수능-학생부</td><td>수능90 + 학생부10</td></tr>
-              <tr><td>한국외국어대학교</td><td class="center">-</td><td>수능100</td></tr>
-              <tr><td>서울시립대학교</td><td class="center">-</td><td>수능80 + 교과18 + 출결2</td></tr>
-              <tr><td rowspan="2">건국대학교</td><td class="center">일반</td><td>수능100</td></tr>
-              <tr class="sub-option"><td class="center">[다]군 자전</td><td>수능90 + 교과정성10</td></tr>
-              <tr><td>동국대학교</td><td class="center">-</td><td>수능80 + 학생부20</td></tr>
-              <tr><td>홍익대학교</td><td class="center">-</td><td>수능90 + 교과10</td></tr>
-              <tr><td>숙명여자대학교</td><td class="center">-</td><td>수능80 + 서류20</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>2) 정시 학생부 반영 대학 구분</h3>
-
-        <h4>[정성평가 반영 대학]</h4>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>대학</th>
-                <th>전형명</th>
-                <th>반영 방법</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>서울대학교</td><td class="center">-</td><td>1단계(3배수): 수능 100<br>2단계: 수능 60 + 교과역량평가 40</td></tr>
-              <tr><td>연세대학교</td><td class="center">-</td><td>수능 90 + 서류 10</td></tr>
-              <tr><td>한양대학교</td><td class="center">-</td><td>수능 90 + 학생부종합 10</td></tr>
-              <tr><td>이화여자대학교</td><td class="center">수능-학생부</td><td>수능 85 + 서류 15</td></tr>
-              <tr><td>중앙대학교</td><td class="center">수능67</td><td>수능 67 + 서류 33</td></tr>
-              <tr><td>건국대학교</td><td class="center">[다]군 자전</td><td>수능 90 + 교과정성 10</td></tr>
-              <tr><td>동국대학교</td><td class="center">-</td><td>수능 80 + 학생부 20</td></tr>
-              <tr><td>숙명여자대학교</td><td class="center">-</td><td>수능 80 + 서류 20</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h4>[정량평가 반영 대학]</h4>
-        <div class="table-wrap">
-          <table class="quant-table">
-            <colgroup>
-              <col>
-              <col>
-              <col>
-              <col>
-            </colgroup>
-            <thead>
-              <tr>
-                <th>대학</th>
-                <th>전형명</th>
-                <th>반영 방법</th>
-                <th>학생부 반영 방식</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>고려대학교</td><td class="center">교과우수</td><td>수능 80 + 교과 20</td><td>전과목 석차등급, 성취도</td></tr>
-              <tr><td>서강대학교</td><td class="center">지역균형</td><td>수능 80 + 교과 10 + 출결 10</td><td>상위 12과목 등급 또는 성취도 상위값</td></tr>
-              <tr><td>경희대학교</td><td class="center">수능-학생부</td><td>수능 90 + 학생부 10</td><td>상위 18과목 등급 또는 성취도 상위값</td></tr>
-              <tr><td>서울시립대학교</td><td class="center">-</td><td>수능 80 + 교과 18 + 출결 2</td><td>전과목 석차등급</td></tr>
-              <tr><td>홍익대학교</td><td class="center">-</td><td>수능 90 + 교과 10</td><td>주요교과 성취도 반영</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>3) 학생부 평가에서 보는 요소</h3>
-        
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>평가 영역</th>
-                <th>평가 내용</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>교과학습발달상황</td>
-                <td>이수과목, 성취도, 과목 선택의 적절성</td>
-              </tr>
-              <tr>
-                <td>행동특성 및 종합의견</td>
-                <td>성실성, 책임감, 학교생활 태도</td>
-              </tr>
-              <tr>
-                <td>출결</td>
-                <td>결석·지각·조퇴 등 출결 상황</td>
-              </tr>
-              <tr>
-                <td>학교폭력 관련 사항</td>
-                <td>학교폭력 조치사항 여부</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-<section id="section8">
-        <h2>핵심 변화 요약</h2>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>핵심 변화</th>
-                <th>의미</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>교과전형 선발 확대</td>
-                <td>학생부교과 전형의 중요성이 커지고, 재학생에게 유리한 구조가 강화됨</td>
-              </tr>
-              <tr>
-                <td>교과전형 정성평가 확대</td>
-                <td>단순 내신 등급뿐 아니라 과목 선택, 학업 태도, 성취 과정까지 평가하는 흐름이 강화됨</td>
-              </tr>
-              <tr>
-                <td>수시 전형의 수능최저 확대</td>
-                <td>수시 지원에서도 수능 성적 관리의 필요성이 커짐</td>
-              </tr>
-              <tr>
-                <td>정시 학생부 반영 확대</td>
-                <td>정시 준비생도 교과 성취도, 출결, 학교생활 관리가 중요해짐</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="summary closing-callout">
-          <p class="closing-head">수시도 정시도, 결국 학생부와 수능을 함께 관리한 학생이 앞섭니다.</p>
-          <p class="closing-sub">어느 한쪽만 준비하던 시대는 지났습니다. 2028 대입은 학생부와 수능 두 축을 처음부터 균형 있게 끌고 가는 전략이 당락을 가릅니다.</p>
-        </div>
-      </section>
-    </main>
+      <main class="matrix" aria-label="면접 여부와 수능최저 적용 여부에 따른 전형 4분면 표">
+        <section class="quad-grid">
+          <article class="quadrant q1" id="q1">
+            <div class="q-meta" data-label="면접X 수능최저O"></div>
+            <div class="chips" id="cards-q1"></div>
+          </article>
+          <article class="quadrant q2" id="q2">
+            <div class="q-meta" data-label="면접O 수능최저O"></div>
+            <div class="chips" id="cards-q2"></div>
+          </article>
+          <article class="quadrant q3" id="q3">
+            <div class="q-meta" data-label="면접X 수능최저X"></div>
+            <div class="chips" id="cards-q3"></div>
+          </article>
+          <article class="quadrant q4" id="q4">
+            <div class="q-meta" data-label="면접O 수능최저X"></div>
+            <div class="chips" id="cards-q4"></div>
+          </article>
+        </section>
+      </main>
+    </div>
   </div>
+  <footer class="unified-footer">2028 공학계열 수시 수능최저 면접 정리 [ 송도이샘로봇 ]</footer>
+</div>
 
-  <footer class="unified-footer">2028 대입 전형 변화 정리 [ 송도이샘로봇 ]</footer>
+<script>
+const DATA={
+  q1:[
+    {type:"jong",uni:"한양대",t:"학업형",min:"3합7",c:true},
+    {type:"jong",uni:"성균관대",t:"융합인재",min:"3합6",c:true},
+    {type:"jong",uni:"중앙대",t:"최저학종 UP",min:"3합6",c:true},
+    {type:"jong",uni:"경희대",t:"네오 서류형",min:"2합5",c:true},
+    {type:"jong",uni:"서강대",t:"종합 일반2",min:"3합7",c:true},
+    {type:"jong",uni:"한국외대",t:"종합 서류형",min:"2합6",c:true},
+    {type:"gyo",uni:"연세대",t:"추천형",min:"2합4~5",c:true},
+    {type:"gyo",uni:"서강대",t:"지역균형",min:"3개3등급",c:true},
+    {type:"gyo",uni:"성균관대",t:"추천인재",min:"3합6~7",c:true},
+    {type:"gyo",uni:"한양대",t:"추천형",min:"3개3등급",c:true},
+    {type:"gyo",uni:"중앙대",t:"지역균형",min:"3합7",c:true},
+    {type:"gyo",uni:"경희대",t:"지역균형",min:"2합5",c:true},
+    {type:"gyo",uni:"한국외대",t:"학교장추천",min:"2합5",c:true},
+    {type:"gyo",uni:"서울시립대",t:"지역균형",min:"3합7",c:true},
+    {type:"gyo",uni:"국민대",t:"교과성적우수",min:"2합7",c:true},
+    {type:"gyo",uni:"숭실대",t:"학생부우수",min:"2합6",c:true},
+    {type:"gyo",uni:"세종대",t:"지역균형",min:"자연2합",c:false},
+    {type:"gyo",uni:"단국대",t:"지역균형",min:"자연2합",c:false},
+    {type:"gyo",uni:"인하대",t:"지역균형",min:"2합5",c:true},
+  ],
+  q2:[
+    {type:"jong",uni:"고려대",t:"학업우수",min:"4합9",c:true},
+    {type:"jong",uni:"연세대",t:"종합인재형",min:"2합4~5",c:true},
+  ],
+  q3:[
+    {type:"gyo",uni:"고려대",t:"학교추천",min:"",c:true},
+    {type:"gyo",uni:"광운대",t:"지역균형",min:"",c:false},
+    {type:"gyo",uni:"인천대",t:"교과성적우수",min:"",c:false},
+    {type:"gyo",uni:"한국공학대",t:"교과전형",min:"",c:false},
+    {type:"gyo",uni:"한양대 ERICA",t:"지역균형",min:"",c:false},
+    {type:"jong",uni:"고려대",t:"계열적합",min:"",c:true},
+    {type:"jong",uni:"서강대",t:"종합 일반1",min:"",c:false},
+    {type:"jong",uni:"성균관대",t:"탐구인재",min:"",c:true},
+    {type:"jong",uni:"서울시립대",t:"학종II 서류",min:"",c:false},
+    {type:"jong",uni:"국민대",t:"학교생활우수",min:"",c:false},
+    {type:"jong",uni:"세종대",t:"창의 서류형",min:"",c:false},
+    {type:"jong",uni:"인하대",t:"미래 서류형",min:"",c:true},
+    {type:"jong",uni:"광운대",t:"참빛 서류형",min:"",c:false},
+    {type:"jong",uni:"한국공학대",t:"학종 서류형",min:"",c:false},
+    {type:"jong",uni:"한양대 ERICA",t:"학종 서류형",min:"",c:false},
+  ],
+  q4:[
+    {type:"jong",uni:"서울대",t:"지역균형",min:"",c:true},
+    {type:"jong",uni:"서울대",t:"일반전형",min:"",c:true},
+    {type:"jong",uni:"연세대",t:"탐구인재형",min:"",c:false},
+    {type:"jong",uni:"한양대",t:"면접형",min:"",c:true},
+    {type:"jong",uni:"성균관대",t:"성균인재",min:"",c:true},
+    {type:"jong",uni:"성균관대",t:"과학인재",min:"",c:true},
+    {type:"jong",uni:"중앙대",t:"탐구 CORE",min:"",c:true},
+    {type:"jong",uni:"중앙대",t:"모두의 ALL",min:"",c:true},
+    {type:"jong",uni:"경희대",t:"네오 면접형",min:"",c:true},
+    {type:"jong",uni:"한국외대",t:"종합 면접형",min:"",c:false},
+    {type:"jong",uni:"서울시립대",t:"학종I 면접",min:"",c:false},
+    {type:"jong",uni:"국민대",t:"국민프런티어",min:"",c:false},
+    {type:"jong",uni:"숭실대",t:"SSU미래인재",min:"",c:false},
+    {type:"jong",uni:"세종대",t:"창의 면접형",min:"",c:false},
+    {type:"jong",uni:"단국대",t:"DKU 면접형",min:"",c:false},
+    {type:"jong",uni:"광운대",t:"참빛 면접형",min:"",c:false},
+    {type:"jong",uni:"인천대",t:"자기추천",min:"",c:false},
+    {type:"jong",uni:"인하대",t:"미래 면접형",min:"",c:true},
+    {type:"jong",uni:"한국공학대",t:"학종 면접형",min:"",c:false},
+    {type:"jong",uni:"한양대 ERICA",t:"학종 면접형",min:"",c:false},
+  ],
+};
 
-  <script>
-    // 메뉴 고정 처리
-    // 처음에는 제목 아래에 있고, 스크롤로 메뉴 위치를 지나면 화면 상단에 고정합니다.
-    document.addEventListener("DOMContentLoaded", function () {
-      const nav = document.querySelector("nav");
-      const placeholder = document.getElementById("nav-placeholder");
-
-      if (!nav || !placeholder) return;
-
-      let navTop = 0;
-
-      function resetNavPosition() {
-        nav.classList.remove("nav-fixed");
-        placeholder.style.display = "none";
-        placeholder.style.height = "0px";
-        navTop = nav.getBoundingClientRect().top + window.scrollY;
-      }
-
-      function setPlaceholderHeight() {
-        placeholder.style.height = nav.offsetHeight + "px";
-      }
-
-      function handleScroll() {
-        if (window.scrollY >= navTop) {
-          if (!nav.classList.contains("nav-fixed")) {
-            setPlaceholderHeight();
-            placeholder.style.display = "block";
-            nav.classList.add("nav-fixed");
-          }
-        } else {
-          nav.classList.remove("nav-fixed");
-          placeholder.style.display = "none";
-          placeholder.style.height = "0px";
-        }
-      }
-
-      resetNavPosition();
-      handleScroll();
-
-      window.addEventListener("scroll", handleScroll, { passive: true });
-
-      window.addEventListener("resize", function () {
-        resetNavPosition();
-        handleScroll();
-      });
-    });
-  </script>
-
-
+const LABELS={gyo:"교과", jong:"종합"};
+function chip(d){
+  const title=`[${LABELS[d.type]}] ${d.uni} ${d.t}${d.min ? ' 최저 '+d.min : ' 최저 없음'}`;
+  return `<div class="chip ${d.type}" title="${title}">
+    <span class="u">${d.uni}</span>
+    <span class="meta">
+      <span class="t">${d.t}</span>
+      ${d.min ? `<span class="min">${d.min}</span>` : ""}
+    </span>
+  </div>`;
+}
+function render(){
+  const typeOrder={gyo:0, jong:1};
+  Object.keys(DATA).forEach(q=>{
+    const ordered=[...DATA[q]].sort((a,b)=>(typeOrder[a.type]-typeOrder[b.type]));
+    document.getElementById(`cards-${q}`).innerHTML=ordered.map(chip).join('');
+  });
+}
+render();
+</script>
 
 <script id="rule-system-js">
 /* 규칙 시스템 레이어 JS — 균형 줄바꿈: 메뉴 6개가 4+2가 아니라 3+3으로 나뉘도록
