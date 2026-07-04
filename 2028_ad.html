@@ -946,6 +946,34 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
 .site-hero h1{ font-size:var(--fs-h1) !important; font-weight:850 !important; line-height:1.1 !important; }
 .site-hero p{ font-size:var(--fs-h3) !important; font-weight:600 !important; }
 </style>
+
+
+<style id="section-heading-check-icon-fix">
+  /* 섹션 제목 앞 번호([1]~[8])를 네이비 체크 원형 표시로 통일 */
+  section h2{
+    display:flex !important;
+    align-items:center !important;
+    gap:clamp(7px, .9vw, 10px) !important;
+    word-break:keep-all;
+  }
+
+  section h2::before{
+    content:"✓";
+    flex:0 0 auto;
+    width:1.6em;
+    height:1.6em;
+    border-radius:50%;
+    background:#172744;
+    color:#fff;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:.56em;
+    font-weight:900;
+    line-height:1;
+  }
+</style>
+
 </head>
 
 <body>
@@ -980,7 +1008,7 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
 
     <main>
 <section id="section1">
-        <h2>[1] 2028 대입, 평가 체계의 큰 틀은 유지</h2>
+        <h2>2028 대입, 평가 체계의 큰 틀은 유지</h2>
         <div class="table-wrap">
           <table>
             <thead>
@@ -1019,7 +1047,7 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
         </div>
       </section>
 <section id="section2">
-        <h2>[2] 교과전형, 재학생에게 유리한 구조</h2>
+        <h2>교과전형, 재학생에게 유리한 구조</h2>
 
         <h3>1) 학생부교과 선발인원</h3>
         <div class="table-wrap">
@@ -1083,7 +1111,7 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
         </div>
       </section>
 <section id="section3">
-        <h2>[3] 교과전형, 정성평가 확대</h2>
+        <h2>교과전형, 정성평가 확대</h2>
         <div class="table-wrap">
           <table>
             <thead>
@@ -1116,7 +1144,7 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
       </section>
 
       <section id="section4">
-        <h2>[4] 학생부종합전형 수능최저 적용 현황</h2>
+        <h2>학생부종합전형 수능최저 적용 현황</h2>
 
         <div class="table-wrap jonghap-wrap">
           <table class="susi-table jonghap-table">
@@ -1149,7 +1177,7 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
       </section>
 
       <section id="section5">
-        <h2>[5] 논술전형 수능최저학력기준</h2>
+        <h2>논술전형 수능최저학력기준</h2>
 
         <div class="table-wrap">
           <table class="susi-table essay-table">
@@ -1181,7 +1209,7 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
       </section>
 
       <section id="section6">
-        <h2>[6] 수시 전형의 수능최저 최종 비교</h2>
+        <h2>수시 전형의 수능최저 최종 비교</h2>
 
         <div class="table-wrap final-compare-wrap">
           <table class="final-compare-table">
@@ -1214,7 +1242,7 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
         </div>
       </section>
 <section id="section7">
-        <h2>[7] 정시에서도 학생부 반영 확대</h2>
+        <h2>정시에서도 학생부 반영 확대</h2>
 
         <h3>1) 주요 15개 대학 정시 모집 전형방법</h3>
         
@@ -1341,7 +1369,7 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
         </div>
       </section>
 <section id="section8">
-        <h2>[8] 핵심 변화 요약</h2>
+        <h2>핵심 변화 요약</h2>
 
         <div class="table-wrap">
           <table>
