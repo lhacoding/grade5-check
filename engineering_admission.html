@@ -134,14 +134,25 @@ input[type="number"]{ appearance:textfield; -moz-appearance:textfield; text-alig
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button{ -webkit-appearance:none; margin:0; }
 
-/* ---------- 섹션 타이틀: ✓ 원형 마크 (원본 형태) ---------- */
+/* ---------- 섹션 타이틀: ✓ 원형 마크 ---------- */
 .section-title{ display:flex; align-items:flex-start; gap:var(--gap-sm); }
 .section-title .mark{
-  width:1.7em; height:1.7em; flex:none; margin-top:.1em; border-radius:50%;
-  background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center;
-  font-size:var(--fs-h2); font-weight:800; line-height:1;
+  /* 제목 글자 높이보다 커지지 않도록 h2 글자 크기의 0.88배로 고정 */
+  width:calc(var(--fs-h2) * .88);
+  height:calc(var(--fs-h2) * .88);
+  flex:none;
+  margin-top:calc(var(--fs-h2) * .12);
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:calc(var(--fs-h2) * .50);
+  font-weight:800;
+  line-height:1;
 }
-.section-title h2{ margin:0; font-size:var(--fs-h2); font-weight:850; letter-spacing:-.03em; }
+.section-title h2{ margin:0; font-size:var(--fs-h2); line-height:1.12; font-weight:850; letter-spacing:-.03em; }
 .section-sub{ margin:2px 0 0; font-size:var(--fs-small); color:var(--muted); word-break:keep-all; }
 section[aria-label], .recommend-card{ display:grid; gap:var(--gap-md); }
 
