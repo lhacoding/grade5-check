@@ -935,214 +935,257 @@
   }
 
   /* 모든 페이지 공통 제목 박스: 본문 카드와 같은 좌우 기준으로 중앙 정렬 */
-  .site-hero{
-    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
-    position:relative !important;
-    left:auto !important;
-    transform:none !important;
-    display:block !important;
-    width:var(--unified-top-width) !important;
-    max-width:var(--unified-top-width) !important;
-    margin:14px auto 12px !important;
-    padding:22px 30px 24px !important;
-    border:1px solid rgba(255,255,255,.28) !important;
-    border-radius:24px !important;
-    background:
-      radial-gradient(circle at 92% 12%, rgba(132,146,212,.55), transparent 34%),
-      linear-gradient(135deg,#172744 0%,#263b62 56%,#6475bd 100%) !important;
-    color:#fff !important;
-    box-shadow:0 18px 42px rgba(23,39,68,.16) !important;
-    overflow:hidden !important;
-    text-align:left !important;
-  }
-  .site-hero h1{
-    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
-    margin:0 !important;
-    color:#fff !important;
-    font-size:clamp(25px,2.55vw,34px) !important;
-    line-height:1.14 !important;
-    font-weight:900 !important;
-    letter-spacing:-.055em !important;
-    word-break:keep-all !important;
-    text-shadow:none !important;
-  }
-  .site-hero p{
-    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
-    margin:9px 0 0 !important;
-    max-width:960px !important;
-    color:rgba(255,255,255,.84) !important;
-    font-size:14px !important;
-    line-height:1.48 !important;
-    font-weight:700 !important;
-    letter-spacing:-.035em !important;
-    word-break:keep-all !important;
-    text-shadow:none !important;
-  }
+
+
+
 
   /* 모든 페이지 공통 메뉴: 제목 박스와 동일 폭으로 중앙 정렬 */
-  .global-menu-section{
-    position:relative !important;
-    left:auto !important;
-    transform:none !important;
-    display:block !important;
-    width:var(--unified-top-width) !important;
-    max-width:var(--unified-top-width) !important;
-    margin:0 auto 18px !important;
-    padding:7px !important;
-    border:1px solid #d6dfed !important;
-    border-radius:20px !important;
-    background:rgba(255,255,255,.98) !important;
-    box-shadow:0 12px 30px rgba(31,49,81,.08) !important;
-  }
-  .global-menu-grid{
-    display:grid !important;
-    grid-template-columns:repeat(6,minmax(0,1fr)) !important;
-    gap:6px !important;
-    margin:0 !important;
-    padding:0 !important;
-  }
-  .global-menu-button{
-    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    min-width:0 !important;
-    min-height:36px !important;
-    padding:0 7px !important;
-    border:1px solid #cfd8ea !important;
-    border-radius:999px !important;
-    background:#f8fbff !important;
-    color:#071833 !important;
-    text-align:center !important;
-    text-decoration:none !important;
-    font-size:clamp(11px,.9vw,13px) !important;
-    line-height:1.12 !important;
-    font-weight:900 !important;
-    letter-spacing:-.045em !important;
-    white-space:nowrap !important;
-    box-shadow:none !important;
-    transition:background .14s ease, color .14s ease, border-color .14s ease, transform .14s ease !important;
-  }
-  .global-menu-button:hover,
-  .global-menu-button:focus{
-    transform:translateY(-1px) !important;
-    border-color:#172744 !important;
-    background:#172744 !important;
-    color:#fff !important;
-    outline:none !important;
-  }
-  .global-menu-button.active{
-    border-color:#172744 !important;
-    background:#172744 !important;
-    color:#fff !important;
-    box-shadow:0 8px 18px rgba(23,39,68,.17) !important;
-  }
+
+
+
+
+
 
   /* 공통 상단 아래 본문 시작 여백 보정 */
-  .site-hero + .global-menu-section + .page,
-  .site-hero + .global-menu-section + main.page,
-  .site-hero + .global-menu-section + .wrap{
-    margin-top:0 !important;
-    padding-top:0 !important;
-  }
 
-  .unified-footer{
-    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif !important;
-    display:block !important;
-    width:var(--unified-top-width) !important;
-    max-width:var(--unified-top-width) !important;
-    position:relative !important;
-    left:auto !important;
-    transform:none !important;
-    margin:22px auto 0 !important;
-    padding:8px 8px 6px !important;
-    border:0 !important;
-    background:transparent !important;
-    color:#5f6e86 !important;
-    text-align:center !important;
-    font-size:13px !important;
-    line-height:1.35 !important;
-    font-weight:800 !important;
-    letter-spacing:-.035em !important;
-    box-shadow:none !important;
-  }
+
+
 
   @media (max-width:860px){
     :root{ --unified-top-width:min(1180px, calc(100% - 16px)); }
-    .site-hero{
-      margin:10px auto 10px !important;
-      padding:18px 18px 19px !important;
-      border-radius:20px !important;
-    }
-    .site-hero h1{
-      font-size:clamp(22px,5.5vw,28px) !important;
-      line-height:1.16 !important;
-    }
-    .site-hero p{
-      margin-top:7px !important;
-      font-size:12.8px !important;
-      line-height:1.42 !important;
-    }
-    .global-menu-section{
-      margin:0 auto 12px !important;
-      padding:6px !important;
-      border-radius:17px !important;
-    }
-    .global-menu-grid{
-      grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-      gap:5px !important;
-    }
-    .global-menu-button{
-      min-height:34px !important;
-      padding:0 5px !important;
-      font-size:11.2px !important;
-    }
-    .unified-footer{
-      font-size:12px !important;
-      margin:16px auto 0 !important;
-    }
+
+
+
+
+
+
+
   }
 
   @media (max-width:430px){
     :root{ --unified-top-width:min(1180px, calc(100% - 16px)); }
-    .site-hero{
-      margin:7px auto 8px !important;
-      padding:15px 14px 16px !important;
-      border-radius:18px !important;
-    }
-    .site-hero h1{
-      font-size:20px !important;
-      letter-spacing:-.06em !important;
-    }
-    .site-hero p{
-      font-size:11.7px !important;
-      line-height:1.38 !important;
-    }
-    .global-menu-section{
-      padding:5px !important;
-      border-radius:15px !important;
-    }
-    .global-menu-grid{
-      gap:4px !important;
-    }
-    .global-menu-button{
-      min-height:32px !important;
-      padding:0 3px !important;
-      font-size:10px !important;
-      letter-spacing:-.06em !important;
-    }
-    .unified-footer{
-      font-size:11.5px !important;
-    }
+
+
+
+
+
+
+
   }
 
   @media (max-width:350px){
-    .global-menu-grid{
-      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-    }
+
   }
 </style>
 
+
+<style id="rule-system-layer">
+/* ==========================================================================
+   규칙 시스템 레이어 v1 — 사이트 공통 크롬(히어로·메뉴·푸터·컨테이너) 통일 + 토큰
+   - 원본 스타일 "뒤"에 배치되어 같은 특이도에서 우선 적용된다.
+   - !important는 기존 패치 블록의 !important를 이기기 위한 이행(migration) 용도로
+     크롬·컨테이너·카드 패딩에만 한시적으로 사용한다. (완전 재구축 시 제거 대상)
+   - 여백/글자/반복폭은 아래 토큰만 사용: 축소 순서 = 여백 → 글자 → 구조 전환
+   ========================================================================== */
+:root{
+  --rs-navy:#172744; --rs-line:#d9e1ef; --rs-line2:#edf1f7; --rs-blue:#5f6ee8;
+  --rs-shadow:0 18px 42px rgba(33,55,95,.12);
+  --rs-shadow-soft:0 10px 28px rgba(31,49,81,.08);
+  --radius:24px; --radius-sm:14px;
+
+  --gutter:  clamp(12px, 4vw, 36px);
+  --gap-lg:  clamp(8px, 1.3vw, 16px);   /* 최상위 블록 사이 단일 간격 */
+  --gap-md:  clamp(6px, 1.2vw, 14px);
+  --gap-sm:  clamp(4px, 1vw, 10px);
+  --pad-card:   clamp(10px, 1.7vw, 18px); /* 카드 안쪽 패딩(상하좌우 공통) */
+  --pad-cell-x: clamp(12px, 1.6vw, 20px);
+  --pad-cell-y: clamp(7px, 1vw, 13px);
+
+  --fs-h1:    clamp(26px, 3.4vw + 10px, 46px);
+  --fs-h3:    clamp(15px, .6vw + 13px, 19px);
+  --fs-label: clamp(13px, .35vw + 12px, 16px);
+  --fs-small: clamp(11px, .3vw + 10px, 13.5px);
+  --ctl-h:    clamp(38px, 2vw + 30px, 50px);
+
+  --page-w: min(1320px, calc(100% - 2*var(--gutter))); /* 페이지 폭 단일 패턴 */
+}
+*, *::before, *::after{ box-sizing:border-box; }
+
+/* ---------- 컨테이너 폭 통일 ---------- */
+.wrap, .page, main.page, .container{
+  width:var(--page-w) !important;
+  max-width:none !important;
+  margin-left:auto !important; margin-right:auto !important;
+}
+
+/* ---------- 히어로: 둥근 그라디언트 카드 (전 페이지 동일) ---------- */
+
+
+
+
+/* ---------- 전역 메뉴: 흰 카드 + 외곽선 있는 라운드 사각 버튼 ---------- */
+
+
+
+
+
+
+/* ---------- 푸터 ---------- */
+
+
+/* ---------- 입력 규칙: 박스 안 글자 잘림 금지 ---------- */
+input[type="number"]{ appearance:textfield; -moz-appearance:textfield; text-align:center; }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{ -webkit-appearance:none; margin:0; }
+select:focus-visible, input:focus-visible, button:focus-visible, a:focus-visible{
+  outline:2px solid var(--rs-blue); outline-offset:2px;
+}
+
+/* ---------- 페이지 카드 패딩 토큰 통일 ---------- */
+.panel{ padding:var(--pad-card) !important; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation:none !important; }
+}
+</style>
+
+<style id="unified-chrome">
+/* ==========================================================================
+   기준 크롬 (engineering_admission.html과 동일한 규칙)
+   - 페이지 폭·히어로·메뉴·푸터·기본 글자 토큰을 기준 파일 값으로 통일
+   - --unified-top-width를 기준 폭 공식으로 재정의 → 본문 래퍼도 자동 일치
+   ========================================================================== */
+:root{
+  --bg:#f3f6fb; --ink:#071833; --muted:#6f7b8f;
+  --line:#d9e1ef; --line2:#edf1f7;
+  --navy:#172744; --blue:#5f6ee8;
+  --soft-blue:#edf3ff; --green:#117444; --amber:#8a5a00; --red:#a3273a;
+  --shadow:0 18px 42px rgba(33,55,95,.12);
+  --shadow-soft:0 10px 28px rgba(31,49,81,.08);
+  --radius:24px; --radius-sm:14px;
+
+  --gutter:  clamp(12px, 4vw, 36px);
+  --gap-lg:  clamp(8px, 1.3vw, 16px);
+  --gap-md:  clamp(6px, 1.2vw, 14px);
+  --gap-sm:  clamp(4px, 1vw, 10px);
+  --pad-card:   clamp(10px, 1.7vw, 18px);
+  --pad-cell-x: clamp(12px, 1.6vw, 20px);
+  --pad-cell-y: clamp(7px, 1vw, 13px);
+
+  --fs-h1:    clamp(26px, 3.4vw + 10px, 36px);
+  --fs-h2:    clamp(18px, 1vw + 14px, 26px);
+  --fs-h3:    clamp(12px, .6vw + 6px, 17px);
+  --fs-body:  clamp(13px, .45vw + 11.5px, 17px);
+  --fs-small: clamp(11px, .3vw + 10px, 13.5px);
+  --fs-num:   clamp(11px, .5vw + 9.5px, 16px);
+  --fs-label: clamp(13px, .35vw + 12px, 16px);
+  --fs-fit-max:    17px;
+  --fs-fit-max-lg: 19px;
+
+  --dot-w: clamp(40px, 4.8vw, 52px);
+  --ctl-h: clamp(42px, 2vw + 32px, 52px);
+
+  /* 페이지 폭: 기준 파일의 컨테이너 공식 (본문 래퍼들이 이 변수를 사용) */
+  --unified-top-width: min(1320px, calc(100% - 2*var(--gutter)));
+}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Pretendard Variable","Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic","Segoe UI",Arial,sans-serif;
+  font-size:var(--fs-body); line-height:1.5; letter-spacing:-.012em;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+
+/* ---------- 히어로 (기준과 동일) ---------- */
+.site-hero{
+  width:var(--unified-top-width); max-width:none;
+  margin:var(--gap-lg) auto 0;
+  background:linear-gradient(120deg,#172744 0%,#1e3458 54%,#8090d8 100%);
+  color:#fff; border-radius:var(--radius); box-shadow:var(--shadow);
+  padding:var(--pad-card) calc(var(--pad-card) + var(--gap-md));
+  display:grid; gap:var(--gap-sm);
+}
+.site-hero h1{
+  margin:0; font-size:var(--fs-h1); line-height:1.1;
+  font-weight:850; letter-spacing:-.035em; color:#fff;
+}
+.site-hero p{
+  margin:0; max-width:none; font-size:var(--fs-h3); font-weight:600;
+  color:rgba(255,255,255,.9); word-break:keep-all;
+}
+
+/* ---------- 전역 메뉴 (기준과 동일) ---------- */
+.global-menu-section{
+  width:var(--unified-top-width); max-width:none;
+  margin:var(--gap-lg) auto; padding:0;
+  background:transparent; border:0; box-shadow:none;
+}
+.global-menu-grid{
+  --item-min:112px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, 112px), 1fr)); /* no-JS 폴백 */
+  gap:var(--gap-sm); margin:0;
+  background:#fff; border:1px solid var(--line);
+  border-radius:var(--radius); box-shadow:var(--shadow-soft);
+  padding:var(--pad-card);
+}
+.global-menu-button{
+  display:flex; align-items:center; justify-content:center; min-width:0;
+  min-height:var(--ctl-h); padding:var(--gap-sm) var(--pad-cell-x);
+  border-radius:var(--radius-sm); text-decoration:none; text-align:center;
+  font-size:var(--fs-label); font-weight:750; letter-spacing:-.02em;
+  color:#233657; background:#f4f7fd; border:1px solid var(--line);
+  white-space:nowrap;
+}
+.global-menu-button:hover{ background:var(--soft-blue); border-color:#cdd9f0; }
+.global-menu-button.active{ background:var(--navy); border-color:var(--navy); color:#fff; }
+.global-menu-button:focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+
+/* ---------- 푸터 (기준과 동일) ---------- */
+.unified-footer{
+  width:var(--unified-top-width);
+  margin:0 auto;
+  padding:var(--gap-md) 0 var(--gap-lg); text-align:center;
+  font-size:var(--fs-small); font-weight:800; letter-spacing:-.035em; color:#5f6e86;
+  background:transparent; border:0;
+}
+
+/* ---------- 수직 리듬: 최상위 블록 간격은 --gap-lg 하나 ---------- */
+body > .wrap, body > .page, body > .container, body > main{
+  margin-top:0 !important; padding-top:0 !important;
+}
+
+/* ---------- 폭 정렬 최종 규칙 ----------
+   히어로·메뉴·푸터·본문 래퍼가 전부 같은 폭 토큰을 쓰고,
+   래퍼·body의 좌우 패딩을 금지해 제목과 본문 표의 좌우 시작선을 일치시킨다. */
+body{ padding-left:0 !important; padding-right:0 !important; }
+body > .site-hero, body > header.site-hero,
+body > .global-menu-section, body > footer.unified-footer{
+  width:var(--unified-top-width) !important; max-width:none !important;
+  margin-left:auto !important; margin-right:auto !important;
+}
+body > .wrap, body > .page, body > main.page, body > .container, body > main{
+  width:var(--unified-top-width) !important; max-width:none !important;
+  margin-left:auto !important; margin-right:auto !important;
+  padding-left:0 !important; padding-right:0 !important;
+}
+/* 래퍼 안에 낀 옛 컨테이너류는 부모 폭을 그대로 따른다 (이중 폭 제한 금지) */
+.wrap .container, .page .container, .container .container, main .container{
+  width:auto !important; max-width:none !important;
+  margin-left:0 !important; margin-right:0 !important;
+}
+/* 옛 header 요소 규칙의 가운데 정렬 상속 차단 (기준은 왼쪽 정렬) */
+.site-hero, .site-hero h1, .site-hero p{ text-align:left !important; }
+
+/* 본문 최상위 섹션은 래퍼 폭을 그대로 채운다 (히어로·메뉴와 좌우 시작선 일치) */
+.wrap > .section, .page .section, .page > .section, main .section, .container > .section{
+  width:auto !important; max-width:none !important;
+  margin-left:0 !important; margin-right:0 !important;
+}
+
+/* 제목 크기 고정: 어떤 페이지의 잔여 규칙도 기준 토큰을 덮지 못한다 */
+.site-hero h1{ font-size:var(--fs-h1) !important; font-weight:850 !important; line-height:1.1 !important; }
+.site-hero p{ font-size:var(--fs-h3) !important; font-weight:600 !important; }
+</style>
 </head>
 <body>
 <header class="site-hero" aria-label="페이지 제목">
@@ -1262,6 +1305,57 @@ function renderTable() {
 }
 
 renderTable();
+</script>
+
+<script id="rule-system-js">
+/* 규칙 시스템 레이어 JS — 균형 줄바꿈: 메뉴 6개가 4+2가 아니라 3+3으로 나뉘도록
+   rows = ceil(n / 최대열수), cols = ceil(n / rows) 로 행별 개수를 균등 분배한다. */
+(function(){
+  function balanceGrids(){
+    document.querySelectorAll('.global-menu-grid').forEach(function(grid){
+      var n = grid.children.length;
+      if (!n || !grid.clientWidth) return;
+      var cs = getComputedStyle(grid);
+      var min = parseFloat(cs.getPropertyValue('--item-min')) || 112;
+      var gap = parseFloat(cs.columnGap) || 0;
+      var w = grid.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      var natural = Math.max(1, Math.floor((w + gap) / (min + gap)));
+      var rows = Math.ceil(n / Math.min(natural, n));
+      var cols = Math.ceil(n / rows);
+      grid.style.gridTemplateColumns = 'repeat(' + cols + ', minmax(0,1fr))';
+    });
+  }
+  var raf = null;
+  window.addEventListener('resize', function(){
+    cancelAnimationFrame(raf); raf = requestAnimationFrame(balanceGrids);
+  });
+  window.addEventListener('load', balanceGrids);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(balanceGrids);
+  balanceGrids();
+})();
+</script>
+
+<script id="balance-grids">
+/* 균형 줄바꿈(기준과 동일): 6개 → 4+2가 아니라 3+3 */
+(function(){
+  function balance(){
+    document.querySelectorAll('.global-menu-grid').forEach(function(g){
+      var n=g.children.length; if(!n||!g.clientWidth) return;
+      var cs=getComputedStyle(g);
+      var min=parseFloat(cs.getPropertyValue('--item-min'))||112;
+      var gap=parseFloat(cs.columnGap)||0;
+      var w=g.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+      var nat=Math.max(1,Math.floor((w+gap)/(min+gap)));
+      var rows=Math.ceil(n/Math.min(nat,n));
+      g.style.gridTemplateColumns='repeat('+Math.ceil(n/rows)+',minmax(0,1fr))';
+    });
+  }
+  var raf;
+  window.addEventListener('resize',function(){cancelAnimationFrame(raf);raf=requestAnimationFrame(balance);});
+  window.addEventListener('load',balance);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(balance);
+  balance();
+})();
 </script>
 </body>
 </html>
