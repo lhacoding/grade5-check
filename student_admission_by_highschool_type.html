@@ -1211,6 +1211,131 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
       margin:0 auto !important;
     }
   }
+
+
+/* =========================================================
+   통일 제목 디자인 v1
+   - 제목 영역만 변경
+   - 진한 네이비 배경 + 은은한 청록 포인트
+   - 복잡한 패턴, 사선, 배지 제거
+   ========================================================= */
+header.site-hero {
+  position: relative !important;
+  overflow: hidden !important;
+  display: block !important;
+  width: min(1180px, calc(100% - 24px)) !important;
+  margin: 16px auto 12px !important;
+  padding: 24px 28px 29px !important;
+  color: #ffffff !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background:
+    radial-gradient(circle at 86% 28%, rgba(80, 205, 196, 0.20) 0%, rgba(80, 205, 196, 0.08) 24%, transparent 46%),
+    linear-gradient(135deg, #161d3d 0%, #24325c 55%, #3d4f74 100%) !important;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.14) !important;
+  isolation: isolate !important;
+}
+
+.container > header.site-hero {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+header.site-hero::before {
+  content: "" !important;
+  position: absolute !important;
+  right: -12% !important;
+  top: -55% !important;
+  width: 48% !important;
+  height: 170% !important;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 62%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+header.site-hero::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 28px !important;
+  right: 28px !important;
+  bottom: 16px !important;
+  height: 2px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, rgba(80, 205, 196, 0.96) 0%, rgba(80, 205, 196, 0.92) 18%, rgba(80, 205, 196, 0.72) 46%, rgba(80, 205, 196, 0.36) 68%, rgba(80, 205, 196, 0.12) 84%, rgba(80, 205, 196, 0.02) 100%) !important;
+  box-shadow: 0 0 10px rgba(80, 205, 196, 0.18) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  display: block !important;
+}
+
+header.site-hero h1,
+header.site-hero p {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+header.site-hero h1 {
+  margin: 0 !important;
+  max-width: 980px !important;
+  color: #ffffff !important;
+  font-size: clamp(28px, 3.6vw, 42px) !important;
+  line-height: 1.08 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.06em !important;
+  text-shadow: none !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+}
+
+header.site-hero p {
+  margin: 9px 0 0 !important;
+  max-width: 900px !important;
+  color: rgba(255, 255, 255, 0.90) !important;
+  font-size: clamp(13px, 1.35vw, 15.5px) !important;
+  line-height: 1.5 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  text-shadow: none !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+}
+
+@media (max-width: 600px) {
+  header.site-hero {
+    width: min(100% - 18px, 1180px) !important;
+    margin: 10px auto 10px !important;
+    padding: 20px 18px 25px !important;
+    border-radius: 18px !important;
+  }
+
+  .container > header.site-hero {
+    width: 100% !important;
+  }
+
+  header.site-hero::before {
+    right: -30% !important;
+    width: 70% !important;
+  }
+
+  header.site-hero::after {
+    left: 18px !important;
+    right: 18px !important;
+    bottom: 13px !important;
+  }
+
+  header.site-hero h1 {
+    font-size: clamp(25px, 8vw, 32px) !important;
+    line-height: 1.12 !important;
+  }
+
+  header.site-hero p {
+    margin-top: 7px !important;
+    font-size: clamp(12.5px, 3.4vw, 14px) !important;
+    line-height: 1.45 !important;
+  }
+}
+
 </style>
 
 </head>
