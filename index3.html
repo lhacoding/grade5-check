@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>정보 과목 기말고사 복습 퀴즈</title>
+  <style>
+    :root{
+      --gutter:clamp(10px,4vw,28px);
+      --gap-lg:clamp(6px,1.2vw,14px);
+      --gap-md:clamp(5px,1vw,12px);
+      --gap-sm:clamp(4px,.8vw,8px);
+      --pad-card:clamp(8px,1.4vw,16px);
+      --pad-cell-x:clamp(8px,1.2vw,14px);
+      --pad-cell-y:clamp(6px,.8vw,10px);
+      --fs-h1:clamp(26px,2vw + 18px,42px);
+      --fs-h2:clamp(18px,.8vw + 15px,26px);
+      --fs-question:clamp(17px,.55vw + 14px,22px);
+      --fs-body:clamp(14px,.3vw + 12px,16px);
+      --fs-option:clamp(14px,.25vw + 12.5px,16px);
+      --fs-button:clamp(14px,.25vw + 12.5px,16px);
+      --fs-small:clamp(12px,.25vw + 10.5px,14px);
+      --fs-num:clamp(12px,.3vw + 10.5px,15px);
+      --fs-fit-max:17px;
+      --ctl-h:clamp(34px,1.4vw + 28px,44px);
+      --radius:clamp(12px,1.2vw,20px);
+      --radius-sm:clamp(8px,.8vw,12px);
+      --navy:#12315f;
+      --blue:#2563eb;
+      --sky:#eff6ff;
+      --line:#d9e2ef;
+      --text:#172033;
+      --muted:#5b677c;
+      --ok:#0f766e;
+      --bad:#b42318;
+      --warn:#a16207;
+      --white:#ffffff;
+      --bg:#f3f7fb;
+      --shadow:0 10px 26px rgba(18,49,95,.08);
+    }
+
+    *{box-sizing:border-box;min-width:0}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,#eef5ff 0%,var(--bg) 42%,#f7fafc 100%);
+      font-size:var(--fs-body);
+      line-height:1.55;
+    }
+
+    .shell{
+      width:min(1320px,calc(100% - 2*var(--gutter)));
+      margin-inline:auto;
+      display:grid;
+      gap:var(--gap-lg);
+      padding-block:var(--gap-lg);
+    }
+
+    .hero{
+      display:grid;
+      gap:var(--gap-md);
+      padding:var(--pad-card);
+      border-radius:var(--radius);
+      background:linear-gradient(135deg,var(--navy),#244e98);
+      color:var(--white);
+      box-shadow:var(--shadow);
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:var(--fs-h1);
+      line-height:1.1;
+      letter-spacing:-.04em;
+    }
+
+    .hero p{
+      margin:0;
+      color:#eaf2ff;
+      font-size:var(--fs-body);
+    }
+
+    .card{
+      display:grid;
+      gap:var(--gap-md);
+      padding:var(--pad-card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.96);
+      box-shadow:var(--shadow);
+    }
+
+    .section-title{
+      margin:0;
+      font-size:var(--fs-h2);
+      color:var(--navy);
+      line-height:1.25;
+      letter-spacing:-.03em;
+    }
+
+    .guide-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:var(--gap-sm);
+    }
+
+    .guide-item{
+      display:grid;
+      gap:var(--gap-sm);
+      padding:var(--pad-cell-y) var(--pad-cell-x);
+      border-radius:var(--radius-sm);
+      background:var(--sky);
+      border:1px solid #d8e9ff;
+    }
+
+    .guide-label{
+      color:var(--navy);
+      font-weight:800;
+      font-size:var(--fs-small);
+    }
+
+    .guide-value{
+      color:var(--text);
+      font-size:var(--fs-body);
+    }
+
+    .summary-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:var(--gap-sm);
+    }
+
+    .summary-card{
+      display:grid;
+      gap:var(--gap-sm);
+      padding:var(--pad-cell-y) var(--pad-cell-x);
+      border-radius:var(--radius-sm);
+      background:#f8fbff;
+      border:1px solid var(--line);
+    }
+
+    .summary-card strong{
+      font-size:var(--fs-small);
+      color:var(--muted);
+    }
+
+    .summary-card span{
+      font-size:var(--fs-question);
+      color:var(--navy);
+      font-weight:900;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .control-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:var(--gap-sm);
+    }
+
+    button{
+      min-height:var(--ctl-h);
+      border:0;
+      border-radius:var(--radius-sm);
+      padding:var(--pad-cell-y) var(--pad-cell-x);
+      font-size:var(--fs-button);
+      font-weight:800;
+      cursor:pointer;
+      color:var(--white);
+      background:var(--blue);
+      transition:transform .15s ease,filter .15s ease,background .15s ease;
+    }
+
+    button:hover{filter:brightness(.98);transform:translateY(-1px)}
+    button:active{transform:translateY(0)}
+    .btn-secondary{background:#475569}
+    .btn-warn{background:#9a3412}
+    .btn-light{background:#e2e8f0;color:#10233f}
+
+    .notice{
+      display:none;
+      padding:var(--pad-cell-y) var(--pad-cell-x);
+      border-radius:var(--radius-sm);
+      border:1px solid #f2d08a;
+      background:#fffbeb;
+      color:#7c4a03;
+      font-weight:700;
+      font-size:var(--fs-body);
+    }
+
+    .notice.show{display:block}
+
+    .questions{
+      display:grid;
+      gap:var(--gap-lg);
+    }
+
+    .question-card{
+      display:grid;
+      gap:var(--gap-md);
+      padding:var(--pad-card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--white);
+      box-shadow:0 6px 18px rgba(18,49,95,.06);
+    }
+
+    .question-card.is-correct{border-color:#9ad7cf;background:#f5fffd}
+    .question-card.is-wrong{border-color:#f5b5ad;background:#fff8f7}
+    .question-card.is-missing{border-color:#f2d08a;background:#fffdf5}
+
+    .q-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:var(--gap-sm);
+    }
+
+    .q-title{
+      display:flex;
+      align-items:flex-start;
+      gap:var(--gap-sm);
+      font-size:var(--fs-question);
+      font-weight:900;
+      line-height:1.35;
+      letter-spacing:-.03em;
+    }
+
+    .q-num{
+      flex:0 0 auto;
+      display:inline-grid;
+      place-items:center;
+      min-width:calc(var(--ctl-h) * .74);
+      height:calc(var(--ctl-h) * .74);
+      border-radius:var(--radius-sm);
+      background:var(--navy);
+      color:var(--white);
+      font-size:var(--fs-num);
+      font-variant-numeric:tabular-nums;
+    }
+
+    .q-points{
+      flex:0 0 auto;
+      padding:var(--gap-sm) var(--pad-cell-x);
+      border-radius:999px;
+      background:#eef2ff;
+      color:#1e3a8a;
+      font-size:var(--fs-num);
+      font-weight:900;
+      font-variant-numeric:tabular-nums;
+      white-space:nowrap;
+    }
+
+    .source-box,.code-box,.data-box,.output-box{
+      border-radius:var(--radius-sm);
+      border:1px solid var(--line);
+      background:#f8fafc;
+      padding:var(--pad-cell-y) var(--pad-cell-x);
+      font-size:var(--fs-body);
+    }
+
+    .source-box{
+      display:grid;
+      gap:var(--gap-sm);
+    }
+
+    .source-line{
+      display:flex;
+      gap:var(--gap-sm);
+    }
+
+    .source-line::before{
+      content:"•";
+      color:var(--blue);
+      font-weight:900;
+    }
+
+    pre{
+      margin:0;
+      white-space:pre-wrap;
+      overflow-wrap:anywhere;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+      font-size:var(--fs-small);
+      line-height:1.55;
+    }
+
+    .options{
+      display:grid;
+      gap:var(--gap-sm);
+    }
+
+    .options.cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+    .options.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .options.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .options.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .options.cols-1{grid-template-columns:1fr}
+
+    .option{
+      position:relative;
+      display:flex;
+      align-items:stretch;
+      gap:var(--gap-sm);
+      min-width:0;
+    }
+
+    .option input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .option-body{
+      width:100%;
+      display:grid;
+      gap:var(--gap-sm);
+      padding:var(--pad-cell-y) var(--pad-cell-x);
+      border:1px solid var(--line);
+      border-radius:var(--radius-sm);
+      background:#ffffff;
+      cursor:pointer;
+      transition:border .15s ease,background .15s ease,transform .15s ease;
+    }
+
+    .option-body:hover{
+      border-color:#8bb7ff;
+      background:#f8fbff;
+      transform:translateY(-1px);
+    }
+
+    .option input:checked + .option-body{
+      border-color:var(--blue);
+      background:#eff6ff;
+      box-shadow:inset 0 0 0 1px var(--blue);
+    }
+
+    .option.correct-answer .option-body{
+      border-color:#14b8a6;
+      background:#ecfdf5;
+    }
+
+    .option.wrong-selected .option-body{
+      border-color:#ef4444;
+      background:#fff1f2;
+    }
+
+    .option-main{
+      display:flex;
+      align-items:flex-start;
+      gap:var(--gap-sm);
+      font-size:var(--fs-option);
+      line-height:1.45;
+    }
+
+    .option-no{
+      flex:0 0 auto;
+      color:var(--navy);
+      font-weight:900;
+    }
+
+    .option-text{
+      min-width:0;
+      overflow:visible;
+      word-break:keep-all;
+      overflow-wrap:anywhere;
+    }
+
+    .program-result{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:var(--gap-sm);
+    }
+
+    .mini-box{
+      display:grid;
+      gap:var(--gap-sm);
+      padding:var(--pad-cell-y) var(--pad-cell-x);
+      border-radius:var(--radius-sm);
+      background:#f8fafc;
+      border:1px solid var(--line);
+    }
+
+    .mini-title{
+      font-size:var(--fs-small);
+      font-weight:900;
+      color:var(--muted);
+    }
+
+    .review-line{
+      display:none;
+      gap:var(--gap-sm);
+      align-items:center;
+      font-size:var(--fs-small);
+      font-weight:900;
+    }
+
+    .review-line.show{display:flex}
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:var(--gap-sm) var(--pad-cell-x);
+      border-radius:999px;
+      font-size:var(--fs-num);
+      font-weight:900;
+      font-variant-numeric:tabular-nums;
+      white-space:nowrap;
+    }
+
+    .badge.ok{background:#ccfbf1;color:#115e59}
+    .badge.bad{background:#fee2e2;color:#991b1b}
+    .badge.missing{background:#fef3c7;color:#92400e}
+    .badge.info{background:#dbeafe;color:#1e40af}
+
+    .footer{
+      display:grid;
+      place-items:center;
+      padding:var(--pad-card);
+      color:var(--muted);
+      font-size:var(--fs-small);
+      font-weight:800;
+    }
+
+    @media (max-width:1024px){
+      .guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .options.cols-5{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .options.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+
+    @media (max-width:700px){
+      .control-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .guide-grid{grid-template-columns:1fr}
+      .program-result{grid-template-columns:1fr}
+      .q-head{display:grid}
+      .q-points{justify-self:start}
+    }
+
+    @media (max-width:560px){
+      .summary-grid{grid-template-columns:1fr}
+      .options.cols-5,
+      .options.cols-4,
+      .options.cols-3,
+      .options.cols-2{grid-template-columns:1fr}
+    }
+
+    @media (max-width:420px){
+      .control-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <h1>정보 과목 기말고사 복습 퀴즈</h1>
+      <p>총 20문항입니다. 보기를 선택한 뒤 제출하면 점수, 정답 여부, 오답 문제를 확인할 수 있습니다.</p>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">학습 안내</h2>
+      <div class="guide-grid">
+        <div class="guide-item">
+          <div class="guide-label">자료 기준</div>
+          <div class="guide-value">제공된 시험지 사진과 정답/배점표 기준으로 구성했습니다.</div>
+        </div>
+        <div class="guide-item">
+          <div class="guide-label">개인정보 처리</div>
+          <div class="guide-value">학교명은 제외하고, 원문 속 인명은 익명 처리했습니다.</div>
+        </div>
+        <div class="guide-item">
+          <div class="guide-label">해설</div>
+          <div class="guide-value">사진에 없는 해설은 임의로 추가하지 않았습니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="scorePanel">
+      <h2 class="section-title">진행 상황</h2>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>선택 완료</strong>
+          <span id="answeredCount">0 / 20</span>
+        </div>
+        <div class="summary-card">
+          <strong>점수</strong>
+          <span id="scoreText">-</span>
+        </div>
+        <div class="summary-card">
+          <strong>맞힌 문제</strong>
+          <span id="correctText">-</span>
+        </div>
+        <div class="summary-card">
+          <strong>틀린/미선택</strong>
+          <span id="wrongText">-</span>
+        </div>
+      </div>
+      <div class="control-grid">
+        <button type="button" id="submitBtn">제출하기</button>
+        <button type="button" id="answerBtn" class="btn-secondary">정답 보기</button>
+        <button type="button" id="wrongBtn" class="btn-warn">오답만 보기</button>
+        <button type="button" id="resetBtn" class="btn-light">다시 풀기</button>
+      </div>
+      <div id="notice" class="notice"></div>
+    </section>
+
+    <section class="questions" id="questions"></section>
+
+    <footer class="footer">[송도이샘로봇]</footer>
+  </main>
+
+  <script>
+    const marks = ["①","②","③","④","⑤"];
+
+    const questions = [
+      {
+        id:1, points:5, answer:1, cols:"cols-5",
+        title:"무선 네트워크 기술의 종류 중 다음의 특징에 해당하는 것은?",
+        box:[
+          "출입 통제 및 티켓 발매에 활용",
+          "스마트 폰을 사용한 비용 지불 기술에 활용",
+          "10cm 내의 거리에서 데이터를 접촉하지 않고 전송",
+          "전자기 유도 현상에 기초하여 다른 기기와 전파를 주고받음"
+        ],
+        options:["NFC","RFID","WiFi","미러링","블루투스"]
+      },
+      {
+        id:2, points:5, answer:1, cols:"cols-1",
+        title:"네트워크 장비의 역할에 대한 설명으로 옳지 않은 것은?",
+        options:[
+          "이더넷 : 무선 주파수를 사용하여 다양한 컴퓨터 시스템을 연결한다.",
+          "방화벽 : 외부로부터 불법 접근이나 해킹으로부터 장치들을 보호한다.",
+          "무선AP : 와이파이 기술을 이용하여 인터넷에 연결할 수 있도록 한다.",
+          "라우터 : 서로 다른 네트워크 사이에 위치하면서 데이터를 전송할 수 있게 한다.",
+          "스위칭 허브 : 여러 대의 컴퓨팅 기기가 하나의 인터넷 라인을 공유해 동시에 인터넷 접근이 가능케 한다."
+        ]
+      },
+      {
+        id:3, points:5, answer:2, cols:"cols-5",
+        title:"다음 상황에서 사용한 이미지 압축 파일 형식은?",
+        plainBox:"한 학생은 조별 과제를 위해 사진을 조원들에게 보내야 했다. 하지만 사진의 용량이 너무 커서 전송이 지연되었다. 사진 파일 용량을 줄이기 위해 압축 시 256색 이상의 색상에서만 손실이 발생하는 압축 형식으로 보내고자 한다.",
+        options:["BMP","GIF","WAV","PNG","JPEG"]
+      },
+      {
+        id:4, points:5, answer:2, cols:"cols-1",
+        title:"디지털 데이터 압축에 관한 설명으로 옳은 것은?",
+        options:[
+          "런-렝스 알고리즘은 문자열 압축에만 사용된다.",
+          "MP3 파일은 사람이 잘 듣지 못하는 대역의 신호를 제거해 파일의 크기를 줄인다.",
+          "BMP 파일은 사람 눈으로 인식하지 못하는 범위의 정보를 제거하여 파일의 크기를 줄인다.",
+          "PNG 파일은 반복되는 색 정보를 더 적은 비트로 줄여 표현하는 손실 압축 알고리즘을 사용한다.",
+          "아날로그 신호를 디지털 값으로 변환하는 과정에서 샘플 추출 간격이 넓을수록 원음에 가까운 소리를 표현할 수 있다."
+        ]
+      },
+      {
+        id:5, points:4.7, answer:3, cols:"cols-5",
+        title:"다음 조건으로 카이사르 암호 원리에 의해 인코딩된 암호문은?",
+        plainBox:"평문 : APPLE\n키값 : 3",
+        options:["BQQMP","CRRNG","DSSOH","ETTPI","FUUQJ"]
+      },
+      {
+        id:6, points:5, answer:3, cols:"cols-5",
+        title:"다음에서 설명하는 용어로 옳은 것은?",
+        plainBox:"다양한 유형의 대규모 데이터를 효과적으로 저장하고 통계, 컴퓨터 과학, 기계학습 등의 데이터 과학 기술로 가치를 추출하여 활용하는 포괄적인 개념이다.",
+        options:["데이터 공유","데이터 압축","빅데이터 분석","데이터 암호화","데이터 시각화"]
+      },
+      {
+        id:7, points:5, answer:4, cols:"cols-5",
+        title:"데이터를 분석하는 과정에서 다음에서 설명하는 것은?",
+        box:[
+          "분석에 적합한 형태로 데이터를 가공하는 과정이다.",
+          "평균, 중앙값, 최빈값 등을 이용해 데이터를 요약한다.",
+          "데이터에 포함된 결측치를 찾아 분석에 적합한 형태로 가공한다."
+        ],
+        options:["문제 정의하기","데이터 수집하기","공유 및 평가하기","데이터 전처리하기","데이터 시각화하기"]
+      },
+      {
+        id:8, points:5, answer:3, cols:"cols-5",
+        title:"다음에서 설명하는 모델링 방법을 이용한 모델링 사례가 아닌 것은?",
+        plainBox:"데이터 간 연결 관계를 노드와 간선으로 표현하는 구조로 데이터의 방향성을 표현할 수 있고, 데이터 간의 관계를 표현할 수도 있다.",
+        options:["항공 노선도","인물 관계도","동물의 분류도","지하철 노선도","놀이공원 지도"]
+      },
+      {
+        id:9, points:5, answer:1, cols:"cols-5",
+        title:"정렬 알고리즘 중 선택 정렬을 이용하여 다음 데이터를 오름차순 정렬할 때 데이터의 총 교환 횟수는?",
+        plainBox:"32   15   11   23   48   19",
+        options:["3회","4회","5회","6회","7회"]
+      },
+      {
+        id:10, points:6.1, answer:4, cols:"cols-1",
+        title:"다음 프로그램을 실행했을 때, 출력 결과가 옳은 것은?",
+        options:[
+          {program:"a*=10\nprint(a)", result:"10"},
+          {program:"for b in len(\"hello\"):\n    print(b)", result:"h\ne\nl\nl\no"},
+          {program:"c=[]*3\nc[0]=10\nprint(c)", result:"[10]"},
+          {program:"d=[1, 'hello', 2>1]\nprint(d)", result:"[1, 'hello', True]"},
+          {program:"pi = 3.14\nr=input(\"반지름값:\")\nf=pi*r*r\nprint(\"원의 넓이=\", f)", result:"반지름값: 10\n원의 넓이=314.0"}
+        ]
+      },
+      {
+        id:11, points:5, answer:2, cols:"cols-5",
+        title:"다음 입장료 조건에 의한 놀이공원의 입장료를 출력하는 프로그램을 구현할 때 (가)에 해당하는 코드는?",
+        plainBox:"<입장료 조건>\n나이가 9세 미만은 3만원\n나이가 9세 이상 18세 미만은 4만원\n나이가 18세 이상은 5만원",
+        code:"age = int(input(\"나이입력: \"))\nif age < 9:\n    enter_fee=30000\nelif (가):\n    enter_fee=40000\nelse:\n    enter_fee=50000\nprint(\"입장료는\", enter_fee, \"입니다.\")",
+        options:["age >= 9","age < 18","age > 18","age <= 18","age >= 18"]
+      },
+      {
+        id:12, points:5, answer:3, cols:"cols-5",
+        title:"다음 변수값으로 print문을 실행했을 때, 오류가 발생하는 것은?",
+        code:"a = 25\nb = 4\nc = 'haesong'\nd = 'great'",
+        options:["print(a%b)","print(c+d)","print(c-b)","print(b**4)","print(d*4)"]
+      },
+      {
+        id:13, points:5.7, answer:5, cols:"cols-5",
+        title:"다음 프로그램을 실행했을 때, 출력되는 결과는?",
+        code:"fruit=['망고','바나나','포도','사과','바나나','귤','키위']\nfruit.append('토마토')\nfruit.remove('바나나')\nfruit.sort()\nprint(fruit[2])",
+        options:["귤","망고","포도","토마토","바나나"]
+      },
+      {
+        id:14, points:6.2, answer:4, cols:"cols-1",
+        title:"다음 프로그램에 대한 설명으로 옳지 않은 것은?",
+        code:"sum=0\nnum=1\nwhile num<=20:\n    if num % 3 == 0:\n        sum += num\n    num +=1\nprint(sum)",
+        options:[
+          "최종 출력값은 63이다.",
+          "3의 배수의 합을 구하는 프로그램이다.",
+          "num +=1이 없으면 무한 루프에 빠진다.",
+          "반복문은 sum의 값이 3의 배수인 경우에만 동작한다.",
+          "sum += num은 num의 값이 3의 배수일 때만 실행된다."
+        ]
+      },
+      {
+        id:15, points:4.3, answer:5, cols:"cols-5",
+        title:"파이썬 변수 이름으로 적당하지 않은 것은?",
+        options:["가격","true","_name","year2025","1st_value"]
+      },
+      {
+        id:16, points:5.5, answer:2, cols:"cols-5",
+        title:"다음 프로그램을 실행했을 때, 출력되는 결과는?",
+        code:"total = 0\nfor i in range(1, 20):\n    if i % 5 != 0:\n        continue\n    total += i\nprint(total)",
+        options:["20","30","50","60","100"]
+      },
+      {
+        id:17, points:6.5, answer:5, cols:"cols-5",
+        title:"다음 프로그램을 실행했을 때, (가) 부분의 출력 결과는?",
+        code:"a = [8, 5, 9, 2, 4, 3]\nprint(\"초기: \", a)\nn = len(a)\ncount = 0\nfor i in range(0, n-1):\n    for j in range(0, n-i-1):\n        if a[j] > a[j + 1]:\n            a[j], a[j + 1] = a[j + 1], a[j]\n        count += 1\nprint(a)\nprint(\"횟수: \", count)",
+        plainBox:"<출력 결과>\n초기: [8, 5, 9, 2, 4, 3]\n[2, 3, 4, 5, 8, 9]\n횟수: (가)",
+        options:["10","11","12","13","15"]
+      },
+      {
+        id:18, points:4.1, answer:4, cols:"cols-5",
+        title:"국민의 모든 생활과 연결되어 있는 정보로 공공의 이익을 위해 공개해야 하는 정보가 아닌 것은?",
+        options:["교통 정보","날씨 정보","재난 정보","위치 정보","식품 안전 정보"]
+      },
+      {
+        id:19, points:3.3, answer:1, cols:"cols-5",
+        title:"디지털 윤리는 디지털 사회에서 올바른 행동과 가치를 지키는 것을 의미한다. 이에 맞는 기본 소양으로 볼 수 없는 것은?",
+        options:["사이버 불링","저작권 이해","미디어 문해력","개인 정보 보호","온라인 행동과 네티켓"]
+      },
+      {
+        id:20, points:3.6, answer:5, cols:"cols-5",
+        title:"정보 보안을 위협하는 유형이 아닌 것은?",
+        options:["위조","변조","접근과 유출","훼손과 파괴","사용자 인증"]
+      }
+    ];
+
+    const state = {
+      selected:{},
+      submitted:false,
+      showAnswers:false,
+      wrongOnly:false
+    };
+
+    const qs = document.getElementById("questions");
+    const answeredCount = document.getElementById("answeredCount");
+    const scoreText = document.getElementById("scoreText");
+    const correctText = document.getElementById("correctText");
+    const wrongText = document.getElementById("wrongText");
+    const notice = document.getElementById("notice");
+    const answerBtn = document.getElementById("answerBtn");
+    const wrongBtn = document.getElementById("wrongBtn");
+
+    function esc(value){
+      return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function optionText(opt){
+      return typeof opt === "string" ? opt : "프로그램과 출력 결과 확인";
+    }
+
+    function renderBox(q){
+      let html = "";
+      if(q.box){
+        html += `<div class="source-box">${q.box.map(line=>`<div class="source-line"><span>${esc(line)}</span></div>`).join("")}</div>`;
+      }
+      if(q.plainBox){
+        html += `<div class="source-box"><pre>${esc(q.plainBox)}</pre></div>`;
+      }
+      if(q.code){
+        html += `<div class="code-box"><pre>${esc(q.code)}</pre></div>`;
+      }
+      return html;
+    }
+
+    function renderOption(q,opt,index){
+      const no = index + 1;
+      const checked = state.selected[q.id] === no ? "checked" : "";
+      const shouldReveal = state.submitted || state.showAnswers;
+      const isCorrectAnswer = shouldReveal && no === q.answer;
+      const isWrongSelected = state.submitted && state.selected[q.id] === no && no !== q.answer;
+      const cls = [
+        "option",
+        isCorrectAnswer ? "correct-answer" : "",
+        isWrongSelected ? "wrong-selected" : ""
+      ].filter(Boolean).join(" ");
+
+      let inside = "";
+      if(typeof opt === "string"){
+        inside = `
+          <div class="option-main">
+            <span class="option-no">${marks[index]}</span>
+            <span class="option-text fit-target">${esc(opt)}</span>
+          </div>`;
+      }else{
+        inside = `
+          <div class="option-main">
+            <span class="option-no">${marks[index]}</span>
+            <span class="option-text fit-target">프로그램과 출력 결과</span>
+          </div>
+          <div class="program-result">
+            <div class="mini-box">
+              <div class="mini-title">프로그램</div>
+              <pre>${esc(opt.program)}</pre>
+            </div>
+            <div class="mini-box">
+              <div class="mini-title">출력 결과</div>
+              <pre>${esc(opt.result)}</pre>
+            </div>
+          </div>`;
+      }
+
+      return `
+        <label class="${cls}">
+          <input type="radio" name="q${q.id}" value="${no}" ${checked} />
+          <div class="option-body">${inside}</div>
+        </label>`;
+    }
+
+    function resultClass(q){
+      if(!state.submitted) return "";
+      const sel = state.selected[q.id];
+      if(!sel) return "is-missing";
+      return sel === q.answer ? "is-correct" : "is-wrong";
+    }
+
+    function reviewLine(q){
+      if(!state.submitted) return "";
+      const sel = state.selected[q.id];
+      if(!sel){
+        return `<div class="review-line show"><span class="badge missing">미선택</span><span>정답 ${marks[q.answer-1]} ${esc(optionText(q.options[q.answer-1]))}</span></div>`;
+      }
+      if(sel === q.answer){
+        return `<div class="review-line show"><span class="badge ok">정답</span><span>선택 ${marks[sel-1]}</span></div>`;
+      }
+      return `<div class="review-line show"><span class="badge bad">오답</span><span>선택 ${marks[sel-1]} · 정답 ${marks[q.answer-1]}</span></div>`;
+    }
+
+    function getStats(){
+      let score = 0;
+      let correct = 0;
+      let wrong = 0;
+      let missing = 0;
+
+      questions.forEach(q=>{
+        const sel = state.selected[q.id];
+        if(!sel){
+          missing += 1;
+          return;
+        }
+        if(sel === q.answer){
+          score += q.points;
+          correct += 1;
+        }else{
+          wrong += 1;
+        }
+      });
+
+      return {score:Math.round(score * 10) / 10, correct, wrong, missing};
+    }
+
+    function render(){
+      const visible = questions.filter(q=>{
+        if(!state.wrongOnly) return true;
+        if(!state.submitted) return true;
+        return state.selected[q.id] !== q.answer;
+      });
+
+      qs.innerHTML = visible.map(q=>`
+        <article class="question-card ${resultClass(q)}" id="q${q.id}">
+          <div class="q-head">
+            <div class="q-title">
+              <span class="q-num">${q.id}</span>
+              <span>${esc(q.title)}</span>
+            </div>
+            <span class="q-points">${q.points.toFixed(1)}점</span>
+          </div>
+          ${renderBox(q)}
+          <div class="options ${q.cols}">
+            ${q.options.map((opt,i)=>renderOption(q,opt,i)).join("")}
+          </div>
+          ${reviewLine(q)}
+        </article>
+      `).join("");
+
+      if(visible.length === 0){
+        qs.innerHTML = `
+          <section class="card">
+            <h2 class="section-title">오답이 없습니다.</h2>
+            <p>제출 결과 모든 선택 문제가 정답입니다.</p>
+          </section>`;
+      }
+
+      updateSummary();
+      fitText();
+    }
+
+    function updateSummary(){
+      const picked = Object.keys(state.selected).length;
+      answeredCount.textContent = `${picked} / ${questions.length}`;
+
+      if(!state.submitted){
+        scoreText.textContent = "-";
+        correctText.textContent = "-";
+        wrongText.textContent = "-";
+        return;
+      }
+
+      const stats = getStats();
+      scoreText.textContent = `${stats.score.toFixed(1)}점`;
+      correctText.textContent = `${stats.correct}개`;
+      wrongText.textContent = `${stats.wrong + stats.missing}개`;
+    }
+
+    function showNotice(message){
+      notice.textContent = message;
+      notice.classList.add("show");
+    }
+
+    function hideNotice(){
+      notice.textContent = "";
+      notice.classList.remove("show");
+    }
+
+    function submitQuiz(){
+      state.submitted = true;
+      state.showAnswers = true;
+      const picked = Object.keys(state.selected).length;
+      const stats = getStats();
+
+      if(picked < questions.length){
+        showNotice(`미선택 ${questions.length - picked}문항은 오답으로 처리했습니다. 총점은 ${stats.score.toFixed(1)}점입니다.`);
+      }else{
+        showNotice(`채점 완료: ${stats.correct}문항 정답, 총점 ${stats.score.toFixed(1)}점입니다.`);
+      }
+
+      render();
+      document.getElementById("scorePanel").scrollIntoView({block:"start"});
+    }
+
+    function toggleAnswers(){
+      state.showAnswers = !state.showAnswers;
+      answerBtn.textContent = state.showAnswers ? "정답 숨기기" : "정답 보기";
+      hideNotice();
+      render();
+    }
+
+    function toggleWrongOnly(){
+      if(!state.submitted){
+        showNotice("오답만 보려면 먼저 제출하기를 눌러 주세요.");
+        return;
+      }
+      state.wrongOnly = !state.wrongOnly;
+      wrongBtn.textContent = state.wrongOnly ? "전체 보기" : "오답만 보기";
+      hideNotice();
+      render();
+    }
+
+    function resetQuiz(){
+      state.selected = {};
+      state.submitted = false;
+      state.showAnswers = false;
+      state.wrongOnly = false;
+      answerBtn.textContent = "정답 보기";
+      wrongBtn.textContent = "오답만 보기";
+      hideNotice();
+      render();
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+
+    function fitText(){
+      const targets = document.querySelectorAll(".fit-target");
+      targets.forEach(el=>{
+        el.style.fontSize = "";
+        const max = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fs-fit-max")) || 17;
+        const min = 13;
+        let size = Math.min(max, parseFloat(getComputedStyle(el).fontSize) || max);
+        el.style.fontSize = `${size}px`;
+        let guard = 0;
+        while(el.scrollWidth > el.clientWidth && size > min && guard < 20){
+          size -= 0.5;
+          el.style.fontSize = `${size}px`;
+          guard += 1;
+        }
+      });
+    }
+
+    qs.addEventListener("change", e=>{
+      if(e.target.matches("input[type='radio']")){
+        const qid = Number(e.target.name.replace("q",""));
+        state.selected[qid] = Number(e.target.value);
+        if(state.submitted){
+          state.submitted = false;
+          scoreText.textContent = "-";
+          correctText.textContent = "-";
+          wrongText.textContent = "-";
+          hideNotice();
+        }
+        render();
+      }
+    });
+
+    document.getElementById("submitBtn").addEventListener("click", submitQuiz);
+    document.getElementById("answerBtn").addEventListener("click", toggleAnswers);
+    document.getElementById("wrongBtn").addEventListener("click", toggleWrongOnly);
+    document.getElementById("resetBtn").addEventListener("click", resetQuiz);
+    window.addEventListener("resize", fitText);
+
+    render();
+  </script>
+</body>
+</html>
+<!-- [송도이샘로봇] -->
