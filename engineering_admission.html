@@ -32,6 +32,7 @@
   --pad-card:   clamp(10px, 1.7vw, 18px);
   --pad-cell-x: clamp(12px, 1.6vw, 20px);
   --pad-cell-y: clamp(7px, 1vw, 13px);
+  --pad-edge-x: clamp(20px, 2.8vw, 34px);  /* 표 첫 열/마지막 열 바깥 여백 */
 
   /* 글자 토큰 — 상한 = 실사용 크기, vw 계수는 여백보다 작게 */
   --fs-h1:    clamp(26px, 3.4vw + 10px, 36px);
@@ -93,11 +94,12 @@ main.page{ display:grid; gap:var(--gap-lg); padding:var(--gap-lg) 0 var(--gap-lg
 .global-menu-button.active{ background:var(--navy); border-color:var(--navy); color:#fff; }
 
 /* ---------- 공통 카드 ---------- */
-.filter-card, .content-card, .recommend-card{
+.filter-card, .result-card, .content-card, .recommend-card{
   background:rgba(255,255,255,.96); border:1px solid var(--line);
   border-radius:var(--radius); box-shadow:var(--shadow);
   padding:var(--pad-card);
 }
+.result-card .content-card{ box-shadow:none; }
 
 /* ---------- 조회 조건 ---------- */
 .controls{
@@ -170,8 +172,8 @@ section[aria-label], .recommend-card{ display:grid; gap:var(--gap-md); }
 .grid-cell{ min-width:0; padding:var(--pad-cell-y) var(--pad-cell-x); font-size:var(--fs-body); }
 /* 카드 가장자리에 닿는 첫/마지막 열: 카드 패딩과 셀 여백 중 큰 값 →
    전체 여백을 줄여도 표 내용이 선에 붙지 않는다 */
-.grid-cell:first-child{ padding-left:max(var(--pad-card), var(--pad-cell-x)); }
-.grid-cell:last-child{ padding-right:max(var(--pad-card), var(--pad-cell-x)); }
+.grid-cell:first-child{ padding-left:var(--pad-edge-x); }
+.grid-cell:last-child{ padding-right:var(--pad-edge-x); }
 /* 가장자리 정렬: 첫 열은 왼쪽, 마지막 열은 오른쪽 정렬 →
    내용이 넓은 열 가운데에 떠서 오른쪽 가장자리 여백만 커지는 것을 방지.
    좌우 가장자리 여백이 항상 동일해진다 (중간 숫자 열은 중앙 정렬 유지) */
@@ -402,7 +404,7 @@ select.is-placeholder{ color:var(--muted); }
   </div>
 </section>
 
-<section aria-label="학교 학과별 입결 결과">
+<section aria-label="학교 학과별 입결 결과" class="result-card">
   <div class="section-title">
     <span class="mark">&#10003;</span>
     <div>
