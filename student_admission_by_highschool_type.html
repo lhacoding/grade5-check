@@ -1186,6 +1186,33 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
 .site-hero h1{ font-size:var(--fs-h1) !important; font-weight:850 !important; line-height:1.1 !important; }
 .site-hero p{ font-size:var(--fs-h3) !important; font-weight:600 !important; }
 </style>
+
+
+<style id="school-center-align-fix">
+  /* 학교 열 가운데 정렬 보정 */
+  #dataTable tbody th {
+    text-align:center !important;
+  }
+
+  @media (max-width:920px) {
+    .mobile-table-head > div:first-child {
+      text-align:center !important;
+      padding-left:3px !important;
+      padding-right:3px !important;
+    }
+    .mobile-school-cell {
+      justify-content:center !important;
+      text-align:center !important;
+      padding-left:4px !important;
+      padding-right:4px !important;
+    }
+    .mobile-school-name {
+      text-align:center !important;
+      margin:0 auto !important;
+    }
+  }
+</style>
+
 </head>
 <body>
 <header class="site-hero" aria-label="페이지 제목">
