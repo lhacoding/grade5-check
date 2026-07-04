@@ -974,6 +974,198 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
   }
 </style>
 
+
+<style id="body-readability-font-size-fix">
+  /* 본문 가독성 개선: 상단 히어로·메뉴 크기는 유지하고, 섹션 본문/표 글자만 약간 확대 */
+  main,
+  section,
+  section p,
+  section li,
+  .note,
+  .summary,
+  .mini-card,
+  .closing-sub{
+    font-size:clamp(15px, .42vw + 13.5px, 18px) !important;
+  }
+
+  table,
+  table.jeongsi-table,
+  table.quant-table,
+  table.susi-table,
+  table.col-adjust,
+  table.qual-table,
+  table.final-compare-table{
+    font-size:clamp(0.94rem, .32vw + .84rem, 1.04rem) !important;
+  }
+
+  th,
+  td,
+  table.jeongsi-table th,
+  table.jeongsi-table td,
+  table.quant-table th,
+  table.quant-table td,
+  table.susi-table th,
+  table.susi-table td,
+  table.col-adjust th,
+  table.col-adjust td,
+  table.qual-table th,
+  table.qual-table td,
+  table.final-compare-table th,
+  table.final-compare-table td{
+    line-height:1.38 !important;
+  }
+
+  @media (max-width:700px){
+    table,
+    table.jeongsi-table,
+    table.quant-table,
+    table.susi-table,
+    table.col-adjust,
+    table.qual-table,
+    table.final-compare-table{
+      font-size:clamp(0.72rem, 2.15vw, 0.86rem) !important;
+    }
+
+    th,
+    td,
+    table.jeongsi-table th,
+    table.jeongsi-table td,
+    table.quant-table th,
+    table.quant-table td,
+    table.susi-table th,
+    table.susi-table td,
+    table.col-adjust th,
+    table.col-adjust td,
+    table.qual-table th,
+    table.qual-table td,
+    table.final-compare-table th,
+    table.final-compare-table td{
+      line-height:1.24 !important;
+    }
+  }
+
+  @media (max-width:430px){
+    table,
+    table.jeongsi-table,
+    table.quant-table,
+    table.susi-table,
+    table.col-adjust,
+    table.qual-table,
+    table.final-compare-table{
+      font-size:clamp(0.68rem, 2.05vw, 0.80rem) !important;
+    }
+  }
+</style>
+
+
+
+<style id="table-width-header-callout-final-fix">
+  /* [4] 학생부종합전형 표만 작아 보이던 원인 제거:
+     jonghap-wrap의 1120px 최대폭과 가운데 정렬을 없애 다른 표와 같은 전체 폭을 사용한다. */
+  .jonghap-wrap{
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+
+  .jonghap-table{
+    width:100% !important;
+    table-layout:fixed !important;
+    font-size:clamp(0.96rem, .32vw + .86rem, 1.06rem) !important;
+  }
+
+  /* 표 제목줄 색상 통일: 일부는 하늘색, 일부는 진한 파랑으로 보이던 것을 모두 네이비로 통일 */
+  thead th,
+  .susi-table thead th,
+  .final-compare-table thead th,
+  .jonghap-table thead th,
+  .essay-table thead th,
+  .quant-table thead th{
+    background:#233868 !important;
+    color:#ffffff !important;
+    border-color:#d8e1ef !important;
+    font-weight:850 !important;
+  }
+
+  /* 섹션 제목은 배경 없이 깔끔하게, 하단선은 연한 회색으로 통일 */
+  section h2{
+    background:transparent !important;
+    border-bottom:3px solid #e3e9f3 !important;
+  }
+
+  /* 마지막 핵심 문장 박스: 일반 요약 박스와 다르게 보이도록 결론 카드 디자인 적용 */
+  .summary.closing-callout{
+    position:relative !important;
+    overflow:hidden !important;
+    margin-top:clamp(16px,2.2vw,22px) !important;
+    padding:clamp(20px,2.7vw,30px) clamp(22px,3vw,34px) !important;
+    border:0 !important;
+    border-radius:22px !important;
+    background:linear-gradient(135deg,#172744 0%,#233868 58%,#52639d 100%) !important;
+    color:#ffffff !important;
+    box-shadow:0 18px 38px rgba(23,39,68,.18) !important;
+  }
+
+  .summary.closing-callout::before{
+    content:"";
+    position:absolute;
+    inset:auto -70px -90px auto;
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+    pointer-events:none;
+  }
+
+  .summary.closing-callout::after{
+    content:none !important;
+    display:none !important;
+  }
+
+  .closing-head{
+    position:relative;
+    z-index:1;
+    max-width:none;
+    margin:0 0 8px !important;
+    color:#ffffff !important;
+    font-size:clamp(20px,1.45vw + 15px,30px) !important;
+    font-weight:900 !important;
+    line-height:1.32 !important;
+    letter-spacing:-.035em !important;
+    word-break:keep-all;
+  }
+
+  .closing-sub{
+    position:relative;
+    z-index:1;
+    max-width:980px;
+    margin:0 !important;
+    color:rgba(255,255,255,.86) !important;
+    font-size:clamp(15px,.45vw + 13px,18px) !important;
+    font-weight:650 !important;
+    line-height:1.62 !important;
+    word-break:keep-all;
+  }
+
+  @media (max-width:700px){
+    .jonghap-table{
+      font-size:clamp(0.72rem,2.15vw,0.86rem) !important;
+    }
+
+    .summary.closing-callout{
+      padding:18px 16px !important;
+      border-radius:18px !important;
+    }
+
+
+    .closing-head{
+      max-width:none;
+      font-size:clamp(18px,4.3vw,23px) !important;
+    }
+  }
+</style>
+
 </head>
 
 <body>
@@ -1157,19 +1349,19 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
               </tr>
             </thead>
             <tbody>
-              <tr><td>고려대학교</td><td>계열적합(556)</td><td>학업우수(823)</td><td>4개 등급합 9</td></tr>
-              <tr><td>연세대학교</td><td><span class="keep-chunk">탐구미래형(399)</span>, <span class="keep-chunk">종합인재형(124)</span></td><td>종합인재형(891)</td><td>2개 등급합 4~5 + 영어 3등급</td></tr>
-              <tr><td>서강대학교</td><td>일반Ⅰ(497)</td><td>일반Ⅱ(74)</td><td>3개 등급합 7</td></tr>
-              <tr><td>성균관대학교</td><td><span class="keep-chunk">탐구인재(568)</span>, <span class="keep-chunk">성균인재(222)</span>, <span class="keep-chunk">과학인재(155)</span></td><td>융합인재(325)</td><td>3개 등급합 6</td></tr>
-              <tr><td>한양대학교</td><td>면접형(266)</td><td>학업형(811)</td><td>3개 등급합 7</td></tr>
-              <tr><td>이화여자대학교</td><td>면접(181)</td><td>미래인재-서류형(931)</td><td>3개 등급합 5~7</td></tr>
-              <tr><td>중앙대학교</td><td><span class="keep-chunk">CAU융합형인재 CORE(499)</span>, <span class="keep-chunk">CAU융합형인재 ALL(384)</span></td><td>CAU융합형인재 UP(114)</td><td>3개 등급합 6</td></tr>
-              <tr><td>경희대학교</td><td>면접형(754)</td><td>네오르네상스-서류형(345)</td><td>2개 등급합 5</td></tr>
-              <tr><td>한국외국어대학교</td><td>면접형(325)</td><td>서류형(248)</td><td>2개 등급합 6</td></tr>
+              <tr><td>고려대학교</td><td>계열적합(556)</td><td>학업우수(823)</td><td>4합9</td></tr>
+              <tr><td>연세대학교</td><td><span class="keep-chunk">탐구미래형(399)</span>, <span class="keep-chunk">종합인재형(124)</span></td><td>종합인재형(891)</td><td>2합4~5 + 영어 3등급</td></tr>
+              <tr><td>서강대학교</td><td>일반Ⅰ(497)</td><td>일반Ⅱ(74)</td><td>3합7</td></tr>
+              <tr><td>성균관대학교</td><td><span class="keep-chunk">탐구인재(568)</span>, <span class="keep-chunk">성균인재(222)</span>, <span class="keep-chunk">과학인재(155)</span></td><td>융합인재(325)</td><td>3합6</td></tr>
+              <tr><td>한양대학교</td><td>면접형(266)</td><td>학업형(811)</td><td>3합7</td></tr>
+              <tr><td>이화여자대학교</td><td>면접(181)</td><td>미래인재-서류형(931)</td><td>3합5~7</td></tr>
+              <tr><td>중앙대학교</td><td><span class="keep-chunk">CAU융합형인재 CORE(499)</span>, <span class="keep-chunk">CAU융합형인재 ALL(384)</span></td><td>CAU융합형인재 UP(114)</td><td>3합6</td></tr>
+              <tr><td>경희대학교</td><td>면접형(754)</td><td>네오르네상스-서류형(345)</td><td>2합5</td></tr>
+              <tr><td>한국외국어대학교</td><td>면접형(325)</td><td>서류형(248)</td><td>2합6</td></tr>
               <tr><td>서울시립대학교</td><td>종합(424)</td><td>-</td><td>-</td></tr>
               <tr><td>건국대학교</td><td>KU자기추천(910)</td><td>-</td><td>-</td></tr>
               <tr><td>동국대학교</td><td>DoDream(894)</td><td>-</td><td>-</td></tr>
-              <tr><td>홍익대학교</td><td>면접형(23)</td><td>학교생활우수자-서류형(434)</td><td>2개 등급합 5</td></tr>
+              <tr><td>홍익대학교</td><td>면접형(23)</td><td>학교생활우수자-서류형(434)</td><td>2합5</td></tr>
               <tr><td>숙명여자대학교</td><td><span class="keep-chunk">면접형(361)</span>, <span class="keep-chunk">소프트웨어인재(35)</span></td><td>-</td><td>-</td></tr>
             </tbody>
           </table>
@@ -1189,20 +1381,20 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
               </tr>
             </thead>
             <tbody>
-              <tr><td>고려대학교</td><td>4개 등급합 8 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
-              <tr><td>연세대학교</td><td>3개 등급합 6 <span class="keep-together">(탐구 각각 반영)</span> <span class="keep-together">(국어/수학 포함, 영어 3등급)</span></td><td>약학: 3개 등급합 5 <span class="keep-together">(탐구 각각 반영)</span> <span class="keep-together">(국어/수학 포함, 영어 3등급)</span></td></tr>
-              <tr><td>서강대학교</td><td>3개 등급합 7 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
-              <tr><td>성균관대학교</td><td>3개 등급합 5~6 <span class="keep-together">(탐구 각각 반영)</span></td><td>의예: 4개 등급합 5 <span class="keep-together">(탐구 2과목)</span></td></tr>
-              <tr><td>한양대학교</td><td>3개 등급합 7 <span class="keep-together">(탐구 1과목)</span></td><td>의예: 3개 등급합 4 <span class="keep-together">(탐구 2과목)</span></td></tr>
-              <tr><td>이화여자대학교</td><td>3개 등급합 7 <span class="keep-together">(탐구 1과목)</span><br>* 스크랜튼: 3개 등급합 5</td><td>의예: 4개 등급합 5 <span class="keep-together">(탐구 1과목)</span><br>약학: 4개 등급합 6 <span class="keep-together">(탐구 1과목)</span></td></tr>
-              <tr><td>중앙대학교</td><td>3개 등급합 6 <span class="keep-together">(탐구 각각 반영)</span></td><td>의학: 4개 등급합 5 <span class="keep-together">(탐구 2과목)</span><br>약학: 4개 등급합 5 <span class="keep-together">(탐구 각각 반영)</span></td></tr>
-              <tr><td>경희대학교</td><td>2개 등급합 5 <span class="keep-together">(탐구 1과목)</span></td><td>의/한/치/약: 3개 등급합 4 <span class="keep-together">(탐구 1과목)</span></td></tr>
-              <tr><td>한국외국어대학교</td><td>2개 등급합 5 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
-              <tr><td>서울시립대학교</td><td>3개 등급합 7 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
-              <tr><td>건국대학교</td><td>3개 등급합 8 <span class="keep-together">(탐구 1과목)</span></td><td>수의예: 3개 등급합 4 <span class="keep-together">(탐구 2과목)</span></td></tr>
-              <tr><td>동국대학교</td><td>2개 등급합 5 <span class="keep-together">(탐구 각각 반영)</span></td><td>약학: 3개 등급합 4 <span class="keep-together">(탐구 각각 반영)</span></td></tr>
-              <tr><td>홍익대학교</td><td>2개 등급합 5 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
-              <tr><td>숙명여자대학교</td><td>2개 등급합 5 <span class="keep-together">(탐구 1과목)</span></td><td>약학: 3개 등급합 4 <span class="keep-together">(탐구 1과목, 수학 포함)</span></td></tr>
+              <tr><td>고려대학교</td><td>4합8 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
+              <tr><td>연세대학교</td><td>3합6 <span class="keep-together">(탐구 각각 반영)</span> <span class="keep-together">(국어/수학 포함, 영어 3등급)</span></td><td>약학: 3합5 <span class="keep-together">(탐구 각각 반영)</span> <span class="keep-together">(국어/수학 포함, 영어 3등급)</span></td></tr>
+              <tr><td>서강대학교</td><td>3합7 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
+              <tr><td>성균관대학교</td><td>3합5~6 <span class="keep-together">(탐구 각각 반영)</span></td><td>의예: 4합5 <span class="keep-together">(탐구 2과목)</span></td></tr>
+              <tr><td>한양대학교</td><td>3합7 <span class="keep-together">(탐구 1과목)</span></td><td>의예: 3합4 <span class="keep-together">(탐구 2과목)</span></td></tr>
+              <tr><td>이화여자대학교</td><td>3합7 <span class="keep-together">(탐구 1과목)</span><br>* 스크랜튼: 3합5</td><td>의예: 4합5 <span class="keep-together">(탐구 1과목)</span><br>약학: 4합6 <span class="keep-together">(탐구 1과목)</span></td></tr>
+              <tr><td>중앙대학교</td><td>3합6 <span class="keep-together">(탐구 각각 반영)</span></td><td>의학: 4합5 <span class="keep-together">(탐구 2과목)</span><br>약학: 4합5 <span class="keep-together">(탐구 각각 반영)</span></td></tr>
+              <tr><td>경희대학교</td><td>2합5 <span class="keep-together">(탐구 1과목)</span></td><td>의/한/치/약: 3합4 <span class="keep-together">(탐구 1과목)</span></td></tr>
+              <tr><td>한국외국어대학교</td><td>2합5 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
+              <tr><td>서울시립대학교</td><td>3합7 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
+              <tr><td>건국대학교</td><td>3합8 <span class="keep-together">(탐구 1과목)</span></td><td>수의예: 3합4 <span class="keep-together">(탐구 2과목)</span></td></tr>
+              <tr><td>동국대학교</td><td>2합5 <span class="keep-together">(탐구 각각 반영)</span></td><td>약학: 3합4 <span class="keep-together">(탐구 각각 반영)</span></td></tr>
+              <tr><td>홍익대학교</td><td>2합5 <span class="keep-together">(탐구 1과목)</span></td><td>-</td></tr>
+              <tr><td>숙명여자대학교</td><td>2합5 <span class="keep-together">(탐구 1과목)</span></td><td>약학: 3합4 <span class="keep-together">(탐구 1과목, 수학 포함)</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -1223,20 +1415,20 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
             </thead>
             <tbody>
               <tr><td>서울대학교</td><td>-</td><td>없음</td><td>-</td></tr>
-              <tr><td>고려대학교</td><td>없음</td><td>학업우수: 4개 영역 합 9</td><td>4개 영역 합 8</td></tr>
-              <tr><td>연세대학교</td><td>2개 영역 합 4~5(영어 3등급)</td><td>종합인재: 2개 영역 합 4~5(영어 3등급)</td><td>3개 영역 합 6</td></tr>
-              <tr><td>서강대학교</td><td>3개 영역 3등급</td><td>일반2: 3개 영역 합 7</td><td>3개 영역 합 7</td></tr>
-              <tr><td>성균관대학교</td><td>3개 영역 합 6~7</td><td>융합인재: 3개 영역 합 6</td><td>3개 영역 합 5~6</td></tr>
-              <tr><td>한양대학교</td><td>3개 영역 3등급</td><td>학업형: 3개 영역 합 7</td><td>3개 영역 합 7</td></tr>
-              <tr><td>이화여자대학교</td><td>3개 영역 합 7</td><td>서류형: 3개 영역 합 5~7</td><td>3개 영역 합 5~7</td></tr>
-              <tr><td>중앙대학교</td><td>3개 영역 합 7</td><td>최저학종: 3개 영역 합 6</td><td>3개 영역 합 6*</td></tr>
-              <tr><td>경희대학교</td><td>2개 영역 합 5</td><td>서류형: 2개 영역 합 5</td><td>2개 영역 합 5</td></tr>
-              <tr><td>한국외국어대학교</td><td>2개 영역 합 5</td><td>서류형: 2개 영역 합 6</td><td>2개 영역 합 5</td></tr>
-              <tr><td>서울시립대학교</td><td>3개 영역 합 7</td><td>없음</td><td>3개 영역 합 7</td></tr>
-              <tr><td>건국대학교</td><td>3개 영역 합 8</td><td>없음</td><td>3개 영역 합 8</td></tr>
-              <tr><td>동국대학교</td><td>없음</td><td>없음</td><td>2개 영역 합 5</td></tr>
-              <tr><td>홍익대학교</td><td>2개 영역 합 5</td><td>서류형: 2개 영역 합 5</td><td>2개 영역 합 5</td></tr>
-              <tr><td>숙명여자대학교</td><td>없음</td><td>없음</td><td>2개 영역 합 5</td></tr>
+              <tr><td>고려대학교</td><td>없음</td><td>학업우수: 4합9</td><td>4합8</td></tr>
+              <tr><td>연세대학교</td><td>2합4~5(영어 3등급)</td><td>종합인재: 2합4~5(영어 3등급)</td><td>3합6</td></tr>
+              <tr><td>서강대학교</td><td>3개 영역 3등급</td><td>일반2: 3합7</td><td>3합7</td></tr>
+              <tr><td>성균관대학교</td><td>3합6~7</td><td>융합인재: 3합6</td><td>3합5~6</td></tr>
+              <tr><td>한양대학교</td><td>3개 영역 3등급</td><td>학업형: 3합7</td><td>3합7</td></tr>
+              <tr><td>이화여자대학교</td><td>3합7</td><td>서류형: 3합5~7</td><td>3합5~7</td></tr>
+              <tr><td>중앙대학교</td><td>3합7</td><td>최저학종: 3합6</td><td>3합6*</td></tr>
+              <tr><td>경희대학교</td><td>2합5</td><td>서류형: 2합5</td><td>2합5</td></tr>
+              <tr><td>한국외국어대학교</td><td>2합5</td><td>서류형: 2합6</td><td>2합5</td></tr>
+              <tr><td>서울시립대학교</td><td>3합7</td><td>없음</td><td>3합7</td></tr>
+              <tr><td>건국대학교</td><td>3합8</td><td>없음</td><td>3합8</td></tr>
+              <tr><td>동국대학교</td><td>없음</td><td>없음</td><td>2합5</td></tr>
+              <tr><td>홍익대학교</td><td>2합5</td><td>서류형: 2합5</td><td>2합5</td></tr>
+              <tr><td>숙명여자대학교</td><td>없음</td><td>없음</td><td>2합5</td></tr>
             </tbody>
           </table>
         </div>
