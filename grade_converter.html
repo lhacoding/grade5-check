@@ -1025,6 +1025,943 @@ header.site-hero p {
 
 </style>
 
+
+<style id="grade-ratio-compare-style">
+  /* 5등급제·9등급제 비율 비교 그래프 */
+  .ratio-card{
+    width:100%;
+    margin:0 0 16px !important;
+    padding:16px !important;
+    border:1px solid var(--line) !important;
+    border-radius:var(--radius) !important;
+    background:rgba(255,255,255,.98) !important;
+    box-shadow:var(--shadow) !important;
+  }
+  .ratio-title{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:14px;
+    margin:0 0 14px;
+  }
+  .ratio-title h2{
+    margin:0;
+    font-size:20px;
+    line-height:1.24;
+    font-weight:950;
+    letter-spacing:-.04em;
+    color:var(--ink);
+  }
+  .ratio-title p{
+    margin:0;
+    color:var(--muted);
+    font-size:12.5px;
+    line-height:1.35;
+    font-weight:750;
+    text-align:right;
+    word-break:keep-all;
+  }
+  .ratio-graph{
+    display:grid;
+    gap:12px;
+  }
+  .ratio-row{
+    display:grid;
+    grid-template-columns:96px minmax(0,1fr);
+    gap:10px;
+    align-items:center;
+  }
+  .ratio-name{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:46px;
+    border:1px solid #d9e1ef;
+    border-radius:14px;
+    background:#f8fbff;
+    color:var(--navy);
+    font-size:14px;
+    font-weight:950;
+    letter-spacing:-.04em;
+    white-space:nowrap;
+  }
+  .ratio-track{
+    display:flex;
+    min-width:0;
+    height:46px;
+    overflow:hidden;
+    border:1px solid #d9e1ef;
+    border-radius:14px;
+    background:#f4f7fb;
+  }
+  .ratio-seg{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-width:0;
+    padding:0 2px;
+    border-right:1px solid rgba(255,255,255,.8);
+    text-align:center;
+    overflow:hidden;
+  }
+  .ratio-seg:last-child{ border-right:0; }
+  .ratio-seg b,
+  .ratio-seg em{
+    display:block;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:clip;
+    white-space:nowrap;
+    font-style:normal;
+  }
+  .ratio-seg b{
+    font-size:clamp(9px,.82vw,12px);
+    line-height:1.05;
+    font-weight:950;
+    letter-spacing:-.035em;
+  }
+  .ratio-seg em{
+    margin-top:2px;
+    font-size:clamp(9px,.78vw,11px);
+    line-height:1;
+    font-weight:900;
+    opacity:.86;
+  }
+  .ratio-five .ratio-seg{
+    background:linear-gradient(180deg,#dce7ff,#cbd8fb);
+    color:#172744;
+  }
+  .ratio-five .ratio-seg:nth-child(2),
+  .ratio-five .ratio-seg:nth-child(4){ background:linear-gradient(180deg,#cbd9fb,#b8c8ef); }
+  .ratio-five .ratio-seg:nth-child(3){ background:linear-gradient(180deg,#b7c8f1,#a6b8e3); }
+  .ratio-nine .ratio-seg{
+    background:linear-gradient(180deg,#dcf5e8,#c9ead8);
+    color:#116138;
+  }
+  .ratio-nine .ratio-seg:nth-child(2),
+  .ratio-nine .ratio-seg:nth-child(8){ background:linear-gradient(180deg,#ceeddc,#bde2ce); }
+  .ratio-nine .ratio-seg:nth-child(3),
+  .ratio-nine .ratio-seg:nth-child(7){ background:linear-gradient(180deg,#c0e6d1,#addbc2); }
+  .ratio-nine .ratio-seg:nth-child(4),
+  .ratio-nine .ratio-seg:nth-child(6){ background:linear-gradient(180deg,#b1dec4,#9fd2b5); }
+  .ratio-nine .ratio-seg:nth-child(5){ background:linear-gradient(180deg,#9fd4b7,#8bc7a6); }
+  .ratio-scale{
+    display:grid;
+    grid-template-columns:96px minmax(0,1fr);
+    gap:10px;
+    align-items:start;
+    margin-top:2px;
+  }
+  .ratio-scale-spacer{ min-height:1px; }
+  .ratio-scale-line{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    color:#78869a;
+    font-size:10.5px;
+    font-weight:850;
+    letter-spacing:-.025em;
+  }
+  .ratio-scale-line span{
+    position:relative;
+    text-align:right;
+  }
+  .ratio-scale-line span::before{
+    content:"";
+    position:absolute;
+    right:0;
+    top:-54px;
+    width:1px;
+    height:48px;
+    background:rgba(120,134,154,.25);
+  }
+  .ratio-caption{
+    margin:10px 0 0;
+    color:var(--muted);
+    font-size:11.5px;
+    line-height:1.45;
+    font-weight:750;
+    letter-spacing:-.025em;
+    word-break:keep-all;
+  }
+  @media (max-width:720px){
+    .ratio-card{ padding:13px !important; margin-bottom:13px !important; }
+    .ratio-title{ display:block; margin-bottom:12px; }
+    .ratio-title h2{ font-size:18px; }
+    .ratio-title p{ margin-top:5px; text-align:left; font-size:11.8px; }
+    .ratio-row{ grid-template-columns:74px minmax(0,1fr); gap:7px; }
+    .ratio-name{ min-height:42px; font-size:12.5px; border-radius:12px; }
+    .ratio-track{ height:42px; border-radius:12px; }
+    .ratio-seg b{ font-size:9.5px; }
+    .ratio-seg em{ font-size:9px; }
+    .ratio-scale{ grid-template-columns:74px minmax(0,1fr); gap:7px; }
+    .ratio-scale-line{ font-size:9.5px; }
+    .ratio-scale-line span::before{ top:-50px; height:44px; }
+    .ratio-caption{ font-size:10.8px; }
+  }
+  @media (max-width:430px){
+    .ratio-card{ padding:11px !important; }
+    .ratio-row{ grid-template-columns:1fr; gap:5px; }
+    .ratio-name{ justify-content:flex-start; min-height:30px; padding:0 10px; }
+    .ratio-track{ height:44px; }
+    .ratio-scale{ display:none; }
+    .ratio-seg b{ font-size:9px; }
+    .ratio-seg em{ font-size:8.5px; }
+  }
+  @media print{
+    .ratio-card{ box-shadow:none !important; padding:8px !important; margin-bottom:8px !important; }
+    .ratio-title{ margin-bottom:8px; }
+    .ratio-title h2{ font-size:15px; }
+    .ratio-title p{ font-size:9.5px; }
+    .ratio-row{ grid-template-columns:70px 1fr; gap:6px; }
+    .ratio-name{ min-height:30px; font-size:10px; border-radius:10px; }
+    .ratio-track{ height:30px; border-radius:10px; }
+    .ratio-seg b{ font-size:8px; }
+    .ratio-seg em{ font-size:7.5px; }
+    .ratio-caption{ font-size:8.5px; margin-top:6px; }
+    .ratio-scale{ display:none; }
+  }
+</style>
+
+<style id="ratio-label-size-final-fix">
+  /* 비율 그래프 글자 확대: 5등급제와 9등급제 등급/비율을 같은 기준으로 보정 */
+  .ratio-track{
+    height:64px !important;
+    border-radius:16px !important;
+  }
+  .ratio-name{
+    min-height:64px !important;
+    font-size:15.5px !important;
+    border-radius:16px !important;
+  }
+  .ratio-seg{
+    gap:3px !important;
+    padding:0 3px !important;
+  }
+  .ratio-five .ratio-seg b,
+  .ratio-nine .ratio-seg b{
+    font-size:clamp(14px,1.1vw,17px) !important;
+    line-height:1.05 !important;
+    font-weight:950 !important;
+    letter-spacing:-.045em !important;
+  }
+  .ratio-five .ratio-seg em,
+  .ratio-nine .ratio-seg em{
+    margin-top:2px !important;
+    font-size:clamp(13px,1vw,16px) !important;
+    line-height:1 !important;
+    font-weight:950 !important;
+    opacity:.96 !important;
+  }
+  .ratio-nine .ratio-seg{
+    padding-left:1px !important;
+    padding-right:1px !important;
+  }
+  .ratio-scale-line span::before{
+    top:-72px !important;
+    height:66px !important;
+  }
+
+  @media (max-width:720px){
+    .ratio-row{ grid-template-columns:84px minmax(0,1fr) !important; }
+    .ratio-name{ min-height:60px !important; font-size:13.5px !important; }
+    .ratio-track{ height:60px !important; }
+    .ratio-five .ratio-seg b,
+    .ratio-nine .ratio-seg b{ font-size:12px !important; letter-spacing:-.055em !important; }
+    .ratio-five .ratio-seg em,
+    .ratio-nine .ratio-seg em{ font-size:11.5px !important; }
+    .ratio-scale{ grid-template-columns:84px minmax(0,1fr) !important; }
+    .ratio-scale-line span::before{ top:-68px !important; height:62px !important; }
+  }
+
+  @media (max-width:430px){
+    .ratio-row{ overflow-x:auto !important; padding-bottom:3px !important; }
+    .ratio-name{ min-height:34px !important; font-size:13px !important; }
+    .ratio-track{ min-width:680px !important; height:60px !important; }
+    .ratio-seg{ padding:0 2px !important; }
+    .ratio-five .ratio-seg b,
+    .ratio-nine .ratio-seg b{ font-size:12px !important; letter-spacing:-.055em !important; }
+    .ratio-five .ratio-seg em,
+    .ratio-nine .ratio-seg em{ font-size:11.5px !important; }
+  }
+
+  @media print{
+    .ratio-track{ height:38px !important; }
+    .ratio-name{ min-height:38px !important; font-size:10.5px !important; }
+    .ratio-five .ratio-seg b,
+    .ratio-nine .ratio-seg b{ font-size:8.5px !important; }
+    .ratio-five .ratio-seg em,
+    .ratio-nine .ratio-seg em{ font-size:8px !important; }
+  }
+</style>
+
+<style id="ratio-clean-final-style">
+  /* 최종 그래프 정리: 세로선 제거, 구간 간격 분리, 막대 안은 비율만 표시 */
+  .ratio-card{
+    padding:18px !important;
+    border-radius:24px !important;
+  }
+  .ratio-title{
+    display:block !important;
+    margin:0 0 18px !important;
+  }
+  .ratio-title h2{
+    font-size:22px !important;
+    line-height:1.2 !important;
+    font-weight:950 !important;
+    letter-spacing:-.045em !important;
+  }
+  .ratio-title p{
+    margin:6px 0 0 !important;
+    color:var(--muted) !important;
+    font-size:13.5px !important;
+    line-height:1.42 !important;
+    font-weight:750 !important;
+    text-align:left !important;
+  }
+  .ratio-graph{
+    display:grid !important;
+    gap:20px !important;
+  }
+  .ratio-row{
+    display:grid !important;
+    grid-template-columns:96px minmax(0,1fr) !important;
+    gap:12px !important;
+    align-items:start !important;
+  }
+  .ratio-name{
+    min-height:54px !important;
+    border-radius:16px !important;
+    font-size:15px !important;
+    font-weight:950 !important;
+    background:#f8fbff !important;
+    color:var(--navy) !important;
+  }
+  .ratio-bar-area{
+    min-width:0 !important;
+  }
+  .ratio-track{
+    display:grid !important;
+    width:100% !important;
+    height:54px !important;
+    min-width:0 !important;
+    gap:4px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    overflow:visible !important;
+  }
+  .ratio-five{
+    grid-template-columns:10fr 24fr 32fr 24fr 10fr !important;
+  }
+  .ratio-nine{
+    grid-template-columns:4fr 7fr 12fr 17fr 20fr 17fr 12fr 7fr 4fr !important;
+  }
+  .ratio-seg{
+    width:auto !important;
+    min-width:0 !important;
+    height:54px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 3px !important;
+    border:0 !important;
+    border-radius:13px !important;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.58), 0 4px 12px rgba(23,39,68,.06) !important;
+    overflow:hidden !important;
+  }
+  .ratio-seg b{
+    display:none !important;
+  }
+  .ratio-seg em{
+    display:block !important;
+    margin:0 !important;
+    max-width:100% !important;
+    color:inherit !important;
+    font-size:clamp(13px,1.05vw,16px) !important;
+    line-height:1 !important;
+    font-weight:950 !important;
+    letter-spacing:-.035em !important;
+    opacity:.98 !important;
+    white-space:nowrap !important;
+    text-overflow:clip !important;
+    overflow:hidden !important;
+  }
+  .ratio-nine .ratio-seg em{
+    font-size:clamp(12px,.96vw,15px) !important;
+    letter-spacing:-.045em !important;
+  }
+  .ratio-five .ratio-seg{
+    background:linear-gradient(180deg,#dfe8ff,#c8d5f6) !important;
+    color:#172744 !important;
+  }
+  .ratio-five .ratio-seg:nth-child(2),
+  .ratio-five .ratio-seg:nth-child(4){
+    background:linear-gradient(180deg,#cbd8f6,#b7c5e9) !important;
+  }
+  .ratio-five .ratio-seg:nth-child(3){
+    background:linear-gradient(180deg,#b8c7ec,#a5b5dc) !important;
+  }
+  .ratio-nine .ratio-seg{
+    background:linear-gradient(180deg,#def3e7,#c7e5d3) !important;
+    color:#135738 !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(2),
+  .ratio-nine .ratio-seg:nth-child(8){
+    background:linear-gradient(180deg,#d1ecd9,#bbdfc8) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(3),
+  .ratio-nine .ratio-seg:nth-child(7){
+    background:linear-gradient(180deg,#c2e3cc,#aad5b9) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(4),
+  .ratio-nine .ratio-seg:nth-child(6){
+    background:linear-gradient(180deg,#afd7bc,#98c8aa) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(5){
+    background:linear-gradient(180deg,#9fceb0,#86bc9c) !important;
+  }
+  .ratio-grade-legend{
+    display:grid !important;
+    width:100% !important;
+    gap:4px !important;
+    margin-top:7px !important;
+  }
+  .ratio-five-legend{
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  }
+  .ratio-nine-legend{
+    grid-template-columns:repeat(9,minmax(0,1fr)) !important;
+  }
+  .ratio-grade-legend span{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-height:25px !important;
+    padding:0 3px !important;
+    border:1px solid #d9e1ef !important;
+    border-radius:999px !important;
+    background:#f8fbff !important;
+    color:#5f6e86 !important;
+    font-size:12.2px !important;
+    line-height:1 !important;
+    font-weight:900 !important;
+    letter-spacing:-.045em !important;
+    white-space:nowrap !important;
+  }
+  .ratio-scale,
+  .ratio-caption{
+    display:none !important;
+  }
+
+  @media (max-width:720px){
+    .ratio-card{ padding:14px !important; }
+    .ratio-title{ margin-bottom:14px !important; }
+    .ratio-title h2{ font-size:20px !important; }
+    .ratio-title p{ font-size:12.5px !important; }
+    .ratio-graph{ gap:16px !important; }
+    .ratio-row{ grid-template-columns:84px minmax(0,1fr) !important; gap:9px !important; }
+    .ratio-name{ min-height:50px !important; font-size:13.5px !important; border-radius:14px !important; }
+    .ratio-track{ height:50px !important; gap:3px !important; }
+    .ratio-seg{ height:50px !important; border-radius:11px !important; }
+    .ratio-seg em{ font-size:12.5px !important; }
+    .ratio-nine .ratio-seg em{ font-size:11.5px !important; }
+    .ratio-grade-legend{ gap:3px !important; }
+    .ratio-grade-legend span{ min-height:23px !important; font-size:10.8px !important; letter-spacing:-.055em !important; }
+  }
+
+  @media (max-width:520px){
+    .ratio-row{ grid-template-columns:1fr !important; gap:7px !important; }
+    .ratio-name{
+      min-height:34px !important;
+      justify-content:flex-start !important;
+      padding:0 12px !important;
+      font-size:13px !important;
+      border-radius:12px !important;
+    }
+    .ratio-bar-area{
+      overflow-x:auto !important;
+      padding-bottom:4px !important;
+    }
+    .ratio-five,
+    .ratio-five-legend{
+      min-width:500px !important;
+    }
+    .ratio-nine,
+    .ratio-nine-legend{
+      min-width:680px !important;
+    }
+    .ratio-track{ height:50px !important; }
+    .ratio-seg{ height:50px !important; }
+    .ratio-grade-legend span{ font-size:11px !important; }
+  }
+
+  @media print{
+    .ratio-card{ padding:8px !important; }
+    .ratio-title{ margin-bottom:8px !important; }
+    .ratio-title h2{ font-size:15px !important; }
+    .ratio-title p{ font-size:9.5px !important; }
+    .ratio-row{ grid-template-columns:70px 1fr !important; gap:6px !important; }
+    .ratio-name{ min-height:34px !important; font-size:10px !important; border-radius:10px !important; }
+    .ratio-track{ height:34px !important; gap:2px !important; }
+    .ratio-seg{ height:34px !important; border-radius:8px !important; }
+    .ratio-seg em{ font-size:8px !important; }
+    .ratio-grade-legend{ display:none !important; }
+  }
+</style>
+
+<style id="ratio-style-like-reference">
+  /* 참고 이미지 느낌으로 재정리: 깔끔한 연결 막대 + 아래 등급 라벨 */
+  .ratio-card{
+    padding:18px !important;
+    border-radius:24px !important;
+  }
+  .ratio-title{
+    display:block !important;
+    margin:0 0 16px !important;
+  }
+  .ratio-title h2{
+    font-size:22px !important;
+    line-height:1.18 !important;
+    font-weight:950 !important;
+    letter-spacing:-.045em !important;
+  }
+  .ratio-title p{
+    margin:6px 0 0 !important;
+    text-align:left !important;
+    font-size:13px !important;
+    line-height:1.4 !important;
+  }
+  .ratio-graph{
+    display:grid !important;
+    gap:16px !important;
+  }
+  .ratio-row{
+    display:grid !important;
+    grid-template-columns:88px minmax(0,1fr) !important;
+    gap:12px !important;
+    align-items:start !important;
+  }
+  .ratio-name{
+    min-height:58px !important;
+    border-radius:16px !important;
+    background:#f5f8fd !important;
+    color:var(--navy) !important;
+    border:1px solid #d8e1ef !important;
+    font-size:15px !important;
+    font-weight:950 !important;
+    letter-spacing:-.04em !important;
+  }
+  .ratio-bar-area{ min-width:0 !important; }
+  .ratio-track{
+    display:grid !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:58px !important;
+    gap:0 !important;
+    border:1px solid #d7dfef !important;
+    border-radius:18px !important;
+    overflow:hidden !important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.55) !important;
+  }
+  .ratio-five{ grid-template-columns:10fr 24fr 32fr 24fr 10fr !important; }
+  .ratio-nine{ grid-template-columns:4fr 7fr 12fr 17fr 20fr 17fr 12fr 7fr 4fr !important; }
+  .ratio-seg{
+    position:relative !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-width:0 !important;
+    height:58px !important;
+    padding:0 4px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+  }
+  .ratio-seg + .ratio-seg{
+    box-shadow:inset 1px 0 0 rgba(255,255,255,.45) !important;
+  }
+  .ratio-seg b{ display:none !important; }
+  .ratio-seg em{
+    display:block !important;
+    margin:0 !important;
+    font-style:normal !important;
+    white-space:nowrap !important;
+    font-weight:950 !important;
+    letter-spacing:-.04em !important;
+    line-height:1 !important;
+    overflow:visible !important;
+  }
+  /* 5등급제: 참고 이미지와 비슷한 시원한 파란 막대 */
+  .ratio-five{
+    background:linear-gradient(180deg,#dfe9fb 0%,#d4e0f5 100%) !important;
+  }
+  .ratio-five .ratio-seg{
+    color:#ffffff !important;
+    background:linear-gradient(180deg,#c9d9f2 0%,#b8caea 100%) !important;
+  }
+  .ratio-five .ratio-seg:nth-child(2),
+  .ratio-five .ratio-seg:nth-child(4){
+    background:linear-gradient(180deg,#bed0ec 0%,#aec2e4 100%) !important;
+  }
+  .ratio-five .ratio-seg:nth-child(3){
+    background:linear-gradient(180deg,#afc2e6 0%,#9db4dc 100%) !important;
+  }
+  .ratio-five .ratio-seg em{
+    font-size:clamp(20px,2.0vw,28px) !important;
+    text-shadow:
+      -1px -1px 0 rgba(57,89,134,.65),
+       1px -1px 0 rgba(57,89,134,.65),
+      -1px  1px 0 rgba(57,89,134,.65),
+       1px  1px 0 rgba(57,89,134,.65),
+       0    2px 0 rgba(57,89,134,.18) !important;
+  }
+  /* 9등급제: 같은 구조, 조금 차분한 그린 */
+  .ratio-nine{
+    background:linear-gradient(180deg,#e5f3eb 0%,#daeade 100%) !important;
+  }
+  .ratio-nine .ratio-seg{
+    color:#ffffff !important;
+    background:linear-gradient(180deg,#cbe5d5 0%,#b7d7c3 100%) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(2),
+  .ratio-nine .ratio-seg:nth-child(8){
+    background:linear-gradient(180deg,#c1dfcc 0%,#aed1bb 100%) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(3),
+  .ratio-nine .ratio-seg:nth-child(7){
+    background:linear-gradient(180deg,#b5d7c1 0%,#a2c8b0 100%) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(4),
+  .ratio-nine .ratio-seg:nth-child(6){
+    background:linear-gradient(180deg,#a9cfb8 0%,#95bea4 100%) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(5){
+    background:linear-gradient(180deg,#9dc7ad 0%,#89b696 100%) !important;
+  }
+  .ratio-nine .ratio-seg em{
+    font-size:clamp(13px,1.08vw,17px) !important;
+    text-shadow:
+      -1px -1px 0 rgba(36,92,63,.55),
+       1px -1px 0 rgba(36,92,63,.55),
+      -1px  1px 0 rgba(36,92,63,.55),
+       1px  1px 0 rgba(36,92,63,.55) !important;
+  }
+  .ratio-grade-legend{
+    display:grid !important;
+    width:100% !important;
+    gap:0 !important;
+    margin-top:8px !important;
+  }
+  .ratio-five-legend{ grid-template-columns:10fr 24fr 32fr 24fr 10fr !important; }
+  .ratio-nine-legend{ grid-template-columns:4fr 7fr 12fr 17fr 20fr 17fr 12fr 7fr 4fr !important; }
+  .ratio-grade-legend span{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-height:22px !important;
+    padding:0 2px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    color:#4c5b72 !important;
+    font-size:12px !important;
+    line-height:1 !important;
+    font-weight:900 !important;
+    letter-spacing:-.045em !important;
+    white-space:nowrap !important;
+  }
+  .ratio-scale,
+  .ratio-caption{ display:none !important; }
+
+  @media (max-width:720px){
+    .ratio-card{ padding:14px !important; }
+    .ratio-title h2{ font-size:20px !important; }
+    .ratio-title p{ font-size:12px !important; }
+    .ratio-row{ grid-template-columns:80px minmax(0,1fr) !important; gap:9px !important; }
+    .ratio-name{ min-height:52px !important; font-size:13px !important; border-radius:14px !important; }
+    .ratio-track{ height:52px !important; border-radius:16px !important; }
+    .ratio-seg{ height:52px !important; }
+    .ratio-five .ratio-seg em{ font-size:clamp(16px,2.7vw,22px) !important; }
+    .ratio-nine .ratio-seg em{ font-size:clamp(11px,1.9vw,14px) !important; }
+    .ratio-grade-legend span{ font-size:11px !important; }
+  }
+
+  @media (max-width:520px){
+    .ratio-row{ grid-template-columns:1fr !important; gap:7px !important; }
+    .ratio-name{
+      min-height:36px !important;
+      justify-content:flex-start !important;
+      padding:0 12px !important;
+      font-size:13px !important;
+      border-radius:12px !important;
+    }
+    .ratio-bar-area{ overflow-x:auto !important; padding-bottom:4px !important; }
+    .ratio-five,
+    .ratio-five-legend{ min-width:520px !important; }
+    .ratio-nine,
+    .ratio-nine-legend{ min-width:720px !important; }
+    .ratio-five .ratio-seg em{ font-size:18px !important; }
+    .ratio-nine .ratio-seg em{ font-size:12px !important; }
+  }
+
+  @media print{
+    .ratio-card{ padding:8px !important; box-shadow:none !important; }
+    .ratio-title h2{ font-size:15px !important; }
+    .ratio-title p{ font-size:9px !important; }
+    .ratio-row{ grid-template-columns:70px 1fr !important; gap:6px !important; }
+    .ratio-name{ min-height:34px !important; font-size:10px !important; }
+    .ratio-track{ height:34px !important; border-radius:10px !important; }
+    .ratio-seg{ height:34px !important; }
+    .ratio-five .ratio-seg em{ font-size:11px !important; text-shadow:none !important; }
+    .ratio-nine .ratio-seg em{ font-size:8px !important; text-shadow:none !important; }
+    .ratio-grade-legend span{ font-size:8px !important; }
+  }
+</style>
+
+
+<style id="ratio-natural-balance-final">
+  /* 비율 그래프 최종 보정: 제목 문구 자연화 + 5등급제/9등급제 숫자 크기 균형 통일 */
+  .ratio-card{
+    padding:18px !important;
+    border-radius:24px !important;
+  }
+  .ratio-title{
+    margin-bottom:16px !important;
+  }
+  .ratio-title h2{
+    font-size:21px !important;
+    line-height:1.22 !important;
+    letter-spacing:-.04em !important;
+  }
+  .ratio-title p{
+    margin-top:6px !important;
+    font-size:13px !important;
+    line-height:1.42 !important;
+    color:#66758c !important;
+  }
+  .ratio-graph{
+    gap:15px !important;
+  }
+  .ratio-row{
+    grid-template-columns:86px minmax(0,1fr) !important;
+    gap:11px !important;
+  }
+  .ratio-name{
+    min-height:54px !important;
+    border-radius:15px !important;
+    background:#f7f9fd !important;
+    color:#172744 !important;
+    font-size:14px !important;
+    font-weight:900 !important;
+    letter-spacing:-.035em !important;
+  }
+  .ratio-track{
+    height:54px !important;
+    border-radius:16px !important;
+  }
+  .ratio-seg{
+    height:54px !important;
+    padding:0 3px !important;
+  }
+  .ratio-five .ratio-seg em,
+  .ratio-nine .ratio-seg em{
+    font-size:clamp(11px,.95vw,14px) !important;
+    line-height:1 !important;
+    font-weight:900 !important;
+    letter-spacing:-.025em !important;
+    color:#172744 !important;
+    text-shadow:none !important;
+  }
+  .ratio-nine .ratio-seg em{
+    font-size:clamp(10.5px,.9vw,13.5px) !important;
+    color:#135738 !important;
+  }
+  .ratio-five .ratio-seg{
+    background:linear-gradient(180deg,#e4ebfb 0%,#d1dcf3 100%) !important;
+  }
+  .ratio-five .ratio-seg:nth-child(2),
+  .ratio-five .ratio-seg:nth-child(4){
+    background:linear-gradient(180deg,#d8e2f6 0%,#c5d2ec 100%) !important;
+  }
+  .ratio-five .ratio-seg:nth-child(3){
+    background:linear-gradient(180deg,#cbd8f0 0%,#b9c8e5 100%) !important;
+  }
+  .ratio-nine .ratio-seg{
+    background:linear-gradient(180deg,#e2f3e9 0%,#cde8d7 100%) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(2),
+  .ratio-nine .ratio-seg:nth-child(8){
+    background:linear-gradient(180deg,#d6eddf 0%,#c1dfcc 100%) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(3),
+  .ratio-nine .ratio-seg:nth-child(7){
+    background:linear-gradient(180deg,#cae7d4 0%,#b3d9c0 100%) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(4),
+  .ratio-nine .ratio-seg:nth-child(6){
+    background:linear-gradient(180deg,#bcdfc7 0%,#a5cfb3 100%) !important;
+  }
+  .ratio-nine .ratio-seg:nth-child(5){
+    background:linear-gradient(180deg,#add5ba 0%,#95c4a3 100%) !important;
+  }
+  .ratio-grade-legend{
+    margin-top:7px !important;
+  }
+  .ratio-grade-legend span{
+    min-height:21px !important;
+    color:#5f6e86 !important;
+    font-size:11.5px !important;
+    font-weight:850 !important;
+    letter-spacing:-.035em !important;
+  }
+
+  @media (max-width:720px){
+    .ratio-title h2{ font-size:19px !important; }
+    .ratio-title p{ font-size:12px !important; }
+    .ratio-row{ grid-template-columns:78px minmax(0,1fr) !important; gap:8px !important; }
+    .ratio-name{ min-height:50px !important; font-size:12.5px !important; }
+    .ratio-track{ height:50px !important; }
+    .ratio-seg{ height:50px !important; }
+    .ratio-five .ratio-seg em,
+    .ratio-nine .ratio-seg em{ font-size:11px !important; }
+    .ratio-grade-legend span{ font-size:10.5px !important; }
+  }
+
+  @media (max-width:520px){
+    .ratio-row{ grid-template-columns:1fr !important; gap:7px !important; }
+    .ratio-name{
+      min-height:34px !important;
+      padding:0 12px !important;
+      justify-content:flex-start !important;
+      font-size:12.5px !important;
+    }
+    .ratio-five .ratio-seg em,
+    .ratio-nine .ratio-seg em{ font-size:11px !important; }
+  }
+</style>
+
+
+
+<style id="ratio-white-outline-readable-final">
+  /* 비율 숫자 가독성 보정: 흰색 글자 + 얇은 윤곽선, 5등급제/9등급제 크기 균형 유지 */
+  .ratio-five .ratio-seg em,
+  .ratio-nine .ratio-seg em{
+    color:#ffffff !important;
+    font-size:clamp(12px,.95vw,14.5px) !important;
+    line-height:1 !important;
+    font-weight:950 !important;
+    letter-spacing:-.025em !important;
+    opacity:1 !important;
+    -webkit-text-stroke:.35px rgba(23,39,68,.45) !important;
+    paint-order:stroke fill !important;
+  }
+  .ratio-five .ratio-seg em{
+    text-shadow:
+      -1px -1px 0 rgba(45,72,112,.55),
+       1px -1px 0 rgba(45,72,112,.55),
+      -1px  1px 0 rgba(45,72,112,.55),
+       1px  1px 0 rgba(45,72,112,.55),
+       0    1px 2px rgba(23,39,68,.18) !important;
+  }
+  .ratio-nine .ratio-seg em{
+    text-shadow:
+      -1px -1px 0 rgba(35,88,61,.52),
+       1px -1px 0 rgba(35,88,61,.52),
+      -1px  1px 0 rgba(35,88,61,.52),
+       1px  1px 0 rgba(35,88,61,.52),
+       0    1px 2px rgba(17,97,56,.16) !important;
+  }
+
+  @media (max-width:720px){
+    .ratio-five .ratio-seg em,
+    .ratio-nine .ratio-seg em{
+      font-size:11px !important;
+      -webkit-text-stroke:.3px rgba(23,39,68,.42) !important;
+    }
+  }
+
+  @media (max-width:520px){
+    .ratio-five .ratio-seg em,
+    .ratio-nine .ratio-seg em{
+      font-size:11px !important;
+    }
+  }
+
+  @media print{
+    .ratio-five .ratio-seg em,
+    .ratio-nine .ratio-seg em{
+      color:#172744 !important;
+      text-shadow:none !important;
+      -webkit-text-stroke:0 !important;
+    }
+    .ratio-nine .ratio-seg em{ color:#135738 !important; }
+  }
+</style>
+
+
+<style id="ratio-neutral-clean-reset">
+  /* 강조 배지 제거 + 양쪽 라벨 균형 유지 */
+  .ratio-graph .ratio-row:first-child .ratio-name::after{
+    content:none !important;
+    display:none !important;
+  }
+  .ratio-graph .ratio-row:first-child .ratio-name,
+  .ratio-graph .ratio-row:nth-child(2) .ratio-name{
+    background:#f7f9fd !important;
+    color:#172744 !important;
+    border-color:#d8e1ef !important;
+    box-shadow:none !important;
+  }
+  .ratio-five,
+  .ratio-nine{
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.55) !important;
+  }
+  .ratio-five-legend span,
+  .ratio-nine-legend span{
+    color:#4c5b72 !important;
+    font-weight:900 !important;
+  }
+</style>
+
+
+<style id="ratio-no-horizontal-scroll-final">
+/* 폭이 좁아졌을 때 그래프 영역에서 가로 스크롤이 생기지 않도록 하는 보정만 적용 */
+@media (max-width:520px){
+  .ratio-bar-area{
+    overflow-x:visible !important;
+    padding-bottom:0 !important;
+    width:100% !important;
+    min-width:0 !important;
+  }
+
+  .ratio-five,
+  .ratio-five-legend,
+  .ratio-nine,
+  .ratio-nine-legend{
+    min-width:0 !important;
+    width:100% !important;
+  }
+
+  .ratio-track{
+    min-width:0 !important;
+    width:100% !important;
+  }
+
+  .ratio-row{
+    overflow-x:visible !important;
+    max-width:100% !important;
+  }
+}
+
+/* 더 좁은 화면에서도 문서 전체 가로 스크롤 방지 */
+html,
+body{
+  overflow-x:hidden !important;
+}
+</style>
+
 </head>
 <body>
   <header class="site-hero" aria-label="페이지 제목">
@@ -1042,6 +1979,50 @@ header.site-hero p {
   </div>
 </section>
 <div class="wrap">
+
+<section class="ratio-card" aria-label="5등급제와 9등급제 비율 비교 그래프">
+  <div class="ratio-title">
+    <h2>상대평가 등급 비율 비교</h2>
+    <p>5등급제와 9등급제에서 각 등급이 전체 학생 중 차지하는 비율입니다.</p>
+  </div>
+  <div class="ratio-graph" role="img" aria-label="5등급제는 1등급 10퍼센트, 2등급 24퍼센트, 3등급 32퍼센트, 4등급 24퍼센트, 5등급 10퍼센트입니다. 9등급제는 1등급 4퍼센트, 2등급 7퍼센트, 3등급 12퍼센트, 4등급 17퍼센트, 5등급 20퍼센트, 6등급 17퍼센트, 7등급 12퍼센트, 8등급 7퍼센트, 9등급 4퍼센트입니다.">
+    <div class="ratio-row">
+      <div class="ratio-name">5등급제</div>
+      <div class="ratio-bar-area">
+        <div class="ratio-track ratio-five">
+          <span class="ratio-seg" title="1등급 · 10%"><em>10%</em></span>
+          <span class="ratio-seg" title="2등급 · 24%"><em>24%</em></span>
+          <span class="ratio-seg" title="3등급 · 32%"><em>32%</em></span>
+          <span class="ratio-seg" title="4등급 · 24%"><em>24%</em></span>
+          <span class="ratio-seg" title="5등급 · 10%"><em>10%</em></span>
+        </div>
+        <div class="ratio-grade-legend ratio-five-legend" aria-hidden="true">
+          <span>1등급</span><span>2등급</span><span>3등급</span><span>4등급</span><span>5등급</span>
+        </div>
+      </div>
+    </div>
+    <div class="ratio-row">
+      <div class="ratio-name">9등급제</div>
+      <div class="ratio-bar-area">
+        <div class="ratio-track ratio-nine">
+          <span class="ratio-seg" title="1등급 · 4%"><em>4%</em></span>
+          <span class="ratio-seg" title="2등급 · 7%"><em>7%</em></span>
+          <span class="ratio-seg" title="3등급 · 12%"><em>12%</em></span>
+          <span class="ratio-seg" title="4등급 · 17%"><em>17%</em></span>
+          <span class="ratio-seg" title="5등급 · 20%"><em>20%</em></span>
+          <span class="ratio-seg" title="6등급 · 17%"><em>17%</em></span>
+          <span class="ratio-seg" title="7등급 · 12%"><em>12%</em></span>
+          <span class="ratio-seg" title="8등급 · 7%"><em>7%</em></span>
+          <span class="ratio-seg" title="9등급 · 4%"><em>4%</em></span>
+        </div>
+        <div class="ratio-grade-legend ratio-nine-legend" aria-hidden="true">
+          <span>1등급</span><span>2등급</span><span>3등급</span><span>4등급</span><span>5등급</span><span>6등급</span><span>7등급</span><span>8등급</span><span>9등급</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="calculator" aria-label="등급 변환기">
         <div class="input-card">
           <h2>5등급제 내신 입력</h2>
