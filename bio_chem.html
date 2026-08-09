@@ -1,0 +1,1431 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="서울 주요 대학과 인하대·인천대의 생명·화학계열 전공, 주요 교과, 구체적인 취업 직무를 비교합니다.">
+  <title>생명·화학계열 대학 전공·취업 가이드</title>
+  <style>
+    :root{--paper:#f5f4ef;--ink:#152322;--muted:#62706e;--line:#d8dcd5;--white:#fff;--navy:#12363b;--green:#bce96d;--mint:#dcefe5;--sand:#f2e6ce;--blue:#e2edf4;--rose:#f3dfdc}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;word-break:keep-all}a{color:inherit;text-decoration:none}button,input{font:inherit}button{color:inherit}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}[hidden]{display:none!important}
+    .topbar{height:68px;padding:0 max(22px,5vw);display:flex;align-items:center;justify-content:space-between;background:rgba(245,244,239,.96);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:blur(10px)}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.03em}.brand-mark{width:34px;height:34px;display:grid;place-items:center;background:var(--navy);color:var(--green);font-size:11px;letter-spacing:.08em}.topbar nav{display:flex;gap:28px;font-size:13px;font-weight:800;color:#4f5d5a}.topbar nav a:hover{color:#08796b}
+    .hero{min-height:510px;background:var(--navy);color:#fff;padding:100px max(24px,calc((100vw - 1260px)/2));position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(188,233,109,.2);border-radius:50%;right:-70px;top:-170px}.eyebrow{margin:0 0 22px;color:var(--green);font-size:12px;font-weight:900;letter-spacing:.18em}.hero h1{max-width:900px;margin:0;font-size:clamp(50px,7vw,86px);line-height:1.08;letter-spacing:-.058em}.hero p.hero-copy{max-width:770px;margin:28px 0 0;color:#d5e2df;font-size:17px;line-height:1.8}.hero-links{display:flex;gap:25px;align-items:center;margin-top:38px}.hero-links a:first-child{background:var(--green);color:#173128;padding:15px 19px;font-size:13px;font-weight:900}.hero-links a:last-child{font-size:13px;font-weight:800;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:5px}
+    .section{max-width:1260px;margin:0 auto;padding:100px 24px}.section-head{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:end;margin-bottom:40px}.section-no{margin:0 0 12px;color:#0b806f;font-size:11px;font-weight:900;letter-spacing:.15em}.section h2{margin:0;font-size:clamp(32px,4.4vw,52px);line-height:1.18;letter-spacing:-.05em}.section-head>p{margin:0;color:var(--muted);font-size:14px;line-height:1.8}
+    .path-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #cfd5ce}.path-card{min-height:280px;padding:30px;display:flex;flex-direction:column;border-right:1px solid #cfd5ce}.path-card:last-child{border-right:0}.path-card:nth-child(1){background:var(--mint)}.path-card:nth-child(2){background:var(--sand)}.path-card:nth-child(3){background:var(--blue)}.path-card small{font-weight:900;color:#5a6966}.path-card h3{margin:44px 0 12px;font-size:26px;letter-spacing:-.04em}.path-card p{margin:0;color:#4e5d5a;font-size:13px;line-height:1.7}.path-card strong{margin-top:auto;padding-top:23px;font-size:12px;border-top:1px solid rgba(21,35,34,.18)}
+    .jobs-section{max-width:none;background:#e6ebe4;padding-left:max(24px,calc((100vw - 1212px)/2));padding-right:max(24px,calc((100vw - 1212px)/2))}.job-grid{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid #bfc9c1;border-left:1px solid #bfc9c1}.job-card{background:#edf1eb;border-right:1px solid #bfc9c1;border-bottom:1px solid #bfc9c1;padding:28px}.job-card-head span{display:block;color:#08786a;font-size:11px;font-weight:900;margin-bottom:9px}.job-card-head b{display:block;min-height:48px;font-size:17px;line-height:1.45}.job-card dl{margin:20px 0 0}.job-card dl div{display:grid;grid-template-columns:105px 1fr;gap:12px;padding:11px 0;border-top:1px solid #ced6cf}.job-card dt{font-size:10px;font-weight:900;color:#65746f}.job-card dd{margin:0;color:#4e5d59;font-size:11px;line-height:1.65}
+    .notice{margin-top:16px;padding:14px 16px;background:#fff7e7;color:#6f5727;font-size:11px;line-height:1.6}.notice b{margin-right:7px}
+    .filter-panel{background:#fff;border:1px solid var(--line);padding:22px;display:grid;gap:16px}.filter-row{display:grid;grid-template-columns:84px 1fr;gap:15px;align-items:center}.filter-label{font-size:11px;font-weight:900;color:#5e6c68}.button-group{display:flex;gap:7px;overflow-x:auto;padding-bottom:3px}.button-group button{flex:0 0 auto;border:1px solid #d3d9d3;background:white;padding:8px 12px;border-radius:999px;font-size:11px;cursor:pointer}.button-group button.active{background:var(--navy);border-color:var(--navy);color:white;font-weight:900}.filter-bottom{display:grid;grid-template-columns:1fr auto;gap:15px;align-items:center;padding-top:15px;border-top:1px solid #e3e7e2}.search-box{display:grid;grid-template-columns:24px 1fr 25px;align-items:center;gap:7px;color:#65736f}.search-box input{border:0;outline:0;background:transparent;width:100%;font-size:13px}.clear{border:0;background:#e7ece8;width:25px;height:25px;border-radius:50%;cursor:pointer}.expand-actions{display:flex;gap:7px}.expand-actions button{border:1px solid #d3d9d3;background:#f7f8f5;padding:7px 10px;font-size:10px;cursor:pointer}.result-line{margin:18px 2px 12px;color:#6c7976;font-size:12px}.result-line b{color:#08786a}
+    .school-list{display:grid;gap:13px}.school-card{background:#fff;border:1px solid var(--line)}.school-card summary{list-style:none;cursor:pointer;padding:24px 28px;display:grid;grid-template-columns:130px minmax(0,1fr) 75px 24px;gap:22px;align-items:center}.school-card summary::-webkit-details-marker{display:none}.school-rank span{display:block;color:#08786a;font-size:10px;font-weight:900}.school-rank small{display:block;margin-top:6px;color:#75817e;font-size:10px}.school-title h3{margin:0;font-size:24px;letter-spacing:-.04em}.school-title p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.55}.school-count{font-size:10px;color:#71807c}.school-count b{font-size:17px;color:#233633;margin-right:3px}.summary-icon{font-size:22px;color:#08786a;transition:transform .2s}.school-card[open] .summary-icon{transform:rotate(45deg)}.school-content{border-top:1px solid var(--line)}.caution{margin:18px 28px;padding:12px 14px;background:#fff5df;color:#715926;font-size:11px;line-height:1.6}.caution b{display:inline-block;margin-right:8px;color:#9a6800}.major-table{border-top:1px solid #e1e5df}.major-row{display:grid;grid-template-columns:1.05fr 1.15fr 1.8fr 1.4fr .7fr;gap:18px;padding:20px 28px;border-bottom:1px solid #e4e8e2;align-items:start}.major-header{padding-top:10px;padding-bottom:10px;background:#f5f7f3;color:#7a8582;font-size:9px;font-weight:900}.major-name strong{display:block;font-size:13px;line-height:1.5}.major-name small{display:block;margin-top:5px;color:#0b806f;font-size:9px;font-weight:900}.major-row p{margin:0;color:#586762;font-size:10.5px;line-height:1.6}.career-detail>strong{display:block;color:#283d39;font-size:10.5px;line-height:1.5}.career-detail p{margin-top:6px}.employer-examples{color:#6c6252!important}.degree{display:inline-block;padding:6px 7px;font-size:9px;font-weight:900;line-height:1.25}.degree-grad{background:#eee7f6;color:#6d4b8d}.degree-bachelor{background:#dff2e8;color:#216b4a}.degree-mixed{background:#edf0ea;color:#5a645e}.source-row{padding:14px 28px;display:flex;gap:14px;align-items:center;font-size:10px;color:#63716d}.source-row>span{margin-right:auto;color:#8a9692}.source-row a{font-weight:900;border-bottom:1px solid #b9c4bf}.source-row a:hover{color:#08786a}.empty{background:white;border:1px solid var(--line);padding:60px;text-align:center}.empty p{color:var(--muted);font-size:12px}
+    .checklist{background:var(--navy);color:#fff;padding:50px;display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}.checklist h2{font-size:39px}.checklist ol{list-style:none;padding:0;margin:0;border-top:1px solid rgba(255,255,255,.2)}.checklist li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.2)}.checklist li>span{color:var(--green);font-size:10px;font-weight:900}.checklist strong{font-size:13px}.checklist p{margin:6px 0 0;color:#bac9c6;font-size:11px;line-height:1.6}
+    footer{max-width:1212px;margin:0 auto;padding:38px 24px 60px;display:grid;grid-template-columns:.6fr 1.4fr;gap:70px;border-top:1px solid var(--line)}footer strong{font-size:13px}footer p{margin:7px 0 0;color:#74817e;font-size:10px;line-height:1.7}
+    @media(max-width:1000px){.section-head{grid-template-columns:1fr;gap:18px}.path-grid{grid-template-columns:1fr}.path-card{border-right:0;border-bottom:1px solid #cfd5ce}.job-grid{grid-template-columns:1fr}.major-row{grid-template-columns:1fr 1fr}.major-header{display:none}.major-row>*:nth-child(n){grid-column:auto}.major-name{grid-column:1/-1}.school-card summary{grid-template-columns:100px minmax(0,1fr) 24px}.school-count{display:none}.checklist{grid-template-columns:1fr;gap:35px}}
+    @media(max-width:650px){.topbar{height:60px;padding:0 17px}.topbar nav{display:none}.hero{min-height:440px;padding:70px 20px}.hero h1{font-size:47px}.hero p.hero-copy{font-size:15px}.hero-links{align-items:flex-start;flex-direction:column;gap:18px}.section{padding:75px 17px}.section h2{font-size:34px}.job-card{padding:22px}.job-card dl div{grid-template-columns:1fr;gap:4px}.filter-row{grid-template-columns:1fr;gap:8px}.filter-bottom{grid-template-columns:1fr}.expand-actions{justify-content:flex-end}.school-card summary{padding:20px;grid-template-columns:1fr 24px;gap:12px}.school-rank{grid-column:1}.school-title{grid-column:1}.summary-icon{grid-column:2;grid-row:1/3}.school-title h3{font-size:22px}.major-row{grid-template-columns:1fr;padding:20px}.major-name,.major-row>*:nth-child(n){grid-column:1}.major-row>p:before,.career-detail:before{display:block;margin-bottom:5px;color:#8a9692;font-size:8px;font-weight:900}.major-row>p:nth-child(2):before{content:"주요 학습내용"}.career-detail:before{content:"학사 졸업 후 직무"}.employer-examples:before{content:"지원 업종 예시"}.source-row{align-items:flex-start;flex-wrap:wrap;padding:14px 20px}.source-row>span{width:100%;margin:0}.checklist{padding:33px 22px}.checklist h2{font-size:32px}footer{grid-template-columns:1fr;gap:18px;padding-left:17px;padding-right:17px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#top"><span class="brand-mark">LC</span><span>생명·화학 전공 가이드</span></a><nav><a href="#direction">전공 방향</a><a href="#jobs">취업 직무</a><a href="#schools">대학별 학과</a></nav></header>
+  <main>
+    <section class="hero" id="top"><p class="eyebrow">LIFE SCIENCE · CHEMISTRY · CAREER</p><h1>생명·화학계열,<br>전공 이후의 길을 보다</h1><p class="hero-copy">서울 주요 대학부터 국숭세단·광명상가, 인하대·인천대까지 학과에서 배우는 내용과 학사 졸업 후 지원할 수 있는 구체적인 직무를 연결했습니다.</p><div class="hero-links"><a href="#schools">대학별 학과 비교하기 ↓</a><a href="#jobs">취업 직무부터 이해하기 →</a></div></section>
+
+    <section class="section" id="direction"><div class="section-head"><div><p class="section-no">01 · MAJOR DIRECTION</p><h2>학과 이름보다<br>배우는 방식이 중요합니다</h2></div><p>‘생명’이라는 이름이 있어도 기초연구형과 산업공정형이 다르고, ‘화학’과 ‘화학공학’도 실제 대학 수업과 취업 직무가 크게 다릅니다.</p></div><div class="path-grid"><article class="path-card"><small>질병·세포·유전자를 깊게</small><h3>생명과학 · 의생명</h3><p>실험연구와 진단·임상 분야로 이어집니다. 독립적인 연구개발을 목표로 하면 대학원까지 계획하는 편이 현실적입니다.</p><strong>연구지원 · 분자진단 · CRO · R&amp;D</strong></article><article class="path-card"><small>바이오기업 학사 취업을 우선</small><h3>생명공학 · 제약공학</h3><p>배양·정제·생물공정·GMP 교과가 있는 전공은 생산, QC, QA, 밸리데이션과 비교적 직접 연결됩니다.</p><strong>생산 · 공정 · QC · QA · 밸리데이션</strong></article><article class="path-card"><small>반도체·배터리까지 확장</small><h3>화학 · 화학공학 · 소재</h3><p>화학은 분석과 물질의 성질을, 화학공학은 대규모 생산공정을 다룹니다. 수학·물리 비중도 반드시 확인해야 합니다.</p><strong>기기분석 · 공정기술 · 소재품질 · EHS</strong></article></div></section>
+
+    <section class="section jobs-section" id="jobs"><div class="section-head"><div><p class="section-no">02 · JOB DICTIONARY</p><h2>졸업 후 지원하는<br>직무의 실제 모습</h2></div><p>기업명은 대학별 취업 실적이 아니라 관련 전공자가 지원할 수 있는 대표 업종의 예시입니다. 같은 회사 안에서도 연구·생산·품질·인허가는 필요한 역량이 다릅니다.</p></div><div class="job-grid">
+  <article class="job-card" data-job-card="life">
+    <div class="job-card-head"><span>기초 생명·연구지원</span><b>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>세포·분자생물학, 유전학, 생화학, 통계 / 세포배양·PCR·Western blot 경험</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</dd></div>
+      <div><dt>학위 경향</dt><dd>독립적인 신약·질병 R&amp;D는 석사 이상 선호</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="biomedical">
+    <div class="job-card-head"><span>의생명·임상·진단</span><b>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>면역학, 인체생리, 병리, 분자진단, 생물통계 / GCP·임상시험 기초, 영어 문서</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</dd></div>
+      <div><dt>학위 경향</dt><dd>임상운영은 학사 진입 가능, 의생명 R&amp;D는 대학원 권장</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="bioprocess">
+    <div class="job-card-head"><span>바이오의약품 생산·품질</span><b>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>미생물·세포배양, 생물공정, 분리정제, GMP / 기기분석·무균조작·문서작성</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</dd></div>
+      <div><dt>학위 경향</dt><dd>생산·QC·QA는 학사 채용, 공정·연구개발은 석사 선호</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="bioinfo">
+    <div class="job-card-head"><span>생명정보·바이오데이터</span><b>NGS 데이터 분석 · 바이오인포매틱스 · 임상데이터 · 디지털헬스</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>유전체·전사체 데이터를 정제하고 R·Python으로 통계 분석과 시각화를 수행하며 임상·오믹스 데이터베이스를 관리합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>유전학, 생물통계, 생명정보학, 데이터구조 / Python·R·SQL·Linux</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>유전체 분석기업, 정밀의료·디지털헬스 기업, 병원 연구소, 제약사 데이터 조직</dd></div>
+      <div><dt>학위 경향</dt><dd>학사 진입 가능하나 프로젝트 포트폴리오와 대학원 경력이 유리</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="chemistry">
+    <div class="job-card-head"><span>화학분석·품질</span><b>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>유기·무기·물리·분석화학 / HPLC·GC 실습, 화학분석기사, 데이터 무결성</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</dd></div>
+      <div><dt>학위 경향</dt><dd>분석·QC는 학사 가능, 합성·소재 R&amp;D는 석사 선호</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="chemeng">
+    <div class="job-card-head"><span>화학공정·생산기술</span><b>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>화공양론, 열역학, 유체·전달현상, 반응공학, 공정제어 / 데이터 분석·안전</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</dd></div>
+      <div><dt>학위 경향</dt><dd>학사 취업 직무 폭이 넓고 연구개발은 석사 선호</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="materials">
+    <div class="job-card-head"><span>반도체·배터리·소재</span><b>소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>재료화학, 전기화학, 고분자, 표면분석 / SEM·XRD·전지평가·통계</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>삼성SDI·LG에너지솔루션·SK온, 반도체 소재·부품기업, 디스플레이·고분자 기업</dd></div>
+      <div><dt>학위 경향</dt><dd>공정·품질은 학사 가능, 핵심 소재 R&amp;D는 석사 선호</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="food">
+    <div class="job-card-head"><span>식품개발·품질·안전</span><b>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>식품화학·미생물·가공·위생·관능평가 / HACCP 팀장교육, 식품기사</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</dd></div>
+      <div><dt>학위 경향</dt><dd>품질·생산은 학사 가능, 제품·기능성소재 R&amp;D는 석사 선호</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="nutrition">
+    <div class="job-card-head"><span>영양·급식·건강관리</span><b>영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>영양학, 생화학, 임상영양, 급식경영, 식품위생 / 영양사 국가시험</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소</dd></div>
+      <div><dt>학위 경향</dt><dd>영양사는 학사·면허 기반, 임상영양 전문성은 추가 과정 필요</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="cosmetics">
+    <div class="job-card-head"><span>화장품·뷰티소재</span><b>제형개발 지원 · 원료평가 · QC·QA · 효능·안전성 · 화장품 RA</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>유화·분산 제형을 만들고 점도·안정성·미생물·방부력을 평가하며 원료 규격과 기능성화장품 보고자료를 관리합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>유기·계면·고분자화학, 피부과학, 제형학 / 기기분석·화장품법</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>아모레퍼시픽·LG생활건강, 코스맥스·한국콜마 같은 ODM, 화장품 원료·시험기업</dd></div>
+      <div><dt>학위 경향</dt><dd>품질·생산·RA는 학사 가능, 처방·소재 R&amp;D는 석사 선호</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="agroenv">
+    <div class="job-card-head"><span>농생명·환경·공공</span><b>종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>식물생리·유전육종·미생물·환경화학·생태 / 기사자격·공공데이터</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관</dd></div>
+      <div><dt>학위 경향</dt><dd>기업 품질·기술직은 학사 가능, 연구직·공공연구는 대학원 유리</dd></div>
+    </dl>
+  </article>
+  <article class="job-card" data-job-card="biomedicaleng">
+    <div class="job-card-head"><span>의료기기·바이오센서</span><b>의료기기 QA·RA · 시험검증 · 센서·진단 개발 지원 · 필드응용</b></div>
+    <dl>
+      <div><dt>실제 하는 일</dt><dd>의료기기 성능·안전성 시험, 위험관리, 설계문서, 인허가 자료와 병원·사용자 기술지원을 담당합니다.</dd></div>
+      <div><dt>준비하면 좋은 것</dt><dd>생체재료, 센서, 생리학, 전자·데이터, 의료기기 규제 / 통계·영어문서</dd></div>
+      <div><dt>업종·기관 예시</dt><dd>진단기기·의료영상·바이오센서 기업, 의료기기 시험기관, 병원 연구소</dd></div>
+      <div><dt>학위 경향</dt><dd>QA·RA·시험은 학사 가능, 핵심기술 R&amp;D는 석사 선호</dd></div>
+    </dl>
+  </article></div><p class="notice"><b>읽는 법</b>학사 졸업 후 바로 지원하려면 생산·QC·QA·공정·시험 직무를 먼저 보고, 신약·질병·핵심소재 연구개발이 목표라면 석사 이상의 연구훈련을 함께 계획하세요.</p></section>
+
+    <section class="section" id="schools"><div class="section-head"><div><p class="section-no">03 · UNIVERSITY & MAJOR</p><h2>대학별 생명·화학계열 학과</h2></div><p>대학을 펼치면 주요 학습내용, 학사 취업 직무, 실제 업무, 지원 업종 예시와 대학원 필요성을 함께 볼 수 있습니다.</p></div>
+      <div class="filter-panel">
+        <div class="filter-row"><span class="filter-label">대학군</span><div class="button-group" id="group-buttons"><button type="button" data-value="전체" class="active">전체</button><button type="button" data-value="SKY" class="">SKY</button><button type="button" data-value="서성한" class="">서성한</button><button type="button" data-value="중경외시·이화" class="">중경외시·이화</button><button type="button" data-value="건동홍·숙명" class="">건동홍·숙명</button><button type="button" data-value="서울과기·여대" class="">서울과기·여대</button><button type="button" data-value="국숭세단" class="">국숭세단</button><button type="button" data-value="광명상가" class="">광명상가</button><button type="button" data-value="인천권" class="">인천권</button></div></div>
+        <div class="filter-row"><span class="filter-label">전공 성격</span><div class="button-group" id="category-buttons"><button type="button" data-value="전체" class="active">전체</button><button type="button" data-value="생명과학" class="">생명과학</button><button type="button" data-value="의생명" class="">의생명</button><button type="button" data-value="바이오공학" class="">바이오공학</button><button type="button" data-value="화학" class="">화학</button><button type="button" data-value="화학공학" class="">화학공학</button><button type="button" data-value="식품·영양" class="">식품·영양</button><button type="button" data-value="소재·화장품" class="">소재·화장품</button><button type="button" data-value="의료기기" class="">의료기기</button><button type="button" data-value="농생명·환경" class="">농생명·환경</button></div></div>
+        <div class="filter-bottom"><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">학과·직무 검색</span><input id="search" placeholder="학과·교과·직무 검색 (예: 면역, HPLC, QA, 배터리)"><button class="clear" type="button" id="clear" aria-label="검색어 지우기">×</button></label><div class="expand-actions"><button type="button" id="expand-all">모두 펼치기</button><button type="button" id="collapse-all">모두 접기</button></div></div>
+      </div>
+      <p class="result-line">검색 결과 <b id="result-count">131</b>개 전공</p>
+      <div class="school-list">
+  <details class="school-card" data-school data-group="SKY">
+    <summary>
+      <div class="school-rank"><span>SKY</span><small>서울 관악</small></div>
+      <div class="school-title"><h3>서울대학교</h3><p>기초과학부터 화학생물공학·농생명 응용까지 연구 선택 폭이 매우 넓습니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="서울대학교 sky 생명과학부 생명과학 세포·분자생물학, 유전학, 생태·진화, 생리·발생 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학부</strong><small>생명과학</small></div>
+            <p>세포·분자생물학, 유전학, 생태·진화, 생리·발생</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="서울대학교 sky 화학부 화학 유기·무기·물리·분석화학, 화학생물학, 소재화학 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학부</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석화학, 화학생물학, 소재화학</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="서울대학교 sky 화학생물공학부 화학공학 열역학·전달현상·반응공학, 촉매, 에너지·바이오공정 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화학생물공학부</strong><small>화학공학</small></div>
+            <p>열역학·전달현상·반응공학, 촉매, 에너지·바이오공정</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="농생명·환경" data-search="서울대학교 sky 응용생물화학부 농생명·환경 생물화학, 식물·미생물, 농화학, 환경생물 농생명·환경·공공 종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직 식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다. 종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관">
+            <div class="major-name"><strong>응용생물화학부</strong><small>농생명·환경</small></div>
+            <p>생물화학, 식물·미생물, 농화학, 환경생물</p>
+            <div class="career-detail"><strong>종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직</strong><p>식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다.</p></div>
+            <p class="employer-examples">종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="서울대학교 sky 식품·동물생명공학부 식품·영양 식품공학, 동물생명, 미생물·가공·기능성소재 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품·동물생명공학부</strong><small>식품·영양</small></div>
+            <p>식품공학, 동물생명, 미생물·가공·기능성소재</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://admission.snu.ac.kr/graduate/prospective/major" target="_blank" rel="noreferrer">서울대 학과 안내 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="SKY">
+    <summary>
+      <div class="school-rank"><span>SKY</span><small>서울 신촌</small></div>
+      <div class="school-title"><h3>연세대학교</h3><p>생명시스템대학의 세부 전공과 화공생명·화학을 함께 비교할 수 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>6</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="연세대학교 sky 시스템생물학과 생명과학 세포·유전·분자생물학, 진화·생태, 시스템 수준 생명현상 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>시스템생물학과</strong><small>생명과학</small></div>
+            <p>세포·유전·분자생물학, 진화·생태, 시스템 수준 생명현상</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="연세대학교 sky 생화학과 의생명 단백질·효소·대사, 분자생물학, 질병기전 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>생화학과</strong><small>의생명</small></div>
+            <p>단백질·효소·대사, 분자생물학, 질병기전</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="연세대학교 sky 생명공학과 바이오공학 유전공학, 생물공정, 바이오소재·의약 응용 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>생명공학과</strong><small>바이오공학</small></div>
+            <p>유전공학, 생물공정, 바이오소재·의약 응용</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="연세대학교 sky 화학과 화학 유기·무기·물리·분석화학, 합성·분광 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석화학, 합성·분광</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="연세대학교 sky 화공생명공학부 화학공학 반응·분리·전달·공정설계, 에너지·바이오공정 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화공생명공학부</strong><small>화학공학</small></div>
+            <p>반응·분리·전달·공정설계, 에너지·바이오공정</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="연세대학교 sky 식품영양학과 식품·영양 영양생화학, 식품화학·위생, 임상영양 영양·급식·건강관리 영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담 식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다. 병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소">
+            <div class="major-name"><strong>식품영양학과</strong><small>식품·영양</small></div>
+            <p>영양생화학, 식품화학·위생, 임상영양</p>
+            <div class="career-detail"><strong>영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담</strong><p>식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다.</p></div>
+            <p class="employer-examples">병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://urban.yonsei.ac.kr/bio/about/introduction.do" target="_blank" rel="noreferrer">생명시스템대학 ↗</a><a href="https://ymc.yonsei.ac.kr/l_system/Course_Outline.do" target="_blank" rel="noreferrer">시스템생물학 교과 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="SKY">
+    <summary>
+      <div class="school-rank"><span>SKY</span><small>서울 안암</small></div>
+      <div class="school-title"><h3>고려대학교</h3><p>기초생명·생명공학·의생명·식품·화공을 아우르는 구성이 강점입니다.</p></div>
+      <span class="school-count"><b data-visible-count>6</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="고려대학교 sky 생명과학부 생명과학 세포·분자·유전·생태·생리, 생명과학 실험 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학부</strong><small>생명과학</small></div>
+            <p>세포·분자·유전·생태·생리, 생명과학 실험</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="고려대학교 sky 생명공학부 바이오공학 미생물·유전공학, 생물공정, 바이오소재 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>생명공학부</strong><small>바이오공학</small></div>
+            <p>미생물·유전공학, 생물공정, 바이오소재</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="고려대학교 sky 바이오시스템의과학부 의생명 면역·종양·신경·마이크로바이옴, 바이오마커·빅데이터 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>바이오시스템의과학부</strong><small>의생명</small></div>
+            <p>면역·종양·신경·마이크로바이옴, 바이오마커·빅데이터</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="고려대학교 sky 식품공학과 식품·영양 식품화학·미생물·가공, 안전·기능성소재 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품공학과</strong><small>식품·영양</small></div>
+            <p>식품화학·미생물·가공, 안전·기능성소재</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="고려대학교 sky 화학과 화학 유기·무기·물리·분석, 화학생물·재료화학 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 화학생물·재료화학</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="고려대학교 sky 화공생명공학과 화학공학 열역학·전달·반응·공정제어, 에너지·생물공정 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화공생명공학과</strong><small>화학공학</small></div>
+            <p>열역학·전달·반응·공정제어, 에너지·생물공정</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://bsm.korea.ac.kr/about/about.html" target="_blank" rel="noreferrer">바이오시스템의과학부 ↗</a><a href="https://bsm.korea.ac.kr/undergraduate/course.html" target="_blank" rel="noreferrer">교과과정 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="서성한">
+    <summary>
+      <div class="school-rank"><span>서성한</span><small>서울 마포</small></div>
+      <div class="school-title"><h3>서강대학교</h3><p>소규모 기초과학 교육과 화공생명공학의 산업 진로를 함께 볼 수 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>3</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="서강대학교 서성한 생명과학과 생명과학 세포·분자·유전·생화학, 미생물·면역 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학과</strong><small>생명과학</small></div>
+            <p>세포·분자·유전·생화학, 미생물·면역</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="서강대학교 서성한 화학과 화학 유기·무기·물리·분석, 합성·소재·화학생물 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 합성·소재·화학생물</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="서강대학교 서성한 화공생명공학과 화학공학 공정·반응·전달·분리, 고분자·에너지·바이오 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화공생명공학과</strong><small>화학공학</small></div>
+            <p>공정·반응·전달·분리, 고분자·에너지·바이오</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://science.sogang.ac.kr/" target="_blank" rel="noreferrer">자연과학대학 ↗</a><a href="https://admission.sogang.ac.kr/" target="_blank" rel="noreferrer">입학처 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="서성한">
+    <summary>
+      <div class="school-rank"><span>서성한</span><small>수원 자연과학캠퍼스</small></div>
+      <div class="school-title"><h3>성균관대학교</h3><p>순수 생명·화학뿐 아니라 식품·융합생명·고분자공학까지 응용 선택지가 많습니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>관련 자연·공학계열 학과는 수원 자연과학캠퍼스 소속이 중심입니다.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="성균관대학교 서성한 생명과학과 생명과학 세포·분자·유전·생태, 생명과학 실험 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학과</strong><small>생명과학</small></div>
+            <p>세포·분자·유전·생태, 생명과학 실험</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="성균관대학교 서성한 화학과 화학 유기·무기·물리·분석, 나노·재료화학 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 나노·재료화학</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="성균관대학교 서성한 화학공학/고분자공학부 화학공학 화학공정, 고분자·전자재료, 에너지·바이오공정 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화학공학/고분자공학부</strong><small>화학공학</small></div>
+            <p>화학공정, 고분자·전자재료, 에너지·바이오공정</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="성균관대학교 서성한 식품생명공학과 식품·영양 식품가공·미생물·안전, 기능성소재 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품생명공학과</strong><small>식품·영양</small></div>
+            <p>식품가공·미생물·안전, 기능성소재</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="성균관대학교 서성한 융합생명공학과 바이오공학 유전·세포공학, 바이오의약·소재, 생물정보 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>융합생명공학과</strong><small>바이오공학</small></div>
+            <p>유전·세포공학, 바이오의약·소재, 생물정보</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.skku.edu/skku/edu/college.jsp" target="_blank" rel="noreferrer">성균관대 대학 안내 ↗</a><a href="https://admission.skku.edu/" target="_blank" rel="noreferrer">입학처 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="서성한">
+    <summary>
+      <div class="school-rank"><span>서성한</span><small>서울 성동</small></div>
+      <div class="school-title"><h3>한양대학교</h3><p>순수과학과 생명·화학공학을 모두 갖춰 연구형과 취업형 선택이 분명합니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="한양대학교 서성한 생명과학과 생명과학 세포·분자·유전, 생리·발생, 생명과학 실험 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학과</strong><small>생명과학</small></div>
+            <p>세포·분자·유전, 생리·발생, 생명과학 실험</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="한양대학교 서성한 화학과 화학 유기·무기·물리·분석, 분광·합성·재료 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 분광·합성·재료</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="한양대학교 서성한 생명공학과 바이오공학 유전·세포공학, 생물공정, 바이오의약 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>생명공학과</strong><small>바이오공학</small></div>
+            <p>유전·세포공학, 생물공정, 바이오의약</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="한양대학교 서성한 화학공학과 화학공학 열역학·유체·전달·반응·공정제어 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화학공학과</strong><small>화학공학</small></div>
+            <p>열역학·유체·전달·반응·공정제어</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="한양대학교 서성한 식품영양학과 식품·영양 영양·생화학, 식품위생, 임상·급식 영양·급식·건강관리 영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담 식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다. 병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소">
+            <div class="major-name"><strong>식품영양학과</strong><small>식품·영양</small></div>
+            <p>영양·생화학, 식품위생, 임상·급식</p>
+            <div class="career-detail"><strong>영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담</strong><p>식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다.</p></div>
+            <p class="employer-examples">병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.hanyang.ac.kr/s_college_department-info" target="_blank" rel="noreferrer">한양대 학과 안내 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="중경외시·이화">
+    <summary>
+      <div class="school-rank"><span>중경외시·이화</span><small>서울·안성 다빈치</small></div>
+      <div class="school-title"><h3>중앙대학교</h3><p>서울의 기초과학·화학공학과 안성의 시스템생명·식품 분야를 구분해 봐야 합니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>시스템생명공학·식품 관련 모집단위는 안성 다빈치캠퍼스 여부를 확인하세요.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="중앙대학교 중경외시·이화 생명과학과 생명과학 세포·분자·유전·생태, 생명과학 연구기초 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학과</strong><small>생명과학</small></div>
+            <p>세포·분자·유전·생태, 생명과학 연구기초</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="중앙대학교 중경외시·이화 화학과 화학 유기·무기·물리·분석, 합성·기기분석 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 합성·기기분석</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="중앙대학교 중경외시·이화 화학신소재공학부 화학공학 화학공정, 고분자·에너지·전자소재 반도체·배터리·소재 소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성 전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다. 삼성sdi·lg에너지솔루션·sk온, 반도체 소재·부품기업, 디스플레이·고분자 기업">
+            <div class="major-name"><strong>화학신소재공학부</strong><small>화학공학</small></div>
+            <p>화학공정, 고분자·에너지·전자소재</p>
+            <div class="career-detail"><strong>소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성</strong><p>전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다.</p></div>
+            <p class="employer-examples">삼성SDI·LG에너지솔루션·SK온, 반도체 소재·부품기업, 디스플레이·고분자 기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="중앙대학교 중경외시·이화 시스템생명공학과 바이오공학 오믹스, 분자·세포생물, 생물공정·소재 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>시스템생명공학과</strong><small>바이오공학</small></div>
+            <p>오믹스, 분자·세포생물, 생물공정·소재</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="중앙대학교 중경외시·이화 식품공학부 식품·영양 식품가공·미생물·품질, 식품영양 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품공학부</strong><small>식품·영양</small></div>
+            <p>식품가공·미생물·품질, 식품영양</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://cobiotech.cau.ac.kr/system/" target="_blank" rel="noreferrer">시스템생명공학과 ↗</a><a href="https://admission.cau.ac.kr/" target="_blank" rel="noreferrer">중앙대 입학처 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="중경외시·이화">
+    <summary>
+      <div class="school-rank"><span>중경외시·이화</span><small>서울·용인 국제캠퍼스</small></div>
+      <div class="school-title"><h3>경희대학교</h3><p>기초화학은 서울, 생명공학·식품·화공 계열은 국제캠퍼스 중심입니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>유전생명·식품생명·화공·응용화학은 국제캠퍼스 모집 여부를 확인하세요.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="화학" data-search="경희대학교 중경외시·이화 화학과 화학 유기·무기·물리·분석, 생화학·재료화학 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 생화학·재료화학</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="경희대학교 중경외시·이화 유전생명공학과 바이오공학 유전·분자·세포공학, 바이오의약·동식물 응용 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>유전생명공학과</strong><small>바이오공학</small></div>
+            <p>유전·분자·세포공학, 바이오의약·동식물 응용</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="경희대학교 중경외시·이화 식품생명공학과 식품·영양 식품가공·미생물·안전, 기능성소재 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품생명공학과</strong><small>식품·영양</small></div>
+            <p>식품가공·미생물·안전, 기능성소재</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="경희대학교 중경외시·이화 화학공학과 화학공학 공정·열역학·반응·분리, 에너지·환경 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화학공학과</strong><small>화학공학</small></div>
+            <p>공정·열역학·반응·분리, 에너지·환경</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="경희대학교 중경외시·이화 응용화학과 화학 기기분석, 유기·재료·전기화학, 산업응용 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>응용화학과</strong><small>화학</small></div>
+            <p>기기분석, 유기·재료·전기화학, 산업응용</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://genetech.khu.ac.kr/genetech/user/main/view.do" target="_blank" rel="noreferrer">유전생명공학과 ↗</a><a href="https://ghaksa.khu.ac.kr/ghaksa/user/contents/view.do?menuNo=8500064" target="_blank" rel="noreferrer">경희대 학사 안내 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="중경외시·이화">
+    <summary>
+      <div class="school-rank"><span>중경외시·이화</span><small>용인 글로벌캠퍼스</small></div>
+      <div class="school-title"><h3>한국외국어대학교</h3><p>관련 자연과학·바이오 전공은 서울캠퍼스가 아니라 글로벌캠퍼스에 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>3</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>모두 용인 글로벌캠퍼스 소속입니다.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="바이오공학" data-search="한국외국어대학교 중경외시·이화 생명공학과 바이오공학 분자·세포·유전·미생물, 생명공학 실습 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>생명공학과</strong><small>바이오공학</small></div>
+            <p>분자·세포·유전·미생물, 생명공학 실습</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="한국외국어대학교 중경외시·이화 화학과 화학 유기·무기·물리·분석, 응용·재료화학 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 응용·재료화학</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="의료기기" data-search="한국외국어대학교 중경외시·이화 바이오메디컬공학부 의료기기 의학유전학, 생체신호·회로, 의료데이터·영상 의료기기·바이오센서 의료기기 qa·ra · 시험검증 · 센서·진단 개발 지원 · 필드응용 의료기기 성능·안전성 시험, 위험관리, 설계문서, 인허가 자료와 병원·사용자 기술지원을 담당합니다. 진단기기·의료영상·바이오센서 기업, 의료기기 시험기관, 병원 연구소">
+            <div class="major-name"><strong>바이오메디컬공학부</strong><small>의료기기</small></div>
+            <p>의학유전학, 생체신호·회로, 의료데이터·영상</p>
+            <div class="career-detail"><strong>의료기기 QA·RA · 시험검증 · 센서·진단 개발 지원 · 필드응용</strong><p>의료기기 성능·안전성 시험, 위험관리, 설계문서, 인허가 자료와 병원·사용자 기술지원을 담당합니다.</p></div>
+            <p class="employer-examples">진단기기·의료영상·바이오센서 기업, 의료기기 시험기관, 병원 연구소</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://bio.hufs.ac.kr/bio/8511/subview.do" target="_blank" rel="noreferrer">생명공학과 ↗</a><a href="https://elc.hufs.ac.kr/hufs/11250/subview.do" target="_blank" rel="noreferrer">바이오메디컬공학부 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="중경외시·이화">
+    <summary>
+      <div class="school-rank"><span>중경외시·이화</span><small>서울 동대문</small></div>
+      <div class="school-title"><h3>서울시립대학교</h3><p>생명·응용화학·화학공학·환경원예를 공립대학에서 비교할 수 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>4</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="서울시립대학교 중경외시·이화 생명과학과 생명과학 세포·분자·유전·생태, 생명과학 실험 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학과</strong><small>생명과학</small></div>
+            <p>세포·분자·유전·생태, 생명과학 실험</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="서울시립대학교 중경외시·이화 융합응용화학과 화학 분석·유기·재료·나노화학, 산업응용 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>융합응용화학과</strong><small>화학</small></div>
+            <p>분석·유기·재료·나노화학, 산업응용</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="서울시립대학교 중경외시·이화 화학공학과 화학공학 열역학·전달·반응·분리·공정설계 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화학공학과</strong><small>화학공학</small></div>
+            <p>열역학·전달·반응·분리·공정설계</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="농생명·환경" data-search="서울시립대학교 중경외시·이화 환경원예학과 농생명·환경 식물생리·유전육종, 원예·환경·도시농업 농생명·환경·공공 종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직 식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다. 종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관">
+            <div class="major-name"><strong>환경원예학과</strong><small>농생명·환경</small></div>
+            <p>식물생리·유전육종, 원예·환경·도시농업</p>
+            <div class="career-detail"><strong>종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직</strong><p>식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다.</p></div>
+            <p class="employer-examples">종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.uos.ac.kr/kor/html/life/facility/booking-guide/booking-guide.do?identified=anonymous" target="_blank" rel="noreferrer">서울시립대 학과 구성 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="중경외시·이화">
+    <summary>
+      <div class="school-rank"><span>중경외시·이화</span><small>서울 서대문</small></div>
+      <div class="school-title"><h3>이화여자대학교</h3><p>생명·화학 기초과학과 식품·화공신소재 응용 전공을 함께 갖춘 여자대학입니다.</p></div>
+      <span class="school-count"><b data-visible-count>4</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="이화여자대학교 중경외시·이화 생명과학전공 생명과학 세포·분자·유전·생태·의생명 기초 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학전공</strong><small>생명과학</small></div>
+            <p>세포·분자·유전·생태·의생명 기초</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="이화여자대학교 중경외시·이화 화학·나노과학전공 화학 유기·무기·분석·물리화학, 나노소재 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학·나노과학전공</strong><small>화학</small></div>
+            <p>유기·무기·분석·물리화학, 나노소재</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="이화여자대학교 중경외시·이화 화공신소재공학전공 화학공학 화학공정, 고분자·나노·에너지·바이오소재 반도체·배터리·소재 소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성 전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다. 삼성sdi·lg에너지솔루션·sk온, 반도체 소재·부품기업, 디스플레이·고분자 기업">
+            <div class="major-name"><strong>화공신소재공학전공</strong><small>화학공학</small></div>
+            <p>화학공정, 고분자·나노·에너지·바이오소재</p>
+            <div class="career-detail"><strong>소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성</strong><p>전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다.</p></div>
+            <p class="employer-examples">삼성SDI·LG에너지솔루션·SK온, 반도체 소재·부품기업, 디스플레이·고분자 기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="이화여자대학교 중경외시·이화 식품생명공학전공 식품·영양 식품미생물·가공·안전, 기능성·제품개발 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품생명공학전공</strong><small>식품·영양</small></div>
+            <p>식품미생물·가공·안전, 기능성·제품개발</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://cmsguide.ewha.ac.kr/foodbiotech/index.do" target="_blank" rel="noreferrer">식품생명공학전공 ↗</a><a href="https://admission.ewha.ac.kr/" target="_blank" rel="noreferrer">이화 입학처 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="건동홍·숙명">
+    <summary>
+      <div class="school-rank"><span>건동홍·숙명</span><small>서울 광진</small></div>
+      <div class="school-title"><h3>건국대학교</h3><p>생명특성화·시스템·융합생명 등 바이오 세부 선택지가 많은 편입니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="건국대학교 건동홍·숙명 생명과학특성학과 생명과학 분자·세포·유전·생리·생태, 기초생명 연구 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학특성학과</strong><small>생명과학</small></div>
+            <p>분자·세포·유전·생리·생태, 기초생명 연구</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="건국대학교 건동홍·숙명 시스템생명공학과 바이오공학 오믹스·시스템생물, 생명정보·산업생명 생명정보·바이오데이터 ngs 데이터 분석 · 바이오인포매틱스 · 임상데이터 · 디지털헬스 유전체·전사체 데이터를 정제하고 r·python으로 통계 분석과 시각화를 수행하며 임상·오믹스 데이터베이스를 관리합니다. 유전체 분석기업, 정밀의료·디지털헬스 기업, 병원 연구소, 제약사 데이터 조직">
+            <div class="major-name"><strong>시스템생명공학과</strong><small>바이오공학</small></div>
+            <p>오믹스·시스템생물, 생명정보·산업생명</p>
+            <div class="career-detail"><strong>NGS 데이터 분석 · 바이오인포매틱스 · 임상데이터 · 디지털헬스</strong><p>유전체·전사체 데이터를 정제하고 R·Python으로 통계 분석과 시각화를 수행하며 임상·오믹스 데이터베이스를 관리합니다.</p></div>
+            <p class="employer-examples">유전체 분석기업, 정밀의료·디지털헬스 기업, 병원 연구소, 제약사 데이터 조직</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="건국대학교 건동홍·숙명 융합생명공학과 의생명 의생명·바이오소재, 세포·유전공학, 진단 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>융합생명공학과</strong><small>의생명</small></div>
+            <p>의생명·바이오소재, 세포·유전공학, 진단</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="건국대학교 건동홍·숙명 화학과 화학 유기·무기·물리·분석, 합성·기기분석 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 합성·기기분석</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="건국대학교 건동홍·숙명 화학공학부 화학공학 공정·반응·분리, 에너지·고분자·바이오 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화학공학부</strong><small>화학공학</small></div>
+            <p>공정·반응·분리, 에너지·고분자·바이오</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://enter.konkuk.ac.kr/" target="_blank" rel="noreferrer">건국대 입학처 ↗</a><a href="https://ibb.konkuk.ac.kr/" target="_blank" rel="noreferrer">융합생명공학 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="건동홍·숙명">
+    <summary>
+      <div class="school-rank"><span>건동홍·숙명</span><small>서울·고양 바이오메디캠퍼스</small></div>
+      <div class="school-title"><h3>동국대학교</h3><p>화학·화공생물은 서울, 일부 바이오·식품 계열은 고양 캠퍼스를 확인해야 합니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>바이오·식품 관련 학과의 캠퍼스를 모집요강에서 확인하세요.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="농생명·환경" data-search="동국대학교 건동홍·숙명 바이오환경과학과 농생명·환경 생명과학, 환경생물·생태, 미생물·자원 농생명·환경·공공 종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직 식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다. 종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관">
+            <div class="major-name"><strong>바이오환경과학과</strong><small>농생명·환경</small></div>
+            <p>생명과학, 환경생물·생태, 미생물·자원</p>
+            <div class="career-detail"><strong>종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직</strong><p>식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다.</p></div>
+            <p class="employer-examples">종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="동국대학교 건동홍·숙명 의생명공학과 의생명 분자진단, 생체재료, 세포·조직공학 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>의생명공학과</strong><small>의생명</small></div>
+            <p>분자진단, 생체재료, 세포·조직공학</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="동국대학교 건동홍·숙명 식품생명공학과 식품·영양 식품화학·미생물·가공·안전·기능성 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품생명공학과</strong><small>식품·영양</small></div>
+            <p>식품화학·미생물·가공·안전·기능성</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="동국대학교 건동홍·숙명 화학과 화학 유기·무기·물리·분석, 합성·재료 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 합성·재료</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="동국대학교 건동홍·숙명 화공생물공학과 화학공학 화학공정·반응·분리, 생물공정·에너지 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화공생물공학과</strong><small>화학공학</small></div>
+            <p>화학공정·반응·분리, 생물공정·에너지</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://ipsi.dongguk.edu/" target="_blank" rel="noreferrer">동국대 입학처 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="건동홍·숙명">
+    <summary>
+      <div class="school-rank"><span>건동홍·숙명</span><small>서울 마포</small></div>
+      <div class="school-title"><h3>홍익대학교</h3><p>일반 생명과학과·화학과보다는 화학공학과 신소재 응용에 초점이 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>2</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>학부 입학 후 2학년 전공배정 기준을 확인해야 합니다.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="화학공학" data-search="홍익대학교 건동홍·숙명 신소재·화공시스템공학부 화학공학전공 화학공학 열역학·전달·반응·분리, 공정설계 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>신소재·화공시스템공학부 화학공학전공</strong><small>화학공학</small></div>
+            <p>열역학·전달·반응·분리, 공정설계</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="소재·화장품" data-search="홍익대학교 건동홍·숙명 신소재·화공시스템공학부 신소재공학전공 소재·화장품 금속·세라믹·전자·에너지재료, 재료분석 반도체·배터리·소재 소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성 전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다. 삼성sdi·lg에너지솔루션·sk온, 반도체 소재·부품기업, 디스플레이·고분자 기업">
+            <div class="major-name"><strong>신소재·화공시스템공학부 신소재공학전공</strong><small>소재·화장품</small></div>
+            <p>금속·세라믹·전자·에너지재료, 재료분석</p>
+            <div class="career-detail"><strong>소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성</strong><p>전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다.</p></div>
+            <p class="employer-examples">삼성SDI·LG에너지솔루션·SK온, 반도체 소재·부품기업, 디스플레이·고분자 기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://chemeng.hongik.ac.kr/chemeng/sub/0101.do" target="_blank" rel="noreferrer">화학공학전공 ↗</a><a href="https://chemeng.hongik.ac.kr/chemeng/sub/0301.do" target="_blank" rel="noreferrer">전공 진입 안내 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="건동홍·숙명">
+    <summary>
+      <div class="school-rank"><span>건동홍·숙명</span><small>서울 용산</small></div>
+      <div class="school-title"><h3>숙명여자대학교</h3><p>생명시스템·화학·화공생명·식품영양의 구성이 균형 잡혀 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>4</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="숙명여자대학교 건동홍·숙명 생명시스템학부 생명과학 세포·분자·유전·생화학, 생명과학 실험 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명시스템학부</strong><small>생명과학</small></div>
+            <p>세포·분자·유전·생화학, 생명과학 실험</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="숙명여자대학교 건동홍·숙명 화학과 화학 유기·무기·물리·분석, 나노·의약화학 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 나노·의약화학</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="숙명여자대학교 건동홍·숙명 화공생명공학부 화학공학 화학·에너지공정, 전자·바이오소재, 화장품 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화공생명공학부</strong><small>화학공학</small></div>
+            <p>화학·에너지공정, 전자·바이오소재, 화장품</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="숙명여자대학교 건동홍·숙명 식품영양학과 식품·영양 영양·생화학, 식품위생, 임상·급식 영양·급식·건강관리 영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담 식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다. 병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소">
+            <div class="major-name"><strong>식품영양학과</strong><small>식품·영양</small></div>
+            <p>영양·생화학, 식품위생, 임상·급식</p>
+            <div class="career-detail"><strong>영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담</strong><p>식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다.</p></div>
+            <p class="employer-examples">병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.sookmyung.ac.kr/kr/university-graduate/science02.do" target="_blank" rel="noreferrer">생명시스템학부 ↗</a><a href="https://www.sookmyung.ac.kr/kr/university-graduate/engineering01.do" target="_blank" rel="noreferrer">화공생명공학부 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="서울과기·여대">
+    <summary>
+      <div class="school-rank"><span>서울과기·여대</span><small>서울 노원</small></div>
+      <div class="school-title"><h3>서울과학기술대학교</h3><p>학사 취업과 연결되는 화공·정밀화학·식품생명·바이오메디컬 전공이 강점입니다.</p></div>
+      <span class="school-count"><b data-visible-count>4</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="화학공학" data-search="서울과학기술대학교 서울과기·여대 화공생명공학과 화학공학 열역학·전달·반응·분리, 전기화학·생물공정 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화공생명공학과</strong><small>화학공학</small></div>
+            <p>열역학·전달·반응·분리, 전기화학·생물공정</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="서울과학기술대학교 서울과기·여대 정밀화학과 화학 유기·분석·고분자·화장품·의약·전자재료 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>정밀화학과</strong><small>화학</small></div>
+            <p>유기·분석·고분자·화장품·의약·전자재료</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="서울과학기술대학교 서울과기·여대 식품생명공학과 식품·영양 식품가공·분석·안전, 천연물·기능성소재 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품생명공학과</strong><small>식품·영양</small></div>
+            <p>식품가공·분석·안전, 천연물·기능성소재</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="서울과학기술대학교 서울과기·여대 바이오메디컬학과 의생명 생명과학, 의생명정보, 진단·의료 응용 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>바이오메디컬학과</strong><small>의생명</small></div>
+            <p>생명과학, 의생명정보, 진단·의료 응용</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://nature.seoultech.ac.kr/" target="_blank" rel="noreferrer">에너지바이오대학 ↗</a><a href="https://nature.seoultech.ac.kr/department/bio" target="_blank" rel="noreferrer">화공생명공학 진출 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="국숭세단">
+    <summary>
+      <div class="school-rank"><span>국숭세단</span><small>서울 성북</small></div>
+      <div class="school-title"><h3>국민대학교</h3><p>바이오융합대학 개편으로 제약·바이오·에너지반도체 선택지가 확대되었습니다.</p></div>
+      <span class="school-count"><b data-visible-count>4</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>신설·개편 학과는 새 학과명 기준 졸업 실적이 아직 없으며 제약공학은 약사 면허 과정이 아닙니다.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="바이오공학" data-search="국민대학교 국숭세단 융합바이오공학과 바이오공학 미생물·발효, 생물공정, 의약·식품·화장품 소재 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>융합바이오공학과</strong><small>바이오공학</small></div>
+            <p>미생물·발효, 생물공정, 의약·식품·화장품 소재</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="국민대학교 국숭세단 바이오의과학과 의생명 세포·분자·생화학, 질병기전·진단 기초 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>바이오의과학과</strong><small>의생명</small></div>
+            <p>세포·분자·생화학, 질병기전·진단 기초</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="국민대학교 국숭세단 제약공학과 바이오공학 의약품 제조·제제, gmp, 품질·밸리데이션 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>제약공학과</strong><small>바이오공학</small></div>
+            <p>의약품 제조·제제, GMP, 품질·밸리데이션</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="국민대학교 국숭세단 에너지반도체화학공학과 화학공학 화학공학, 전기화학, 반도체·에너지소재 반도체·배터리·소재 소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성 전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다. 삼성sdi·lg에너지솔루션·sk온, 반도체 소재·부품기업, 디스플레이·고분자 기업">
+            <div class="major-name"><strong>에너지반도체화학공학과</strong><small>화학공학</small></div>
+            <p>화학공학, 전기화학, 반도체·에너지소재</p>
+            <div class="career-detail"><strong>소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성</strong><p>전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다.</p></div>
+            <p class="employer-examples">삼성SDI·LG에너지솔루션·SK온, 반도체 소재·부품기업, 디스플레이·고분자 기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://admission.kookmin.ac.kr/kmuUniversity/major_info.php" target="_blank" rel="noreferrer">국민대 전공 안내 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="국숭세단">
+    <summary>
+      <div class="school-rank"><span>국숭세단</span><small>서울 동작</small></div>
+      <div class="school-title"><h3>숭실대학교</h3><p>생명공학과 생명정보학의 융합 선택지가 특징입니다.</p></div>
+      <span class="school-count"><b data-visible-count>3</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="의생명" data-search="숭실대학교 국숭세단 의생명시스템학부 의생명 생명공학·생명정보학, 시스템생물, 바이오데이터 생명정보·바이오데이터 ngs 데이터 분석 · 바이오인포매틱스 · 임상데이터 · 디지털헬스 유전체·전사체 데이터를 정제하고 r·python으로 통계 분석과 시각화를 수행하며 임상·오믹스 데이터베이스를 관리합니다. 유전체 분석기업, 정밀의료·디지털헬스 기업, 병원 연구소, 제약사 데이터 조직">
+            <div class="major-name"><strong>의생명시스템학부</strong><small>의생명</small></div>
+            <p>생명공학·생명정보학, 시스템생물, 바이오데이터</p>
+            <div class="career-detail"><strong>NGS 데이터 분석 · 바이오인포매틱스 · 임상데이터 · 디지털헬스</strong><p>유전체·전사체 데이터를 정제하고 R·Python으로 통계 분석과 시각화를 수행하며 임상·오믹스 데이터베이스를 관리합니다.</p></div>
+            <p class="employer-examples">유전체 분석기업, 정밀의료·디지털헬스 기업, 병원 연구소, 제약사 데이터 조직</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="숭실대학교 국숭세단 화학과 화학 유기·무기·물리·분석, 분광·합성 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 분광·합성</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="숭실대학교 국숭세단 화학공학과 화학공학 열역학·전달·반응·공정제어, 고분자·에너지 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화학공학과</strong><small>화학공학</small></div>
+            <p>열역학·전달·반응·공정제어, 고분자·에너지</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://bioinfo.ssu.ac.kr/%ED%95%99%EB%B6%80%EA%B5%90%EC%9C%A1/%EA%B5%90%EA%B3%BC%EA%B3%BC%EC%A0%95/" target="_blank" rel="noreferrer">의생명시스템 교과 ↗</a><a href="https://chemeng.ssu.ac.kr/" target="_blank" rel="noreferrer">화학공학과 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="국숭세단">
+    <summary>
+      <div class="school-rank"><span>국숭세단</span><small>서울 광진</small></div>
+      <div class="school-title"><h3>세종대학교</h3><p>식품·의생명·농생명으로 생명계열 내부 진로가 세분되어 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>4</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>계열모집은 1학년 말 전공배정 기준과 인원을 확인해야 합니다.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="식품·영양" data-search="세종대학교 국숭세단 식품생명공학전공 식품·영양 식품화학·미생물·가공·안전·기능성 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품생명공학전공</strong><small>식품·영양</small></div>
+            <p>식품화학·미생물·가공·안전·기능성</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="세종대학교 국숭세단 바이오융합공학전공 의생명 분자·세포·면역·백신·줄기세포·신약 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>바이오융합공학전공</strong><small>의생명</small></div>
+            <p>분자·세포·면역·백신·줄기세포·신약</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="농생명·환경" data-search="세종대학교 국숭세단 바이오산업자원공학전공 농생명·환경 식물·미생물 자원, 육종·생물소재 농생명·환경·공공 종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직 식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다. 종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관">
+            <div class="major-name"><strong>바이오산업자원공학전공</strong><small>농생명·환경</small></div>
+            <p>식물·미생물 자원, 육종·생물소재</p>
+            <div class="career-detail"><strong>종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직</strong><p>식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다.</p></div>
+            <p class="employer-examples">종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="세종대학교 국숭세단 화학과 화학 유기·무기·물리·분석, 재료·기기분석 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 재료·기기분석</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.sejong.ac.kr/kor/college/bioscience.do" target="_blank" rel="noreferrer">자연생명계열 ↗</a><a href="https://www.sejong.ac.kr/kor/college/food-science-and-biotechnology.do" target="_blank" rel="noreferrer">식품생명공학 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="국숭세단">
+    <summary>
+      <div class="school-rank"><span>국숭세단</span><small>천안 중심</small></div>
+      <div class="school-title"><h3>단국대학교</h3><p>제약·식품·미생물·화장품 소재처럼 산업 직무와 연결되는 전공이 다양합니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>생명·제약 관련 학과 상당수는 천안캠퍼스입니다.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="바이오공학" data-search="단국대학교 국숭세단 제약공학과 바이오공학 의약품 제조·제제·분석, gmp·품질·규제 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>제약공학과</strong><small>바이오공학</small></div>
+            <p>의약품 제조·제제·분석, GMP·품질·규제</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="단국대학교 국숭세단 의생명과학부 의생명 생명과학·미생물·분자·면역·감염 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>의생명과학부</strong><small>의생명</small></div>
+            <p>생명과학·미생물·분자·면역·감염</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="단국대학교 국숭세단 식품공학과 식품·영양 식품화학·미생물·가공·안전 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품공학과</strong><small>식품·영양</small></div>
+            <p>식품화학·미생물·가공·안전</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="소재·화장품" data-search="단국대학교 국숭세단 코스메디컬소재학과 소재·화장품 화장품원료·피부과학·천연물·제형 화장품·뷰티소재 제형개발 지원 · 원료평가 · qc·qa · 효능·안전성 · 화장품 ra 유화·분산 제형을 만들고 점도·안정성·미생물·방부력을 평가하며 원료 규격과 기능성화장품 보고자료를 관리합니다. 아모레퍼시픽·lg생활건강, 코스맥스·한국콜마 같은 odm, 화장품 원료·시험기업">
+            <div class="major-name"><strong>코스메디컬소재학과</strong><small>소재·화장품</small></div>
+            <p>화장품원료·피부과학·천연물·제형</p>
+            <div class="career-detail"><strong>제형개발 지원 · 원료평가 · QC·QA · 효능·안전성 · 화장품 RA</strong><p>유화·분산 제형을 만들고 점도·안정성·미생물·방부력을 평가하며 원료 규격과 기능성화장품 보고자료를 관리합니다.</p></div>
+            <p class="employer-examples">아모레퍼시픽·LG생활건강, 코스맥스·한국콜마 같은 ODM, 화장품 원료·시험기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="농생명·환경" data-search="단국대학교 국숭세단 생명공학부 농생명·환경 식량·동물생명, 원예·환경자원·육종 농생명·환경·공공 종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직 식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다. 종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관">
+            <div class="major-name"><strong>생명공학부</strong><small>농생명·환경</small></div>
+            <p>식량·동물생명, 원예·환경자원·육종</p>
+            <div class="career-detail"><strong>종자·육종 지원 · 환경분석 · 미생물소재 · 공공시험·기술직</strong><p>식물·미생물 자원을 평가하고 토양·수질·오염물질을 분석하며 품종·재배·생물소재 시험자료를 관리합니다.</p></div>
+            <p class="employer-examples">종자·농화학·스마트팜 기업, 환경시험·엔지니어링사, 농촌진흥청·산림청·지자체 연구기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://ipsi.dankook.ac.kr/" target="_blank" rel="noreferrer">단국대 입학처 ↗</a><a href="https://cms.dankook.ac.kr/web/microbiology/-28" target="_blank" rel="noreferrer">미생물학 진로 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="광명상가">
+    <summary>
+      <div class="school-rank"><span>광명상가</span><small>서울 노원</small></div>
+      <div class="school-title"><h3>광운대학교</h3><p>일반 생명계열보다 화학공학·화학과 전자·물리 융합 성격이 강합니다.</p></div>
+      <span class="school-count"><b data-visible-count>3</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>전자바이오물리학과는 일반 생명과학과가 아니며 수학·물리 비중이 큽니다.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="화학공학" data-search="광운대학교 광명상가 화학공학과 화학공학 화공양론·열역학·전달·반응·공정설계 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화학공학과</strong><small>화학공학</small></div>
+            <p>화공양론·열역학·전달·반응·공정설계</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="광운대학교 광명상가 화학과 화학 유기합성·분석·전기화학·고분자·생체재료 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기합성·분석·전기화학·고분자·생체재료</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="의료기기" data-search="광운대학교 광명상가 전자바이오물리학과 의료기기 역학·전자기·양자, 반도체·플라스마·생물물리 의료기기·바이오센서 의료기기 qa·ra · 시험검증 · 센서·진단 개발 지원 · 필드응용 의료기기 성능·안전성 시험, 위험관리, 설계문서, 인허가 자료와 병원·사용자 기술지원을 담당합니다. 진단기기·의료영상·바이오센서 기업, 의료기기 시험기관, 병원 연구소">
+            <div class="major-name"><strong>전자바이오물리학과</strong><small>의료기기</small></div>
+            <p>역학·전자기·양자, 반도체·플라스마·생물물리</p>
+            <div class="career-detail"><strong>의료기기 QA·RA · 시험검증 · 센서·진단 개발 지원 · 필드응용</strong><p>의료기기 성능·안전성 시험, 위험관리, 설계문서, 인허가 자료와 병원·사용자 기술지원을 담당합니다.</p></div>
+            <p class="employer-examples">진단기기·의료영상·바이오센서 기업, 의료기기 시험기관, 병원 연구소</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www-1.kw.ac.kr/ko/univ/glance.jsp" target="_blank" rel="noreferrer">광운대 학과 구성 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="광명상가">
+    <summary>
+      <div class="school-rank"><span>광명상가</span><small>용인 자연캠퍼스</small></div>
+      <div class="school-title"><h3>명지대학교</h3><p>화학나노·시스템생명과학과 화학공학·신소재를 함께 비교할 수 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>자연계열은 용인캠퍼스이며 제약바이오전공은 신설 전공입니다.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="명지대학교 광명상가 시스템생명과학전공 생명과학 분자·세포·유전·생화학·미생물·생명정보 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>시스템생명과학전공</strong><small>생명과학</small></div>
+            <p>분자·세포·유전·생화학·미생물·생명정보</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="명지대학교 광명상가 제약바이오전공 바이오공학 제약·바이오 기초, 의약품 생산·공정·품질 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>제약바이오전공</strong><small>바이오공학</small></div>
+            <p>제약·바이오 기초, 의약품 생산·공정·품질</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="명지대학교 광명상가 화학나노학전공 화학 기초화학·기기분석·나노·전자재료 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학나노학전공</strong><small>화학</small></div>
+            <p>기초화학·기기분석·나노·전자재료</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="명지대학교 광명상가 화학공학전공 화학공학 열역학·전달·반응·공정제어·화학소재 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화학공학전공</strong><small>화학공학</small></div>
+            <p>열역학·전달·반응·공정제어·화학소재</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="명지대학교 광명상가 식품영양학전공 식품·영양 영양·생화학·식품위생·급식·임상영양 영양·급식·건강관리 영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담 식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다. 병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소">
+            <div class="major-name"><strong>식품영양학전공</strong><small>식품·영양</small></div>
+            <p>영양·생화학·식품위생·급식·임상영양</p>
+            <div class="career-detail"><strong>영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담</strong><p>식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다.</p></div>
+            <p class="employer-examples">병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.mju.ac.kr/majorfree/11208/subview.do" target="_blank" rel="noreferrer">화학·생명과학대학 ↗</a><a href="https://www.mju.ac.kr/mjukr/742/subview.do" target="_blank" rel="noreferrer">시스템생명 진로 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="광명상가">
+    <summary>
+      <div class="school-rank"><span>광명상가</span><small>서울 종로</small></div>
+      <div class="school-title"><h3>상명대학교</h3><p>한 학부에서 생명공학·화학에너지·화공신소재·식품영양을 비교하기 좋습니다.</p></div>
+      <span class="school-count"><b data-visible-count>4</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="바이오공학" data-search="상명대학교 광명상가 생명공학전공 바이오공학 분자·세포·유전·미생물·생물공정 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>생명공학전공</strong><small>바이오공학</small></div>
+            <p>분자·세포·유전·미생물·생물공정</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="상명대학교 광명상가 화학에너지공학전공 화학공학 화학·재료·전기화학, 에너지 변환·저장 반도체·배터리·소재 소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성 전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다. 삼성sdi·lg에너지솔루션·sk온, 반도체 소재·부품기업, 디스플레이·고분자 기업">
+            <div class="major-name"><strong>화학에너지공학전공</strong><small>화학공학</small></div>
+            <p>화학·재료·전기화학, 에너지 변환·저장</p>
+            <div class="career-detail"><strong>소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성</strong><p>전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다.</p></div>
+            <p class="employer-examples">삼성SDI·LG에너지솔루션·SK온, 반도체 소재·부품기업, 디스플레이·고분자 기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="상명대학교 광명상가 화공신소재전공 화학공학 화학공학, 고분자·나노소재, 공정·분석 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화공신소재전공</strong><small>화학공학</small></div>
+            <p>화학공학, 고분자·나노소재, 공정·분석</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="상명대학교 광명상가 식품영양학전공 식품·영양 영양·식품화학·미생물·위생·급식 영양·급식·건강관리 영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담 식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다. 병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소">
+            <div class="major-name"><strong>식품영양학전공</strong><small>식품·영양</small></div>
+            <p>영양·식품화학·미생물·위생·급식</p>
+            <div class="career-detail"><strong>영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담</strong><p>식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다.</p></div>
+            <p class="employer-examples">병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://seng.smu.ac.kr/coneng/faculty/intro.do" target="_blank" rel="noreferrer">생명화학공학부 ↗</a><a href="https://energy.smu.ac.kr/cee/intro/objective.do" target="_blank" rel="noreferrer">화학에너지공학 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="광명상가">
+    <summary>
+      <div class="school-rank"><span>광명상가</span><small>경기 부천</small></div>
+      <div class="school-title"><h3>가톨릭대학교</h3><p>의생명·바이오로직스·바이오메디컬화학공학을 묶어 바이오헬스를 탐색하기 좋습니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>바이오로직스공학부는 신설 학부로 졸업생 실적이 아직 없습니다.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="바이오공학" data-search="가톨릭대학교 광명상가 바이오로직스공학부 바이오공학 바이오의약품, 세포배양·정제·생산공정·gmp 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>바이오로직스공학부</strong><small>바이오공학</small></div>
+            <p>바이오의약품, 세포배양·정제·생산공정·GMP</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="가톨릭대학교 광명상가 생명공학과 바이오공학 분자·세포·유전·미생물·생물공정 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>생명공학과</strong><small>바이오공학</small></div>
+            <p>분자·세포·유전·미생물·생물공정</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="가톨릭대학교 광명상가 의생명과학과 의생명 면역·종양·줄기세포·바이러스·유전체 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>의생명과학과</strong><small>의생명</small></div>
+            <p>면역·종양·줄기세포·바이러스·유전체</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="가톨릭대학교 광명상가 바이오메디컬화학공학과 화학공학 화공공정·생체재료·약물전달·바이오센서 의료기기·바이오센서 의료기기 qa·ra · 시험검증 · 센서·진단 개발 지원 · 필드응용 의료기기 성능·안전성 시험, 위험관리, 설계문서, 인허가 자료와 병원·사용자 기술지원을 담당합니다. 진단기기·의료영상·바이오센서 기업, 의료기기 시험기관, 병원 연구소">
+            <div class="major-name"><strong>바이오메디컬화학공학과</strong><small>화학공학</small></div>
+            <p>화공공정·생체재료·약물전달·바이오센서</p>
+            <div class="career-detail"><strong>의료기기 QA·RA · 시험검증 · 센서·진단 개발 지원 · 필드응용</strong><p>의료기기 성능·안전성 시험, 위험관리, 설계문서, 인허가 자료와 병원·사용자 기술지원을 담당합니다.</p></div>
+            <p class="employer-examples">진단기기·의료영상·바이오센서 기업, 의료기기 시험기관, 병원 연구소</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="가톨릭대학교 광명상가 화학과 화학 유기·무기·물리·분석, 소재·의약화학 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 소재·의약화학</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.catholic.ac.kr/ko/academics/edu_undergraduate14.do" target="_blank" rel="noreferrer">바이오헬스융합대학 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="서울과기·여대">
+    <summary>
+      <div class="school-rank"><span>서울과기·여대</span><small>서울 성북·강북</small></div>
+      <div class="school-title"><h3>성신여자대학교</h3><p>바이오신약·생명공학·식품·화학에너지로 여성 바이오헬스 진로 선택지가 다양합니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="바이오공학" data-search="성신여자대학교 서울과기·여대 바이오생명공학과 바이오공학 분자·세포·유전·미생물, 생명공학 응용 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>바이오생명공학과</strong><small>바이오공학</small></div>
+            <p>분자·세포·유전·미생물, 생명공학 응용</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="성신여자대학교 서울과기·여대 바이오신약의과학부 의생명 신약·오가노이드·독성평가·의생명 실험 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>바이오신약의과학부</strong><small>의생명</small></div>
+            <p>신약·오가노이드·독성평가·의생명 실험</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="성신여자대학교 서울과기·여대 화학·에너지융합학부 화학 기초·분석화학, 에너지·환경·재료화학 반도체·배터리·소재 소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성 전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다. 삼성sdi·lg에너지솔루션·sk온, 반도체 소재·부품기업, 디스플레이·고분자 기업">
+            <div class="major-name"><strong>화학·에너지융합학부</strong><small>화학</small></div>
+            <p>기초·분석화학, 에너지·환경·재료화학</p>
+            <div class="career-detail"><strong>소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성</strong><p>전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다.</p></div>
+            <p class="employer-examples">삼성SDI·LG에너지솔루션·SK온, 반도체 소재·부품기업, 디스플레이·고분자 기업</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="성신여자대학교 서울과기·여대 바이오식품공학과 식품·영양 식품가공·미생물·안전, 바이오소재 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>바이오식품공학과</strong><small>식품·영양</small></div>
+            <p>식품가공·미생물·안전, 바이오소재</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="성신여자대학교 서울과기·여대 식품영양학전공 식품·영양 영양·임상·급식·식품위생 영양·급식·건강관리 영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담 식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다. 병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소">
+            <div class="major-name"><strong>식품영양학전공</strong><small>식품·영양</small></div>
+            <p>영양·임상·급식·식품위생</p>
+            <div class="career-detail"><strong>영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담</strong><p>식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다.</p></div>
+            <p class="employer-examples">병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.sungshin.ac.kr/generaledu/21560/subview.do" target="_blank" rel="noreferrer">성신 학과 구성 ↗</a><a href="https://www.sungshin.ac.kr/bte/index..do" target="_blank" rel="noreferrer">바이오생명공학과 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="서울과기·여대">
+    <summary>
+      <div class="school-rank"><span>서울과기·여대</span><small>서울 노원</small></div>
+      <div class="school-title"><h3>서울여자대학교</h3><p>생명환경·화학·식품생명과 바이오헬스 융합을 탐색할 수 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>4</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="서울여자대학교 서울과기·여대 생명환경공학과 생명과학 분자·미생물·면역·발생·환경생태 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명환경공학과</strong><small>생명과학</small></div>
+            <p>분자·미생물·면역·발생·환경생태</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="서울여자대학교 서울과기·여대 화학과 화학 유기·무기·물리·분석, 응용·재료화학 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 응용·재료화학</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="서울여자대학교 서울과기·여대 식품생명공학과 식품·영양 식품가공·분석·안전, 미생물·제품개발 식품개발·품질·안전 식품 qc·qa · haccp · 생산관리 · 제품개발 지원 · 식품분석 미생물·이화학 검사를 하고 ccp를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다. cj제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원">
+            <div class="major-name"><strong>식품생명공학과</strong><small>식품·영양</small></div>
+            <p>식품가공·분석·안전, 미생물·제품개발</p>
+            <div class="career-detail"><strong>식품 QC·QA · HACCP · 생산관리 · 제품개발 지원 · 식품분석</strong><p>미생물·이화학 검사를 하고 CCP를 모니터링하며 원료 규격, 표시사항, 공정위생, 클레임 원인을 관리합니다.</p></div>
+            <p class="employer-examples">CJ제일제당·농심·오뚜기·풀무원·롯데웰푸드 등 식품기업, 시험검사기관, 식약처·보건환경연구원</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="서울여자대학교 서울과기·여대 바이오헬스융합학과 의생명 바이오헬스, 진단·데이터·융합기술 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>바이오헬스융합학과</strong><small>의생명</small></div>
+            <p>바이오헬스, 진단·데이터·융합기술</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.swu.ac.kr/grd/1210/subview.do" target="_blank" rel="noreferrer">생명환경공학 ↗</a><a href="https://www.swu.ac.kr/swu/885/subview.do" target="_blank" rel="noreferrer">식품생명공학 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="서울과기·여대">
+    <summary>
+      <div class="school-rank"><span>서울과기·여대</span><small>서울 도봉</small></div>
+      <div class="school-title"><h3>덕성여자대학교</h3><p>전공선택제 안에서 바이오·화학·식품영양을 비교할 수 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>3</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      <p class="caution"><b>확인</b>과학기술대학 입학 후 전공선택·배정 방식을 확인하세요.</p>
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="바이오공학" data-search="덕성여자대학교 서울과기·여대 바이오공학전공 바이오공학 세포·분자·유전·미생물, 바이오의약 응용 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>바이오공학전공</strong><small>바이오공학</small></div>
+            <p>세포·분자·유전·미생물, 바이오의약 응용</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="덕성여자대학교 서울과기·여대 화학전공 화학 유기·무기·물리·분석, 기기분석·소재 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학전공</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 기기분석·소재</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="덕성여자대학교 서울과기·여대 식품영양학전공 식품·영양 영양·생화학·식품위생·급식 영양·급식·건강관리 영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담 식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다. 병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소">
+            <div class="major-name"><strong>식품영양학전공</strong><small>식품·영양</small></div>
+            <p>영양·생화학·식품위생·급식</p>
+            <div class="career-detail"><strong>영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담</strong><p>식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다.</p></div>
+            <p class="employer-examples">병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.duksung.ac.kr/" target="_blank" rel="noreferrer">덕성여대 ↗</a><a href="https://enter.duksung.ac.kr/" target="_blank" rel="noreferrer">입학처 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="서울과기·여대">
+    <summary>
+      <div class="school-rank"><span>서울과기·여대</span><small>서울 성북</small></div>
+      <div class="school-title"><h3>동덕여자대학교</h3><p>응용화학·화장품·식품영양·보건관리처럼 산업 및 보건 직무 중심 선택지가 있습니다.</p></div>
+      <span class="school-count"><b data-visible-count>4</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="화학" data-search="동덕여자대학교 서울과기·여대 응용화학전공 화학 분석·유기·물리·무기, 화장품·재료·생명정보화학 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>응용화학전공</strong><small>화학</small></div>
+            <p>분석·유기·물리·무기, 화장품·재료·생명정보화학</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="소재·화장품" data-search="동덕여자대학교 서울과기·여대 화장품학전공 소재·화장품 화장품 제형·원료·피부·효능·품질 화장품·뷰티소재 제형개발 지원 · 원료평가 · qc·qa · 효능·안전성 · 화장품 ra 유화·분산 제형을 만들고 점도·안정성·미생물·방부력을 평가하며 원료 규격과 기능성화장품 보고자료를 관리합니다. 아모레퍼시픽·lg생활건강, 코스맥스·한국콜마 같은 odm, 화장품 원료·시험기업">
+            <div class="major-name"><strong>화장품학전공</strong><small>소재·화장품</small></div>
+            <p>화장품 제형·원료·피부·효능·품질</p>
+            <div class="career-detail"><strong>제형개발 지원 · 원료평가 · QC·QA · 효능·안전성 · 화장품 RA</strong><p>유화·분산 제형을 만들고 점도·안정성·미생물·방부력을 평가하며 원료 규격과 기능성화장품 보고자료를 관리합니다.</p></div>
+            <p class="employer-examples">아모레퍼시픽·LG생활건강, 코스맥스·한국콜마 같은 ODM, 화장품 원료·시험기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="식품·영양" data-search="동덕여자대학교 서울과기·여대 식품영양학전공 식품·영양 영양·식품화학·위생·급식·임상 영양·급식·건강관리 영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담 식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다. 병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소">
+            <div class="major-name"><strong>식품영양학전공</strong><small>식품·영양</small></div>
+            <p>영양·식품화학·위생·급식·임상</p>
+            <div class="career-detail"><strong>영양사 · 임상영양 지원 · 단체급식 운영 · 건강식품 품질·상담</strong><p>식단·영양평가, 급식 위생·원가·인력, 환자 영양상태, 건강기능식품 정보를 관리합니다.</p></div>
+            <p class="employer-examples">병원·학교·공공기관·급식기업, 식품·건강기능식품 기업, 보건소</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="동덕여자대학교 서울과기·여대 보건관리학전공 의생명 보건학·역학·환경보건·건강관리 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>보건관리학전공</strong><small>의생명</small></div>
+            <p>보건학·역학·환경보건·건강관리</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.dongduk.ac.kr/www/contents/infosci04-03.do" target="_blank" rel="noreferrer">응용화학 교육과정 ↗</a><a href="https://www.dongduk.ac.kr/www/contents/kor-org.do" target="_blank" rel="noreferrer">대학 조직 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="인천권">
+    <summary>
+      <div class="school-rank"><span>인천권</span><small>인천 미추홀</small></div>
+      <div class="school-title"><h3>인하대학교</h3><p>전통적으로 화학공학·고분자·생명공학의 산업 연계 선택지가 강한 편입니다.</p></div>
+      <span class="school-count"><b data-visible-count>5</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="인하대학교 인천권 생명과학과 생명과학 세포·분자·유전·생태·생리, 생명과학 실험 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학과</strong><small>생명과학</small></div>
+            <p>세포·분자·유전·생태·생리, 생명과학 실험</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="인하대학교 인천권 생명공학과 바이오공학 유전·미생물·생물공정, 바이오에너지·의약 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>생명공학과</strong><small>바이오공학</small></div>
+            <p>유전·미생물·생물공정, 바이오에너지·의약</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="인하대학교 인천권 화학과 화학 유기·무기·물리·분석, 합성·재료·기기분석 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 합성·재료·기기분석</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="인하대학교 인천권 화학공학과 화학공학 열역학·전달·반응·공정제어·촉매 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>화학공학과</strong><small>화학공학</small></div>
+            <p>열역학·전달·반응·공정제어·촉매</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div><div class="major-row" data-major data-category="소재·화장품" data-search="인하대학교 인천권 고분자공학과 소재·화장품 고분자 합성·가공·물성, 전자·에너지·바이오소재 반도체·배터리·소재 소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성 전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다. 삼성sdi·lg에너지솔루션·sk온, 반도체 소재·부품기업, 디스플레이·고분자 기업">
+            <div class="major-name"><strong>고분자공학과</strong><small>소재·화장품</small></div>
+            <p>고분자 합성·가공·물성, 전자·에너지·바이오소재</p>
+            <div class="career-detail"><strong>소재개발 지원 · 공정기술 · 품질분석 · 평가·신뢰성</strong><p>전극·박막·고분자·나노소재를 제조하고 입도·표면·전기화학 특성을 측정해 공정조건과 제품 신뢰성을 개선합니다.</p></div>
+            <p class="employer-examples">삼성SDI·LG에너지솔루션·SK온, 반도체 소재·부품기업, 디스플레이·고분자 기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://admission.inha.ac.kr/" target="_blank" rel="noreferrer">인하대 입학처 ↗</a><a href="https://www.inha.ac.kr/" target="_blank" rel="noreferrer">인하대학교 ↗</a></div>
+    </div>
+  </details>
+  <details class="school-card" data-school data-group="인천권">
+    <summary>
+      <div class="school-rank"><span>인천권</span><small>인천 송도</small></div>
+      <div class="school-title"><h3>인천대학교</h3><p>생명과학·생명공학과 에너지화학공학을 함께 비교할 수 있고 송도 바이오산업 접근성이 좋습니다.</p></div>
+      <span class="school-count"><b data-visible-count>6</b>개 전공</span>
+      <span class="summary-icon" aria-hidden="true">+</span>
+    </summary>
+    <div class="school-content">
+      
+      <div class="major-table">
+        <div class="major-row major-header"><span>학과·전공</span><span>주요 학습내용</span><span>학사 졸업 후 지원 직무와 실제 업무</span><span>지원 업종 예시</span><span>학위 경향</span></div>
+        <div class="major-row" data-major data-category="생명과학" data-search="인천대학교 인천권 생명과학전공 생명과학 세포·유전·생화학·생태·진화, 생명과학 실험 기초 생명·연구지원 바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석 세포배양, pcr·qpcr, elisa, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다. 제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관">
+            <div class="major-name"><strong>생명과학전공</strong><small>생명과학</small></div>
+            <p>세포·유전·생화학·생태·진화, 생명과학 실험</p>
+            <div class="career-detail"><strong>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</strong><p>세포배양, PCR·qPCR, ELISA, 단백질·유전자 분석, 실험노트와 시료 관리, 논문·데이터 정리를 수행합니다.</p></div>
+            <p class="employer-examples">제약·바이오기업 연구지원, 진단기업, 대학병원·대학 연구실, 국공립 시험·연구기관</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="의생명" data-search="인천대학교 인천권 분자의생명전공 의생명 분자생물·면역·질병기전·유전체 의생명·임상·진단 분자진단 · 비임상시험 · cra·crc · 임상데이터 · pv 질병 바이오마커를 분석하고 glp 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다. 진단·의료기기 기업, cro(iqvia·드림씨아이에스·lsk 등), 제약사 임상·pv, 대학병원 임상시험센터">
+            <div class="major-name"><strong>분자의생명전공</strong><small>의생명</small></div>
+            <p>분자생물·면역·질병기전·유전체</p>
+            <div class="career-detail"><strong>분자진단 · 비임상시험 · CRA·CRC · 임상데이터 · PV</strong><p>질병 바이오마커를 분석하고 GLP 비임상시험을 지원하거나 임상시험 일정·문서·데이터·이상사례를 관리합니다.</p></div>
+            <p class="employer-examples">진단·의료기기 기업, CRO(IQVIA·드림씨아이에스·LSK 등), 제약사 임상·PV, 대학병원 임상시험센터</p>
+            <span class="degree degree-grad">대학원 권장</span>
+          </div><div class="major-row" data-major data-category="바이오공학" data-search="인천대학교 인천권 생명공학전공 바이오공학 유전·미생물·생물공정, 배양·정제 바이오의약품 생산·품질 배양·정제 생산 · 공정개발 지원 · qc · qa · 밸리데이션 세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·capa, iq·oq·pq 문서를 관리합니다. 삼성바이오로직스·셀트리온·롯데바이오로직스 같은 cdmo·바이오기업, sk바이오사이언스·gc녹십자·제약사">
+            <div class="major-name"><strong>생명공학전공</strong><small>바이오공학</small></div>
+            <p>유전·미생물·생물공정, 배양·정제</p>
+            <div class="career-detail"><strong>배양·정제 생산 · 공정개발 지원 · QC · QA · 밸리데이션</strong><p>세포배양·단백질 정제·충전 공정을 운전하고 환경모니터링, 시험성적서, 배치기록, 일탈·CAPA, IQ·OQ·PQ 문서를 관리합니다.</p></div>
+            <p class="employer-examples">삼성바이오로직스·셀트리온·롯데바이오로직스 같은 CDMO·바이오기업, SK바이오사이언스·GC녹십자·제약사</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="의료기기" data-search="인천대학교 인천권 나노바이오공학전공 의료기기 나노소재·바이오센서·생체재료·분석 의료기기·바이오센서 의료기기 qa·ra · 시험검증 · 센서·진단 개발 지원 · 필드응용 의료기기 성능·안전성 시험, 위험관리, 설계문서, 인허가 자료와 병원·사용자 기술지원을 담당합니다. 진단기기·의료영상·바이오센서 기업, 의료기기 시험기관, 병원 연구소">
+            <div class="major-name"><strong>나노바이오공학전공</strong><small>의료기기</small></div>
+            <p>나노소재·바이오센서·생체재료·분석</p>
+            <div class="career-detail"><strong>의료기기 QA·RA · 시험검증 · 센서·진단 개발 지원 · 필드응용</strong><p>의료기기 성능·안전성 시험, 위험관리, 설계문서, 인허가 자료와 병원·사용자 기술지원을 담당합니다.</p></div>
+            <p class="employer-examples">진단기기·의료영상·바이오센서 기업, 의료기기 시험기관, 병원 연구소</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학" data-search="인천대학교 인천권 화학과 화학 유기·무기·물리·분석, 기기분석 화학분석·품질 기기분석 qc · 분석법 개발 지원 · 원료검사 · 시험·인증 hplc·gc·lc-ms·icp·uv를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다. 제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, ktr·kcl 등 시험·인증기관">
+            <div class="major-name"><strong>화학과</strong><small>화학</small></div>
+            <p>유기·무기·물리·분석, 기기분석</p>
+            <div class="career-detail"><strong>기기분석 QC · 분석법 개발 지원 · 원료검사 · 시험·인증</strong><p>HPLC·GC·LC-MS·ICP·UV를 사용해 원료와 완제품의 순도·함량·불순물을 분석하고 분석법 검증과 시험성적서를 작성합니다.</p></div>
+            <p class="employer-examples">제약·화장품·정밀화학 기업, 반도체용 화학소재 업체, KTR·KCL 등 시험·인증기관</p>
+            <span class="degree degree-mixed">직무에 따라</span>
+          </div><div class="major-row" data-major data-category="화학공학" data-search="인천대학교 인천권 에너지화학공학과 화학공학 열역학·전달·반응·전기화학·에너지소재 화학공정·생산기술 공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·ehs 물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다. lg화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업">
+            <div class="major-name"><strong>에너지화학공학과</strong><small>화학공학</small></div>
+            <p>열역학·전달·반응·전기화학·에너지소재</p>
+            <div class="career-detail"><strong>공정엔지니어 · 생산기술 · 공정품질 · 설비·안전·EHS</strong><p>물질·에너지수지, 반응·분리·열전달 조건을 관리하고 수율·불량·원가를 개선하며 공정 위험성과 설비 변경을 검토합니다.</p></div>
+            <p class="employer-examples">LG화학·롯데케미칼·한화솔루션 등 화학기업, 반도체·배터리·정유·엔지니어링·제약 생산기업</p>
+            <span class="degree degree-bachelor">학사 진입 가능</span>
+          </div>
+      </div>
+      <div class="source-row"><span>공식 확인</span><a href="https://www.inu.ac.kr/bbs/inu/2611/421191/artclView.do" target="_blank" rel="noreferrer">생명계열 전공 ↗</a><a href="https://energy.inu.ac.kr/" target="_blank" rel="noreferrer">에너지화학공학 ↗</a></div>
+    </div>
+  </details><div class="empty" id="empty" hidden><strong>검색 결과가 없습니다.</strong><p>대학군·전공 필터를 전체로 바꾸거나 다른 직무를 검색해 보세요.</p></div></div>
+    </section>
+
+    <section class="section"><div class="checklist"><div><p class="section-no">04 · FINAL CHECK</p><h2>원서접수 전 확인할 내용</h2></div><ol><li><span>01</span><div><strong>2~4학년 교과과정</strong><p>공정·품질·기기분석 과목과 실험 비중, 수학·물리 난도를 확인합니다.</p></div></li><li><span>02</span><div><strong>캠퍼스와 전공배정</strong><p>경희 국제, 외대 글로벌, 중앙·단국·명지 등 캠퍼스와 계열모집 전공배정 조건을 확인합니다.</p></div></li><li><span>03</span><div><strong>학사 직무와 연구직 구분</strong><p>학사 채용이 많은 생산·품질·공정과 석사 선호 연구개발을 구분합니다.</p></div></li><li><span>04</span><div><strong>신설학과는 교육과정 중심</strong><p>졸업생 실적이 없으면 교수진, 실험실, 현장실습, 산학협력과 기존 학과의 개편 관계를 봅니다.</p></div></li></ol></div></section>
+  </main>
+  <footer><div><strong>생명·화학계열 대학 전공·취업 가이드</strong><p>학생·학부모 진로상담용 비교 자료</p></div><p>2026년 8월 확인 가능한 대학 공식 학과·입학 안내를 바탕으로 대표 관련 학과를 정리했습니다. 학과 개편과 모집 여부는 바뀔 수 있으므로 원서접수 전 각 대학의 2027학년도 최종 모집요강을 확인하세요. 기업명은 지원 업종을 이해하기 위한 예시이며 특정 대학 졸업생의 취업 실적이나 취업 보장을 의미하지 않습니다.</p></footer>
+  <script>
+    (()=>{
+      let group="전체",category="전체";const search=document.getElementById("search"),count=document.getElementById("result-count"),empty=document.getElementById("empty");
+      const activate=(box,value)=>box.querySelectorAll("button[data-value]").forEach(button=>button.classList.toggle("active",button.dataset.value===value));
+      function apply(){const q=search.value.trim().toLowerCase();let total=0,schools=0;document.querySelectorAll("[data-school]").forEach(school=>{const gm=group==="전체"||school.dataset.group===group;let n=0;school.querySelectorAll("[data-major]").forEach(row=>{const cm=category==="전체"||row.dataset.category===category;const qm=!q||row.dataset.search.includes(q);const visible=gm&&cm&&qm;row.hidden=!visible;if(visible)n++});school.hidden=n===0;school.querySelector("[data-visible-count]").textContent=n;if(n){schools++;if(q||category!=="전체")school.open=true}total+=n});count.textContent=total;empty.hidden=schools!==0}
+      const groupBox=document.getElementById("group-buttons"),categoryBox=document.getElementById("category-buttons");groupBox.addEventListener("click",e=>{const b=e.target.closest("button[data-value]");if(!b)return;group=b.dataset.value;activate(groupBox,group);apply()});categoryBox.addEventListener("click",e=>{const b=e.target.closest("button[data-value]");if(!b)return;category=b.dataset.value;activate(categoryBox,category);apply()});search.addEventListener("input",apply);document.getElementById("clear").addEventListener("click",()=>{search.value="";search.focus();apply()});document.getElementById("expand-all").addEventListener("click",()=>document.querySelectorAll("[data-school]:not([hidden])").forEach(item=>item.open=true));document.getElementById("collapse-all").addEventListener("click",()=>document.querySelectorAll("[data-school]").forEach(item=>item.open=false));
+    })();
+  </script>
+</body>
+</html>
