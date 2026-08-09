@@ -444,7 +444,7 @@ section[aria-label], .recommend-card{ display:grid; gap:var(--gap-md); }
 }
 .content-card .empty{ border:0; }
 
-/* ---------- 추천 섹션: 왼쪽=5등급 입력, 오른쪽=학과 선택 (원본 배치 유지) ---------- */
+/* ---------- 추천 섹션: 왼쪽=내신 입력, 오른쪽=학과 선택 ---------- */
 .recommend-top{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(min(100%, 320px), 1fr));
@@ -455,8 +455,49 @@ section[aria-label], .recommend-card{ display:grid; gap:var(--gap-md); }
   background:#f7fafe; border:1px solid var(--line2);
   border-radius:var(--radius-sm); padding:var(--pad-card);
 }
+.pick-box{ align-content:start; }
 .pick-title-row{ display:flex; align-items:center; justify-content:space-between; gap:var(--gap-sm); }
 .pick-title, .convert-title{ margin:0; font-size:var(--fs-h3); font-weight:850; white-space:nowrap; }
+.grade-input-options{
+  display:flex; flex-wrap:wrap; gap:var(--gap-sm); align-items:stretch;
+}
+.grade-option{
+  min-width:0; display:grid; grid-template-rows:auto auto;
+  gap:var(--gap-sm); align-content:start;
+  padding:var(--gap-sm); border:1px solid var(--line); border-radius:var(--radius-sm);
+  background:#fff; cursor:pointer; overflow:hidden;
+}
+.grade-option[data-system="five"]{ flex:1.55 1 350px; }
+.grade-option[data-system="nine"]{ flex:1 1 200px; }
+.grade-option.active{
+  border-color:var(--blue); background:var(--soft-blue);
+  box-shadow:0 0 0 1px rgba(95,110,232,.16);
+}
+.grade-option-head, .grade-option-body{
+  min-width:0; display:grid; gap:var(--gap-sm); align-items:center;
+}
+.grade-option[data-system="five"] .grade-option-head,
+.grade-option[data-system="five"] .grade-option-body{
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+}
+.grade-option[data-system="nine"] .grade-option-head,
+.grade-option[data-system="nine"] .grade-option-body{ grid-template-columns:1fr; }
+.grade-option-heading{
+  display:flex; align-items:center; gap:var(--gap-sm);
+  font-size:var(--fs-label); font-weight:850; color:#233657; cursor:pointer; white-space:nowrap;
+}
+.grade-option-heading input{ width:1.1em; height:1.1em; margin:0; accent-color:var(--navy); }
+.conversion-heading{
+  min-width:0; text-align:center; color:var(--green);
+  font-size:var(--fs-label); font-weight:850; white-space:nowrap;
+}
+.grade-option-controls{ min-width:0; display:grid; grid-template-columns:minmax(4.6em,1fr) auto; gap:var(--gap-sm); align-items:center; }
+.grade-option-controls input{ min-width:0; }
+.grade-option-controls .clear{
+  width:calc(var(--ctl-h) * .78); height:calc(var(--ctl-h) * .78); padding:0;
+  border:0; border-radius:var(--radius-sm); background:#e8edf7; color:#31456e;
+  font:inherit; font-size:var(--fs-h3); line-height:1; font-weight:800; cursor:pointer; white-space:nowrap;
+}
 .womens-toggle{
   flex:none; height:calc(var(--ctl-h) * .78); padding:0 var(--pad-cell-x);
   border:1px solid var(--line); border-radius:999px; background:#fff;
@@ -467,28 +508,20 @@ section[aria-label], .recommend-card{ display:grid; gap:var(--gap-md); }
 .major-selects{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:var(--gap-sm); }
 .major-selects select{ font-size:clamp(11px, .4vw + 10px, 15px); padding:0 var(--gap-sm); }
 select.is-placeholder{ color:var(--muted); }
-/* 내신 입력 줄: 한 줄 고정 */
-/* 입력 칸은 예상 자릿수(예: '1.50' 4자) 기반 최소 폭을 보장 → 값 잘림 금지 */
-.grade-line{ display:grid; grid-template-columns:minmax(5.5em,.8fr) auto auto minmax(0,1.9fr); gap:var(--gap-sm); align-items:center; }
-/* 지우기: 배경이 있는 보조 버튼 (주 입력과 구분) */
-.grade-line .clear{
-  height:calc(var(--ctl-h) * .78); padding:0 var(--pad-cell-x);
-  border:0; border-radius:var(--radius-sm);
-  background:#e8edf7; color:#31456e;
-  font:inherit; font-size:var(--fs-small); font-weight:800;
-  cursor:pointer; white-space:nowrap;
-}
-.grade-line .clear:hover{ background:#dbe4f4; }
-.arrow{ color:var(--blue); font-weight:800; }
-/* 9등급제 결과: 박스 안 글자 잘림 금지 → fit-text 대상 (부모 font-size 1번, 자식 em) */
+/* 5등급제 입력의 9등급 환산 결과 */
 .converted{
-  min-width:0; display:flex; align-items:center; gap:var(--gap-sm);
+  min-width:0; display:flex; align-items:center; justify-content:center;
   height:var(--ctl-h); padding:0 var(--gap-sm);
   background:#eef8f0; border:1px solid #cfe8d6; border-radius:var(--radius-sm);
-  white-space:nowrap; font-size:var(--fs-h3);
+  overflow:hidden; white-space:nowrap; font-size:var(--fs-h3);
 }
-.converted b{ flex:none; font-size:.7em; color:var(--green); background:#dff1e4; border-radius:6px; padding:2px 6px; }
-.converted span{ font-size:1em; font-weight:850; color:var(--green); font-variant-numeric:tabular-nums; }
+.converted span{ min-width:0; font-size:1em; font-weight:850; color:var(--green); font-variant-numeric:tabular-nums; }
+
+@media (max-width:600px){
+  .grade-option[data-system="five"] .grade-option-head,
+  .grade-option[data-system="five"] .grade-option-body{ grid-template-columns:1fr; }
+  .conversion-heading{ text-align:left; }
+}
 
 /* ---------- 추천 결과 카드 ---------- */
 .rec-grid{
@@ -497,6 +530,16 @@ select.is-placeholder{ color:var(--muted); }
   grid-template-columns:repeat(auto-fit, minmax(min(100%, 430px), 1fr));
   gap:var(--gap-md);
 }
+.rec-more-wrap{ display:flex; justify-content:center; }
+.rec-more-wrap[hidden]{ display:none; }
+.rec-more-button{
+  min-width:clamp(150px, 18vw, 220px); height:var(--ctl-h);
+  padding:0 var(--pad-cell-x); border:1px solid var(--navy); border-radius:var(--radius-sm);
+  background:var(--navy); color:#fff; cursor:pointer;
+  font:inherit; font-size:var(--fs-label); font-weight:850;
+  box-shadow:0 7px 16px rgba(23,39,68,.18);
+}
+.rec-more-button:hover{ background:#223a63; }
 .rec-card{
   border:1px solid var(--line); border-radius:var(--radius-sm);
   background:#fff; box-shadow:var(--shadow-soft); overflow:hidden;
@@ -780,17 +823,42 @@ header.site-hero p {
     <span class="mark">&#10003;</span>
     <div>
       <h2>지원가능 대학 및 학과 추천</h2>
-      <p class="section-sub">5등급제 내신을 입력하고 관심 학과를 선택하면 지원 가능한 대학·학과를 확인할 수 있습니다.</p>
+      <p class="section-sub">5등급제 내신은 9등급제로 자동 환산되며, 9등급제 내신은 입력값이 바로 적용됩니다.</p>
     </div>
   </div>
   <div class="recommend-top">
     <div class="convert-box">
-      <h3 class="convert-title">5등급제 내신 입력</h3>
-      <div class="grade-line">
-        <input aria-label="5등급제 내신 입력" id="gradeInput" max="5" min="1" step="0.01" type="number" value="1.50"/>
-        <button class="clear" id="clearGrade" type="button">지우기</button>
-        <div class="arrow">&#8594;</div>
-        <div class="converted"><b>9등급제</b><span id="nineRange">-</span></div>
+      <div class="grade-input-options" id="gradeInputOptions">
+        <div class="grade-option active" data-system="five">
+          <div class="grade-option-head">
+            <label class="grade-option-heading" for="fiveGradeRadio">
+              <input checked id="fiveGradeRadio" name="gradeSystem" type="radio" value="five"/>
+              <span>5등급제 내신 입력</span>
+            </label>
+            <span class="conversion-heading">9등급제 변환</span>
+          </div>
+          <div class="grade-option-body">
+            <div class="grade-option-controls">
+              <input aria-label="5등급제 내신 입력" id="fiveGradeInput" max="5" min="1" placeholder="예: 1.50" step="0.01" type="number" value="1.50"/>
+              <button aria-label="5등급제 내신 지우기" class="clear" data-system="five" title="지우기" type="button">&#215;</button>
+            </div>
+            <div class="converted"><span id="nineRange">-</span></div>
+          </div>
+        </div>
+        <div class="grade-option" data-system="nine">
+          <div class="grade-option-head">
+            <label class="grade-option-heading" for="nineGradeRadio">
+              <input id="nineGradeRadio" name="gradeSystem" type="radio" value="nine"/>
+              <span>9등급제 입력</span>
+            </label>
+          </div>
+          <div class="grade-option-body">
+            <div class="grade-option-controls">
+              <input aria-label="9등급제 내신 입력" id="nineGradeInput" max="9" min="1" placeholder="예: 2.50" step="0.01" type="number"/>
+              <button aria-label="9등급제 내신 지우기" class="clear" data-system="nine" title="지우기" type="button">&#215;</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="pick-box">
@@ -806,6 +874,9 @@ header.site-hero p {
     </div>
   </div>
   <div class="rec-grid" id="recommendArea"></div>
+  <div class="rec-more-wrap" hidden id="recommendMoreWrap">
+    <button class="rec-more-button" id="recommendMoreButton" title="상향·소신·적정 추천을 각 3개씩 추가합니다" type="button">추천 더 받기</button>
+  </div>
   <div class="rec-empty" id="recommendEmpty"></div>
 </section>
 
@@ -832,7 +903,9 @@ header.site-hero p {
     });
     sendEngineeringAdmissionDataToParent();
     const CONVERSION = JSON.parse(document.getElementById('conversion-json').textContent);
-    const state = { type:'교과전형', region:'서울', sort:'major', excludeWomens:false };
+    const state = { type:'교과전형', region:'서울', sort:'major', excludeWomens:false, gradeSystem:'five', recommendExpanded:false };
+    const RECOMMEND_INITIAL_PER_CATEGORY = 2;
+    const RECOMMEND_EXTRA_PER_CATEGORY = 3;
     const SCORE_YEARS = ['2026','2025','2024','2023'];
     const RECOMMEND_MAJOR_GROUPS = [
       { label:'기계·자동차공학', keywords:['기계','기계공학','기계시스템','기계설계','자동차','모빌리티','스마트운행체','MSDE'] },
@@ -875,10 +948,15 @@ header.site-hero p {
     const mainTableHead = $('mainTableHead');
     const mainMobile = $('mainMobile');
     const mainEmpty = $('mainEmpty');
-    const gradeInput = $('gradeInput');
-    const clearGrade = $('clearGrade');
+    const gradeInputOptions = $('gradeInputOptions');
+    const gradeInputs = { five:$('fiveGradeInput'), nine:$('nineGradeInput') };
+    const gradeSystemRadios = [...gradeInputOptions.querySelectorAll('input[name="gradeSystem"]')];
+    const gradeOptions = [...gradeInputOptions.querySelectorAll('.grade-option')];
+    const clearGradeButtons = [...gradeInputOptions.querySelectorAll('.clear')];
     const nineRange = $('nineRange');
     const recommendArea = $('recommendArea');
+    const recommendMoreWrap = $('recommendMoreWrap');
+    const recommendMoreButton = $('recommendMoreButton');
     const recommendEmpty = $('recommendEmpty');
     const recMajorSelects = [$('recMajor1'), $('recMajor2'), $('recMajor3')];
 
@@ -1119,6 +1197,16 @@ header.site-hero p {
 
       return sorted[0];
     }
+    function setGradeSystem(system, resetExpansion = false) {
+      if (!['five','nine'].includes(system)) return;
+      if (resetExpansion) state.recommendExpanded = false;
+      state.gradeSystem = system;
+      gradeSystemRadios.forEach(radio => { radio.checked = radio.value === system; });
+      gradeOptions.forEach(option => {
+        option.classList.toggle('active', option.dataset.system === system);
+      });
+      renderRecommend();
+    }
     function isExcludedTopMainSchool(schoolName) {
       const school = String(schoolName || '').replace(/\s/g, '');
 
@@ -1163,7 +1251,7 @@ header.site-hero p {
 
       return merged;
     }
-    function classify(type, grade, selected, fiveGradeInput) {
+    function classify(type, grade, selected, fiveGradeInput, perCategory) {
       const base = recBase(type, selected, fiveGradeInput);
       const cats = ['reach', 'target', 'safe'];
       const catOf = item => item.avg < grade ? 'reach' : item.avg < grade + .5 ? 'target' : 'safe';
@@ -1177,7 +1265,7 @@ header.site-hero p {
         return Math.abs(a.avg - refOf(cat)) - Math.abs(b.avg - refOf(cat)) || a.avg - b.avg || a.row.학교.localeCompare(b.row.학교, 'ko');
       };
 
-      // 상향·소신·적정이 한쪽으로 3개씩 몰리지 않도록 추천군별 최대 2개씩 먼저 채운다.
+      // 상향·소신·적정이 한쪽으로 몰리지 않도록 추천군별 목표 개수만큼 먼저 채운다.
       cats.forEach(cat => {
         base
           .filter(item => catOf(item) === cat)
@@ -1187,14 +1275,14 @@ header.site-hero p {
             if (used.has(itemKey)) return false;
             picked.push({ item, cat });
             used.add(itemKey);
-            return picked.filter(p => p.cat === cat).length >= 2;
+            return picked.filter(p => p.cat === cat).length >= perCategory;
           });
       });
 
-      // 특정 추천군이 2개 미만이면 빈칸·조건부족 대신 가장 가까운 입결 자료로 보완하되,
+      // 특정 추천군이 목표 개수보다 적으면 가장 가까운 입결 자료로 보완하되,
       // 화면 표시는 부족한 추천군 이름으로 유지한다.
       cats.forEach(cat => {
-        while (picked.filter(p => p.cat === cat).length < 2) {
+        while (picked.filter(p => p.cat === cat).length < perCategory) {
           const fallback = base
             .filter(item => !used.has(key(item)))
             .sort(sortByFit(cat))[0];
@@ -1217,22 +1305,44 @@ header.site-hero p {
       const row = pick.item.row;
       return `<div class="rec-line"><span class="cat ${meta.cls}">${meta.text}</span><div class="rec-main"><span class="rec-school">${esc(row.학교)}</span><span class="rec-major">${esc(row.학과)}</span><span class="rec-admission">${esc(row.전형명)}</span></div><div class="dots">${dot(row['2026'])}${dot(row['2025'])}${dot(row['2024'])}${dot(row['2023'])}</div></div>`;
     }
-    function typeCard(type, grade, selected, fiveGradeInput) {
-      const picks = classify(type, grade, selected, fiveGradeInput);
+    function typeCard(type, grade, selected, fiveGradeInput, perCategory) {
+      const picks = classify(type, grade, selected, fiveGradeInput, perCategory);
       const lines = picks.map(recLine).join('');
       return `<div class="rec-card"><div class="rec-head"><h3>${type}</h3><div class="year-labels"><span>2026</span><span>2025</span><span>2024</span><span>2023</span></div></div>${lines}</div>`;
     }
     function renderRecommend() {
-      const raw = gradeInput.value.trim();
+      recommendMoreWrap.hidden = true;
+      const fiveRaw = gradeInputs.five.value.trim();
+      const fiveInput = fiveRaw === '' ? null : Number(fiveRaw);
+      if (fiveInput !== null && Number.isFinite(fiveInput) && fiveInput >= 1 && fiveInput <= 5) {
+        const fiveConversion = nearestConversion(fiveInput);
+        nineRange.textContent = `${fmt(fiveConversion.finalLow)} ~ ${fmt(fiveConversion.finalHigh)}`;
+      } else {
+        nineRange.textContent = '-';
+      }
+
+      const activeInput = gradeInputs[state.gradeSystem];
+      const raw = activeInput.value.trim();
       const input = raw === '' ? null : Number(raw);
-      if (input === null) { nineRange.textContent='-'; recommendArea.innerHTML=''; recommendEmpty.style.display='block'; recommendEmpty.textContent='5등급제 내신을 입력해 주세요.'; return; }
-      if (!Number.isFinite(input) || input < 1 || input > 5) { nineRange.textContent='-'; recommendArea.innerHTML=''; recommendEmpty.style.display='block'; recommendEmpty.textContent='5등급제 내신은 1.00~5.00 사이로 입력해 주세요.'; return; }
-      const conv = nearestConversion(input);
-      const grade = Number(conv.finalHigh);
-      nineRange.textContent = `${fmt(conv.finalLow)} ~ ${fmt(conv.finalHigh)}`;
+      const isFiveGrade = state.gradeSystem === 'five';
+      const systemLabel = isFiveGrade ? '5등급제' : '9등급제';
+      const maxGrade = isFiveGrade ? 5 : 9;
+      if (input === null) { nineRange.textContent='-'; recommendArea.innerHTML=''; recommendEmpty.style.display='block'; recommendEmpty.textContent=`${systemLabel} 내신을 입력해 주세요.`; return; }
+      if (!Number.isFinite(input) || input < 1 || input > maxGrade) { nineRange.textContent='-'; recommendArea.innerHTML=''; recommendEmpty.style.display='block'; recommendEmpty.textContent=`${systemLabel} 내신은 1.00~${fmt(maxGrade)} 사이로 입력해 주세요.`; return; }
+
+      let grade = input;
+      let fiveGradeInput = null;
+      if (isFiveGrade) {
+        const conv = nearestConversion(input);
+        grade = Number(conv.finalHigh);
+        fiveGradeInput = input;
+      }
+
       const selected = selectedRecommendMajors();
       if (!selected.length) { recommendArea.innerHTML=''; recommendEmpty.style.display='none'; recommendEmpty.textContent=''; return; }
-      recommendArea.innerHTML = ['교과전형','종합전형'].map(type => typeCard(type, grade, selected, input)).join('');
+      const perCategory = RECOMMEND_INITIAL_PER_CATEGORY + (state.recommendExpanded ? RECOMMEND_EXTRA_PER_CATEGORY : 0);
+      recommendArea.innerHTML = ['교과전형','종합전형'].map(type => typeCard(type, grade, selected, fiveGradeInput, perCategory)).join('');
+      recommendMoreWrap.hidden = state.recommendExpanded;
       recommendEmpty.style.display='none';
     }
     function refreshAll() { renderMain(); renderRecommend(); }
@@ -1254,13 +1364,26 @@ header.site-hero p {
     // 여대 제외 토글: 지원가능 대학 및 학과 추천 결과에만 반영
     excludeWomensBtn.addEventListener('click', () => {
       state.excludeWomens = !state.excludeWomens;
+      state.recommendExpanded = false;
       excludeWomensBtn.classList.toggle('active', state.excludeWomens);
       excludeWomensBtn.setAttribute('aria-pressed', String(state.excludeWomens));
       renderRecommend();
     });
-    gradeInput.addEventListener('input', renderRecommend);
-    clearGrade.addEventListener('click', () => { gradeInput.value=''; renderRecommend(); gradeInput.focus(); });
-    recMajorSelects.forEach(s => s.addEventListener('change', () => { updateRecommendPlaceholderStyle(); renderRecommend(); }));
+    gradeSystemRadios.forEach(radio => radio.addEventListener('change', () => {
+      if (radio.checked) setGradeSystem(radio.value, true);
+    }));
+    Object.entries(gradeInputs).forEach(([system, inputElement]) => {
+      inputElement.addEventListener('focus', () => setGradeSystem(system));
+      inputElement.addEventListener('input', () => { setGradeSystem(system, true); });
+    });
+    clearGradeButtons.forEach(button => button.addEventListener('click', () => {
+      const system = button.dataset.system;
+      gradeInputs[system].value = '';
+      setGradeSystem(system, true);
+      gradeInputs[system].focus();
+    }));
+    recMajorSelects.forEach(s => s.addEventListener('change', () => { state.recommendExpanded=false; updateRecommendPlaceholderStyle(); renderRecommend(); }));
+    recommendMoreButton.addEventListener('click', () => { state.recommendExpanded=true; renderRecommend(); });
     populateSchools(); populateMajors(); populateRecommendMajors(); refreshAll();
   
     /* ==========================================================
