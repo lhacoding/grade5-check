@@ -3392,11 +3392,10 @@ header.site-hero p {
 <select aria-label="추천 학과 2" id="admissionMajor2"></select>
 <select aria-label="추천 학과 3" id="admissionMajor3"></select>
 </div>
-<p class="admission-help-note">연도별 입결 기준 단순 비교 · 전형방법·수능최저·학생부 경쟁력 확인 필요</p>
 </div>
 </div>
 <div class="admission-rec-grid" id="admissionRecommendArea"></div>
-<div class="admission-rec-empty" id="admissionRecommendEmpty">추천받을 학과를 1개 이상 선택해 주세요.</div>
+<div class="admission-rec-empty" id="admissionRecommendEmpty"></div>
 </section>
 <footer class="unified-footer">5등급제 내신별 지원 대학 예상 [ 송도이샘로봇 ]</footer>
 </main>
@@ -5960,8 +5959,8 @@ header.site-hero p {
 
       if (selectedMajors.length === 0) {
         admissionRecommendArea.innerHTML = "";
-        admissionRecommendEmpty.style.display = "block";
-        admissionRecommendEmpty.textContent = "추천받을 학과를 1개 이상 선택해 주세요.";
+        admissionRecommendEmpty.style.display = "none";
+        admissionRecommendEmpty.textContent = "";
         return;
       }
 
