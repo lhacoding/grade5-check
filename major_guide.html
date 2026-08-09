@@ -46,6 +46,18 @@
       --yellow:#fff5b8;
       --shadow:0 18px 42px rgba(33,55,95,.12);
       --shadow-soft:0 10px 28px rgba(31,49,81,.08);
+      --radius:24px;
+      --radius-sm:14px;
+      --gutter:clamp(12px,4vw,36px);
+      --gap-lg:clamp(8px,1.3vw,16px);
+      --gap-md:clamp(6px,1.2vw,14px);
+      --gap-sm:clamp(4px,1vw,10px);
+      --pad-card:clamp(10px,1.7vw,18px);
+      --pad-cell-x:clamp(12px,1.6vw,20px);
+      --fs-label:clamp(13px,.35vw + 12px,16px);
+      --fs-small:clamp(11px,.3vw + 10px,13.5px);
+      --ctl-h:clamp(42px,2vw + 32px,52px);
+      --unified-top-width:min(1320px,calc(100% - 2*var(--gutter)));
     }
     body{
       background:linear-gradient(180deg,#eef3fb 0%,#f7f9fd 58%,#fff 100%);
@@ -145,20 +157,19 @@
     .topbar nav a:hover,
     .topbar nav a:focus-visible{background:var(--navy);color:#fff;border-color:var(--navy)}
     .global-menu-section{
-      width:min(1320px,calc(100% - 72px));
-      margin:0 auto 12px;
-      position:sticky;
-      top:8px;
-      z-index:50;
+      width:var(--unified-top-width);
+      max-width:none;
+      margin:var(--gap-lg) auto;
     }
     .global-menu-grid{
+      --item-min:112px;
       display:grid;
-      grid-template-columns:repeat(7,minmax(0,1fr));
-      gap:8px;
+      grid-template-columns:repeat(auto-fit,minmax(min(100%,112px),1fr));
+      gap:var(--gap-sm);
       margin:0;
-      padding:12px;
+      padding:var(--pad-card);
       border:1px solid var(--line);
-      border-radius:22px;
+      border-radius:var(--radius);
       background:#fff;
       box-shadow:var(--shadow-soft);
       backdrop-filter:blur(14px);
@@ -168,14 +179,15 @@
       align-items:center;
       justify-content:center;
       min-width:0;
-      min-height:44px;
-      padding:9px 11px;
+      min-height:var(--ctl-h);
+      padding:var(--gap-sm) var(--pad-cell-x);
       border:1px solid var(--line);
-      border-radius:14px;
+      border-radius:var(--radius-sm);
       background:#f4f7fd;
       color:#233657;
-      font-size:13px;
-      font-weight:800;
+      font-size:var(--fs-label);
+      font-weight:750;
+      letter-spacing:-.02em;
       text-align:center;
       white-space:nowrap;
     }
@@ -422,11 +434,14 @@
     .checklist li>span{color:#a9efe7}
     .checklist p{color:#d5dfed}
     footer{
-      width:min(1276px,calc(100% - 72px));
+      width:var(--unified-top-width);
       max-width:none;
       margin:0 auto;
-      padding:28px 0 48px;
-      border-top-color:var(--line);
+      padding:var(--gap-md) 0 var(--gap-lg);
+      display:block;
+      text-align:center;
+      background:transparent;
+      border:0;
     }
     footer p{color:#6a798f}
     .reference-links a{color:#415b82;border-bottom-color:#aab9cf}
@@ -474,20 +489,17 @@
     footer p{font-size:12px}
     .reference-links a{font-size:11.5px}
     .footer-signature{
-      grid-column:1/-1;
-      margin:4px 0 0;
-      padding-top:18px;
-      border-top:1px solid var(--line);
-      color:var(--navy);
-      font-size:14px;
-      font-weight:900;
-      letter-spacing:-.02em;
+      margin:0;
+      padding:0;
+      border-top:0;
+      color:#5f6e86;
+      font-size:var(--fs-small);
+      font-weight:800;
+      letter-spacing:-.035em;
       text-align:center;
     }
     @media(max-width:1000px){
-      .hero,.global-menu-section,.topbar,.section,footer{width:calc(100% - 36px)}
-      .global-menu-grid{display:flex;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin}
-      .global-menu-button{flex:0 0 150px}
+      .hero,.topbar,.section{width:calc(100% - 36px)}
       .topbar{align-items:center;overflow:hidden}
       .topbar nav{overflow-x:auto;padding-bottom:2px}
       .section{padding:26px}
@@ -497,9 +509,7 @@
       .jobs-section{padding:26px}
     }
     @media(max-width:650px){
-      .hero,.global-menu-section,.topbar,.section,footer{width:calc(100% - 24px)}
-      .global-menu-grid{gap:6px;padding:8px}
-      .global-menu-button{flex-basis:126px;min-height:40px;padding:8px 7px;font-size:11.5px}
+      .hero,.topbar,.section{width:calc(100% - 24px)}
       .hero{margin-top:12px;padding:24px 21px 25px;border-radius:19px}
       .hero h1{font-size:31px}
       .hero p.hero-copy{font-size:14.5px;line-height:1.65}
@@ -527,7 +537,6 @@
       .major-row{padding:18px 17px}
       .learn-cell:before,.career-detail:before,.employer-examples:before{color:#718097;font-size:10.5px}
       .checklist{padding:28px 20px;border-radius:17px}
-      footer{padding:25px 0 36px}
     }
   </style>
 </head>
@@ -535,8 +544,6 @@
   <main>
     <section class="hero" id="top"><h1>생명·화학·공학계열 전공 가이드</h1><p class="hero-copy">서울·수도권 주요 대학의 생명·화학·공학계열을 대상으로 배우는 내용, 전공 준비에 중요한 수학·과학·정보 과목과 학사 졸업 후 지원할 수 있는 구체적인 직무를 연결했습니다.</p></section>
     <nav class="global-menu-section" aria-label="전체 페이지 메뉴"><div class="global-menu-grid"><a class="global-menu-button" href="index.html#inputSection">내신입력 예측</a><a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a><a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a><a class="global-menu-button" href="2028_ad.html">2028 대입전형</a><a class="global-menu-button" href="grade_converter.html">5→9등급 환산</a><a class="global-menu-button" href="student_admission_by_highschool_type.html">학종 고교유형</a><a class="global-menu-button active" href="major_guide.html" aria-current="page">전공 가이드</a></div></nav>
-    <header class="topbar"><a class="brand" href="#top"><span>페이지 목차</span></a><nav aria-label="전공 가이드 목차"><a href="#direction">전공 방향</a><a href="#compare">전공 비교</a><a href="#jobs">취업 직무</a><a href="#schools">대학별 학과</a></nav></header>
-
     <section class="section" id="direction"><div class="section-head"><div><h2>전공 선택 기준</h2></div><p>같은 자연계열이라도 실험연구, 생산공정, 설계, 코딩, 데이터 최적화처럼 배우는 방식이 다릅니다. 좋아하는 과학 과목뿐 아니라 수학·물리 부담과 졸업 후 직무까지 함께 봐야 합니다.</p></div><div class="path-grid"><article class="path-card"><small>질병·세포·물질을 깊게</small><h3>생명과학 · 화학</h3><p>기초 원리와 실험분석 중심입니다. 독립적인 연구개발을 목표로 하면 대학원까지 계획하는 편이 현실적입니다.</p><strong>연구지원 · 분자진단 · 기기분석 · R&amp;D</strong></article><article class="path-card"><small>과학을 산업공정에 적용</small><h3>바이오 · 화공 · 소재</h3><p>배양·정제·GMP 또는 반응·분리·재료공정을 배워 생산, 품질, 공정기술과 연결합니다.</p><strong>생산 · QC · QA · 공정 · 반도체·배터리</strong></article><article class="path-card"><small>코딩과 전자기술에 관심</small><h3>컴퓨터 · 전기전자</h3><p>컴퓨터는 알고리즘과 소프트웨어, 전기전자는 회로·신호·반도체를 다룹니다. 프로젝트 경험이 중요합니다.</p><strong>개발 · AI·데이터 · 회로 · 반도체 · 임베디드</strong></article><article class="path-card"><small>설계·최적화·인프라에 관심</small><h3>기계 · 산업 · 건설</h3><p>기계와 건설은 수학·물리·공간개념 비중이 높고, 산업공학은 확률통계와 운영·데이터 분석 비중이 큽니다.</p><strong>설계 · 생산기술 · SCM · 품질 · 건축·토목</strong></article></div></section>
 
     <section class="section" id="compare"><div class="section-head"><div><h2>비슷한 전공 비교</h2></div><p>생명과 화학에 관심 있는 학생이 공학계열로 범위를 넓힐 때 가장 많이 혼동하는 조합입니다. 어느 쪽이 더 좋다는 뜻이 아니라 수업 방식과 취업 직무의 차이를 보는 표입니다.</p></div><div class="compare-grid">
@@ -735,16 +742,14 @@
       <div><dt>업종·기관 예시</dt><dd>발전사·에너지 공기업, 배터리·수소·태양광 기업, 플랜트·설비·에너지진단·기후기술 기업</dd></div>
       <div><dt>학위 경향</dt><dd>설비·운영·기술영업은 학사 가능, 차세대 에너지 핵심 R&amp;D는 석사 선호</dd></div>
     </dl>
-  </article></div><p class="notice"><b>읽는 법</b>학사 졸업 후 바로 지원하려면 생산·QC·QA·공정·시험·설계·개발 직무를 먼저 보고, 신약·질병·핵심소재·AI 원천연구가 목표라면 석사 이상의 연구훈련을 함께 계획하세요.</p></section>
+  </article></div></section>
 
     <section class="section" id="schools"><div class="section-head"><div><h2>대학별 관련 학과</h2></div><p>대학을 펼치면 주요 학습내용, 전공 준비에 중요한 수학과목, 물리·화학·생명·지구과학의 중요도, 정보·코딩 활용, 추천 이수과목과 졸업 후 직무를 함께 볼 수 있습니다.</p></div>
       <div class="filter-panel">
         <div class="filter-row"><span class="filter-label">계열</span><div class="button-group" id="family-buttons"><button type="button" data-value="전체" class="active">전체</button><button type="button" data-value="생명·화학" class="">생명·화학</button><button type="button" data-value="융합공학" class="">융합공학</button><button type="button" data-value="공학" class="">공학</button></div></div>
         <div class="filter-row"><span class="filter-label">대학군</span><div class="button-group" id="group-buttons"><button type="button" data-value="전체" class="active">전체</button><button type="button" data-value="SKY" class="">SKY</button><button type="button" data-value="서성한" class="">서성한</button><button type="button" data-value="중경외시·이화" class="">중경외시·이화</button><button type="button" data-value="건동홍·숙명" class="">건동홍·숙명</button><button type="button" data-value="서울과기·여대" class="">서울과기·여대</button><button type="button" data-value="국숭세단" class="">국숭세단</button><button type="button" data-value="광명상가" class="">광명상가</button><button type="button" data-value="인천권" class="">인천권</button></div></div>
-        <div class="filter-bottom"><div class="search-box"><span aria-hidden="true">⌕</span><label class="sr-only" for="search">학과·직무·준비과목 검색</label><input type="search" id="search" placeholder="학과·준비과목·직무 검색 (예: 미적분, 생명과학Ⅱ, 코딩, QA)"><button class="clear" type="button" id="clear" aria-label="검색어 지우기">×</button></div><div class="expand-actions"><button type="button" id="expand-all">모두 펼치기</button><button type="button" id="collapse-all">모두 접기</button></div></div>
       </div>
-      <p class="notice"><b>과목 표시 안내</b>수학은 전공에 필요한 선택과목을, 과학은 물리·화학·생명·지구과학을 ‘핵심·중요·도움’으로 구분했습니다. ‘추천 이수과목’은 전공수업 준비를 위한 안내이며 입학전형상의 필수과목과는 다릅니다. 대학이 공식 지정한 필수·권장 이수과목은 대학별 공식 입학 안내를 확인하세요.</p>
-      <p class="result-line">검색 결과 <b id="result-count">341</b>개 전공</p>
+      <p class="result-line">선택 결과 <b id="result-count">341</b>개 전공</p>
       <div class="school-list">
   <details class="school-card" data-school data-group="SKY">
     <summary>
@@ -3271,18 +3276,18 @@
       </div>
       <div class="source-row"><span>공식 확인</span><a href="https://www.inu.ac.kr/bbs/inu/2611/421191/artclView.do" target="_blank" rel="noreferrer">생명계열 전공 ↗</a><a href="https://energy.inu.ac.kr/" target="_blank" rel="noreferrer">에너지화학공학 ↗</a></div>
     </div>
-  </details><div class="empty" id="empty" hidden><strong>검색 결과가 없습니다.</strong><p>계열·대학군을 전체로 바꾸거나 다른 직무를 검색해 보세요.</p></div></div>
+  </details><div class="empty" id="empty" hidden><strong>선택 결과가 없습니다.</strong><p>계열 또는 대학군을 ‘전체’로 바꿔 보세요.</p></div></div>
     </section>
 
     <section class="section"><div class="checklist"><div><h2>원서접수 전 확인사항</h2></div><ol><li><span>01</span><div><strong>대학이 지정한 필수·권장 이수과목</strong><p>이 페이지의 전공 준비과목과 별도로 대학 입학처에서 모집단위별 공식 지정과목이 있는지 확인합니다.</p></div></li><li><span>02</span><div><strong>2~4학년 교과과정</strong><p>생명·화학은 실험과 분석, 공학은 공학수학·물리·코딩·설계 과목의 비중을 확인합니다.</p></div></li><li><span>03</span><div><strong>캠퍼스와 전공배정</strong><p>경희 국제, 외대 글로벌, 중앙·단국·명지 등 캠퍼스와 계열모집 전공배정 조건을 확인합니다.</p></div></li><li><span>04</span><div><strong>학사 직무와 연구직 구분</strong><p>학사 채용이 많은 생산·품질·공정·설계·개발과 석사 선호 연구개발을 구분합니다.</p></div></li><li><span>05</span><div><strong>실제 취업률은 공시자료로 확인</strong><p>대표 업종 예시와 특정 대학의 실제 취업 결과는 다릅니다. 대학알리미의 학과별 취업률과 진학률을 별도로 확인합니다.</p></div></li></ol></div></section>
   </main>
-  <footer><div><strong>전공 가이드</strong><p>학생·학부모 진로상담용 비교 자료</p></div><div><p>2026년 8월 확인 가능한 대학 공식 학과·입학 안내를 바탕으로 대표 관련 학과를 정리했습니다. 학과 개편과 모집 여부는 바뀔 수 있으므로 원서접수 전 각 대학의 2027학년도 최종 모집요강을 확인하세요. 직무 설명은 커리어넷·NCS의 학과·직무 분류를 참고해 상담용으로 요약했으며, 기업명은 지원 업종을 이해하기 위한 예시입니다. 특정 대학 졸업생의 취업 실적이나 취업 보장을 의미하지 않습니다. 실제 취업률은 대학알리미의 학과별 공시자료를 확인하세요.</p><div class="reference-links"><a href="https://www.career.go.kr/" target="_blank" rel="noreferrer">커리어넷 학과·직업정보 ↗</a><a href="https://www.ncs.go.kr/" target="_blank" rel="noreferrer">NCS 직무정보 ↗</a><a href="https://www.academyinfo.go.kr/" target="_blank" rel="noreferrer">대학알리미 취업률 ↗</a><a href="https://www.adiga.kr/" target="_blank" rel="noreferrer">대입정보포털 전형정보 ↗</a></div></div><p class="footer-signature">생명·화학·공학계열 전공가이드 [ 송도이샘로봇 ]</p></footer>
+  <footer><p class="footer-signature">생명·화학·공학계열 전공가이드 [ 송도이샘로봇 ]</p></footer>
   <script>
     (()=>{
-      let family="전체",group="전체";const search=document.getElementById("search"),count=document.getElementById("result-count"),empty=document.getElementById("empty");
+      let family="전체",group="전체";const count=document.getElementById("result-count"),empty=document.getElementById("empty");
       const activate=(box,value)=>box.querySelectorAll("button[data-value]").forEach(button=>button.classList.toggle("active",button.dataset.value===value));
-      function apply(){const q=search.value.trim().toLowerCase();let total=0,schools=0;document.querySelectorAll("[data-school]").forEach(school=>{const gm=group==="전체"||school.dataset.group===group;let n=0;school.querySelectorAll("[data-major]").forEach(row=>{const fm=family==="전체"||row.dataset.family===family;const qm=!q||row.dataset.search.includes(q);const visible=gm&&fm&&qm;row.hidden=!visible;if(visible)n++});school.hidden=n===0;school.querySelector("[data-visible-count]").textContent=n;if(n){schools++;if(q||family!=="전체"||group!=="전체")school.open=true}total+=n});count.textContent=total;empty.hidden=schools!==0}
-      const familyBox=document.getElementById("family-buttons"),groupBox=document.getElementById("group-buttons");familyBox.addEventListener("click",e=>{const b=e.target.closest("button[data-value]");if(!b)return;family=b.dataset.value;activate(familyBox,family);apply()});groupBox.addEventListener("click",e=>{const b=e.target.closest("button[data-value]");if(!b)return;group=b.dataset.value;activate(groupBox,group);apply()});search.addEventListener("input",apply);document.getElementById("clear").addEventListener("click",()=>{search.value="";search.focus();apply()});document.getElementById("expand-all").addEventListener("click",()=>document.querySelectorAll("[data-school]:not([hidden])").forEach(item=>item.open=true));document.getElementById("collapse-all").addEventListener("click",()=>document.querySelectorAll("[data-school]").forEach(item=>item.open=false));
+      function apply(){let total=0,schools=0;document.querySelectorAll("[data-school]").forEach(school=>{const gm=group==="전체"||school.dataset.group===group;let n=0;school.querySelectorAll("[data-major]").forEach(row=>{const fm=family==="전체"||row.dataset.family===family;const visible=gm&&fm;row.hidden=!visible;if(visible)n++});school.hidden=n===0;school.querySelector("[data-visible-count]").textContent=n;if(n){schools++;if(family!=="전체"||group!=="전체")school.open=true}total+=n});count.textContent=total;empty.hidden=schools!==0}
+      const familyBox=document.getElementById("family-buttons"),groupBox=document.getElementById("group-buttons");familyBox.addEventListener("click",e=>{const b=e.target.closest("button[data-value]");if(!b)return;family=b.dataset.value;activate(familyBox,family);apply()});groupBox.addEventListener("click",e=>{const b=e.target.closest("button[data-value]");if(!b)return;group=b.dataset.value;activate(groupBox,group);apply()});
       const jobFilter=document.getElementById("job-filter");jobFilter.addEventListener("click",e=>{const button=e.target.closest("button[data-job-value]");if(!button)return;const value=button.dataset.jobValue;jobFilter.querySelectorAll("button").forEach(item=>item.classList.toggle("active",item===button));document.querySelectorAll("[data-job-family]").forEach(card=>card.hidden=value!=="전체"&&card.dataset.jobFamily!==value)});
     })();
   </script>
