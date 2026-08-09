@@ -1771,7 +1771,7 @@
     }
 
 
-  /* 2028 대입전형 메뉴 추가: 6개 메뉴 균형 배치 */
+  /* 바로가기 메뉴를 화면 폭에 맞춰 균형 배치 */
   .quick-link-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
   }
@@ -3308,6 +3308,7 @@ header.site-hero p {
     <a class="global-menu-button" href="2028_ad.html" target="_blank" rel="noopener noreferrer">2028 대입전형</a>
     <a class="global-menu-button" href="grade_converter.html" target="_blank" rel="noopener noreferrer">5→9등급 환산</a>
     <a class="global-menu-button" href="student_admission_by_highschool_type.html" target="_blank" rel="noopener noreferrer">학종 고교유형</a>
+    <a class="global-menu-button" href="major_guide.html" target="_blank" rel="noopener noreferrer">전공 가이드</a>
   </div>
 </section>
 <main class="page">
@@ -6272,7 +6273,7 @@ header.site-hero p {
   </script>
 
 <script id="rule-system-js">
-/* 규칙 시스템 레이어 JS — 균형 줄바꿈: 메뉴 6개가 4+2가 아니라 3+3으로 나뉘도록
+/* 규칙 시스템 레이어 JS — 메뉴 개수와 화면 폭에 맞춘 균형 줄바꿈
    rows = ceil(n / 최대열수), cols = ceil(n / rows) 로 행별 개수를 균등 분배한다. */
 (function(){
   function balanceGrids(){
@@ -6300,7 +6301,7 @@ header.site-hero p {
 </script>
 
 <script id="balance-grids">
-/* 균형 줄바꿈(기준과 동일): 6개 → 4+2가 아니라 3+3 */
+/* 메뉴 개수와 화면 폭에 맞춘 균형 줄바꿈 */
 (function(){
   function balance(){
     document.querySelectorAll('.global-menu-grid').forEach(function(g){
