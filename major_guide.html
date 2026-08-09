@@ -83,7 +83,7 @@
     .hero h1{
       max-width:none;
       margin:0;
-      font-size:clamp(34px,3.4vw,46px);
+      font-size:clamp(28px,3.6vw,42px);
       line-height:1.08;
       letter-spacing:-.045em;
     }
@@ -220,7 +220,33 @@
       font-size:11px;
       box-shadow:0 5px 12px rgba(23,39,68,.2);
     }
-    .section h2{font-size:clamp(28px,3.2vw,42px);line-height:1.16;color:var(--navy)}
+    .section h2{font-size:23px;line-height:1.2;color:var(--navy)}
+    .section-head h2{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:0;
+      font-size:23px;
+      line-height:1.2;
+      font-weight:900;
+      letter-spacing:-.045em;
+      white-space:nowrap;
+    }
+    .section-head h2::before{
+      content:"✓";
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:27px;
+      height:27px;
+      flex:0 0 27px;
+      border-radius:50%;
+      background:var(--navy);
+      color:#fff;
+      font-size:16px;
+      font-weight:950;
+      box-shadow:0 5px 14px rgba(23,38,67,.22);
+    }
     .section-head>p{color:var(--muted);font-size:13px;line-height:1.75}
     .path-grid{gap:13px;border:0}
     .path-card{
@@ -367,7 +393,32 @@
         linear-gradient(135deg,#161d3d,#2f426a);
       box-shadow:0 12px 26px rgba(15,23,42,.14);
     }
-    .checklist h2{color:#fff;font-size:36px}
+    .checklist h2{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:0;
+      color:#fff;
+      font-size:23px;
+      line-height:1.2;
+      font-weight:900;
+      letter-spacing:-.045em;
+    }
+    .checklist h2::before{
+      content:"✓";
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:27px;
+      height:27px;
+      flex:0 0 27px;
+      border-radius:50%;
+      background:#fff;
+      color:var(--navy);
+      font-size:16px;
+      font-weight:950;
+      box-shadow:0 5px 14px rgba(0,0,0,.16);
+    }
     .checklist li>span{color:#a9efe7}
     .checklist p{color:#d5dfed}
     footer{
@@ -459,7 +510,9 @@
       .topbar nav{display:flex;gap:5px}
       .topbar nav a{padding:8px 10px;font-size:11.5px}
       .section{margin-bottom:12px;padding:22px 17px;border-radius:19px}
-      .section h2{font-size:29px}
+      .section h2,.section-head h2,.checklist h2{font-size:21px}
+      .section-head h2{white-space:normal}
+      .section-head h2::before,.checklist h2::before{width:25px;height:25px;flex-basis:25px;font-size:15px}
       .section-head>p{font-size:14px}
       .path-card{min-height:230px;padding:20px}
       .compare-card{padding:18px}
@@ -473,27 +526,26 @@
       .major-row{padding:18px 17px}
       .learn-cell:before,.career-detail:before,.employer-examples:before{color:#718097;font-size:10.5px}
       .checklist{padding:28px 20px;border-radius:17px}
-      .checklist h2{font-size:29px}
       footer{padding:25px 0 36px}
     }
   </style>
 </head>
 <body>
   <main>
-    <section class="hero" id="top"><h1>생명·화학·공학계열 전공 가이드</h1><p class="hero-copy">서울·수도권 주요 대학의 생명·화학·공학계열을 대상으로 배우는 내용, 전공 준비에 중요한 수학·과학·정보 과목과 학사 졸업 후 지원할 수 있는 구체적인 직무를 연결했습니다.</p><div class="hero-links"><a href="#schools">대학별 학과 비교하기 ↓</a><a href="#compare">비슷한 전공 차이 보기 →</a></div></section>
+    <section class="hero" id="top"><h1>생명·화학·공학계열 전공 가이드</h1><p class="hero-copy">서울·수도권 주요 대학의 생명·화학·공학계열을 대상으로 배우는 내용, 전공 준비에 중요한 수학·과학·정보 과목과 학사 졸업 후 지원할 수 있는 구체적인 직무를 연결했습니다.</p></section>
     <nav class="global-menu-section" aria-label="전체 페이지 메뉴"><div class="global-menu-grid"><a class="global-menu-button" href="index.html#inputSection">내신입력 예측</a><a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a><a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a><a class="global-menu-button" href="2028_ad.html">2028 대입전형</a><a class="global-menu-button" href="grade_converter.html">5→9등급 환산</a><a class="global-menu-button" href="student_admission_by_highschool_type.html">학종 고교유형</a><a class="global-menu-button active" href="major_guide.html" aria-current="page">전공 가이드</a></div></nav>
     <header class="topbar"><a class="brand" href="#top"><span>페이지 목차</span></a><nav aria-label="전공 가이드 목차"><a href="#direction">전공 방향</a><a href="#compare">전공 비교</a><a href="#jobs">취업 직무</a><a href="#schools">대학별 학과</a></nav></header>
 
-    <section class="section" id="direction"><div class="section-head"><div><p class="section-no">01 · MAJOR DIRECTION</p><h2>학과 이름보다 배우는 방식이 중요합니다</h2></div><p>같은 자연계열이라도 실험연구, 생산공정, 설계, 코딩, 데이터 최적화처럼 배우는 방식이 다릅니다. 좋아하는 과학 과목뿐 아니라 수학·물리 부담과 졸업 후 직무까지 함께 봐야 합니다.</p></div><div class="path-grid"><article class="path-card"><small>질병·세포·물질을 깊게</small><h3>생명과학 · 화학</h3><p>기초 원리와 실험분석 중심입니다. 독립적인 연구개발을 목표로 하면 대학원까지 계획하는 편이 현실적입니다.</p><strong>연구지원 · 분자진단 · 기기분석 · R&amp;D</strong></article><article class="path-card"><small>과학을 산업공정에 적용</small><h3>바이오 · 화공 · 소재</h3><p>배양·정제·GMP 또는 반응·분리·재료공정을 배워 생산, 품질, 공정기술과 연결합니다.</p><strong>생산 · QC · QA · 공정 · 반도체·배터리</strong></article><article class="path-card"><small>코딩과 전자기술에 관심</small><h3>컴퓨터 · 전기전자</h3><p>컴퓨터는 알고리즘과 소프트웨어, 전기전자는 회로·신호·반도체를 다룹니다. 프로젝트 경험이 중요합니다.</p><strong>개발 · AI·데이터 · 회로 · 반도체 · 임베디드</strong></article><article class="path-card"><small>설계·최적화·인프라에 관심</small><h3>기계 · 산업 · 건설</h3><p>기계와 건설은 수학·물리·공간개념 비중이 높고, 산업공학은 확률통계와 운영·데이터 분석 비중이 큽니다.</p><strong>설계 · 생산기술 · SCM · 품질 · 건축·토목</strong></article></div></section>
+    <section class="section" id="direction"><div class="section-head"><div><h2>전공 선택 기준</h2></div><p>같은 자연계열이라도 실험연구, 생산공정, 설계, 코딩, 데이터 최적화처럼 배우는 방식이 다릅니다. 좋아하는 과학 과목뿐 아니라 수학·물리 부담과 졸업 후 직무까지 함께 봐야 합니다.</p></div><div class="path-grid"><article class="path-card"><small>질병·세포·물질을 깊게</small><h3>생명과학 · 화학</h3><p>기초 원리와 실험분석 중심입니다. 독립적인 연구개발을 목표로 하면 대학원까지 계획하는 편이 현실적입니다.</p><strong>연구지원 · 분자진단 · 기기분석 · R&amp;D</strong></article><article class="path-card"><small>과학을 산업공정에 적용</small><h3>바이오 · 화공 · 소재</h3><p>배양·정제·GMP 또는 반응·분리·재료공정을 배워 생산, 품질, 공정기술과 연결합니다.</p><strong>생산 · QC · QA · 공정 · 반도체·배터리</strong></article><article class="path-card"><small>코딩과 전자기술에 관심</small><h3>컴퓨터 · 전기전자</h3><p>컴퓨터는 알고리즘과 소프트웨어, 전기전자는 회로·신호·반도체를 다룹니다. 프로젝트 경험이 중요합니다.</p><strong>개발 · AI·데이터 · 회로 · 반도체 · 임베디드</strong></article><article class="path-card"><small>설계·최적화·인프라에 관심</small><h3>기계 · 산업 · 건설</h3><p>기계와 건설은 수학·물리·공간개념 비중이 높고, 산업공학은 확률통계와 운영·데이터 분석 비중이 큽니다.</p><strong>설계 · 생산기술 · SCM · 품질 · 건축·토목</strong></article></div></section>
 
-    <section class="section" id="compare"><div class="section-head"><div><p class="section-no">02 · MAJOR COMPARISON</p><h2>이름이 비슷한 전공, 무엇이 다른가</h2></div><p>생명과 화학에 관심 있는 학생이 공학계열로 범위를 넓힐 때 가장 많이 혼동하는 조합입니다. 어느 쪽이 더 좋다는 뜻이 아니라 수업 방식과 취업 직무의 차이를 보는 표입니다.</p></div><div class="compare-grid">
+    <section class="section" id="compare"><div class="section-head"><div><h2>비슷한 전공 비교</h2></div><p>생명과 화학에 관심 있는 학생이 공학계열로 범위를 넓힐 때 가장 많이 혼동하는 조합입니다. 어느 쪽이 더 좋다는 뜻이 아니라 수업 방식과 취업 직무의 차이를 보는 표입니다.</p></div><div class="compare-grid">
       <article class="compare-card"><span>BIOLOGY</span><div class="compare-pair"><article><h3>생명과학</h3><p>세포·유전·생리·생태의 원리와 실험을 깊게 배웁니다. 연구직은 대학원 비중이 큽니다.</p></article><i>↔</i><article><h3>생명공학</h3><p>생명현상을 배양·정제·진단·바이오소재·생물공정에 적용합니다.</p></article></div></article>
       <article class="compare-card"><span>CHEMISTRY</span><div class="compare-pair"><article><h3>화학</h3><p>분자구조·반응·분석을 실험으로 이해합니다. 분석 QC와 시험 직무로 연결됩니다.</p></article><i>↔</i><article><h3>화학공학</h3><p>반응·분리·열전달을 이용해 대량생산 공정을 설계하고 개선합니다.</p></article></div></article>
       <article class="compare-card"><span>MATERIALS</span><div class="compare-pair"><article><h3>응용화학</h3><p>합성·분석·전기화학·고분자처럼 화학 기반 응용을 다룹니다.</p></article><i>↔</i><article><h3>신소재공학</h3><p>금속·세라믹·고분자·반도체·배터리 소재의 구조와 공정을 다룹니다.</p></article></div></article>
       <article class="compare-card"><span>ENGINEERING</span><div class="compare-pair"><article><h3>기계·건축·토목</h3><p>미적분·기하·물리학이 역학, 공간설계, 구조해석의 기초가 됩니다.</p></article><i>↔</i><article><h3>산업·컴퓨터</h3><p>산업공학은 확률과 통계·미적분, 컴퓨터는 정보·수학·프로그래밍이 중요합니다.</p></article></div></article>
     </div></section>
 
-    <section class="section jobs-section" id="jobs"><div class="section-head"><div><p class="section-no">03 · JOB DICTIONARY</p><h2>졸업 후 지원하는 직무의 실제 모습</h2></div><p>기업명은 대학별 취업 실적이 아니라 관련 전공자가 지원할 수 있는 대표 업종의 예시입니다. 같은 회사 안에서도 연구·생산·품질·설계·개발은 필요한 역량이 다릅니다.</p></div><div class="job-filter" id="job-filter"><button type="button" data-job-value="전체" class="active">전체</button><button type="button" data-job-value="생명·화학">생명·화학</button><button type="button" data-job-value="융합공학">바이오·화공·소재</button><button type="button" data-job-value="공학">공학</button></div><div class="job-grid">
+    <section class="section jobs-section" id="jobs"><div class="section-head"><div><h2>졸업 후 취업 직무</h2></div><p>기업명은 대학별 취업 실적이 아니라 관련 전공자가 지원할 수 있는 대표 업종의 예시입니다. 같은 회사 안에서도 연구·생산·품질·설계·개발은 필요한 역량이 다릅니다.</p></div><div class="job-filter" id="job-filter"><button type="button" data-job-value="전체" class="active">전체</button><button type="button" data-job-value="생명·화학">생명·화학</button><button type="button" data-job-value="융합공학">바이오·화공·소재</button><button type="button" data-job-value="공학">공학</button></div><div class="job-grid">
   <article class="job-card" data-job-card="life" data-job-family="생명·화학">
     <div class="job-card-head"><span>기초 생명·연구지원</span><b>바이오 실험원 · 분자진단 실무 · 연구지원 · 생물자원 분석</b></div>
     <dl>
@@ -684,7 +736,7 @@
     </dl>
   </article></div><p class="notice"><b>읽는 법</b>학사 졸업 후 바로 지원하려면 생산·QC·QA·공정·시험·설계·개발 직무를 먼저 보고, 신약·질병·핵심소재·AI 원천연구가 목표라면 석사 이상의 연구훈련을 함께 계획하세요.</p></section>
 
-    <section class="section" id="schools"><div class="section-head"><div><p class="section-no">04 · UNIVERSITY &amp; MAJOR</p><h2>대학별 생명·화학·공학계열 학과</h2></div><p>대학을 펼치면 주요 학습내용, 전공 준비에 중요한 수학과목, 물리·화학·생명·지구과학의 중요도, 정보·코딩 활용, 추천 이수과목과 졸업 후 직무를 함께 볼 수 있습니다.</p></div>
+    <section class="section" id="schools"><div class="section-head"><div><h2>대학별 관련 학과</h2></div><p>대학을 펼치면 주요 학습내용, 전공 준비에 중요한 수학과목, 물리·화학·생명·지구과학의 중요도, 정보·코딩 활용, 추천 이수과목과 졸업 후 직무를 함께 볼 수 있습니다.</p></div>
       <div class="filter-panel">
         <div class="filter-row"><span class="filter-label">계열</span><div class="button-group" id="family-buttons"><button type="button" data-value="전체" class="active">전체</button><button type="button" data-value="생명·화학" class="">생명·화학</button><button type="button" data-value="융합공학" class="">융합공학</button><button type="button" data-value="공학" class="">공학</button></div></div>
         <div class="filter-row"><span class="filter-label">대학군</span><div class="button-group" id="group-buttons"><button type="button" data-value="전체" class="active">전체</button><button type="button" data-value="SKY" class="">SKY</button><button type="button" data-value="서성한" class="">서성한</button><button type="button" data-value="중경외시·이화" class="">중경외시·이화</button><button type="button" data-value="건동홍·숙명" class="">건동홍·숙명</button><button type="button" data-value="서울과기·여대" class="">서울과기·여대</button><button type="button" data-value="국숭세단" class="">국숭세단</button><button type="button" data-value="광명상가" class="">광명상가</button><button type="button" data-value="인천권" class="">인천권</button></div></div>
@@ -3221,7 +3273,7 @@
   </details><div class="empty" id="empty" hidden><strong>검색 결과가 없습니다.</strong><p>계열·대학군을 전체로 바꾸거나 다른 직무를 검색해 보세요.</p></div></div>
     </section>
 
-    <section class="section"><div class="checklist"><div><p class="section-no">05 · FINAL CHECK</p><h2>원서접수 전 확인할 내용</h2></div><ol><li><span>01</span><div><strong>대학이 지정한 필수·권장 이수과목</strong><p>이 페이지의 전공 준비과목과 별도로 대학 입학처에서 모집단위별 공식 지정과목이 있는지 확인합니다.</p></div></li><li><span>02</span><div><strong>2~4학년 교과과정</strong><p>생명·화학은 실험과 분석, 공학은 공학수학·물리·코딩·설계 과목의 비중을 확인합니다.</p></div></li><li><span>03</span><div><strong>캠퍼스와 전공배정</strong><p>경희 국제, 외대 글로벌, 중앙·단국·명지 등 캠퍼스와 계열모집 전공배정 조건을 확인합니다.</p></div></li><li><span>04</span><div><strong>학사 직무와 연구직 구분</strong><p>학사 채용이 많은 생산·품질·공정·설계·개발과 석사 선호 연구개발을 구분합니다.</p></div></li><li><span>05</span><div><strong>실제 취업률은 공시자료로 확인</strong><p>대표 업종 예시와 특정 대학의 실제 취업 결과는 다릅니다. 대학알리미의 학과별 취업률과 진학률을 별도로 확인합니다.</p></div></li></ol></div></section>
+    <section class="section"><div class="checklist"><div><h2>원서접수 전 확인사항</h2></div><ol><li><span>01</span><div><strong>대학이 지정한 필수·권장 이수과목</strong><p>이 페이지의 전공 준비과목과 별도로 대학 입학처에서 모집단위별 공식 지정과목이 있는지 확인합니다.</p></div></li><li><span>02</span><div><strong>2~4학년 교과과정</strong><p>생명·화학은 실험과 분석, 공학은 공학수학·물리·코딩·설계 과목의 비중을 확인합니다.</p></div></li><li><span>03</span><div><strong>캠퍼스와 전공배정</strong><p>경희 국제, 외대 글로벌, 중앙·단국·명지 등 캠퍼스와 계열모집 전공배정 조건을 확인합니다.</p></div></li><li><span>04</span><div><strong>학사 직무와 연구직 구분</strong><p>학사 채용이 많은 생산·품질·공정·설계·개발과 석사 선호 연구개발을 구분합니다.</p></div></li><li><span>05</span><div><strong>실제 취업률은 공시자료로 확인</strong><p>대표 업종 예시와 특정 대학의 실제 취업 결과는 다릅니다. 대학알리미의 학과별 취업률과 진학률을 별도로 확인합니다.</p></div></li></ol></div></section>
   </main>
   <footer><div><strong>전공 가이드</strong><p>학생·학부모 진로상담용 비교 자료</p></div><div><p>2026년 8월 확인 가능한 대학 공식 학과·입학 안내를 바탕으로 대표 관련 학과를 정리했습니다. 학과 개편과 모집 여부는 바뀔 수 있으므로 원서접수 전 각 대학의 2027학년도 최종 모집요강을 확인하세요. 직무 설명은 커리어넷·NCS의 학과·직무 분류를 참고해 상담용으로 요약했으며, 기업명은 지원 업종을 이해하기 위한 예시입니다. 특정 대학 졸업생의 취업 실적이나 취업 보장을 의미하지 않습니다. 실제 취업률은 대학알리미의 학과별 공시자료를 확인하세요.</p><div class="reference-links"><a href="https://www.career.go.kr/" target="_blank" rel="noreferrer">커리어넷 학과·직업정보 ↗</a><a href="https://www.ncs.go.kr/" target="_blank" rel="noreferrer">NCS 직무정보 ↗</a><a href="https://www.academyinfo.go.kr/" target="_blank" rel="noreferrer">대학알리미 취업률 ↗</a><a href="https://www.adiga.kr/" target="_blank" rel="noreferrer">대입정보포털 전형정보 ↗</a></div></div><p class="footer-signature">생명·화학·공학계열 전공가이드 [ 송도이샘로봇 ]</p></footer>
   <script>
