@@ -2570,7 +2570,7 @@ html, body { max-width:100% !important; overflow-x:hidden !important; }
   ※ 과기·특성화대 6곳은
   <a href="https://major-research.tistory.com/entry/2025%ED%95%99%EB%85%84%EB%8F%84-%EA%B3%BC%EA%B8%B0%EC%9B%90-%EC%88%98%EC%8B%9C-%EC%A0%84%ED%98%95%EB%B3%84-%EC%8B%A0%EC%9E%85%EC%83%9D-%EA%B3%A0%EA%B5%90-%EC%9C%A0%ED%98%95-%EC%84%B8%EB%B6%80-%EB%B6%84%EC%84%9D-%EC%9E%90%EB%A3%8C-%EB%B9%84%EC%9D%BC%EB%B0%98%EA%B3%A0-%EB%8C%80%ED%95%99-%EC%A7%84%ED%95%99-%EC%9C%A0%EB%B6%88%EB%A6%AC" target="_blank" rel="noopener">2025학년도 정원 내 수시 학생부종합전형 최종 등록자</a> 기준입니다.
 </p>
-<p class="note">한양대 ERICA는 <a href="https://goerica.hanyang.ac.kr/upload/BBS0062/20250514160613TDQ4L5.PDF" target="_blank" rel="noopener">2025학년도 공식 입시결과(24쪽)</a>의 정원 내 일반전형 학종 최종등록자 기준입니다. 원자료의 과학고·영재고 5명은 분리하지 않았으며, 아래 과고·영재고 각각의 합계에서는 빼고 특목고 합계에는 한 번만 더했습니다. 총인원에는 다른 고교유형 6명도 포함됩니다.</p>
+<p class="note">한양대 ERICA는 <a href="https://goerica.hanyang.ac.kr/upload/BBS0062/20250514160613TDQ4L5.PDF" target="_blank" rel="noopener">2025학년도 공식 입시결과(24쪽)</a>의 정원 내 일반전형 학종 최종등록자 기준입니다. 원자료의 과학고·영재고 합산 5명은 특목고 합계에 포함했습니다. 과고·영재고 각각의 열에는 나누어 넣지 않았습니다. 총인원에는 다른 고교유형 6명도 포함됩니다.</p>
 </section>
 <section class="panel section analysis-section" id="upperStudentPool">
 <div class="section-title">
@@ -2810,7 +2810,6 @@ function renderDesktop(list) {
         <div class="school-group-total-wrap">
           <span class="school-group-total-item">특목고 합계 <b>${comma(specialTotal)}명</b></span>
           <span class="school-group-total-item">일반고 합계 <b>${comma(t.cnt_general)}명</b></span>
-          <span class="school-group-total-item">영재고·과고 미분리 <b>${comma(t.cnt_science_gifted_combined)}명</b></span>
         </div>
       </td>
     </tr>
@@ -2853,12 +2852,10 @@ function renderMobile(list) {
         <div><small>자사고</small><b>${comma(t.cnt_autonomous)}</b></div>
         <div><small>외고</small><b>${comma(t.cnt_foreign)}</b></div>
         <div><small>일반고</small><b>${comma(t.cnt_general)}</b></div>
-        <div><small>영재고·과고 합산</small><b>${comma(t.cnt_science_gifted_combined)}</b></div>
       </div>
       <div class="school-mobile-group-total">
         <div>특목고 합계 <b>${comma(specialTotal)}명</b></div>
         <div>일반고 합계 <b>${comma(t.cnt_general)}명</b></div>
-        <div>영재고·과고 미분리 <b>${comma(t.cnt_science_gifted_combined)}명</b></div>
       </div>
     </div>
   ` : "";
