@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>학생부종합 고교유형별 입학자 수</title>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
 <style>
   :root {
     --bg:#eef3fb;
@@ -343,7 +344,7 @@
   .mobile-counts {
     display:grid;
     grid-template-columns:repeat(5,minmax(0,1fr));
-    gap:7px;
+    gap:4px;
     padding:12px 12px 13px;
   }
   .count-chip {
@@ -536,7 +537,7 @@
     }
     .mobile-univ {
       white-space:nowrap;
-      font-size:15.5px;
+      font-size:14.8px;
     }
     .mobile-total {
       min-height:25px;
@@ -570,7 +571,7 @@
     }
     .count-chip small { font-size:9px; }
     .count-chip strong { font-size:11.5px; }
-    .mobile-total { font-size:11px; padding:0 7px; }
+    .mobile-total { font-size:10.5px; padding:0 7px; }
   }
 
 
@@ -626,7 +627,7 @@
       font-size:22px;
     }
     .data-year-label {
-      font-size:11px;
+      font-size:10.5px;
       margin-top:4px;
     }
     main.page > .panel.section .tools {
@@ -697,7 +698,7 @@
       background:#f3f7fd;
       border-bottom:1px solid var(--line);
       color:#172744;
-      font-size:11px;
+      font-size:10.5px;
       font-weight:950;
       line-height:1;
       text-align:center;
@@ -749,7 +750,7 @@
     .mobile-school-total {
       flex:0 0 auto;
       color:#172744;
-      font-size:11px;
+      font-size:10.5px;
       line-height:1;
       font-weight:950;
       white-space:nowrap;
@@ -917,14 +918,13 @@
   }
 
 </style>
-  <style id="responsive-fix">
+<style id="responsive-fix">
     /* 반응형 보완: 여백을 먼저 줄이고, 더 줄일 수 없을 때만 줄바꿈 */
     .page{ width:min(1180px, calc(100% - clamp(10px,4vw,24px)))!important; }
     .highlight-grid{ grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))!important; gap:clamp(6px,1.4vw,12px)!important; }
     /* 인원(전체) 별도 칸 */
     .mobile-total-cell{ display:flex; align-items:center; justify-content:center; padding:10px 4px; border-right:1px solid #edf2f8; white-space:nowrap; font-size:12px; font-weight:800; color:#1c2c49; }
   </style>
-
 <style id="unified-page-header-style">
   :root{ --unified-top-width:min(1180px, calc(100% - 24px)); }
 
@@ -976,8 +976,6 @@
 
   }
 </style>
-
-
 <style id="rule-system-layer">
 /* ==========================================================================
    규칙 시스템 레이어 v1 — 사이트 공통 크롬(히어로·메뉴·푸터·컨테이너) 통일 + 토큰
@@ -1047,7 +1045,6 @@ select:focus-visible, input:focus-visible, button:focus-visible, a:focus-visible
   *{ transition:none !important; animation:none !important; }
 }
 </style>
-
 <style id="unified-chrome">
 /* ==========================================================================
    기준 크롬 (engineering_admission.html과 동일한 규칙)
@@ -1185,8 +1182,6 @@ body > .wrap, body > .page, body > main.page, body > .container, body > main{
 .site-hero h1{ font-size:var(--fs-h1) !important; font-weight:850 !important; line-height:1.1 !important; }
 .site-hero p{ font-size:var(--fs-h3) !important; font-weight:600 !important; }
 </style>
-
-
 <style id="school-center-align-fix">
   /* 학교 열 가운데 정렬 보정 */
   #dataTable tbody th {
@@ -1336,55 +1331,1392 @@ header.site-hero p {
 }
 
 </style>
+<style id="competition-pool-and-2028-admission-style">
+  /* 추가 분석 자료: 상위권 학생 풀 + 2028 모집인원 */
+  .analysis-section{ margin-top:18px; }
+  .analysis-section .section-title{ margin-bottom:12px !important; }
+  .analysis-section .section-title h2{ white-space:normal !important; }
+  .analysis-summary{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:10px;
+    margin:0 0 14px;
+  }
+  .analysis-stat{
+    min-width:0;
+    padding:14px 15px;
+    border:1px solid #dbe5f3;
+    border-radius:16px;
+    background:linear-gradient(180deg,#fbfdff 0%,#f5f8ff 100%);
+  }
+  .analysis-stat span{
+    display:block;
+    color:#66758c;
+    font-size:11.5px;
+    line-height:1.25;
+    font-weight:800;
+    word-break:keep-all;
+  }
+  .analysis-stat strong{
+    display:block;
+    margin-top:5px;
+    color:#172744;
+    font-size:22px;
+    line-height:1.05;
+    font-weight:950;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:-.04em;
+  }
+  .analysis-table-wrap{
+    width:100%;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+  }
+  .analysis-table{
+    width:100%;
+    min-width:0;
+    table-layout:fixed;
+    border-collapse:separate;
+    border-spacing:0;
+    font-size:14.5px;
+  }
+  .analysis-table thead th{
+    width:auto;
+    padding:12px 9px;
+    border-right:1px solid #e7edf6;
+    border-bottom:1px solid var(--line);
+    background:#f3f7fd;
+    color:#172744;
+    text-align:center;
+    font-weight:950;
+    white-space:nowrap;
+  }
+  .analysis-table tbody th,
+  .analysis-table tbody td{
+    padding:12px 9px;
+    border-right:1px solid var(--line2);
+    border-bottom:1px solid var(--line2);
+    color:#172643;
+    font-variant-numeric:tabular-nums;
+    vertical-align:middle;
+  }
+  .analysis-table tbody th{ background:#fbfcff; text-align:center; font-weight:900; }
+  .analysis-table tbody td{ text-align:center; font-weight:850; }
+  .analysis-table tbody tr:last-child th,
+  .analysis-table tbody tr:last-child td{ border-bottom:0; }
+  .analysis-table th:last-child,
+  .analysis-table td:last-child{ border-right:0; }
+  .analysis-table .school-detail{
+    text-align:left;
+    white-space:normal;
+    line-height:1.55;
+    word-break:keep-all;
+    font-weight:700;
+    color:#40506a;
+  }
+  .analysis-table .subtotal-row th,
+  .analysis-table .subtotal-row td{
+    background:#f2f6fd;
+    color:#172744;
+    font-weight:950;
+  }
+  .analysis-table .grand-total-row th,
+  .analysis-table .grand-total-row td{
+    background:#eaf0fb;
+    color:#101d35;
+    font-weight:950;
+  }
+  .pool-table col:nth-child(1){ width:17%; }
+  .pool-table col:nth-child(2){ width:49%; }
+  .pool-table col:nth-child(3){ width:12%; }
+  .pool-table col:nth-child(4){ width:10%; }
+  .pool-table col:nth-child(5){ width:12%; }
+  .admission-table col:nth-child(1){ width:17%; }
+  .admission-table col:nth-child(2){ width:22%; }
+  .admission-table col:nth-child(n+3){ width:12.2%; }
+  .admission-table .group-cell{ background:#f7f9fd; font-weight:950; }
+  .admission-table .univ-cell{ text-align:left; padding-left:14px; font-weight:900; background:#fbfcff; }
+  .admission-table .sum-cell{ font-weight:950; color:#111827; background:#f8fbff; }
+  .analysis-note{
+    margin:11px 2px 0;
+    color:#66758c;
+    font-size:12px;
+    line-height:1.65;
+    font-weight:650;
+    word-break:keep-all;
+  }
+  .analysis-note b{ color:#263b62; }
+  .analysis-mobile{ display:none; }
+  .analysis-mobile-group{
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:#fff;
+    overflow:hidden;
+    margin-bottom:9px;
+  }
+  .analysis-mobile-group:last-child{ margin-bottom:0; }
+  .analysis-mobile-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    padding:11px 12px;
+    background:#f4f7fd;
+    border-bottom:1px solid var(--line);
+    color:#172744;
+    font-size:13px;
+    font-weight:950;
+  }
+  .analysis-mobile-head span:last-child{ white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .pool-mobile-stats{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:0;
+    border-bottom:1px solid var(--line2);
+  }
+  .pool-mobile-stat{ padding:9px 5px; text-align:center; border-right:1px solid var(--line2); }
+  .pool-mobile-stat:last-child{ border-right:0; }
+  .pool-mobile-stat small{ display:block; color:#6b7890; font-size:9.5px; font-weight:800; }
+  .pool-mobile-stat strong{ display:block; margin-top:3px; color:#172744; font-size:12px; font-weight:950; }
+  .pool-mobile-schools{ padding:10px 12px 11px; color:#40506a; font-size:11.3px; line-height:1.55; font-weight:680; word-break:keep-all; }
+  .admission-mobile-row{ padding:10px 11px; border-bottom:1px solid var(--line2); }
+  .admission-mobile-row:last-child{ border-bottom:0; }
+  .admission-mobile-title{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:7px; }
+  .admission-mobile-title strong{ min-width:0; color:#172744; font-size:13.2px; font-weight:900; word-break:keep-all; }
+  .admission-mobile-title span{ flex:0 0 auto; color:#172744; font-size:11.5px; font-weight:950; white-space:nowrap; }
+  .admission-mobile-counts{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:5px; }
+  .admission-mobile-count{
+    min-width:0;
+    padding:6px 3px;
+    border:1px solid #e0e7f2;
+    border-radius:10px;
+    background:#fbfcff;
+    text-align:center;
+  }
+  .admission-mobile-count small{ display:block; color:#768297; font-size:9px; line-height:1; font-weight:800; }
+  .admission-mobile-count b{ display:block; margin-top:4px; color:#172744; font-size:12.2px; line-height:1; font-weight:950; font-variant-numeric:tabular-nums; }
+  .mobile-subtotal{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:4px; padding:9px 10px; background:#edf2fa; }
+  .mobile-subtotal div{ min-width:0; text-align:center; }
+  .mobile-subtotal small{ display:block; color:#66758c; font-size:8.5px; font-weight:800; }
+  .mobile-subtotal b{ display:block; margin-top:3px; color:#172744; font-size:10.5px; font-weight:950; }
+
+  @media (max-width:920px){
+    .analysis-summary{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; }
+    .analysis-stat{ padding:11px 9px; }
+    .analysis-stat span{ font-size:10.5px; }
+    .analysis-stat strong{ font-size:18px; }
+    .analysis-desktop{ display:none; }
+    .analysis-mobile{ display:block; }
+  }
+  @media (max-width:520px){
+    .analysis-section .section-title{ grid-template-columns:1fr !important; }
+    .analysis-section .data-year-label{ justify-self:start; margin-top:0; }
+    .analysis-summary{ grid-template-columns:1fr; gap:6px; }
+    .analysis-stat{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 11px; }
+    .analysis-stat span{ font-size:10.5px; }
+    .analysis-stat strong{ margin-top:0; font-size:16px; white-space:nowrap; }
+    .analysis-note{ font-size:10.8px; line-height:1.55; }
+  }
+</style>
+<style id="smartphone-layout-final">
+/* 스마트폰 최종 보정: 가로 스크롤 없이 카드형으로 읽히도록 구성 */
+html, body { max-width:100% !important; overflow-x:hidden !important; }
+.analysis-section .guide-desc strong { display:inline !important; }
+
+/* 대학별 고교유형: 모바일 카드 */
+.school-mobile-cards{ display:grid; gap:8px; width:100%; }
+.school-mobile-card{
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:#fff;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(31,49,81,.04);
+}
+.school-mobile-card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 12px;
+  background:#f4f7fd;
+  border-bottom:1px solid var(--line);
+}
+.school-mobile-card-head strong{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color:#0b1d3a;
+  font-size:12.8px;
+  line-height:1.2;
+  font-weight:900;
+}
+.school-mobile-card-head span{
+  flex:0 0 auto;
+  color:#172744;
+  font-size:10.5px;
+  line-height:1;
+  font-weight:900;
+  white-space:nowrap;
+}
+.school-mobile-type-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:0;
+}
+.school-mobile-type{
+  min-width:0;
+  padding:9px 2px 10px;
+  text-align:center;
+  border-right:1px solid var(--line2);
+}
+.school-mobile-type:last-child{ border-right:0; }
+.school-mobile-type small{
+  display:block;
+  color:#66758c;
+  font-size:9.5px;
+  line-height:1.05;
+  font-weight:800;
+  white-space:nowrap;
+}
+.school-mobile-type b{
+  display:block;
+  margin-top:4px;
+  color:#172744;
+  font-size:12px;
+  line-height:1.05;
+  font-weight:950;
+  font-variant-numeric:tabular-nums;
+}
+.school-mobile-type.zero b{ color:#a0a9b8; font-weight:750; }
+
+@media (max-width:920px){
+  body > .page, body > main.page{
+    width:calc(100% - 16px) !important;
+    max-width:none !important;
+  }
+  .panel.section{
+    padding:14px !important;
+    border-radius:18px !important;
+    margin-bottom:12px !important;
+  }
+  main.page > .panel.section .section-title{
+    grid-template-columns:minmax(0,1fr) auto !important;
+    gap:5px 8px !important;
+    align-items:start !important;
+    margin-bottom:10px !important;
+  }
+  main.page > .panel.section .section-title h2{
+    min-width:0;
+    font-size:20px !important;
+    line-height:1.22 !important;
+    white-space:normal !important;
+    word-break:keep-all !important;
+  }
+  .data-year-label{
+    max-width:145px;
+    white-space:normal !important;
+    text-align:right;
+    line-height:1.25 !important;
+  }
+  .guide-desc{
+    margin-bottom:10px !important;
+    padding:9px 10px !important;
+    font-size:11.8px !important;
+    line-height:1.5 !important;
+    border-radius:12px !important;
+    word-break:keep-all !important;
+  }
+  .mobile-list{
+    display:block !important;
+    width:100% !important;
+    overflow:visible !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+  }
+  .analysis-mobile-group{ border-radius:14px; margin-bottom:8px; }
+  .analysis-mobile-head{ padding:10px 11px; font-size:12.5px; line-height:1.25; }
+  .pool-mobile-stat{ padding:8px 4px; }
+  .pool-mobile-stat small{ font-size:9.2px; }
+  .pool-mobile-stat strong{ font-size:11.7px; }
+  .pool-mobile-schools{ padding:9px 11px 10px; font-size:10.5px; line-height:1.55; }
+  .admission-mobile-row{ padding:9px 10px; }
+  .admission-mobile-title{ margin-bottom:6px; }
+  .admission-mobile-title strong{ font-size:12.8px; }
+  .admission-mobile-title span{ font-size:10.5px; }
+  .admission-mobile-count{ padding:6px 2px; }
+  .admission-mobile-count small{ font-size:8.8px; }
+  .admission-mobile-count b{ font-size:11.8px; }
+  .mobile-subtotal{ padding:8px; }
+}
+
+@media (max-width:520px){
+  header.site-hero{
+    width:calc(100% - 16px) !important;
+    margin:8px auto !important;
+    padding:17px 16px 22px !important;
+    border-radius:17px !important;
+  }
+  header.site-hero h1{
+    font-size:24px !important;
+    line-height:1.12 !important;
+    letter-spacing:-.055em !important;
+  }
+  header.site-hero p{
+    margin-top:6px !important;
+    font-size:12px !important;
+    line-height:1.42 !important;
+  }
+  header.site-hero::after{
+    left:16px !important;
+    right:16px !important;
+    bottom:11px !important;
+  }
+  .global-menu-section{
+    width:calc(100% - 16px) !important;
+    margin:8px auto 10px !important;
+  }
+  .global-menu-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+    padding:8px !important;
+    border-radius:17px !important;
+  }
+  .global-menu-button{
+    min-height:38px !important;
+    padding:6px 7px !important;
+    font-size:11.5px !important;
+    line-height:1.15 !important;
+    white-space:nowrap !important;
+  }
+  body > .page, body > main.page{ width:calc(100% - 12px) !important; }
+  .panel.section{
+    padding:11px !important;
+    border-radius:16px !important;
+  }
+  main.page > .panel.section .section-title{
+    grid-template-columns:1fr !important;
+    gap:3px !important;
+  }
+  main.page > .panel.section .section-title h2{
+    font-size:18px !important;
+    line-height:1.22 !important;
+  }
+  .section-title h2::before{
+    width:24px !important;
+    height:24px !important;
+    flex-basis:24px !important;
+    font-size:14px !important;
+  }
+  .data-year-label{
+    justify-self:start !important;
+    max-width:none !important;
+    text-align:left !important;
+    font-size:9.7px !important;
+  }
+  .guide-desc{
+    padding:8px 9px !important;
+    font-size:11.2px !important;
+    line-height:1.48 !important;
+  }
+  .school-mobile-card-head{ padding:9px 10px; }
+  .school-mobile-card-head strong{ font-size:12.8px; }
+  .school-mobile-card-head span{ font-size:10.5px; }
+  .school-mobile-type{ padding:8px 0 9px; overflow:hidden; }
+  .school-mobile-type small{
+    font-size:clamp(8px, 2.15vw, 9.2px);
+    letter-spacing:-.04em;
+  }
+  .school-mobile-type b{
+    font-size:clamp(9px, 2.7vw, 11.5px);
+    letter-spacing:-.04em;
+    white-space:nowrap;
+  }
+  .analysis-summary{ grid-template-columns:1fr !important; gap:5px !important; }
+  .analysis-stat{ padding:8px 9px !important; }
+  .analysis-mobile-head{
+    align-items:flex-start;
+    padding:9px 10px;
+    font-size:11.8px;
+  }
+  .analysis-mobile-head span:first-child{ min-width:0; word-break:keep-all; }
+  .analysis-mobile-head span:last-child{ flex:0 0 auto; font-size:10.7px; }
+  .pool-mobile-stats{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .pool-mobile-schools{ font-size:10.7px; line-height:1.52; }
+  .admission-mobile-counts{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:3px; }
+  .admission-mobile-count b{ font-size:clamp(9px, 2.7vw, 11.8px); white-space:nowrap; }
+  .admission-mobile-title strong{ font-size:12.2px; }
+  .admission-mobile-title span{ font-size:10.4px; }
+  .mobile-subtotal{ gap:2px; padding:7px 5px; }
+  .mobile-subtotal small{ font-size:8px; }
+  .mobile-subtotal b{ font-size:9.8px; }
+  .analysis-note{ margin-top:9px !important; font-size:10.4px !important; line-height:1.52 !important; }
+}
+
+@media (max-width:360px){
+  header.site-hero h1{ font-size:22px !important; }
+  .global-menu-button{ font-size:11px !important; }
+  main.page > .panel.section .section-title h2{ font-size:17px !important; }
+  .school-mobile-card-head strong{ font-size:12.3px; }
+  .school-mobile-type small{ font-size:8px; }
+  .school-mobile-type b{ font-size:clamp(9px, 2.7vw, 10.7px); }
+  .admission-mobile-counts{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .mobile-subtotal{ grid-template-columns:repeat(5,minmax(0,1fr)); }
+}
+</style>
+<style id="cohort-size-style">
+/* 현재 학년별 전국 학생 규모: PC 2열 + 세로 막대그래프 */
+.cohort-section .section-title{ margin-bottom:10px !important; }
+.cohort-section .guide-desc{ margin-bottom:12px; }
+.cohort-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.cohort-pane,
+.cohort-chart{
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  box-shadow:var(--shadow-soft);
+  overflow:hidden;
+}
+.cohort-pane-head,
+.cohort-chart-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 12px 8px;
+  border-bottom:1px solid #e7edf6;
+  background:#fbfcff;
+}
+.cohort-pane-head h3,
+.cohort-chart-head h3{
+  margin:0;
+  color:#172744;
+  font-size:14.8px;
+  line-height:1.2;
+  font-weight:950;
+}
+.cohort-pane-head span,
+.cohort-chart-head span{
+  color:#5f6e86;
+  font-size:10.5px;
+  line-height:1.2;
+  font-weight:850;
+  white-space:nowrap;
+}
+.cohort-mini-table{
+  width:100%;
+  min-width:0 !important;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:12.8px;
+}
+.cohort-mini-table th,
+.cohort-mini-table td{
+  padding:7px 6px;
+  border-bottom:1px solid var(--line2);
+  text-align:center;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.cohort-mini-table thead th{
+  background:#f3f7fd;
+  color:#172744;
+  font-weight:950;
+}
+.cohort-mini-table tbody th{
+  background:#fbfcff;
+  color:#172643;
+  font-weight:900;
+}
+.cohort-mini-table .cohort-count{
+  color:#172744;
+  font-weight:950;
+}
+.cohort-mini-table tbody tr:last-child th,
+.cohort-mini-table tbody tr:last-child td{ border-bottom:0; }
+
+/* 세로 막대그래프 */
+.cohort-chart{ margin-top:10px; }
+.cohort-chart-body{ padding:14px 14px 12px; }
+.cohort-vbars{
+  height:170px;
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:7px;
+  align-items:end;
+  padding:2px 0 0;
+  border-bottom:1px solid #dfe6f1;
+}
+.cohort-vbar-item{
+  min-width:0;
+  height:100%;
+  display:grid;
+  grid-template-rows:minmax(0,1fr) auto;
+  align-items:end;
+  gap:4px;
+}
+.cohort-vbar-box{
+  height:100%;
+  min-height:0;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+.cohort-vbar-stack{
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  gap:4px;
+}
+.cohort-vbar-value{
+  color:#5b6880;
+  font-size:9px;
+  line-height:1;
+  font-weight:850;
+  text-align:center;
+  white-space:nowrap;
+  letter-spacing:-0.02em;
+  font-variant-numeric:tabular-nums;
+}
+.cohort-vbar{
+  width:min(32px,78%);
+  min-width:12px;
+  border-radius:7px 7px 2px 2px;
+  position:relative;
+  box-shadow:0 4px 10px rgba(31,49,81,.08);
+}
+.cohort-vbar.high{ background:linear-gradient(180deg,#172744 0%,#263b62 100%); }
+.cohort-vbar.middle{ background:linear-gradient(180deg,#334a79 0%,#556ba0 100%); }
+.cohort-vbar.elementary{ background:linear-gradient(180deg,#8092c9 0%,#a9b7df 100%); }
+.cohort-vbar-label{
+  color:#172744;
+  font-size:11.5px;
+  line-height:1;
+  font-weight:900;
+  text-align:center;
+  white-space:nowrap;
+}
+.cohort-chart-legend{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:10px;
+  color:#5f6e86;
+  font-size:10.5px;
+  font-weight:800;
+}
+.cohort-chart-legend span{ display:inline-flex; align-items:center; gap:5px; }
+.cohort-chart-legend i{ width:9px; height:9px; border-radius:3px; display:inline-block; }
+.cohort-chart-legend .high{ background:#263b62; }
+.cohort-chart-legend .middle{ background:#556ba0; }
+.cohort-chart-legend .elementary{ background:#a9b7df; }
+
+@media (max-width:920px){
+  .cohort-layout{ grid-template-columns:1fr 1fr; gap:8px; }
+  .cohort-mini-table{ font-size:12.2px; }
+  .cohort-mini-table th,
+  .cohort-mini-table td{ padding:8px 4px; }
+  .cohort-vbars{ height:170px; gap:5px; }
+  .cohort-vbar-value{ font-size:8.1px; }
+  .cohort-vbar-label{ font-size:10.5px; }
+}
+@media (max-width:620px){
+  .cohort-layout{ grid-template-columns:1fr; gap:9px; }
+  .cohort-pane-head,
+  .cohort-chart-head{ padding:10px 11px 9px; }
+  .cohort-pane-head h3,
+  .cohort-chart-head h3{ font-size:14.2px; }
+  .cohort-pane-head span,
+  .cohort-chart-head span{ font-size:10.2px; }
+  .cohort-mini-table{ font-size:12.3px; }
+  .cohort-mini-table th,
+  .cohort-mini-table td{ padding:8px 5px; }
+  .cohort-chart-body{ padding:10px 7px 10px; }
+  .cohort-vbars{ height:150px; gap:3px; padding-left:0; padding-right:0; }
+  .cohort-vbar{ width:72%; min-width:9px; border-radius:5px 5px 2px 2px; }
+  .cohort-vbar-value{ font-size:7.2px; letter-spacing:-.05em; }
+  .cohort-vbar-label{ font-size:9.7px; letter-spacing:-.05em; }
+  .cohort-chart-legend{ gap:8px; margin-top:8px; font-size:9.8px; }
+}
+@media (max-width:430px){
+  .cohort-section .guide-desc{ font-size:11.2px !important; }
+  .cohort-mini-table thead th:nth-child(2),
+  .cohort-mini-table tbody td:nth-child(2){ display:none; }
+  .cohort-mini-table{ font-size:11.7px; }
+  .cohort-mini-table th,
+  .cohort-mini-table td{ padding:7px 4px; }
+  .cohort-vbars{ height:135px; gap:2px; }
+  .cohort-vbar-value{ font-size:6.5px; }
+  .cohort-vbar-label{ font-size:9.1px; }
+}
+</style>
+<style id="admission-cumulative-fix">
+/* 2028 모집인원 누적합계 강조 */
+#admission2028 .guide-desc strong{
+  display:inline !important;
+  color:#172744;
+  font-weight:950;
+}
+#admission2028 .cumulative-row th,
+#admission2028 .cumulative-row td{
+  padding:8px 9px;
+  background:#fbfcff;
+  border-bottom:1px solid #dfe6f1;
+}
+#admission2028 .cumulative-row th{
+  text-align:right;
+  color:#66758c;
+  font-size:12.5px;
+  font-weight:800;
+}
+#admission2028 .cumulative-row td{
+  color:#172744;
+  background:#f7faff;
+  font-weight:950;
+}
+#admission2028 .mobile-cumulative{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:8px 11px;
+  border-top:1px solid #dfe6f1;
+  background:#fbfcff;
+}
+#admission2028 .mobile-cumulative span{
+  min-width:0;
+  color:#66758c;
+  font-size:10.5px;
+  line-height:1.25;
+  font-weight:800;
+  word-break:keep-all;
+}
+#admission2028 .mobile-cumulative strong{
+  flex:0 0 auto;
+  color:#172744;
+  font-size:12px;
+  line-height:1.2;
+  font-weight:950;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+@media (max-width:520px){
+  #admission2028 .guide-desc{ font-size:11.5px !important; line-height:1.45 !important; }
+  #admission2028 .mobile-cumulative{ padding:7px 9px; }
+  #admission2028 .mobile-cumulative span{ font-size:9.8px; }
+  #admission2028 .mobile-cumulative strong{ font-size:11.4px; }
+}
+</style>
+<style id="g2-competition-style">
+/* 현 고2 기준 주요 대학 진학 경쟁 규모 */
+#g2Competition .guide-desc{ margin-bottom:12px; }
+.competition-base,
+.competition-scenario{
+  width:100%;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+}
+.competition-base{ margin-bottom:10px; }
+.competition-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  table-layout:fixed;
+  font-size:14px;
+}
+.competition-table th,
+.competition-table td{
+  padding:10px 9px;
+  border-right:1px solid var(--line2);
+  border-bottom:1px solid var(--line2);
+  color:#172643;
+  text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+.competition-table th{
+  background:#f3f7fd;
+  color:#172744;
+  font-weight:950;
+}
+.competition-table td{ font-weight:850; }
+.competition-table tr:last-child th,
+.competition-table tr:last-child td{ border-bottom:0; }
+.competition-table th:last-child,
+.competition-table td:last-child{ border-right:0; }
+.competition-base .competition-table th:first-child{ width:34%; }
+.competition-base .competition-table td:nth-child(2){ width:22%; font-weight:950; color:#172744; }
+.competition-base .competition-table td:last-child{ text-align:left; color:#56647b; font-weight:700; }
+.competition-scenario .competition-table thead th:nth-child(1){ width:29%; }
+.competition-scenario .competition-table thead th:nth-child(2){ width:39%; }
+.competition-scenario .competition-table thead th:nth-child(3){ width:32%; }
+.competition-scenario .competition-table tbody td:last-child{ color:#172744; font-weight:950; }
+.competition-scenario .scenario-focus th,
+.competition-scenario .scenario-focus td{ background:#eef3fb; }
+.competition-method{
+  margin:9px 2px 0;
+  color:#66758c;
+  font-size:11.5px;
+  line-height:1.55;
+  font-weight:650;
+  word-break:keep-all;
+}
+.competition-method b{ color:#263b62; }
+@media (max-width:620px){
+  .competition-table{ font-size:11.5px; }
+  .competition-table th,
+  .competition-table td{ padding:8px 5px; line-height:1.35; white-space:normal; word-break:keep-all; }
+  .competition-base .competition-table th:first-child{ width:31%; }
+  .competition-base .competition-table td:nth-child(2){ width:25%; }
+  .competition-method{ font-size:10.4px; line-height:1.5; }
+}
+@media (max-width:390px){
+  .competition-table{ font-size:10.5px; }
+  .competition-table th,
+  .competition-table td{ padding:7px 4px; }
+}
+</style>
+<style>
+.competition-mobile{display:none}
+@media(max-width:620px){
+  #g2Competition .analysis-table-wrap{display:none}
+  .competition-mobile{display:grid;gap:8px}
+  .competition-mobile>div{display:grid;gap:4px;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+  .competition-mobile b{font-size:13px;color:#172744}
+  .competition-mobile span{font-size:11.5px;color:#41516b;line-height:1.45}
+}
+</style><style id="arts-tables-responsive">
+#admission2028 .arts-table-wrap, #g2Competition .arts-table-wrap {overflow-x:auto; -webkit-overflow-scrolling:touch}
+#admission2028 .arts-table, #g2Competition .arts-competition-table {width:100%; table-layout:fixed; min-width:0}
+#admission2028 .arts-table th, #admission2028 .arts-table td,
+#g2Competition .arts-competition-table th, #g2Competition .arts-competition-table td {font-variant-numeric:tabular-nums; white-space:nowrap; text-align:center}
+#g2Competition .arts-competition-table thead th {white-space:normal; overflow-wrap:anywhere; line-height:1.25}
+#admission2028 .arts-table thead th {white-space:normal; overflow-wrap:anywhere; line-height:1.25}
+#admission2028 .arts-table col:nth-child(1) {width:12%}
+#admission2028 .arts-table col:nth-child(2) {width:18%}
+#admission2028 .arts-table col:nth-child(n+3):nth-child(-n+6) {width:8.5%}
+#admission2028 .arts-table col:nth-child(7) {width:9%}
+#admission2028 .arts-table col:nth-child(n+8) {width:13.5%}
+#admission2028 .arts-table .univ-cell, #admission2028 .arts-table .subtotal-row th {white-space:normal; overflow-wrap:anywhere; line-height:1.25}
+#admission2028 .arts-table th.univ-cell {text-align:center;padding-left:3px;padding-right:3px}
+#admission2028 .arts-table .cumulative-cell {background:#f8fbff;color:#153e75;font-weight:950}
+#admission2028 .arts-table .subtotal-row .cumulative-cell,
+#admission2028 .arts-table .grand-total-row .cumulative-cell {background:#e0ecff;color:#123b75}
+#g2Competition .arts-competition-table th:first-child {width:23%}
+#g2Competition .arts-competition-table th:not(:first-child) {width:15.4%}
+#g2Competition .competition-subtitle {font-size:15px;margin:18px 0 9px;color:#172744}
+#g2Competition .general-seats-table td:nth-last-child(-n+3) {background:#f1f7ff;color:#153e75}
+#g2Competition .general-seats-table th:nth-child(1) {width:18%}
+#g2Competition .general-seats-table th:nth-child(2) {width:11%}
+#g2Competition .general-seats-table th:nth-child(3),
+#g2Competition .general-seats-table th:nth-child(8) {width:12%}
+#g2Competition .general-seats-table th:nth-child(4) {width:13%}
+#g2Competition .general-seats-table th:nth-child(7) {width:14%}
+#g2Competition .general-seats-table th:nth-child(5),
+#g2Competition .general-seats-table th:nth-child(6) {width:10%}
+#g2Competition .general-seats-table td {white-space:normal;overflow-wrap:anywhere;line-height:1.25}
+#admission2028 .arts-table .univ-cell a {color:inherit; text-decoration:underline; text-decoration-color:#b7c8d7}
+@media(max-width:700px) {
+  #admission2028 .analysis-desktop, #admission2028 .arts-table-wrap,
+  #g2Competition .arts-table-wrap {display:block}
+  #admission2028 .arts-table, #g2Competition .arts-competition-table {font-size:clamp(9px,2.15vw,12px)}
+  #admission2028 .arts-table th, #admission2028 .arts-table td,
+  #g2Competition .arts-competition-table th, #g2Competition .arts-competition-table td {padding:6px 3px;letter-spacing:-.04em}
+  #admission2028 .arts-table .group-cell {white-space:normal; overflow-wrap:anywhere; line-height:1.25}
+  #g2Competition .arts-competition-table tbody th {white-space:normal; line-height:1.25}
+}
+@media(max-width:390px) {
+  #admission2028 .arts-table {font-size:8px}
+  #g2Competition .arts-competition-table {font-size:8px}
+  #admission2028 .arts-table th, #admission2028 .arts-table td,
+  #g2Competition .arts-competition-table th, #g2Competition .arts-competition-table td {padding:5px 2px}
+}
+</style>
+<style id="all-admissions-tables-mobile">
+/* 고교유형 입학자 수와 상위권 학교군은 좁은 화면에서도 같은 표로 표시한다. */
+@media (max-width:920px) {
+  .highschool-table-wrap,
+  #upperStudentPool .analysis-table-wrap.analysis-desktop {
+    display:block !important;
+    overflow-x:hidden;
+  }
+  #mobileList,
+  #upperStudentPool .analysis-mobile {display:none !important}
+
+  #dataTable,
+  #upperStudentPool .pool-table {width:100%; min-width:0; table-layout:fixed}
+  #dataTable {font-size:clamp(8px,1.4vw,12px)}
+  #dataTable thead th:first-child {width:24%}
+  #dataTable thead th:nth-child(2) {width:12%}
+  #dataTable thead th:nth-child(n+3) {width:12.8%}
+  #dataTable th,
+  #dataTable td,
+  #upperStudentPool .pool-table th,
+  #upperStudentPool .pool-table td {
+    padding:6px 2px;
+    white-space:normal;
+    overflow-wrap:anywhere;
+    line-height:1.25;
+    text-align:center;
+  }
+  #upperStudentPool .pool-table {font-size:clamp(8px,1.5vw,12px)}
+  #upperStudentPool .pool-table col:nth-child(1) {width:16%}
+  #upperStudentPool .pool-table col:nth-child(2) {width:45%}
+  #upperStudentPool .pool-table col:nth-child(3) {width:12%}
+  #upperStudentPool .pool-table col:nth-child(4) {width:11%}
+  #upperStudentPool .pool-table col:nth-child(5) {width:16%}
+  #upperStudentPool .pool-table td.school-detail {
+    text-align:left;
+    overflow-wrap:anywhere;
+    word-break:keep-all;
+  }
+}
+@media (max-width:390px) {
+  #dataTable,
+  #upperStudentPool .pool-table {font-size:8px}
+  #dataTable th,
+  #dataTable td,
+  #upperStudentPool .pool-table th,
+  #upperStudentPool .pool-table td {padding:5px 2px}
+}
+</style>
+
+<style id="final-compact-table-style">
+  /* 표 세로 길이 축소: 좌우 여백은 유지하고 위·아래 패딩만 줄임 */
+  .table-wrap table thead th,
+  .analysis-table thead th {
+    padding-top:8px !important;
+    padding-bottom:8px !important;
+  }
+  .table-wrap table tbody th,
+  .table-wrap table tbody td,
+  .analysis-table tbody th,
+  .analysis-table tbody td {
+    padding-top:8px !important;
+    padding-bottom:8px !important;
+  }
+
+  /* 학년별 학생 규모만 작아 보이던 글자 크기를 다른 표와 비슷하게 보정 */
+  .cohort-mini-table {
+    font-size:14px !important;
+  }
+  .cohort-mini-table th,
+  .cohort-mini-table td {
+    padding-top:6px !important;
+    padding-bottom:6px !important;
+  }
+  .cohort-pane-head h3,
+  .cohort-chart-head h3 {
+    font-size:15px !important;
+  }
+  .cohort-vbar-value {
+    font-size:9.8px !important;
+  }
+  .cohort-vbar-label {
+    font-size:11.8px !important;
+  }
+  .cohort-chart-legend {
+    font-size:11px !important;
+  }
+
+  /* 모바일 표도 행 높이가 과도하게 길어지지 않도록 세로 여백 축소 */
+  @media (max-width:920px) {
+    .mobile-table-head > div {
+      padding-top:8px !important;
+      padding-bottom:8px !important;
+    }
+    .mobile-table-row {
+      min-height:44px !important;
+    }
+    .mobile-table-row > div {
+      padding-top:7px !important;
+      padding-bottom:7px !important;
+    }
+    .cohort-mini-table {
+      font-size:13.2px !important;
+    }
+    .cohort-mini-table th,
+    .cohort-mini-table td {
+      padding-top:6px !important;
+      padding-bottom:6px !important;
+    }
+    .cohort-vbar-value { font-size:8.5px !important; }
+    .cohort-vbar-label { font-size:10.8px !important; }
+  }
+
+  @media (max-width:520px) {
+    .cohort-mini-table {
+      font-size:12.5px !important;
+    }
+    .cohort-vbar-value { font-size:7.3px !important; }
+    .cohort-vbar-label { font-size:9.8px !important; }
+  }
+</style>
+
+
+
+<style id="school-table-total-style">
+  #dataTable tfoot th,
+  #dataTable tfoot td{
+    padding:9px 8px !important;
+    border-right:1px solid #dfe6f1;
+    border-top:1px solid #d5deec;
+    border-bottom:0;
+    text-align:center;
+    font-variant-numeric:tabular-nums;
+  }
+  #dataTable tfoot th:last-child,
+  #dataTable tfoot td:last-child{ border-right:0; }
+
+  #dataTable tfoot .school-total-row th,
+  #dataTable tfoot .school-total-row td{
+    background:#edf2fa;
+    color:#172744;
+    font-weight:950;
+  }
+
+  #dataTable tfoot .school-group-total-row td{
+    padding:8px 10px !important;
+    background:#f8faff;
+  }
+
+  .school-group-total-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+
+  .school-group-total-item{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    min-width:0;
+    color:#3f4f68;
+    font-size:12.5px;
+    font-weight:800;
+    white-space:nowrap;
+  }
+
+  .school-group-total-item b{
+    color:#172744;
+    font-size:13.5px;
+    font-weight:950;
+  }
+
+  .school-mobile-summary{
+    margin-top:8px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    background:#fff;
+  }
+
+  .school-mobile-summary-main{
+    display:grid;
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    background:#edf2fa;
+  }
+
+  .school-mobile-summary-main > div{
+    min-width:0;
+    padding:8px 2px;
+    text-align:center;
+    border-right:1px solid #dfe6f1;
+  }
+
+  .school-mobile-summary-main > div:last-child{ border-right:0; }
+
+  .school-mobile-summary-main small{
+    display:block;
+    color:#66758c;
+    font-size:8.8px;
+    line-height:1.05;
+    font-weight:800;
+    white-space:nowrap;
+  }
+
+  .school-mobile-summary-main b{
+    display:block;
+    margin-top:3px;
+    color:#172744;
+    font-size:10.8px;
+    line-height:1.05;
+    font-weight:950;
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+
+  .school-mobile-group-total{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border-top:1px solid #dfe6f1;
+    background:#f8faff;
+  }
+
+  .school-mobile-group-total > div{
+    padding:8px 6px;
+    text-align:center;
+    color:#56657b;
+    font-size:10px;
+    font-weight:800;
+  }
+
+  .school-mobile-group-total > div:first-child{
+    border-right:1px solid #dfe6f1;
+  }
+
+  .school-mobile-group-total b{
+    margin-left:4px;
+    color:#172744;
+    font-size:11.2px;
+    font-weight:950;
+    white-space:nowrap;
+  }
+
+  @media (max-width:520px){
+    #dataTable tfoot th,
+    #dataTable tfoot td{ padding-top:7px !important; padding-bottom:7px !important; }
+    .school-group-total-wrap{ gap:10px; }
+  }
+</style>
+
+
+<style id="institute-row-style">
+  #dataTable tbody tr.institute-row th,
+  #dataTable tbody tr.institute-row td{
+    background:#f7f9ff;
+  }
+  #dataTable tbody tr.institute-row th{
+    color:#172744;
+    font-weight:950;
+  }
+  #dataTable tbody tr.institute-row:first-child th,
+  #dataTable tbody tr.institute-row:first-child td{
+    border-top:2px solid #cfd9eb;
+  }
+  .mobile-table-row.institute-row,
+  .school-mobile-card.institute-row{
+    background:#f7f9ff;
+  }
+  .school-mobile-card.institute-row .school-mobile-card-head{
+    background:#f3f6ff;
+  }
+  .institute-data-note{
+    margin-top:8px;
+    line-height:1.45;
+  }
+  .institute-data-note a{
+    color:#263b62;
+    font-weight:850;
+    text-decoration:underline;
+    text-underline-offset:2px;
+  }
+</style>
+
+
+<style id="missing-highschool-data-style">
+  #dataTable tbody tr.unavailable-row th,
+  #dataTable tbody tr.unavailable-row td{
+    background:#fbfcfe;
+    color:#8a96a8;
+  }
+  #dataTable tbody tr.unavailable-row th{
+    font-weight:850;
+  }
+  .data-missing-label{
+    display:block;
+    margin-top:2px;
+    color:#8b97a8;
+    font-size:9.5px;
+    line-height:1.1;
+    font-weight:700;
+  }
+  .data-missing-cell{
+    color:#a0a9b6 !important;
+    font-weight:750 !important;
+  }
+  .school-mobile-card.unavailable-row{
+    background:#fbfcfe;
+  }
+  .school-mobile-card.unavailable-row .school-mobile-card-head{
+    background:#f8fafc;
+  }
+  .school-mobile-card.unavailable-row .school-mobile-card-head span{
+    color:#8b97a8;
+  }
+</style>
 
 </head>
 <body>
-<header class="site-hero" aria-label="페이지 제목">
-  <h1>학생부종합 고교유형별 입학자 수</h1>
-  <p>대학별 학생부종합전형 입학생의 고교유형 분포를 확인해 지원 전략에 참고합니다.</p>
+<header aria-label="페이지 제목" class="site-hero">
+<h1>학생부종합 고교유형별 입학자 수</h1>
+<p>대학별 학생부종합전형 입학생의 고교유형 분포를 확인해 지원 전략에 참고합니다.</p>
 </header>
-<section class="global-menu-section" aria-label="전체 페이지 메뉴">
-  <div class="global-menu-grid">
-    <a class="global-menu-button" href="index.html#inputSection">내신입력 예측</a>
-    <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
-    <a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a>
-    <a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
-    <a class="global-menu-button" href="grade_converter.html">5→9등급 환산</a>
-    <a class="global-menu-button active" href="student_admission_by_highschool_type.html" aria-current="page">학종 고교유형</a>
-    <a class="global-menu-button" href="major_guide.html">전공 가이드</a>
-  </div>
+<section aria-label="전체 페이지 메뉴" class="global-menu-section">
+<div class="global-menu-grid">
+<a class="global-menu-button" href="index.html#inputSection">내신입력 예측</a>
+<a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
+<a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a>
+<a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
+<a class="global-menu-button" href="grade_converter.html">5→9등급 환산</a>
+<a aria-current="page" class="global-menu-button active" href="student_admission_by_highschool_type.html">학종 고교유형</a>
+<a class="global-menu-button" href="major_guide.html">전공 가이드</a>
+</div>
 </section>
 <main class="page">
-  <section class="panel section">
-    <div class="section-title">
-      <h2>대학별 고교유형 입학자 수</h2>
-      <div class="data-year-label">2025학년도 입학생 기준 자료</div>
+<section class="panel section cohort-section" id="cohortSize">
+<div class="section-title">
+<h2>현재 학년별 전국 학생 규모</h2>
+<div class="data-year-label">2026년 현재 · 초1~고3</div>
+</div>
+<div class="guide-desc">
+      초1부터 고3까지 학년별 학생 수와 예상 대학 입학 학년을 비교할 수 있도록 정리했습니다.
     </div>
-    <div class="guide-desc">
-      상위권 학생부종합전형은 특목고·자사고 입학자 비중이 높은 대학이 있습니다. 일반고 학생은 고교유형별 입학자 수와 입결 등급을 함께 확인해 지원 가능성을 판단하는 자료로 활용하세요.
+<div class="cohort-layout">
+  <div class="cohort-pane">
+    <div class="cohort-pane-head"><h3>중·고등학교</h3><span>고3~중1</span></div>
+    <table class="cohort-mini-table">
+      <colgroup><col style="width:16%"/><col style="width:20%"/><col style="width:28%"/><col style="width:36%"/></colgroup>
+      <thead><tr><th>학년</th><th>출생연도</th><th>대학 입학</th><th>학생 수</th></tr></thead>
+      <tbody>
+        <tr><th>고3</th><td>2008년생</td><td>2027학년도</td><td class="cohort-count">430,520명</td></tr>
+        <tr><th>고2</th><td>2009년생</td><td>2028학년도</td><td class="cohort-count">425,400명</td></tr>
+        <tr><th>고1</th><td>2010년생</td><td>2029학년도</td><td class="cohort-count">448,999명</td></tr>
+        <tr><th>중3</th><td>2011년생</td><td>2030학년도</td><td class="cohort-count">453,555명</td></tr>
+        <tr><th>중2</th><td>2012년생</td><td>2031학년도</td><td class="cohort-count">467,802명</td></tr>
+        <tr><th>중1</th><td>2013년생</td><td>2032학년도</td><td class="cohort-count">423,410명</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cohort-pane">
+    <div class="cohort-pane-head"><h3>초등학교</h3><span>초1~초6</span></div>
+    <table class="cohort-mini-table">
+      <colgroup><col style="width:16%"/><col style="width:20%"/><col style="width:28%"/><col style="width:36%"/></colgroup>
+      <thead><tr><th>학년</th><th>출생연도</th><th>대학 입학</th><th>학생 수</th></tr></thead>
+      <tbody>
+        <tr><th>초1</th><td>2019년생</td><td>2038학년도</td><td class="cohort-count">301,341명</td></tr>
+        <tr><th>초2</th><td>2018년생</td><td>2037학년도</td><td class="cohort-count">324,040명</td></tr>
+        <tr><th>초3</th><td>2017년생</td><td>2036학년도</td><td class="cohort-count">350,945명</td></tr>
+        <tr><th>초4</th><td>2016년생</td><td>2035학년도</td><td class="cohort-count">398,003명</td></tr>
+        <tr><th>초5</th><td>2015년생</td><td>2034학년도</td><td class="cohort-count">426,836명</td></tr>
+        <tr><th>초6</th><td>2014년생</td><td>2033학년도</td><td class="cohort-count">422,254명</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="cohort-chart" aria-label="학년별 학생 수 세로 막대그래프">
+  <div class="cohort-chart-head"><h3>학년별 학생 수 비교</h3><span>막대 높이 = 학생 수</span></div>
+  <div class="cohort-chart-body">
+    <div class="cohort-vbars">
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">430,520명</div><div class="cohort-vbar high" style="height:92.0%" title="고3 430,520명"></div></div></div><div class="cohort-vbar-label">고3</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">425,400명</div><div class="cohort-vbar high" style="height:90.9%" title="고2 425,400명"></div></div></div><div class="cohort-vbar-label">고2</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">448,999명</div><div class="cohort-vbar high" style="height:96.0%" title="고1 448,999명"></div></div></div><div class="cohort-vbar-label">고1</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">453,555명</div><div class="cohort-vbar middle" style="height:96.9%" title="중3 453,555명"></div></div></div><div class="cohort-vbar-label">중3</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">467,802명</div><div class="cohort-vbar middle" style="height:100%" title="중2 467,802명"></div></div></div><div class="cohort-vbar-label">중2</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">423,410명</div><div class="cohort-vbar middle" style="height:90.5%" title="중1 423,410명"></div></div></div><div class="cohort-vbar-label">중1</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">422,254명</div><div class="cohort-vbar elementary" style="height:90.3%" title="초6 422,254명"></div></div></div><div class="cohort-vbar-label">초6</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">426,836명</div><div class="cohort-vbar elementary" style="height:91.2%" title="초5 426,836명"></div></div></div><div class="cohort-vbar-label">초5</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">398,003명</div><div class="cohort-vbar elementary" style="height:85.1%" title="초4 398,003명"></div></div></div><div class="cohort-vbar-label">초4</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">350,945명</div><div class="cohort-vbar elementary" style="height:75.0%" title="초3 350,945명"></div></div></div><div class="cohort-vbar-label">초3</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">324,040명</div><div class="cohort-vbar elementary" style="height:69.3%" title="초2 324,040명"></div></div></div><div class="cohort-vbar-label">초2</div></div>
+      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">301,341명</div><div class="cohort-vbar elementary" style="height:64.4%" title="초1 301,341명"></div></div></div><div class="cohort-vbar-label">초1</div></div>
     </div>
-    <div class="table-wrap">
-      <table id="dataTable">
-        <thead>
-          <tr>
-            <th>대학/전형</th>
-            <th>총인원</th>
-            <th>영재고</th>
-            <th>과고</th>
-            <th>자사고</th>
-            <th>외고</th>
-            <th>일반고</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <div class="cohort-chart-legend"><span><i class="high"></i>고등학교</span><span><i class="middle"></i>중학교</span><span><i class="elementary"></i>초등학교</span></div>
+  </div>
+</div>
+</section>
+<section class="panel section">
+<div class="section-title">
+<h2>대학별 학생부종합전형 고교유형 입학자 수</h2>
+<div class="data-year-label">2025학년도 입학생 기준 자료</div>
+</div>
+
+<div class="table-wrap highschool-table-wrap">
+<table id="dataTable">
+<thead>
+<tr>
+<th>대학</th>
+<th>총인원</th>
+<th>영재고</th>
+<th>과고</th>
+<th>자사고</th>
+<th>외고</th>
+<th>일반고</th>
+</tr>
+</thead>
+<tbody></tbody>
+<tfoot id="schoolTotalFoot"></tfoot>
+</table>
+</div>
+<div class="mobile-list" id="mobileList"></div>
+<p class="note institute-data-note">
+  ※ 과기·특성화대 6곳은
+  <a href="https://major-research.tistory.com/entry/2025%ED%95%99%EB%85%84%EB%8F%84-%EA%B3%BC%EA%B8%B0%EC%9B%90-%EC%88%98%EC%8B%9C-%EC%A0%84%ED%98%95%EB%B3%84-%EC%8B%A0%EC%9E%85%EC%83%9D-%EA%B3%A0%EA%B5%90-%EC%9C%A0%ED%98%95-%EC%84%B8%EB%B6%80-%EB%B6%84%EC%84%9D-%EC%9E%90%EB%A3%8C-%EB%B9%84%EC%9D%BC%EB%B0%98%EA%B3%A0-%EB%8C%80%ED%95%99-%EC%A7%84%ED%95%99-%EC%9C%A0%EB%B6%88%EB%A6%AC" target="_blank" rel="noopener">2025학년도 정원 내 수시 학생부종합전형 최종 등록자</a> 기준입니다.
+</p>
+<p class="note">한양대 ERICA는 <a href="https://goerica.hanyang.ac.kr/upload/BBS0062/20250514160613TDQ4L5.PDF" target="_blank" rel="noopener">2025학년도 공식 입시결과(24쪽)</a>의 정원 내 일반전형 학종 최종등록자 기준입니다. 원자료의 과학고·영재고 5명은 분리하지 않았으며, 아래 과고·영재고 각각의 합계에서는 빼고 특목고 합계에는 한 번만 더했습니다. 총인원에는 다른 고교유형 6명도 포함됩니다.</p>
+</section>
+<section class="panel section analysis-section" id="upperStudentPool">
+<div class="section-title">
+<h2>상위권 대학 진학 경쟁군 규모</h2>
+
+</div>
+<div class="guide-desc">
+      전체 23,315명을 기준으로 학교군별 비율을 적용해 <strong>상위권 대학 지원 경쟁군을 약 15,600명으로 가정</strong>했습니다.
     </div>
-    <div class="mobile-list" id="mobileList"></div>
-  </section>
-  <footer class="unified-footer">학생부종합 고교유형별 입학자 수 [ 송도이샘로봇 ]</footer>
+<div class="analysis-table-wrap analysis-desktop">
+<table class="analysis-table pool-table">
+<colgroup><col/><col/><col/><col/><col/></colgroup>
+<thead><tr><th>학교군</th><th>학교별 한 학년 인원</th><th>인원계</th><th>적용 비율</th><th>비율 적용 인원</th></tr></thead>
+<tbody>
+<tr><th>영재학교</th><td class="school-detail">한국과학영재학교 120 · 서울과학고 120 · 경기과학고 120 · 대전과학고 90 · 대구과학고 90 · 광주과학고 90 · 세종과학예술영재학교 84 · 인천과학예술영재학교 75</td><td>789</td><td>100%</td><td class="sum-cell">789</td></tr><tr><th>상위권 과고</th><td class="school-detail">세종과고 160 · 한성과고 140 · 경기북과고 100 · 경남과고 100 · 부산과고 90 · 대전동신과고 80</td><td>670</td><td>100%</td><td class="sum-cell">670</td></tr><tr><th>기타 과고</th><td class="school-detail">부산일과고 90 · 대구일과고 80 · 인천과고 80 · 인천진산과고 80 · 전북과고 80 · 창원과고 80 · 울산과고 72 · 전남과고 72 · 충남과고 64 · 강원과고 60 · 경북과고 60 · 경산과고 60 · 충북과고 54 · 제주과고 40</td><td>972</td><td>100%</td><td class="sum-cell">972</td></tr><tr><th>전국단위 자사고</th><td class="school-detail">북일고 360 · 외대부고 350 · 상산고 336 · 포항제철고 300 · 광양제철고 240 · 김천고 240 · 인천하늘고 225 · 하나고 200 · 현대청운고 180 · 민족사관고 160</td><td>2,591</td><td>100%</td><td class="sum-cell">2,591</td></tr><tr><th>상위권 지역자사고</th><td class="school-detail">휘문고 490 · 배재고 455 · 보인고 432 · 중동고 432 · 세화고 420 · 현대고 420 · 양정고 420 · 선덕고 385 · 안산동산고 360 · 충남삼성고 360 · 대전대성고 350 · 인천포스코고 240</td><td>4,764</td><td>70%</td><td class="sum-cell">약 3,335</td></tr><tr><th>기타 지역자사고</th><td class="school-detail">세화여고 420 · 이화여고 420 · 한대부고 385 · 신일고 350 · 중앙고 350 · 대전대신고 350 · 계성고 300 · 경희고 288 · 부일고 240 · 해운대고 180</td><td>3,283</td><td>45%</td><td class="sum-cell">약 1,477</td></tr><tr><th>상위권 외고</th><td class="school-detail">대원외고 250 · 대일외고 250 · 명덕외고 250 · 한영외고 250 · 고양외고 260 · 부산외고 250</td><td>1,510</td><td>70%</td><td class="sum-cell">1,057</td></tr><tr><th>기타 외고</th><td class="school-detail">경기외고 208 · 과천외고 260 · 김포외고 208 · 동두천외고 200 · 성남외고 200 · 수원외고 200 · 안양외고 260 · 서울외고 250 · 이화외고 150 · 경남외고 200 · 김해외고 125 · 경북외고 125 · 대구외고 120 · 대전외고 250 · 울산외고 175 · 미추홀외고 192 · 인천외고 225 · 전남외고 110 · 전북외고 160 · 제주외고 100 · 충남외고 140 · 충북외고 154</td><td>4,012</td><td>45%</td><td class="sum-cell">약 1,805</td></tr><tr><th>국제고</th><td class="school-detail">고양국제고 200 · 동탄국제고 200 · 부산국제고 160 · 서울국제고 150 · 인천국제고 138 · 대구국제고 120 · 청심국제고 104 · 세종국제고 100</td><td>1,172</td><td>60%</td><td class="sum-cell">703</td></tr><tr><th>주요 전국모집 자율학교</th><td class="school-detail">공주사대부고 약 150 · 한일고 약 125 · 거창대성고 약 154 · 거창고 약 90 · 남해해성고 약 88 · 창녕옥야고 약 96 · 풍산고 약 100 · 익산고 약 127</td><td>약 930</td><td>70%</td><td class="sum-cell">약 651</td></tr><tr><th>최상위 일반고</th><td class="school-detail">단대부고 381 · 낙생고 268 · 화성고 300 · 강서고 287 · 상문고 420 · 숙명여고 371 · 중산고 300 · 진선여고 295</td><td>2,622</td><td>60%</td><td class="sum-cell">약 1,573</td></tr>
+<tr class="grand-total-row"><th>전체</th><td class="school-detail">영재고·과고·자사고·외고·국제고·전국모집 자율학교·최상위 일반고</td><td>약 23,315</td><td>—</td><td>약 15,600</td></tr>
+</tbody>
+</table>
+</div>
+<div class="analysis-mobile">
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>영재학교</span><span>789명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>789명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>100%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>789명</strong></div>
+</div>
+<div class="pool-mobile-schools">한국과학영재학교 120 · 서울과학고 120 · 경기과학고 120 · 대전과학고 90 · 대구과학고 90 · 광주과학고 90 · 세종과학예술영재학교 84 · 인천과학예술영재학교 75</div>
+</article>
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>상위권 과고</span><span>670명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>670명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>100%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>670명</strong></div>
+</div>
+<div class="pool-mobile-schools">세종과고 160 · 한성과고 140 · 경기북과고 100 · 경남과고 100 · 부산과고 90 · 대전동신과고 80</div>
+</article>
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>기타 과고</span><span>972명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>972명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>100%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>972명</strong></div>
+</div>
+<div class="pool-mobile-schools">부산일과고 90 · 대구일과고 80 · 인천과고 80 · 인천진산과고 80 · 전북과고 80 · 창원과고 80 · 울산과고 72 · 전남과고 72 · 충남과고 64 · 강원과고 60 · 경북과고 60 · 경산과고 60 · 충북과고 54 · 제주과고 40</div>
+</article>
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>전국단위 자사고</span><span>2,591명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>2,591명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>100%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>2,591명</strong></div>
+</div>
+<div class="pool-mobile-schools">북일고 360 · 외대부고 350 · 상산고 336 · 포항제철고 300 · 광양제철고 240 · 김천고 240 · 인천하늘고 225 · 하나고 200 · 현대청운고 180 · 민족사관고 160</div>
+</article>
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>상위권 지역자사고</span><span>약 3,335명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>4,764명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>70%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>약 3,335명</strong></div>
+</div>
+<div class="pool-mobile-schools">휘문고 490 · 배재고 455 · 보인고 432 · 중동고 432 · 세화고 420 · 현대고 420 · 양정고 420 · 선덕고 385 · 안산동산고 360 · 충남삼성고 360 · 대전대성고 350 · 인천포스코고 240</div>
+</article>
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>기타 지역자사고</span><span>약 1,477명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>3,283명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>45%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>약 1,477명</strong></div>
+</div>
+<div class="pool-mobile-schools">세화여고 420 · 이화여고 420 · 한대부고 385 · 신일고 350 · 중앙고 350 · 대전대신고 350 · 계성고 300 · 경희고 288 · 부일고 240 · 해운대고 180</div>
+</article>
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>상위권 외고</span><span>1,057명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>1,510명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>70%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>1,057명</strong></div>
+</div>
+<div class="pool-mobile-schools">대원외고 250 · 대일외고 250 · 명덕외고 250 · 한영외고 250 · 고양외고 260 · 부산외고 250</div>
+</article>
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>기타 외고</span><span>약 1,805명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>4,012명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>45%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>약 1,805명</strong></div>
+</div>
+<div class="pool-mobile-schools">경기외고 208 · 과천외고 260 · 김포외고 208 · 동두천외고 200 · 성남외고 200 · 수원외고 200 · 안양외고 260 · 서울외고 250 · 이화외고 150 · 경남외고 200 · 김해외고 125 · 경북외고 125 · 대구외고 120 · 대전외고 250 · 울산외고 175 · 미추홀외고 192 · 인천외고 225 · 전남외고 110 · 전북외고 160 · 제주외고 100 · 충남외고 140 · 충북외고 154</div>
+</article>
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>국제고</span><span>703명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>1,172명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>60%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>703명</strong></div>
+</div>
+<div class="pool-mobile-schools">고양국제고 200 · 동탄국제고 200 · 부산국제고 160 · 서울국제고 150 · 인천국제고 138 · 대구국제고 120 · 청심국제고 104 · 세종국제고 100</div>
+</article>
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>주요 전국모집 자율학교</span><span>약 651명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>약 930명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>70%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>약 651명</strong></div>
+</div>
+<div class="pool-mobile-schools">공주사대부고 약 150 · 한일고 약 125 · 거창대성고 약 154 · 거창고 약 90 · 남해해성고 약 88 · 창녕옥야고 약 96 · 풍산고 약 100 · 익산고 약 127</div>
+</article>
+<article class="analysis-mobile-group">
+<div class="analysis-mobile-head"><span>최상위 일반고</span><span>약 1,573명</span></div>
+<div class="pool-mobile-stats">
+<div class="pool-mobile-stat"><small>한 학년</small><strong>2,622명</strong></div>
+<div class="pool-mobile-stat"><small>적용 비율</small><strong>60%</strong></div>
+<div class="pool-mobile-stat"><small>적용 인원</small><strong>약 1,573명</strong></div>
+</div>
+<div class="pool-mobile-schools">단대부고 381 · 낙생고 268 · 화성고 300 · 강서고 287 · 상문고 420 · 숙명여고 371 · 중산고 300 · 진선여고 295</div>
+</article></div>
+
+</section>
+<section class="panel section analysis-section" id="admission2028">
+<div class="section-title"><h2>2028학년도 주요 대학 모집인원(예체능 제외)</h2><div class="data-year-label">대학별 2028학년도 시행계획</div></div>
+<div class="guide-desc">예체능 제외 합계는 대학별 2028학년도 시행계획의 정원 내 모집인원 기준입니다. 대학명을 누르면 원문을 볼 수 있습니다.</div>
+<div class="analysis-table-wrap arts-table-wrap"><table class="analysis-table admission-table arts-table">
+<colgroup><col/><col/><col/><col/><col/><col/><col/><col/><col/></colgroup>
+<thead><tr><th>대학군</th><th>대학</th><th>교과</th><th>종합</th><th>논술</th><th>정시</th><th>계</th><th>예체능 제외 합계</th><th>누적합계</th></tr></thead><tbody><tr><th class="group-cell" rowspan="3">SKY</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1rR-cQPXGFjwtusR5bdfnwi5SHSegTpQs/view?usp=drive_link" target="_blank" rel="noopener">서울대</a></th><td>-</td><td>2,429</td><td>-</td><td>1,267</td><td>3,696</td><td class="sum-cell">3,317</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1ePkz32fje42DzNnnNQhmWh_-hI9A3XTC/view?usp=drive_link" target="_blank" rel="noopener">연세대</a></th><td>564</td><td>1,652</td><td>334</td><td>1,233</td><td>3,783</td><td class="sum-cell">3,395</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1TOmZZO3bm4PysC6XCyFs5uQ155IrJ4yb/view?usp=drive_link" target="_blank" rel="noopener">고려대</a></th><td>672</td><td>1,609</td><td>367</td><td>1,867</td><td>4,515</td><td class="sum-cell">4,373</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">SKY 소계</th><td>1,236</td><td>5,690</td><td>701</td><td>4,367</td><td>11,994</td><td>11,085</td><td class="cumulative-cell">11,085</td></tr><tr><th class="group-cell" rowspan="6">과기·특성화대</th><th class="univ-cell">KAIST</th><td>-</td><td>880</td><td>-</td><td>-</td><td>880</td><td class="sum-cell">880</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">POSTECH</th><td>-</td><td>370</td><td>-</td><td>-</td><td>370</td><td class="sum-cell">370</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">GIST</th><td>-</td><td>330</td><td>-</td><td>-</td><td>330</td><td class="sum-cell">330</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">DGIST</th><td>-</td><td>330</td><td>-</td><td>-</td><td>330</td><td class="sum-cell">330</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">UNIST</th><td>-</td><td>570</td><td>-</td><td>10</td><td>580</td><td class="sum-cell">580</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">KENTECH</th><td>-</td><td>100</td><td>-</td><td>10</td><td>110</td><td class="sum-cell">110</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">과기·특성화대 소계</th><td>-</td><td>2,580</td><td>-</td><td>20</td><td>2,600</td><td>2,600</td><td class="cumulative-cell">13,685</td></tr><tr><th class="group-cell" rowspan="3">서성한</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1dSjBtuQZ2GrKasB3dmYuIwAPr_Kj1_G-/view?usp=drive_link" target="_blank" rel="noopener">서강대</a></th><td>180</td><td>696</td><td>170</td><td>719</td><td>1,765</td><td class="sum-cell">1,647</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1nkpFG64KVKHuHEwound1SwGAOHK8E7iC/view?usp=drive_link" target="_blank" rel="noopener">성균관대</a></th><td>415</td><td>1,299</td><td>376</td><td>1,698</td><td>3,788</td><td class="sum-cell">3,245</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1ks8hkyy2LP0_j6zUQYAH-nU2GXzKzFfE/view?usp=drive_link" target="_blank" rel="noopener">한양대(서울)</a></th><td>506</td><td>1,190</td><td>289</td><td>1,037</td><td>3,022</td><td class="sum-cell">2,706</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">서성한 소계</th><td>1,101</td><td>3,185</td><td>835</td><td>3,454</td><td>8,575</td><td>7,598</td><td class="cumulative-cell">21,283</td></tr><tr><th class="group-cell" rowspan="4">중경외시</th><th class="univ-cell"><a href="https://drive.google.com/file/d/14XISIunoVOXTldYdMS3qxdixQ5uoKFaT/view?usp=drive_link" target="_blank" rel="noopener">중앙대(서울)</a></th><td>410</td><td>1,031</td><td>446</td><td>1,589</td><td>3,476</td><td class="sum-cell">3,146</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1CAPd1wdWASpV43vflAPyRI8Sn1jGpL38/view?usp=drive_link" target="_blank" rel="noopener">경희대</a></th><td>580</td><td>1,354</td><td>469</td><td>2,221</td><td>4,624</td><td class="sum-cell">4,056</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1hxUyqm-1RAMDGV4ycN7oE0aLtGaziO1X/view?usp=drive_link" target="_blank" rel="noopener">한국외대</a></th><td>375</td><td>1,288</td><td>449</td><td>1,552</td><td>3,664</td><td class="sum-cell">3,437</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1t8tw-bJLE6YA39rm1ARSHQYIgE5AfKFL/view?usp=drive_link" target="_blank" rel="noopener">서울시립대</a></th><td>346</td><td>602</td><td>86</td><td>776</td><td>1,810</td><td class="sum-cell">1,670</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">중경외시 소계</th><td>1,711</td><td>4,275</td><td>1,450</td><td>6,138</td><td>13,574</td><td>12,309</td><td class="cumulative-cell">33,592</td></tr><tr><th class="group-cell" rowspan="4">건동홍숙</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1ror2TjnYQnTAVkse27kJ6jD_4v-T5p2q/view?usp=drive_link" target="_blank" rel="noopener">건국대(서울)</a></th><td>348</td><td>1,010</td><td>327</td><td>1,472</td><td>3,157</td><td class="sum-cell">2,715</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1qUirqu3hymuMQHMMaha08iN3ft-axaVG/view?usp=drive_link" target="_blank" rel="noopener">동국대(서울)</a></th><td>604</td><td>1,028</td><td>291</td><td>991</td><td>2,914</td><td class="sum-cell">2,710</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1PkJylLR34V3anc-Bl1aNbvIMMK-uzYE9/view?usp=drive_link" target="_blank" rel="noopener">홍익대(서울)</a></th><td>452</td><td>511</td><td>384</td><td>806</td><td>2,153</td><td class="sum-cell">1,939</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/143X6At6c-MOyv5ajU8x2QnH7GJhOOUxO/view?usp=drive_link" target="_blank" rel="noopener">숙명여대</a></th><td>314</td><td>549</td><td>214</td><td>984</td><td>2,061</td><td class="sum-cell">1,825</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">건동홍숙 소계</th><td>1,718</td><td>3,098</td><td>1,216</td><td>4,253</td><td>10,285</td><td>9,189</td><td class="cumulative-cell">42,781</td></tr><tr><th class="group-cell" rowspan="15">국숭세단·주요 공학대</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1JBR1xgAwhzFCWxs7GHjMongVdf2EkCfi/view?usp=sharing" target="_blank" rel="noopener">국민대</a></th><td>620</td><td>1,041</td><td>237</td><td>1,003</td><td>2,901</td><td class="sum-cell">2,477</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1p6dPVvcRZeSlJppUMC57K3ScmNkIBlIh/view?usp=drive_link" target="_blank" rel="noopener">숭실대</a></th><td>462</td><td>889</td><td>240</td><td>1,313</td><td>2,904</td><td class="sum-cell">2,899</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1axqOGP5Pr-ndcsGVMgnkaiHcP4zgIWvx/view?usp=drive_link" target="_blank" rel="noopener">세종대</a></th><td>411</td><td>861</td><td>344</td><td>1,019</td><td>2,635</td><td class="sum-cell">2,254</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1gcy4xhfhuSLGjZE7r097Q_DMAbWI_CVq/view?usp=sharing" target="_blank" rel="noopener">단국대(죽전)</a></th><td>265</td><td>773</td><td>300</td><td>783</td><td>2,121</td><td class="sum-cell">1,912</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1PuzYlVLc1gDGvLO3UcA_glLynKZm73u6/view?usp=drive_link" target="_blank" rel="noopener">서울과기대</a></th><td>393</td><td>888</td><td>150</td><td>776</td><td>2,207</td><td class="sum-cell">2,021</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1O_9Twicm08GDOOUV8F0El9ULKqGdIfc3/view?usp=sharing" target="_blank" rel="noopener">광운대</a></th><td>191</td><td>601</td><td>181</td><td>764</td><td>1,737</td><td class="sum-cell">1,647</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1PynCQxIy_0qJCo4R6F_wIGEvA8Xb2eI1/view?usp=sharing" target="_blank" rel="noopener">한양대 ERICA</a></th><td>380</td><td>810</td><td>203</td><td>864</td><td>2,257</td><td class="sum-cell">1,972</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1WwiBgBR-HZ2o4JyRujf03hvIQDQvwBrd/view?usp=drive_link" target="_blank" rel="noopener">아주대</a></th><td>279</td><td>956</td><td>224</td><td>748</td><td>2,207</td><td class="sum-cell">2,207</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1y04rTi_5IAGKh9BhS5CU0x8P9eyGaCP2/view?usp=drive_link" target="_blank" rel="noopener">인하대</a></th><td>485</td><td>1,475</td><td>449</td><td>1,219</td><td>3,628</td><td class="sum-cell">3,335</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1lWHHm3Tp4mGXBNV_vw8ooDBqblCSA-c9/view?usp=drive_link" target="_blank" rel="noopener">한국항공대</a></th><td>217</td><td>186</td><td>198</td><td>265</td><td>866</td><td class="sum-cell">821</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1AdJ585m6oHytiSFKpMoYmNZH4nQvOAxY/view?usp=drive_link" target="_blank" rel="noopener">한국기술교육대</a></th><td>277</td><td>349</td><td>150</td><td>149</td><td>925</td><td class="sum-cell">835</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1pVKIZLAx7MhWo0cHOtDwZTBD8xQ_uHVb/view?usp=drive_link" target="_blank" rel="noopener">한국공학대</a></th><td>384</td><td>514</td><td>200</td><td>504</td><td>1,602</td><td class="sum-cell">1,409</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1FpHY1T4qxqjr4fH9u60OEhfmnNlW_vN6/view?usp=drive_link" target="_blank" rel="noopener">명지대(서울+자연)</a></th><td>787</td><td>849</td><td>-</td><td>874</td><td>2,510</td><td class="sum-cell">2,294</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1xgs8EWmn-Y-Je3v-qLSc7p7gxXK9csVH/view?usp=sharing" target="_blank" rel="noopener">가천대</a></th><td>936</td><td>880</td><td>1,054</td><td>1,283</td><td>4,153</td><td class="sum-cell">3,605</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1jtOdH5OuC4wL5vlLZr6dl_5Pz34L34XR/view?usp=drive_link" target="_blank" rel="noopener">인천대</a></th><td>690</td><td>971</td><td>-</td><td>875</td><td>2,536</td><td class="sum-cell">2,269</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">국숭세단·주요 공학대 소계</th><td>6,777</td><td>12,043</td><td>3,930</td><td>12,439</td><td>35,189</td><td>31,957</td><td class="cumulative-cell">74,738</td></tr><tr class="grand-total-row"><th colspan="2">35개 대학 합계</th><td>12,543</td><td>30,871</td><td>8,132</td><td>30,671</td><td>82,217</td><td>74,738</td><td class="cumulative-cell">74,738</td></tr></tbody></table></div>
+</section>
+<section class="panel section analysis-section" id="g2Competition">
+<div class="section-title"><h2>현 고2 기준 주요 대학 진학 경쟁 규모</h2><div class="data-year-label">현 고2 425,400명 · N수생 35% 가정</div></div>
+<div class="guide-desc">재학생 전용 전형에는 N수생 비율을 적용하지 않고, 나머지 모집인원에서 N수생 몫과 상위권 학교군 추정 인원을 차감했습니다.</div>
+<div class="analysis-table-wrap arts-table-wrap"><table class="analysis-table competition-table arts-competition-table general-seats-table">
+<thead><tr><th>누적 대학군</th><th>모집인원</th><th>N수 인원 제외</th><th>상위권 학교군 차감</th><th>상위권 비율</th><th>일반고 잔여 비율</th><th>일반고 잔여 인원</th><th>일반고 학생 대비</th></tr></thead>
+<tbody>
+<tr><th>중경외시까지</th><td>33,592명</td><td>23,618명</td><td>약 14,050명</td><td>59.5%</td><td><b>40.5%</b></td><td><b>약 9,568명</b></td><td>약 2.9%</td></tr>
+<tr><th>건동홍숙까지</th><td>42,781명</td><td>29,591명</td><td>약 14,050명</td><td>47.5%</td><td><b>52.5%</b></td><td><b>약 15,541명</b></td><td>약 4.7%</td></tr>
+<tr><th>35개 대학 전체</th><td>74,738명</td><td>50,363명</td><td>약 14,050명</td><td>27.9%</td><td><b>72.1%</b></td><td><b>약 36,313명</b></td><td>약 10.9%</td></tr>
+</tbody></table></div>
+<p class="analysis-note"><b>계산 기준:</b> <a href="https://edu.chosun.com/m/edu_article.html?contid=2026061580069" target="_blank" rel="noopener">재학생 전용 5,096명</a>은 유지하고, 나머지에 N수생 35%를 적용한 뒤 상위권 학교군 약 14,050명을 차감했습니다. 비율은 N수 제외 인원 기준, 마지막 열은 <a href="https://www.nocutnews.co.kr/news/6542794" target="_blank" rel="noopener">일반고 신입생 332,171명</a> 대비입니다.</p>
+<p class="analysis-note"><b>교과전형 가정:</b> 재학생 전용 교과 3,702명 중 <b>일반고 90%, 약 3,332명</b>으로 추정했습니다(<a href="https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=3165&amp;s_code=BBS_SUBJECT&amp;s_data=&amp;s_page=1&amp;s_type=" target="_blank" rel="noopener">연세대 실제 95.3%</a> 참고). 일반고 잔여 인원에 포함했습니다.</p>
+</section>
+<footer class="unified-footer">학생부종합 고교유형별 입학자 수 [ 송도이샘로봇 ]</footer>
 </main>
+<style>.combined-school-cell{font-weight:700;white-space:nowrap;text-align:center}.school-mobile-type.combined-school-cell{grid-column:span 2}</style>
 <script>
-const rows = [{"univ": "서울대(일반)", "total": 1415, "cnt_general": 471, "cnt_autonomous": 187, "cnt_science": 121, "cnt_foreign": 249, "cnt_gifted": 354, "pct_general": 33.29, "pct_autonomous": 13.22, "pct_science": 8.55, "pct_foreign": 17.6, "pct_gifted": 25.02, "highlight": ["pct_general", "pct_autonomous"]}, {"univ": "서울대(지균)", "total": 482, "cnt_general": 464, "cnt_autonomous": 14, "cnt_science": 0, "cnt_foreign": 0, "cnt_gifted": 0, "pct_general": 96.27, "pct_autonomous": 2.9, "pct_science": 0, "pct_foreign": 0, "pct_gifted": 0, "highlight": []}, {"univ": "연세대(일반)", "total": 583, "cnt_general": 400, "cnt_autonomous": 71, "cnt_science": 5, "cnt_foreign": 90, "cnt_gifted": 17, "pct_general": 68.61, "pct_autonomous": 12.18, "pct_science": 0.86, "pct_foreign": 15.44, "pct_gifted": 2.92, "highlight": []}, {"univ": "연세대(활동형)", "total": 196, "cnt_general": 81, "cnt_autonomous": 5, "cnt_science": 0, "cnt_foreign": 17, "cnt_gifted": 0, "pct_general": 41.33, "pct_autonomous": 2.55, "pct_science": 0, "pct_foreign": 8.67, "pct_gifted": 0, "highlight": ["pct_general", "pct_autonomous"]}, {"univ": "고려대", "total": 1241, "cnt_general": 631, "cnt_autonomous": 268, "cnt_science": 54, "cnt_foreign": 261, "cnt_gifted": 27, "pct_general": 50.85, "pct_autonomous": 21.6, "pct_science": 4.35, "pct_foreign": 21.03, "pct_gifted": 2.18, "highlight": []}, {"univ": "서강대", "total": 526, "cnt_general": 143, "cnt_autonomous": 132, "cnt_science": 21, "cnt_foreign": 211, "cnt_gifted": 16, "pct_general": 27.19, "pct_autonomous": 25.1, "pct_science": 3.99, "pct_foreign": 40.11, "pct_gifted": 3.04, "highlight": []}, {"univ": "성균관대", "total": 989, "cnt_general": 401, "cnt_autonomous": 230, "cnt_science": 127, "cnt_foreign": 204, "cnt_gifted": 22, "pct_general": 40.55, "pct_autonomous": 23.26, "pct_science": 12.84, "pct_foreign": 20.63, "pct_gifted": 2.22, "highlight": []}, {"univ": "한양대(일반)", "total": 674, "cnt_general": 265, "cnt_autonomous": 196, "cnt_science": 24, "cnt_foreign": 153, "cnt_gifted": 36, "pct_general": 39.32, "pct_autonomous": 29.08, "pct_science": 3.56, "pct_foreign": 22.7, "pct_gifted": 5.34, "highlight": []}, {"univ": "한양대(지균)", "total": 178, "cnt_general": 76, "cnt_autonomous": 57, "cnt_science": 0, "cnt_foreign": 45, "cnt_gifted": 0, "pct_general": 42.7, "pct_autonomous": 32.02, "pct_science": 0, "pct_foreign": 25.28, "pct_gifted": 0, "highlight": []}, {"univ": "이화여대", "total": 992, "cnt_general": 820, "cnt_autonomous": 17, "cnt_science": 1, "cnt_foreign": 150, "cnt_gifted": 2, "pct_general": 82.66, "pct_autonomous": 1.71, "pct_science": 0.1, "pct_foreign": 15.12, "pct_gifted": 0.2, "highlight": []}, {"univ": "중앙대", "total": 769, "cnt_general": 480, "cnt_autonomous": 73, "cnt_science": 47, "cnt_foreign": 156, "cnt_gifted": 10, "pct_general": 62.42, "pct_autonomous": 9.49, "pct_science": 6.11, "pct_foreign": 20.29, "pct_gifted": 1.3, "highlight": []}, {"univ": "경희대", "total": 1121, "cnt_general": 830, "cnt_autonomous": 37, "cnt_science": 8, "cnt_foreign": 202, "cnt_gifted": 5, "pct_general": 74.04, "pct_autonomous": 3.3, "pct_science": 0.71, "pct_foreign": 18.02, "pct_gifted": 0.45, "highlight": []}, {"univ": "한국외대", "total": 1026, "cnt_general": 738, "cnt_autonomous": 22, "cnt_science": 0, "cnt_foreign": 261, "cnt_gifted": 0, "pct_general": 71.93, "pct_autonomous": 2.14, "pct_science": 0.0, "pct_foreign": 25.44, "pct_gifted": 0, "highlight": []}, {"univ": "건국대", "total": 806, "cnt_general": 651, "cnt_autonomous": 57, "cnt_science": 6, "cnt_foreign": 84, "cnt_gifted": 6, "pct_general": 80.77, "pct_autonomous": 7.07, "pct_science": 0.74, "pct_foreign": 10.42, "pct_gifted": 0.74, "highlight": []}, {"univ": "동국대", "total": 673, "cnt_general": 606, "cnt_autonomous": 1, "cnt_science": 0, "cnt_foreign": 58, "cnt_gifted": 0, "pct_general": 90.04, "pct_autonomous": 0.15, "pct_science": 0, "pct_foreign": 8.62, "pct_gifted": 0, "highlight": []}, {"univ": "홍익대", "total": 441, "cnt_general": 411, "cnt_autonomous": 3, "cnt_science": 0, "cnt_foreign": 24, "cnt_gifted": 0, "pct_general": 93.2, "pct_autonomous": 0.68, "pct_science": 0, "pct_foreign": 5.44, "pct_gifted": 0, "highlight": []}, {"univ": "숙명여대", "total": 424, "cnt_general": 294, "cnt_autonomous": 45, "cnt_science": 1, "cnt_foreign": 84, "cnt_gifted": 0, "pct_general": 69.34, "pct_autonomous": 10.61, "pct_science": 0.24, "pct_foreign": 19.81, "pct_gifted": 0, "highlight": []}, {"univ": "숭실대", "total": 625, "cnt_general": 555, "cnt_autonomous": 14, "cnt_science": 0, "cnt_foreign": 40, "cnt_gifted": 0, "pct_general": 88.8, "pct_autonomous": 2.24, "pct_science": 0, "pct_foreign": 6.4, "pct_gifted": 0, "highlight": []}, {"univ": "국민대", "total": 367, "cnt_general": 345, "cnt_autonomous": 2, "cnt_science": 1, "cnt_foreign": 17, "cnt_gifted": 0, "pct_general": 94.01, "pct_autonomous": 0.54, "pct_science": 0.27, "pct_foreign": 4.63, "pct_gifted": 0, "highlight": []}, {"univ": "세종대", "total": 474, "cnt_general": 416, "cnt_autonomous": 5, "cnt_science": 6, "cnt_foreign": 10, "cnt_gifted": 0, "pct_general": 87.76, "pct_autonomous": 1.05, "pct_science": 1.27, "pct_foreign": 2.11, "pct_gifted": 0, "highlight": []}, {"univ": "광운대", "total": 572, "cnt_general": 554, "cnt_autonomous": 6, "cnt_science": 0, "cnt_foreign": 9, "cnt_gifted": 0, "pct_general": 96.85, "pct_autonomous": 1.05, "pct_science": 0, "pct_foreign": 1.57, "pct_gifted": 0, "highlight": []}, {"univ": "서울과기대", "total": 502, "cnt_general": 397, "cnt_autonomous": 34, "cnt_science": 45, "cnt_foreign": 19, "cnt_gifted": 0, "pct_general": 79.08, "pct_autonomous": 6.77, "pct_science": 8.96, "pct_foreign": 3.78, "pct_gifted": 0, "highlight": []}, {"univ": "성신여대", "total": 566, "cnt_general": 517, "cnt_autonomous": 0, "cnt_science": 0, "cnt_foreign": 42, "cnt_gifted": 0, "pct_general": 91.34, "pct_autonomous": 0, "pct_science": 0, "pct_foreign": 7.42, "pct_gifted": 0, "highlight": []}, {"univ": "서울여대", "total": 423, "cnt_general": 400, "cnt_autonomous": 2, "cnt_science": 1, "cnt_foreign": 19, "cnt_gifted": 0, "pct_general": 94.56, "pct_autonomous": 0.47, "pct_science": 0.24, "pct_foreign": 4.49, "pct_gifted": 0, "highlight": []}, {"univ": "덕성여대", "total": 281, "cnt_general": 276, "cnt_autonomous": 2, "cnt_science": 0, "cnt_foreign": 3, "cnt_gifted": 0, "pct_general": 98.22, "pct_autonomous": 0.71, "pct_science": 0, "pct_foreign": 1.07, "pct_gifted": 0, "highlight": []}, {"univ": "동덕여대", "total": 156, "cnt_general": 143, "cnt_autonomous": 0, "cnt_science": 0, "cnt_foreign": 5, "cnt_gifted": 0, "pct_general": 91.67, "pct_autonomous": 0, "pct_science": 0, "pct_foreign": 3.21, "pct_gifted": 0, "highlight": []}];
+const rows = [{"univ":"서울대","total":1897,"cnt_general":935,"cnt_autonomous":201,"cnt_science":121,"cnt_foreign":249,"cnt_gifted":354,"pct_general":49.29,"pct_autonomous":10.6,"pct_science":6.38,"pct_foreign":13.13,"pct_gifted":18.66,"highlight":[],"available":true},{"univ":"연세대","total":779,"cnt_general":481,"cnt_autonomous":76,"cnt_science":5,"cnt_foreign":107,"cnt_gifted":17,"pct_general":61.75,"pct_autonomous":9.76,"pct_science":0.64,"pct_foreign":13.74,"pct_gifted":2.18,"highlight":[],"available":true},{"univ":"고려대","total":1241,"cnt_general":631,"cnt_autonomous":268,"cnt_science":54,"cnt_foreign":261,"cnt_gifted":27,"pct_general":50.85,"pct_autonomous":21.6,"pct_science":4.35,"pct_foreign":21.03,"pct_gifted":2.18,"highlight":[],"available":true},{"univ":"KAIST","total":703,"cnt_general":132,"cnt_autonomous":51,"cnt_science":382,"cnt_foreign":0,"cnt_gifted":131,"pct_general":18.78,"pct_autonomous":7.25,"pct_science":54.34,"pct_foreign":0,"pct_gifted":18.63,"highlight":[],"available":true},{"univ":"POSTECH","total":316,"cnt_general":115,"cnt_autonomous":42,"cnt_science":123,"cnt_foreign":0,"cnt_gifted":24,"pct_general":36.39,"pct_autonomous":13.29,"pct_science":38.92,"pct_foreign":0,"pct_gifted":7.59,"highlight":[],"available":true},{"univ":"GIST","total":209,"cnt_general":87,"cnt_autonomous":27,"cnt_science":80,"cnt_foreign":0,"cnt_gifted":12,"pct_general":41.63,"pct_autonomous":12.92,"pct_science":38.28,"pct_foreign":0,"pct_gifted":5.74,"highlight":[],"available":true},{"univ":"DGIST","total":175,"cnt_general":130,"cnt_autonomous":26,"cnt_science":9,"cnt_foreign":0,"cnt_gifted":3,"pct_general":74.29,"pct_autonomous":14.86,"pct_science":5.14,"pct_foreign":0,"pct_gifted":1.71,"highlight":[],"available":true},{"univ":"UNIST","total":369,"cnt_general":238,"cnt_autonomous":42,"cnt_science":50,"cnt_foreign":13,"cnt_gifted":10,"pct_general":64.5,"pct_autonomous":11.38,"pct_science":13.55,"pct_foreign":3.52,"pct_gifted":2.71,"highlight":[],"available":true},{"univ":"KENTECH","total":86,"cnt_general":32,"cnt_autonomous":24,"cnt_science":19,"cnt_foreign":0,"cnt_gifted":9,"pct_general":37.21,"pct_autonomous":27.91,"pct_science":22.09,"pct_foreign":0,"pct_gifted":10.47,"highlight":[],"available":true},{"univ":"서강대","total":526,"cnt_general":143,"cnt_autonomous":132,"cnt_science":21,"cnt_foreign":211,"cnt_gifted":16,"pct_general":27.19,"pct_autonomous":25.1,"pct_science":3.99,"pct_foreign":40.11,"pct_gifted":3.04,"highlight":[],"available":true},{"univ":"성균관대","total":989,"cnt_general":401,"cnt_autonomous":230,"cnt_science":127,"cnt_foreign":204,"cnt_gifted":22,"pct_general":40.55,"pct_autonomous":23.26,"pct_science":12.84,"pct_foreign":20.63,"pct_gifted":2.22,"highlight":[],"available":true},{"univ":"한양대(서울)","total":852,"cnt_general":341,"cnt_autonomous":253,"cnt_science":24,"cnt_foreign":198,"cnt_gifted":36,"pct_general":40.02,"pct_autonomous":29.69,"pct_science":2.82,"pct_foreign":23.24,"pct_gifted":4.23,"highlight":[],"available":true},{"univ":"중앙대(서울)","total":769,"cnt_general":480,"cnt_autonomous":73,"cnt_science":47,"cnt_foreign":156,"cnt_gifted":10,"pct_general":62.42,"pct_autonomous":9.49,"pct_science":6.11,"pct_foreign":20.29,"pct_gifted":1.3,"highlight":[],"available":true},{"univ":"경희대","total":1121,"cnt_general":830,"cnt_autonomous":37,"cnt_science":8,"cnt_foreign":202,"cnt_gifted":5,"pct_general":74.04,"pct_autonomous":3.3,"pct_science":0.71,"pct_foreign":18.02,"pct_gifted":0.45,"highlight":[],"available":true},{"univ":"한국외대","total":1026,"cnt_general":738,"cnt_autonomous":22,"cnt_science":0,"cnt_foreign":261,"cnt_gifted":0,"pct_general":71.93,"pct_autonomous":2.14,"pct_science":0.0,"pct_foreign":25.44,"pct_gifted":0,"highlight":[],"available":true},{"univ":"건국대(서울)","total":806,"cnt_general":651,"cnt_autonomous":57,"cnt_science":6,"cnt_foreign":84,"cnt_gifted":6,"pct_general":80.77,"pct_autonomous":7.07,"pct_science":0.74,"pct_foreign":10.42,"pct_gifted":0.74,"highlight":[],"available":true},{"univ":"동국대(서울)","total":673,"cnt_general":606,"cnt_autonomous":1,"cnt_science":0,"cnt_foreign":58,"cnt_gifted":0,"pct_general":90.04,"pct_autonomous":0.15,"pct_science":0,"pct_foreign":8.62,"pct_gifted":0,"highlight":[],"available":true},{"univ":"홍익대(서울)","total":441,"cnt_general":411,"cnt_autonomous":3,"cnt_science":0,"cnt_foreign":24,"cnt_gifted":0,"pct_general":93.2,"pct_autonomous":0.68,"pct_science":0,"pct_foreign":5.44,"pct_gifted":0,"highlight":[],"available":true},{"univ":"숙명여대","total":424,"cnt_general":294,"cnt_autonomous":45,"cnt_science":1,"cnt_foreign":84,"cnt_gifted":0,"pct_general":69.34,"pct_autonomous":10.61,"pct_science":0.24,"pct_foreign":19.81,"pct_gifted":0,"highlight":[],"available":true},{"univ":"국민대","total":367,"cnt_general":345,"cnt_autonomous":2,"cnt_science":1,"cnt_foreign":17,"cnt_gifted":0,"pct_general":94.01,"pct_autonomous":0.54,"pct_science":0.27,"pct_foreign":4.63,"pct_gifted":0,"highlight":[],"available":true},{"univ":"숭실대","total":625,"cnt_general":555,"cnt_autonomous":14,"cnt_science":0,"cnt_foreign":40,"cnt_gifted":0,"pct_general":88.8,"pct_autonomous":2.24,"pct_science":0,"pct_foreign":6.4,"pct_gifted":0,"highlight":[],"available":true},{"univ":"세종대","total":474,"cnt_general":416,"cnt_autonomous":5,"cnt_science":6,"cnt_foreign":10,"cnt_gifted":0,"pct_general":87.76,"pct_autonomous":1.05,"pct_science":1.27,"pct_foreign":2.11,"pct_gifted":0,"highlight":[],"available":true},{"univ":"서울과기대","total":502,"cnt_general":397,"cnt_autonomous":34,"cnt_science":45,"cnt_foreign":19,"cnt_gifted":0,"pct_general":79.08,"pct_autonomous":6.77,"pct_science":8.96,"pct_foreign":3.78,"pct_gifted":0,"highlight":[],"available":true},{"univ":"광운대","total":572,"cnt_general":554,"cnt_autonomous":6,"cnt_science":0,"cnt_foreign":9,"cnt_gifted":0,"pct_general":96.85,"pct_autonomous":1.05,"pct_science":0,"pct_foreign":1.57,"pct_gifted":0,"highlight":[],"available":true},{"univ":"한양대 ERICA","total":506,"cnt_general":395,"cnt_autonomous":53,"cnt_science":null,"cnt_foreign":47,"cnt_gifted":null,"pct_general":78.1,"pct_autonomous":10.5,"pct_science":null,"pct_foreign":9.3,"pct_gifted":null,"highlight":[],"available":true,"cnt_science_gifted_combined":5}];
 const labels = [
   ["영재고", "cnt_gifted"],
   ["과고", "cnt_science"],
@@ -1394,11 +2726,37 @@ const labels = [
 ];
 let activeType = "all";
 
-function comma(n) { return Number(n || 0).toLocaleString("ko-KR"); }
+function comma(n) {
+  if (n === null || n === undefined || n === "") return "—";
+  return Number(n).toLocaleString("ko-KR");
+}
+
+function getSchoolTotals(list) {
+  return list.filter(r => r.available !== false).reduce((acc, r) => {
+    acc.total += Number(r.total || 0);
+    acc.cnt_gifted += Number(r.cnt_gifted || 0);
+    acc.cnt_science += Number(r.cnt_science || 0);
+    acc.cnt_autonomous += Number(r.cnt_autonomous || 0);
+    acc.cnt_foreign += Number(r.cnt_foreign || 0);
+    acc.cnt_general += Number(r.cnt_general || 0);
+    acc.cnt_science_gifted_combined += Number(r.cnt_science_gifted_combined || 0);
+    return acc;
+  }, {
+    total:0,
+    cnt_gifted:0,
+    cnt_science:0,
+    cnt_autonomous:0,
+    cnt_foreign:0,
+    cnt_general:0,
+    cnt_science_gifted_combined:0
+  });
+}
 
 function renderRanking() {
   document.getElementById("ranking").innerHTML = labels.map(([label, countKey]) => {
-    const top = [...rows].sort((a, b) => Number(b[countKey]) - Number(a[countKey])).slice(0, 4);
+    const top = rows.filter(r => r.available !== false)
+      .sort((a, b) => Number(b[countKey]) - Number(a[countKey]))
+      .slice(0, 4);
     return `<article class="highlight-card"><h3>${label} 입학자 수 TOP 4</h3>${top.map(r => `<div class="rank-item"><b title="${r.univ}">${r.univ}</b><span>${comma(r[countKey])}명</span></div>`).join("")}</article>`;
   }).join("");
 }
@@ -1408,46 +2766,106 @@ function getList() {
 }
 
 function cell(value, className="") {
-  const num = Number(value || 0);
+  if (value === null || value === undefined || value === "") {
+    const cls = [className, "data-missing-cell"].filter(Boolean).join(" ");
+    return `<td class="${cls}">—</td>`;
+  }
+  const num = Number(value);
   const cls = [className, num === 0 ? "zero" : ""].filter(Boolean).join(" ");
   return `<td class="${cls}">${comma(num)}</td>`;
 }
 
 function renderDesktop(list) {
   const body = list.map(r => `
-    <tr>
-      <th>${r.univ}</th>
+    <tr class="${[
+      ["KAIST","POSTECH","GIST","DGIST","UNIST","KENTECH"].includes(r.univ) ? "institute-row" : "",
+      r.available === false ? "unavailable-row" : ""
+    ].filter(Boolean).join(" ")}">
+      <th>${r.univ}${r.available === false ? '<small class="data-missing-label">자료 미확인</small>' : ""}</th>
       ${cell(r.total, "total-col")}
-      ${labels.map(([label, key]) => cell(r[key], "")).join("")}
+      ${r.cnt_science_gifted_combined != null
+        ? `<td colspan="2" class="combined-school-cell">영재고·과고 합계 ${comma(r.cnt_science_gifted_combined)}</td>${labels.slice(2).map(([label, key]) => cell(r[key], "")).join("")}`
+        : labels.map(([label, key]) => cell(r[key], "")).join("")}
     </tr>
   `).join("");
-  document.querySelector("#dataTable tbody").innerHTML = body || `<tr><td colspan="7" style="text-align:center;padding:24px;">검색 결과가 없습니다.</td></tr>`;
+
+  document.querySelector("#dataTable tbody").innerHTML =
+    body || `<tr><td colspan="7" style="text-align:center;padding:24px;">검색 결과가 없습니다.</td></tr>`;
+
+  const t = getSchoolTotals(list);
+  const specialTotal = t.cnt_gifted + t.cnt_science + t.cnt_foreign + t.cnt_science_gifted_combined;
+
+  document.getElementById("schoolTotalFoot").innerHTML = list.length ? `
+    <tr class="school-total-row">
+      <th>합계</th>
+      <td>${comma(t.total)}</td>
+      <td>${comma(t.cnt_gifted)}</td>
+      <td>${comma(t.cnt_science)}</td>
+      <td>${comma(t.cnt_autonomous)}</td>
+      <td>${comma(t.cnt_foreign)}</td>
+      <td>${comma(t.cnt_general)}</td>
+    </tr>
+    <tr class="school-group-total-row">
+      <td colspan="7">
+        <div class="school-group-total-wrap">
+          <span class="school-group-total-item">특목고 합계 <b>${comma(specialTotal)}명</b></span>
+          <span class="school-group-total-item">일반고 합계 <b>${comma(t.cnt_general)}명</b></span>
+          <span class="school-group-total-item">영재고·과고 미분리 <b>${comma(t.cnt_science_gifted_combined)}명</b></span>
+        </div>
+      </td>
+    </tr>
+  ` : "";
 }
 
 function renderMobile(list) {
-  const head = `
-    <div class="mobile-table-head">
-      <div>학교</div>
-      <div>인원</div>
-      ${labels.map(([label]) => `<div>${label}</div>`).join("")}
-    </div>`;
-
   const body = list.map(r => `
-    <article class="mobile-table-row">
-      <div class="mobile-school-cell">
-        <strong class="mobile-school-name" title="${r.univ}">${r.univ}</strong>
+    <article class="school-mobile-card ${[
+      ["KAIST","POSTECH","GIST","DGIST","UNIST","KENTECH"].includes(r.univ) ? "institute-row" : "",
+      r.available === false ? "unavailable-row" : ""
+    ].filter(Boolean).join(" ")}">
+      <div class="school-mobile-card-head">
+        <strong title="${r.univ}">${r.univ}</strong>
+        <span>${r.available === false ? "자료 미확인" : `총 ${comma(r.total)}명`}</span>
       </div>
-      <div class="mobile-total-cell">${comma(r.total)}명</div>
-      ${labels.map(([label, key]) => {
-        const num = Number(r[key] || 0);
-        return `<div><span class="mobile-type-num ${num === 0 ? "zero" : ""}">${comma(num)}</span></div>`;
-      }).join("")}
+      <div class="school-mobile-type-grid">
+        ${r.cnt_science_gifted_combined != null
+          ? `<div class="school-mobile-type combined-school-cell"><small>영재고·과고 합계</small><b>${comma(r.cnt_science_gifted_combined)}</b></div>${labels.slice(2).map(([label, key]) => `<div class="school-mobile-type ${Number(r[key] || 0) === 0 ? "zero" : ""}"><small>${label}</small><b>${comma(r[key])}</b></div>`).join("")}`
+          : labels.map(([label, key]) => {
+          if (r.available === false) {
+            return `<div class="school-mobile-type data-missing-cell"><small>${label}</small><b>—</b></div>`;
+          }
+          const num = Number(r[key] || 0);
+          return `<div class="school-mobile-type ${num === 0 ? "zero" : ""}"><small>${label}</small><b>${comma(num)}</b></div>`;
+        }).join("")}
+      </div>
     </article>
   `).join("");
 
+  const t = getSchoolTotals(list);
+  const specialTotal = t.cnt_gifted + t.cnt_science + t.cnt_foreign + t.cnt_science_gifted_combined;
+
+  const summary = list.length ? `
+    <div class="school-mobile-summary">
+      <div class="school-mobile-summary-main">
+        <div><small>총인원</small><b>${comma(t.total)}</b></div>
+        <div><small>영재고</small><b>${comma(t.cnt_gifted)}</b></div>
+        <div><small>과고</small><b>${comma(t.cnt_science)}</b></div>
+        <div><small>자사고</small><b>${comma(t.cnt_autonomous)}</b></div>
+        <div><small>외고</small><b>${comma(t.cnt_foreign)}</b></div>
+        <div><small>일반고</small><b>${comma(t.cnt_general)}</b></div>
+        <div><small>영재고·과고 합산</small><b>${comma(t.cnt_science_gifted_combined)}</b></div>
+      </div>
+      <div class="school-mobile-group-total">
+        <div>특목고 합계 <b>${comma(specialTotal)}명</b></div>
+        <div>일반고 합계 <b>${comma(t.cnt_general)}명</b></div>
+        <div>영재고·과고 미분리 <b>${comma(t.cnt_science_gifted_combined)}명</b></div>
+      </div>
+    </div>
+  ` : "";
+
   document.getElementById("mobileList").innerHTML = list.length
-    ? `<div class="mobile-table">${head}${body}</div>`
-    : `<div class="mobile-table">${head}<div class="mobile-empty">검색 결과가 없습니다.</div></div>`;
+    ? `<div class="school-mobile-cards">${body}</div>${summary}`
+    : `<div class="mobile-empty">검색 결과가 없습니다.</div>`;
 }
 
 function renderTable() {
@@ -1458,7 +2876,6 @@ function renderTable() {
 
 renderTable();
 </script>
-
 <script id="rule-system-js">
 /* 규칙 시스템 레이어 JS — 균형 줄바꿈: 메뉴 6개가 4+2가 아니라 3+3으로 나뉘도록
    rows = ceil(n / 최대열수), cols = ceil(n / rows) 로 행별 개수를 균등 분배한다. */
@@ -1486,7 +2903,6 @@ renderTable();
   balanceGrids();
 })();
 </script>
-
 <script id="balance-grids">
 /* 균형 줄바꿈(기준과 동일): 6개 → 4+2가 아니라 3+3 */
 (function(){
