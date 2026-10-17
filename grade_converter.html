@@ -514,6 +514,42 @@
       }
     }
 
+
+/* ===== 공통 메뉴 디자인 통일: 모든 페이지에서 동일한 크기와 가독성 ===== */
+.global-menu-grid {
+  --item-min:120px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr));
+  gap:clamp(5px,0.8vw,10px);
+  padding:clamp(10px,1.5vw,18px);
+  width:100%;
+  align-items:stretch;
+}
+.global-menu-grid > .global-menu-button {
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+  min-height:clamp(42px,2vw + 32px,52px);
+  height:100%;
+  padding:7px clamp(5px,.7vw,10px);
+  font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+  font-size:clamp(13px,.35vw + 12px,16px);
+  font-weight:750;
+  line-height:1.25;
+  text-align:center;
+  letter-spacing:-.025em;
+  white-space:normal;
+  word-break:keep-all;
+  overflow-wrap:normal;
+  border-radius:14px;
+}
+@media (max-width:700px) {
+  .global-menu-grid {grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+  .global-menu-grid > .global-menu-button {min-height:43px;font-size:14px;padding:7px 5px;}
+}
+
 </style>
   <style id="responsive-fix">
     /* 반응형 보완: 여백을 먼저 줄이고, 더 줄일 수 없을 때만 줄바꿈 */
@@ -1968,14 +2004,15 @@ body{
 </header>
 <section class="global-menu-section" aria-label="전체 페이지 메뉴">
   <div class="global-menu-grid">
-    <a class="global-menu-button" href="index.html#inputSection">내신입력 예측</a>
-    <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
-    <a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a>
-    <a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
-    <a class="global-menu-button active" href="grade_converter.html" aria-current="page">5→9등급 환산</a>
-    <a class="global-menu-button" href="student_admission_by_highschool_type.html">학종 고교유형</a>
-    <a class="global-menu-button" href="major_guide.html">전공 가이드</a>
-  </div>
+  <a class="global-menu-button" href="index.html#inputSection">내신 입력·대학 예측</a>
+  <a class="global-menu-button" href="school_achievement.html">학교별 학업성취사항</a>
+  <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
+  <a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a>
+  <a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
+  <a class="global-menu-button active" href="grade_converter.html" aria-current="page">5→9등급 환산</a>
+  <a class="global-menu-button" href="student_admission_by_highschool_type.html">학종 고교유형</a>
+  <a class="global-menu-button" href="major_guide.html">전공 가이드</a>
+</div>
 </section>
 <div class="wrap">
 

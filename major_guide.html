@@ -22,7 +22,43 @@
     @media(max-width:1000px){.section-head{grid-template-columns:1fr;gap:18px}.path-grid{grid-template-columns:repeat(2,1fr)}.path-card:nth-child(2){border-right:0}.path-card{border-bottom:1px solid #cfd5ce}.compare-grid{grid-template-columns:1fr}.job-grid{grid-template-columns:1fr}.major-row{grid-template-columns:1fr 1fr}.major-header{display:none}.major-row>*:nth-child(n){grid-column:auto}.major-name{grid-column:1/-1}.school-card summary{grid-template-columns:100px minmax(0,1fr) 24px}.school-count{display:none}.checklist{grid-template-columns:1fr;gap:35px}}
     @media(max-width:650px){.topbar{height:60px;padding:0 17px}.topbar nav{display:none}.hero{min-height:440px;padding:70px 20px}.hero h1{font-size:44px}.hero p.hero-copy{font-size:15px}.hero-links{align-items:flex-start;flex-direction:column;gap:18px}.section{padding:75px 17px}.section h2{font-size:34px}.path-grid{grid-template-columns:1fr}.path-card{border-right:0}.compare-pair{grid-template-columns:1fr}.compare-pair i{transform:rotate(90deg)}.job-card{padding:22px}.job-card dl div{grid-template-columns:1fr;gap:4px}.filter-row{grid-template-columns:1fr;gap:8px}.filter-bottom{grid-template-columns:1fr}.expand-actions{justify-content:flex-end}.school-card summary{padding:20px;grid-template-columns:1fr 24px;gap:12px}.school-rank{grid-column:1}.school-title{grid-column:1}.summary-icon{grid-column:2;grid-row:1/3}.school-title h3{font-size:22px}.major-row{grid-template-columns:1fr;padding:20px}.major-name,.major-row>*:nth-child(n){grid-column:1}.learn-cell:before,.career-detail:before,.employer-examples:before{display:block;margin-bottom:5px;color:#8a9692;font-size:8px;font-weight:900}.learn-cell:before{content:"주요 학습내용·전공 준비과목"}.career-detail:before{content:"학사 졸업 후 직무"}.employer-examples:before{content:"지원 업종 예시"}.subject-profile>div{grid-template-columns:72px 1fr}.source-row{align-items:flex-start;flex-wrap:wrap;padding:14px 20px}.source-row>span{width:100%;margin:0}.checklist{padding:33px 22px}.checklist h2{font-size:32px}footer{grid-template-columns:1fr;gap:18px;padding-left:17px;padding-right:17px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  </style>
+  
+/* ===== 공통 메뉴 디자인 통일: 모든 페이지에서 동일한 크기와 가독성 ===== */
+.global-menu-grid {
+  --item-min:120px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr));
+  gap:clamp(5px,0.8vw,10px);
+  padding:clamp(10px,1.5vw,18px);
+  width:100%;
+  align-items:stretch;
+}
+.global-menu-grid > .global-menu-button {
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+  min-height:clamp(42px,2vw + 32px,52px);
+  height:100%;
+  padding:7px clamp(5px,.7vw,10px);
+  font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+  font-size:clamp(13px,.35vw + 12px,16px);
+  font-weight:750;
+  line-height:1.25;
+  text-align:center;
+  letter-spacing:-.025em;
+  white-space:normal;
+  word-break:keep-all;
+  overflow-wrap:normal;
+  border-radius:14px;
+}
+@media (max-width:700px) {
+  .global-menu-grid {grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+  .global-menu-grid > .global-menu-button {min-height:43px;font-size:14px;padding:7px 5px;}
+}
+
+</style>
   <style id="major-guide-theme">
     :root{
       --paper:#f3f6fb;
@@ -573,7 +609,16 @@
 <body>
   <main>
     <section class="hero" id="top"><h1>생명·화학·공학계열 전공 가이드</h1><p class="hero-copy">전공 준비과목과 학사 졸업 후 진로를 한눈에 비교합니다.</p></section>
-    <nav class="global-menu-section" aria-label="전체 페이지 메뉴"><div class="global-menu-grid"><a class="global-menu-button" href="index.html#inputSection">내신입력 예측</a><a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a><a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a><a class="global-menu-button" href="2028_ad.html">2028 대입전형</a><a class="global-menu-button" href="grade_converter.html">5→9등급 환산</a><a class="global-menu-button" href="student_admission_by_highschool_type.html">학종 고교유형</a><a class="global-menu-button active" href="major_guide.html" aria-current="page">전공 가이드</a></div></nav>
+    <nav class="global-menu-section" aria-label="전체 페이지 메뉴"><div class="global-menu-grid">
+  <a class="global-menu-button" href="index.html#inputSection">내신 입력·대학 예측</a>
+  <a class="global-menu-button" href="school_achievement.html">학교별 학업성취사항</a>
+  <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
+  <a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a>
+  <a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
+  <a class="global-menu-button" href="grade_converter.html">5→9등급 환산</a>
+  <a class="global-menu-button" href="student_admission_by_highschool_type.html">학종 고교유형</a>
+  <a class="global-menu-button active" href="major_guide.html" aria-current="page">전공 가이드</a>
+</div></nav>
     <section class="section" id="direction"><div class="section-head"><div><h2>전공 선택 기준</h2></div><p>같은 자연계열이라도 실험연구, 생산공정, 설계, 코딩, 데이터 최적화처럼 배우는 방식이 다릅니다. 좋아하는 과학 과목뿐 아니라 수학·물리 부담과 졸업 후 직무까지 함께 봐야 합니다.</p></div><div class="path-grid"><article class="path-card"><small>질병·세포·물질을 깊게</small><h3>생명과학 · 화학</h3><p>기초 원리와 실험분석 중심입니다. 독립적인 연구개발을 목표로 하면 대학원까지 계획하는 편이 현실적입니다.</p><strong>연구지원 · 분자진단 · 기기분석 · R&amp;D</strong></article><article class="path-card"><small>과학을 산업공정에 적용</small><h3>바이오 · 화공 · 소재</h3><p>배양·정제·GMP 또는 반응·분리·재료공정을 배워 생산, 품질, 공정기술과 연결합니다.</p><strong>생산 · QC · QA · 공정 · 반도체·배터리</strong></article><article class="path-card"><small>코딩과 전자기술에 관심</small><h3>컴퓨터 · 전기전자</h3><p>컴퓨터는 알고리즘과 소프트웨어, 전기전자는 회로·신호·반도체를 다룹니다. 프로젝트 경험이 중요합니다.</p><strong>개발 · AI·데이터 · 회로 · 반도체 · 임베디드</strong></article><article class="path-card"><small>설계·최적화·인프라에 관심</small><h3>기계 · 산업 · 건설</h3><p>기계와 건설은 수학·물리·공간개념 비중이 높고, 산업공학은 확률통계와 운영·데이터 분석 비중이 큽니다.</p><strong>설계 · 생산기술 · SCM · 품질 · 건축·토목</strong></article></div></section>
 
     <section class="section" id="compare"><div class="section-head"><div><h2>비슷한 전공 비교</h2></div><p>생명과 화학에 관심 있는 학생이 공학계열로 범위를 넓힐 때 가장 많이 혼동하는 조합입니다. 어느 쪽이 더 좋다는 뜻이 아니라 수업 방식과 취업 직무의 차이를 보는 표입니다.</p></div><div class="compare-grid">
