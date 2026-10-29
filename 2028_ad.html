@@ -1361,15 +1361,23 @@ header.site-hero p {
 .container nav.section-picker ul a:focus-visible {
   background:#e5edfb !important; border-color:#c1d3ec !important; color:#172744 !important;
 }
-/* 본문 소제목은 학업성취사항의 .topline h2 형태: 체크 아이콘/하단선 제거 */
+/* 본문 소제목: 다른 페이지와 동일한 원형 체크 표시 사용 (하단 구분선 없음) */
 .container main > section > h2 {
-  display:block !important; margin:0 0 14px !important; padding:0 !important;
+  display:flex !important; align-items:center !important; gap:10px !important;
+  margin:0 0 14px !important; padding:0 !important;
   border:0 !important; border-bottom:none !important; background:transparent !important;
   font-size:20px !important; font-weight:950 !important;
   line-height:1.35 !important; letter-spacing:-.045em !important;
   color:#12213a !important;
 }
-.container main > section > h2::before {content:none !important; display:none !important;}
+.container main > section > h2::before {
+  content:"✓" !important;
+  display:inline-flex !important; align-items:center; justify-content:center;
+  width:27px; height:27px; flex:0 0 27px;
+  border-radius:50%; background:#172744; color:#fff;
+  font-size:16px; font-weight:950; line-height:1;
+  box-shadow:0 5px 14px rgba(23,38,67,.20);
+}
 @media (max-width:950px) {
   .container nav.section-picker ul {grid-template-columns:repeat(4,minmax(0,1fr)) !important;}
 }

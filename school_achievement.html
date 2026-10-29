@@ -261,7 +261,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #8baee8;outline-offset:3p
  <div class="school-grid" id="schoolTabs" role="tablist" aria-label="학교 선택"></div>
 </section>
 <section class="card" id="schoolDetail" aria-label="학교별 성취도">
- <div class="topline"><h2 id="selectedSchool">해송고</h2><div class="year-tabs" id="yearTabs" aria-label="학년도 선택"><button class="year-tab" data-year="2026" aria-pressed="true" type="button">2026학년도</button><button class="year-tab" data-year="2025" aria-pressed="false" type="button">2025학년도</button></div></div>
+ <div class="topline"><h2 id="selectedSchool">대건고</h2><div class="year-tabs" id="yearTabs" aria-label="학년도 선택"><button class="year-tab" data-year="2026" aria-pressed="true" type="button">2026학년도</button><button class="year-tab" data-year="2025" aria-pressed="false" type="button">2025학년도</button></div></div>
  <div class="compare-grid" id="compareGrid"></div>
 </section>
 <section class="card" id="subjectComparison" aria-label="주요과목 학교별 비교" hidden>
@@ -275,11 +275,11 @@ button:focus-visible,a:focus-visible{outline:3px solid #8baee8;outline-offset:3p
 <script>
 'use strict';
 const DATA=JSON.parse(document.getElementById('academicData').textContent);
-const schoolList=Object.keys(DATA);
+const schoolList=['대건고', '송도고', '신송고', '연송고', '해송고', '박문여고', '인천여고'];
 const COMPARE_KEY='__comparison__';
 const subjects=['공통국어1','공통수학1','공통영어1','통합사회1','통합과학1','대수','기하','물리학','화학','생명과학','지구과학'];
 const maleSchools=['대건고','송도고','신송고','연송고'];
-const femaleSchools=['해송고','인천여고','박문여고'];
+const femaleSchools=['해송고','박문여고','인천여고'];
 const state={school:schoolList[0],year:'2026'};
 const $=id=>document.getElementById(id);
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

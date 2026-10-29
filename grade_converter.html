@@ -2063,6 +2063,45 @@ body{
   .global-menu-grid { display: none !important; }
 }
 </style>
+<style id="section-heading-check-icon-match">
+/* 사이트 공통 제목 스타일: 네이비 원형 체크 + 흰색 체크 표시 */
+.ratio-title h2,
+.input-card h2,
+.table-title h2 {
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  white-space:normal !important;
+}
+.ratio-title h2::before,
+.input-card h2::before,
+.table-title h2::before {
+  content:"✓";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:27px;
+  height:27px;
+  flex:0 0 27px;
+  border-radius:50%;
+  background:#172744;
+  color:#fff;
+  font-size:16px;
+  font-weight:950;
+  line-height:1;
+  box-shadow:0 5px 14px rgba(23,38,67,.20);
+}
+@media (max-width:480px) {
+  .ratio-title h2,
+  .input-card h2,
+  .table-title h2 { gap:8px !important; }
+  .ratio-title h2::before,
+  .input-card h2::before,
+  .table-title h2::before {
+    width:24px; height:24px; flex-basis:24px; font-size:14px;
+  }
+}
+</style>
 </head>
 <body>
   <header class="site-hero" aria-label="페이지 제목">

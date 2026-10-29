@@ -180,6 +180,34 @@ footer{padding:14px 0 18px;text-align:center;color:#5f6e86;font-size:13px;font-w
  .subject-tasks .task-description{flex:1 0 100%;font-size:13px;line-height:1.52}
  .subject-tasks .task-bottom{margin-left:auto}
 }
+
+/* 학교별 학업성취사항 페이지와 같은 가로형 학교 선택 메뉴 */
+.school-picker{padding:14px;margin-bottom:17px;overflow:hidden}
+.school-picker .school-options{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:8px;
+  align-items:stretch;
+  padding:0;
+}
+.school-picker .school-tab{
+  width:100%;min-width:0;min-height:46px;padding:8px 5px;
+  border:1px solid #d9e2f0;border-radius:13px;
+  background:#f3f6fc;color:#293b5a;
+  font-size:clamp(13px,1vw,16px);font-weight:850;
+  line-height:1.2;white-space:nowrap;
+  box-shadow:none;
+}
+.school-picker .school-tab:hover{background:#e7eefc}
+.school-picker .school-tab[aria-pressed="true"]{
+  border-color:#172744;background:#172744;color:#fff;
+}
+@media(max-width:700px){
+  .school-picker{padding:10px}
+  .school-picker .school-options{grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}
+  .school-picker .school-tab{grid-column:span 3;min-height:40px;padding:7px 2px;font-size:clamp(12px,3.2vw,14px)}
+  .school-picker .school-tab:nth-child(n+5){grid-column:span 4}
+}
 </style>
 </head>
 <body>
@@ -198,19 +226,15 @@ footer{padding:14px 0 18px;text-align:center;color:#5f6e86;font-size:13px;font-w
 </nav>
 <main>
 <section class="panel school-picker" aria-label="학교 선택">
-<div class="panel-head"><span class="round-check" aria-hidden="true">✓</span><h2>학교 선택</h2></div>
-<div class="school-layout">
-<div class="school-box"><h3>남고</h3><div class="school-options">
+<div class="school-options" role="group" aria-label="학교 선택">
 <button type="button" class="school-tab" data-school="대건고" aria-pressed="true">대건고</button>
 <button type="button" class="school-tab" data-school="송도고" aria-pressed="false">송도고</button>
 <button type="button" class="school-tab" data-school="신송고" aria-pressed="false">신송고</button>
 <button type="button" class="school-tab" data-school="연송고" aria-pressed="false">연송고</button>
-</div></div>
-<div class="school-box"><h3>여고</h3><div class="school-options">
 <button type="button" class="school-tab" data-school="해송고" aria-pressed="false">해송고</button>
 <button type="button" class="school-tab" data-school="박문여고" aria-pressed="false">박문여고</button>
 <button type="button" class="school-tab" data-school="인천여고" aria-pressed="false">인천여고</button>
-</div></div></div></section>
+</div></section>
 <section id="schoolResult" class="panel result-panel" aria-live="polite"></section>
 <p class="source-note">학교알리미 공개 자료</p>
 </main>
