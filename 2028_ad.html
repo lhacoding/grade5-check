@@ -1382,6 +1382,73 @@ header.site-hero p {
   .container main > section > h2 {font-size:19px !important;}
 }
 </style>
+
+<style id="school-performance-menu-match">
+/* 학교별 수행평가 페이지의 공통 메뉴 글자·줄바꿈·열 수 통일 */
+.global-menu-grid {
+  display: grid !important;
+  grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+  gap: 7px !important;
+  margin: 14px 0 18px !important;
+  padding: 13px !important;
+  width: 100% !important;
+  align-items: stretch !important;
+  background: #fff !important;
+  border: 1px solid #d4dfef !important;
+  border-radius: 19px !important;
+  box-shadow: 0 8px 24px rgba(24, 42, 73, .07) !important;
+}
+.global-menu-grid > .global-menu-button {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  min-height: 44px !important;
+  height: auto !important;
+  padding: 9px 4px !important;
+  border: 1px solid #d6e0ef !important;
+  border-radius: 12px !important;
+  background: #f5f8ff !important;
+  color: #263b5b !important;
+  font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif !important;
+  font-size: clamp(11px, .9vw, 13px) !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  letter-spacing: normal !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+.global-menu-grid > .global-menu-button:hover {
+  background: #e9f0fd !important;
+}
+.global-menu-grid > .global-menu-button.active,
+.global-menu-grid > .global-menu-button[aria-current="page"] {
+  color: #fff !important;
+  background: #172744 !important;
+  border-color: #172744 !important;
+}
+@media (max-width: 930px) {
+  .global-menu-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 720px) {
+  .global-menu-grid {
+    padding: 8px !important;
+    gap: 5px !important;
+  }
+  .global-menu-grid > .global-menu-button {
+    font-size: 11px !important;
+    padding: 7px 3px !important;
+  }
+}
+@media print {
+  .global-menu-grid { display: none !important; }
+}
+</style>
 </head>
 
 <body>
@@ -1393,6 +1460,7 @@ header.site-hero p {
   <div class="global-menu-grid">
   <a class="global-menu-button" href="index.html#inputSection">내신 입력·대학 예측</a>
   <a class="global-menu-button" href="school_achievement.html">학교별 학업성취사항</a>
+<a class="global-menu-button" href="school_performance.html">학교별 수행평가</a>
   <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
   <a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a>
   <a class="global-menu-button active" href="2028_ad.html" aria-current="page">2028 대입전형</a>
