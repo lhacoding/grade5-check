@@ -2504,7 +2504,7 @@ html, body { max-width:100% !important; overflow-x:hidden !important; }
 /* 학교별 수행평가 페이지의 공통 메뉴 글자·줄바꿈·열 수 통일 */
 .global-menu-grid {
   display: grid !important;
-  grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
   gap: 7px !important;
   margin: 14px 0 18px !important;
   padding: 13px !important;
@@ -2566,6 +2566,125 @@ html, body { max-width:100% !important; overflow-x:hidden !important; }
   .global-menu-grid { display: none !important; }
 }
 </style>
+<style id="common-menu-and-heading-20261030">
+
+/* 2026-10-30: 공통 메뉴 — 7개 항목, 화면별 동일한 글자 크기와 간격 */
+.global-menu-grid {
+  --item-min: 142px !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+.global-menu-grid > .global-menu-button {
+  font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif !important;
+  font-size: clamp(14px, 1.18vw, 16px) !important;
+  font-weight: 850 !important;
+  letter-spacing: -.025em !important;
+  line-height: 1.25 !important;
+  min-width: 0 !important;
+  min-height: 49px !important;
+  padding: 8px 5px !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+}
+@media (max-width: 1020px) {
+  .global-menu-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  .global-menu-grid > .global-menu-button { font-size: 14px !important; min-height: 47px !important; }
+}
+@media (max-width: 600px) {
+  .global-menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 6px !important; }
+  .global-menu-grid > .global-menu-button { font-size: 14px !important; min-height: 44px !important; padding: 8px 5px !important; }
+  .global-menu-grid > .global-menu-button:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* 공통 소제목: 2028 대입전형의 section h2 크기를 기준으로 통일 */
+:root { --unified-section-h2: clamp(1.35rem, 2vw, 1.85rem); }
+main.page > .panel.section .section-title h2 {
+  font-size: var(--unified-section-h2) !important;
+  font-weight: 900 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -.035em !important;
+  word-break: keep-all !important;
+}
+
+</style>
+<style id="shared-heading-check-style">
+
+/* 공통 섹션 제목의 체크 원 — 모든 페이지·화면에서 동일한 실제 치수 */
+:root {
+  --shared-title-check-size: 28px;
+  --shared-title-check-font: 16px;
+}
+
+.section-title h2::before {
+  content: "✓" !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  width: var(--shared-title-check-size) !important;
+  height: var(--shared-title-check-size) !important;
+  min-width: var(--shared-title-check-size) !important;
+  min-height: var(--shared-title-check-size) !important;
+  flex: 0 0 var(--shared-title-check-size) !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: #172744 !important;
+  color: #fff !important;
+  font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif !important;
+  font-size: var(--shared-title-check-font) !important;
+  font-weight: 950 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  vertical-align: middle !important;
+  box-shadow: 0 5px 14px rgba(23, 39, 68, .16) !important;
+}
+
+</style>
+<style id="section-heading-final-uniform-20261030">
+
+/* 통일된 대제목 아래 섹션 제목: 2028 대입전형 섹션 제목의 실제 글자 크기와 일치 */
+main.page > .panel.section .section-title h2 {
+  font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif !important;
+  font-size: 20px !important;
+  line-height: 1.35 !important;
+  font-weight: 950 !important;
+  letter-spacing: -.045em !important;
+  word-break: keep-all !important;
+}
+@media(max-width:600px) {
+ main.page > .panel.section .section-title h2 {font-size:19px !important;}
+}
+
+main.page > .panel.section .section-title h2 {display:inline-flex !important;align-items:center !important;gap:10px !important;}
+
+/* 모두 같은 28px 동그라미, 동일한 벡터 체크 표시 */
+main.page > .panel.section .section-title h2::before {
+  box-sizing:border-box !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  content:"" !important;
+  font-size:0 !important;
+  line-height:0 !important;
+  width:28px !important;
+  height:28px !important;
+  min-width:28px !important;
+  min-height:28px !important;
+  flex:0 0 28px !important;
+  padding:0 !important;
+  border-radius:50% !important;
+  background-color:#172744 !important;
+  background-image:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"%3E%3Cpath d="M7.4 14.2l4.3 4.3L20.7 9.5" fill="none" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/%3E%3C/svg%3E') !important;
+  background-position:center !important;
+  background-size:28px 28px !important;
+  background-repeat:no-repeat !important;
+  color:transparent !important;
+  letter-spacing:0 !important;
+  vertical-align:middle !important;
+  box-shadow:0 5px 14px rgba(23,39,68,.16) !important;
+}
+</style>
 </head>
 <body>
 <header aria-label="페이지 제목" class="site-hero">
@@ -2578,9 +2697,7 @@ html, body { max-width:100% !important; overflow-x:hidden !important; }
   <a class="global-menu-button" href="school_achievement.html">학교별 학업성취사항</a>
 <a class="global-menu-button" href="school_performance.html">학교별 수행평가</a>
   <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
-  <a class="global-menu-button" href="2028_engineering_quadrant_final.html">수능최저 면접</a>
   <a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
-  <a class="global-menu-button" href="grade_converter.html">5→9등급 환산</a>
   <a aria-current="page" class="global-menu-button active" href="student_admission_by_highschool_type.html">학종 고교유형</a>
   <a class="global-menu-button" href="major_guide.html">전공 가이드</a>
 </div>
