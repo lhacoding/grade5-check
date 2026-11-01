@@ -367,6 +367,29 @@ main .topline h2::before {
   box-shadow:0 5px 14px rgba(23,39,68,.16) !important;
 }
 </style>
+
+<style id="haesong-cutoff-2026">
+/* 해송고 추정분할점수 표를 1학년 성취도 표와 분리하여 왼쪽 열 아래 배치 */
+.compare-stack{display:grid;align-content:start;min-width:0;gap:14px}
+.cutoff-heading{font-size:17px}
+.cutoff-scroll{width:100%;overflow-x:visible;-webkit-overflow-scrolling:touch}
+.cutoff-table{width:100%;min-width:0;border-collapse:collapse;table-layout:fixed;font-variant-numeric:tabular-nums}
+.cutoff-table th,.cutoff-table td{padding:11px 3px;text-align:center;border-bottom:1px solid #e5ebf5;line-height:1.3;font-size:12.5px}
+.cutoff-table thead th{background:#f7f9fe;color:#2d4161;font-weight:900;white-space:nowrap}
+.cutoff-table th:first-child{width:19%;text-align:left;padding-left:10px}
+.cutoff-table tbody th{color:#253953;font-weight:850}
+.cutoff-table tbody td{color:#253953;font-weight:700}
+.cutoff-table tbody tr:nth-child(even){background:#fafcff}
+.cutoff-table tbody tr:last-child th,.cutoff-table tbody tr:last-child td{border-bottom:0}
+.cutoff-table tbody tr:hover{background:#ecf3ff}
+/* 두 열이 나란히 보일 때 분할점수 표의 행 높이를 조정하여 양쪽 하단선을 일치시킨다. */
+@media(min-width:1021px){
+ .compare-stack .cutoff-table{height:100%}
+ .compare-stack .cutoff-table th,.compare-stack .cutoff-table td{padding:6px 3px}
+}
+@media(max-width:1020px){.cutoff-table th,.cutoff-table td{font-size:13.5px}}
+@media(max-width:670px){.compare-stack{gap:12px}.cutoff-heading{font-size:15px}.cutoff-scroll{overflow-x:auto}.cutoff-table{min-width:580px}}
+</style>
 </head>
 <body>
 <div class="container">
@@ -428,6 +451,28 @@ function renderMobile(rows){
  if(!rows.length)return '<div class="empty">–</div>';
  return '<div class="mobile-rows">'+rows.map(r=>`<article class="mini-subject"${r.check?' title="원본 수치 확인 필요"':''}><div class="mini-top"><span class="mini-name">${courseName(r.subject)}</span><strong class="mini-avg">${esc(fmt(r.avg))}</strong></div><div class="mini-dist">${r.dist.map((v,i)=>`<div><b>${'ABCDE'[i]}</b><span>${esc(fmt(v))}</span></div>`).join('')}</div></article>`).join('')+'</div>';
 }
+/* 학교에서 공개한 2026학년도 1학기말 최종 성취수준 추정분할점수(종합) */
+const HAESONG_CUTOFF_2026={
+ subjects:['공통국어1','공통수학1','공통영어1','한국사1','통합사회1','통합과학1','정보'],
+ rows:[
+  ['A/B',[77,69,73,79,76,81,81]],
+  ['B/C',[62,54,61,64,59,64,66]],
+  ['C/D',[46,40,49,49,43,47,50]],
+  ['D/E',[31,25,36,34,26,30,34]],
+  ['E/미도달',[17,12,20,15,14,16,null]]
+ ]
+};
+function renderHaesongCutoff(){
+ const heads=HAESONG_CUTOFF_2026.subjects.map(name=>`<th scope="col">${esc(name)}</th>`).join('');
+ const rows=HAESONG_CUTOFF_2026.rows.map(([level,values])=>
+  `<tr><th scope="row">${esc(level)}</th>${values.map(value=>`<td>${esc(fmt(value))}</td>`).join('')}</tr>`
+ ).join('');
+ return `<section class="compare-panel" aria-label="해송고 2026학년도 1학년 성취수준 추정분할점수">`+
+  `<h3 class="compare-heading cutoff-heading">성취수준 추정분할점수</h3>`+
+  `<div class="cutoff-scroll" role="region" aria-label="성취수준 추정분할점수 표" tabindex="0">`+
+  `<table class="cutoff-table"><thead><tr><th scope="col">과목</th>${heads}</tr></thead><tbody>${rows}</tbody></table>`+
+  `</div></section>`;
+}
 function panel(title,rows,extra){
  return `<section class="compare-panel" aria-label="${esc(title)}"><h3 class="compare-heading">${esc(title)}</h3>${renderTable(rows)}${renderMobile(rows)}${extra||''}</section>`;
 }
@@ -476,6 +521,7 @@ function render(){
  let a,b;
  if(state.year==='2026'){
   a=panel('1학년 · 1학기',filteredRows('2026-1','1학년'));
+  if(state.school==='해송고')a=`<div class="compare-stack">${a}${renderHaesongCutoff()}</div>`;
   b=panel('2학년 · 1학기',filteredRows('2026-1','2학년'));
  }else{
   const additional=filteredRows('2025-2','2학년');
@@ -484,7 +530,23 @@ function render(){
   b=panel('1학년 · 2학기',filteredRows('2025-2','1학년'),appendix);
  }
  $('compareGrid').innerHTML=a+b;
+ // 폰트 로딩이나 화면 크기가 바뀌어도 해송고 좌우 표의 맨 아래 테두리를 일치시킨다.
+ requestAnimationFrame(alignHaesongBottom);
 }
+function alignHaesongBottom(){
+ const grid=$('compareGrid');
+ const scroll=grid.querySelector('.compare-stack .cutoff-scroll');
+ if(!scroll)return;
+ scroll.style.height='';
+ if(window.matchMedia('(max-width:1020px)').matches)return;
+ const right=grid.querySelector(':scope > .compare-panel');
+ if(!right)return;
+ // 표와 바깥쪽 테두리 1px을 고려해 좌·우 카드의 하단선을 정확히 맞춘다.
+ const targetHeight=right.getBoundingClientRect().bottom-scroll.getBoundingClientRect().top-1;
+ if(targetHeight>0)scroll.style.height=`${targetHeight.toFixed(3)}px`;
+}
+window.addEventListener('resize',()=>requestAnimationFrame(alignHaesongBottom));
+if(document.fonts)document.fonts.ready.then(()=>requestAnimationFrame(alignHaesongBottom));
 $('schoolTabs').addEventListener('click',e=>{
  const b=e.target.closest('[data-school]');if(!b)return;state.school=b.dataset.school;render();
 });
