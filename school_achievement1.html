@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="학교별 학업성취사항: 2026학년도 1·2학년 비교, 2025학년도 1·2학기 비교">
+<title>학교별 학업성취사항 | 송도이샘로봇</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+:root{--navy:#172744;--navy2:#263b62;--ink:#12213a;--muted:#657791;--line:#d8e2f0;--shade:#edf3ff;--shadow:0 10px 26px rgba(30,51,83,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#eef3fb,#f8faff 62%,#fff);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;word-break:keep-all;letter-spacing:-.025em}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid #8baee8;outline-offset:3px}
+.container{width:min(1320px,calc(100% - 2*clamp(12px,4vw,36px)));margin:auto}
+/* 다른 입시 안내 페이지와 동일한 제목·설명·하단 가로선 구성 */
+.hero{position:relative;isolation:isolate;overflow:hidden;margin-top:16px;padding:24px 28px 29px;
+  background:radial-gradient(circle at 86% 28%,rgba(80,205,196,.20) 0%,rgba(80,205,196,.08) 24%,transparent 46%),
+  linear-gradient(135deg,#161d3d 0%,#24325c 55%,#3d4f74 100%);
+  color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:22px;
+  box-shadow:0 10px 22px rgba(15,23,42,.14)}
+.hero::before{content:"";position:absolute;right:-12%;top:-55%;width:48%;height:170%;
+  background:radial-gradient(circle,rgba(255,255,255,.08),transparent 62%);pointer-events:none;z-index:0}
+.hero::after{content:"";position:absolute;left:28px;right:28px;bottom:16px;height:2px;border-radius:999px;
+  background:linear-gradient(90deg,rgba(80,205,196,.96) 0%,rgba(80,205,196,.92) 18%,rgba(80,205,196,.72) 46%,rgba(80,205,196,.36) 68%,rgba(80,205,196,.12) 84%,rgba(80,205,196,.02) 100%);
+  box-shadow:0 0 10px rgba(80,205,196,.18);pointer-events:none;z-index:0}
+.hero h1,.hero p{position:relative;z-index:1}
+.hero h1{font-size:clamp(28px,3.6vw,42px);line-height:1.08;margin:0;font-weight:900;letter-spacing:-.06em}
+.hero p{margin:9px 0 0;max-width:900px;color:rgba(255,255,255,.9);font-size:clamp(13px,1.35vw,15.5px);
+  line-height:1.5;font-weight:700;letter-spacing:-.025em}
+.global-menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,112px),1fr));gap:8px;margin:13px 0 16px;padding:14px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.global-menu-button{display:flex;align-items:center;justify-content:center;min-width:0;min-height:45px;padding:9px 7px;border:1px solid var(--line);border-radius:13px;background:#f4f7fd;color:#233657;text-align:center;text-decoration:none;font-size:clamp(12px,1vw,14px);font-weight:800;line-height:1.25}
+.global-menu-button:hover{background:#e7eefc}.global-menu-button.active{color:#fff;background:var(--navy);border-color:var(--navy)}
+.card{padding:18px 20px;margin:14px 0;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 14px}
+.topline h2{margin:0;font-size:20px;font-weight:950;letter-spacing:-.045em}
+.school-picker{padding:12px 14px;margin:11px 0}.school-picker .topline{margin-bottom:8px}
+.school-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px}
+.school-tab{min-width:0;min-height:35px;padding:5px 3px;border:1px solid #d9e2f0;border-radius:9px;background:#f3f6fc;color:#2c3d59;font-size:13.5px;font-weight:850;line-height:1.15;white-space:normal}
+.school-tab:hover{background:#e5edfb}.school-tab[aria-selected=true]{background:var(--navy);border-color:var(--navy);color:#fff}.school-tab.compare-tab{font-size:12px}
+.year-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.year-tab{min-width:118px;min-height:41px;padding:9px 13px;border:1px solid #d4e0f0;border-radius:11px;background:#f3f6fc;color:#314461;font-size:13px;font-weight:850}
+.year-tab[aria-pressed=true]{color:white;border-color:var(--navy);background:var(--navy)}
+.compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.compare-panel{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#fff}
+.compare-heading{margin:0;padding:12px 15px;border-bottom:1px solid #cbd9ee;background:linear-gradient(115deg,#e8f0ff,#d7e4f8);color:#1b3459;font-size:17px;font-weight:950;letter-spacing:-.035em}
+.compare-table{border-collapse:collapse;width:100%;table-layout:fixed;font-variant-numeric:tabular-nums}
+.compare-table th,.compare-table td{border-bottom:1px solid #e5ebf5;text-align:center;line-height:1.3}
+.compare-table th{padding:10px 2px;background:#f7f9fe;color:#2d4161;font-size:11px;font-weight:900}
+.compare-table th:first-child,.compare-table td:first-child{width:34%;text-align:left;padding-left:10px;padding-right:3px}
+.compare-table th:nth-child(2),.compare-table td:nth-child(2){width:10%;font-weight:900;color:#1d477e}
+.compare-table td{padding:11px 2px;color:#253953;font-weight:650;font-size:13.5px}
+.compare-table td:first-child{font-weight:800;overflow-wrap:anywhere}
+.compare-table tbody tr:nth-child(even){background:#fafcff}
+.compare-table tbody tr:last-child td{border-bottom:0}
+.compare-table tbody tr:hover{background:#ecf3ff}
+.compare-table .suspect{background:#fff4e9}
+.subunit{color:#75859b;white-space:nowrap;font-size:.93em}
+.subheading{margin:0;padding:10px;border-top:1px solid var(--line);background:#edf3ff;color:#1d3459;font-weight:900;font-size:14px}
+.empty{padding:22px 10px;text-align:center;color:#7a8696;font-size:13px}
+.mobile-rows{display:none}
+/* 주요과목 비교: 과목(행) × 학교별 평균/A비율(열), 남고·여고 통합표 */
+.matrix-wrap{max-width:100%;overflow-x:auto;overflow-y:hidden;border:1px solid var(--line);border-radius:14px;background:#fff;-webkit-overflow-scrolling:touch}
+.matrix-table{width:100%;min-width:1040px;border-collapse:separate;border-spacing:0;table-layout:fixed;font-variant-numeric:tabular-nums}
+.matrix-table col.subject-col{width:138px}
+.matrix-table col.value-col{width:calc((100% - 138px)/14)}
+.matrix-table th,.matrix-table td{border-right:1px solid #e3eaf5;border-bottom:1px solid #e3eaf5;text-align:center;vertical-align:middle;white-space:nowrap}
+.matrix-table tr>*:last-child{border-right:0}
+.matrix-table tbody tr:last-child>*{border-bottom:0}
+.matrix-table thead th{font-weight:900;color:#203a61}
+.matrix-table .group-row th{height:39px;padding:8px 4px;font-size:15px;background:#e5eefe}
+.matrix-table .group-row .boys-head{background:#dbe7fa}
+.matrix-table .group-row .girls-head{background:#f0e9fb;color:#5b427a}
+.matrix-table .group-row .subject-head{background:#e7eef9;text-align:left;padding-left:14px;font-size:14px}
+.matrix-table .school-row th{height:37px;padding:6px 2px;font-size:13px;background:#f2f6fe}
+.matrix-table .school-row .girls-school{background:#faf5ff}
+.matrix-table .metric-row th{height:32px;padding:5px 1px;font-size:11.5px;background:#f9fbfe;color:#536987}
+.matrix-table .metric-row .girls-metric{background:#fdfaff}
+.matrix-table tbody th{padding:12px 6px 12px 13px;text-align:left;font-size:14px;font-weight:850;line-height:1.3;background:#fff;color:#253c5c}
+.matrix-table tbody td{padding:10px 2px;font-size:14px;font-weight:760;color:#26405f}
+.matrix-table tbody td.avg-cell{color:#163f77;font-weight:900}
+.matrix-table tbody td.a-cell{color:#606e87}
+.matrix-table tbody tr:nth-child(even) td,.matrix-table tbody tr:nth-child(even) th{background:#f8faff}
+.matrix-table tbody tr:hover td,.matrix-table tbody tr:hover th{background:#eaf2ff}
+.matrix-table .girls-divider{border-left:2px solid #b5a5d4!important}
+.matrix-table .subject-head,.matrix-table tbody th{position:sticky;left:0;z-index:2;box-shadow:2px 0 5px rgba(20,45,83,.035)}
+.matrix-table .subject-head{z-index:3}
+.matrix-table .missing-cell{color:#a5afbd;font-weight:500}
+@media(max-width:1020px){.compare-grid{grid-template-columns:minmax(0,1fr)}.compare-table td{font-size:14.5px}.compare-table th{font-size:12px}.compare-table th:first-child,.compare-table td:first-child{width:35%}.compare-heading{text-align:left;font-size:16px}}
+
+.unified-footer{width:100%;margin:0 auto;padding:14px 0 18px;text-align:center;font-size:13px;font-weight:800;letter-spacing:-.035em;color:#5f6e86;background:transparent;border:0}
+[hidden]{display:none!important}
+@media(max-width:950px){.school-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:670px){
+.hero{padding:20px 16px 29px;border-radius:17px}.hero h1{font-size:clamp(26px,6vw,32px)}.hero::after{left:16px;right:16px;bottom:13px}
+.global-menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding:9px;gap:6px}.global-menu-button{font-size:12px;min-height:40px;padding:7px 3px}
+.card{padding:12px;margin:11px 0;border-radius:15px}.topline{align-items:flex-start;gap:9px;flex-wrap:wrap}.topline h2{font-size:19px}.year-tabs{width:100%}.year-tab{flex:1;min-width:0;font-size:12px;min-height:37px;padding:7px 4px}
+.school-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.school-tab{font-size:14px;min-height:36px;padding:5px 4px}.school-tab.compare-tab{font-size:12.5px}.school-picker{padding:10px}.school-picker .topline{margin-bottom:7px}
+.compare-grid{gap:12px;grid-template-columns:minmax(0,1fr)}.compare-heading{padding:10px 12px;font-size:15px;text-align:left}
+
+}
+@media(max-width:480px){
+.compare-table{display:none}.mobile-rows{display:grid;gap:0}
+.mini-subject{padding:12px 12px;border-bottom:1px solid #e6edf6;min-width:0}
+.mini-subject:nth-child(even){background:#fbfcff}.mini-subject:last-child{border-bottom:0}
+.mini-top{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;margin-bottom:8px}
+.mini-name{font-size:15px;font-weight:850;color:#273b59;min-width:0}
+.mini-avg{flex:0 0 auto;color:#1d477e;font-size:16px;font-weight:950;font-variant-numeric:tabular-nums}
+.mini-dist{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;font-variant-numeric:tabular-nums}
+.mini-dist div{min-width:0;text-align:center;background:#f0f5fd;border-radius:6px;padding:6px 2px}
+.mini-dist b{display:block;font-size:11px;color:#58708e}
+.mini-dist span{display:block;margin-top:3px;font-size:13px;font-weight:800;color:#243853;white-space:nowrap}
+
+}
+@media(max-width:350px){.mini-dist span{font-size:12px}.mini-name{font-size:14px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* ===== 공통 메뉴 디자인 통일: 모든 페이지에서 동일한 크기와 가독성 ===== */
+.global-menu-grid {
+  --item-min:120px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr));
+  gap:clamp(5px,0.8vw,10px);
+  padding:clamp(10px,1.5vw,18px);
+  width:100%;
+  align-items:stretch;
+}
+.global-menu-grid > .global-menu-button {
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+  min-height:clamp(42px,2vw + 32px,52px);
+  height:100%;
+  padding:7px clamp(5px,.7vw,10px);
+  font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+  font-size:clamp(13px,.35vw + 12px,16px);
+  font-weight:750;
+  line-height:1.25;
+  text-align:center;
+  letter-spacing:-.025em;
+  white-space:normal;
+  word-break:keep-all;
+  overflow-wrap:normal;
+  border-radius:14px;
+}
+@media (max-width:700px) {
+  .global-menu-grid {grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+  .global-menu-grid > .global-menu-button {min-height:43px;font-size:14px;padding:7px 5px;}
+}
+
+</style>
+
+<style id="school-table-font-unification">
+/* 표 내용과 열 제목 글자 크기를 일치: 메뉴·표 폭·값·레이아웃은 유지 */
+.compare-table th, .compare-table td {font-size:13.5px;}
+.matrix-table .group-row .subject-head,
+.matrix-table .school-row th,
+.matrix-table .metric-row th,
+.matrix-table tbody th,
+.matrix-table tbody td {font-size:14px;}
+.subunit {font-size:1em;}
+.mini-name, .mini-avg {font-size:16px;}
+.mini-dist b, .mini-dist span {font-size:13px;}
+@media (max-width:1020px) {
+  .compare-table th, .compare-table td {font-size:14.5px;}
+}
+@media (max-width:350px) {
+  .mini-name, .mini-avg {font-size:14px;}
+  .mini-dist b, .mini-dist span {font-size:12px;}
+}
+</style>
+
+<style id="school-performance-menu-match">
+/* 학교별 수행평가 페이지의 공통 메뉴 글자·줄바꿈·열 수 통일 */
+.global-menu-grid {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 7px !important;
+  margin: 14px 0 18px !important;
+  padding: 13px !important;
+  width: 100% !important;
+  align-items: stretch !important;
+  background: #fff !important;
+  border: 1px solid #d4dfef !important;
+  border-radius: 19px !important;
+  box-shadow: 0 8px 24px rgba(24, 42, 73, .07) !important;
+}
+.global-menu-grid > .global-menu-button {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  min-height: 44px !important;
+  height: auto !important;
+  padding: 9px 4px !important;
+  border: 1px solid #d6e0ef !important;
+  border-radius: 12px !important;
+  background: #f5f8ff !important;
+  color: #263b5b !important;
+  font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif !important;
+  font-size: clamp(11px, .9vw, 13px) !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  letter-spacing: normal !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+.global-menu-grid > .global-menu-button:hover {
+  background: #e9f0fd !important;
+}
+.global-menu-grid > .global-menu-button.active,
+.global-menu-grid > .global-menu-button[aria-current="page"] {
+  color: #fff !important;
+  background: #172744 !important;
+  border-color: #172744 !important;
+}
+@media (max-width: 930px) {
+  .global-menu-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 720px) {
+  .global-menu-grid {
+    padding: 8px !important;
+    gap: 5px !important;
+  }
+  .global-menu-grid > .global-menu-button {
+    font-size: 11px !important;
+    padding: 7px 3px !important;
+  }
+}
+@media print {
+  .global-menu-grid { display: none !important; }
+}
+</style>
+<style id="common-menu-and-heading-20261030">
+
+/* 2026-10-30: 공통 메뉴 — 7개 항목, 화면별 동일한 글자 크기와 간격 */
+.global-menu-grid {
+  --item-min: 142px !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+.global-menu-grid > .global-menu-button {
+  font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif !important;
+  font-size: clamp(14px, 1.18vw, 16px) !important;
+  font-weight: 850 !important;
+  letter-spacing: -.025em !important;
+  line-height: 1.25 !important;
+  min-width: 0 !important;
+  min-height: 49px !important;
+  padding: 8px 5px !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+}
+@media (max-width: 1020px) {
+  .global-menu-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  .global-menu-grid > .global-menu-button { font-size: 14px !important; min-height: 47px !important; }
+}
+@media (max-width: 600px) {
+  .global-menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 6px !important; }
+  .global-menu-grid > .global-menu-button { font-size: 14px !important; min-height: 44px !important; padding: 8px 5px !important; }
+  .global-menu-grid > .global-menu-button:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* 공통 소제목: 2028 대입전형의 section h2 크기를 기준으로 통일 */
+:root { --unified-section-h2: clamp(1.35rem, 2vw, 1.85rem); }
+main .topline h2 {
+  font-size: var(--unified-section-h2) !important;
+  font-weight: 900 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -.035em !important;
+  word-break: keep-all !important;
+}
+
+</style>
+<style id="shared-heading-check-style">
+
+/* 공통 섹션 제목의 체크 원 — 모든 페이지·화면에서 동일한 실제 치수 */
+:root {
+  --shared-title-check-size: 28px;
+  --shared-title-check-font: 16px;
+}
+
+/* 학교 상세 제목(대건고 등) 및 주요과목 학교별 비교에 누락된 체크 추가 */
+main .topline h2 {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+}
+
+main .topline h2::before {
+  content: "✓" !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  width: var(--shared-title-check-size) !important;
+  height: var(--shared-title-check-size) !important;
+  min-width: var(--shared-title-check-size) !important;
+  min-height: var(--shared-title-check-size) !important;
+  flex: 0 0 var(--shared-title-check-size) !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: #172744 !important;
+  color: #fff !important;
+  font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif !important;
+  font-size: var(--shared-title-check-font) !important;
+  font-weight: 950 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  vertical-align: middle !important;
+  box-shadow: 0 5px 14px rgba(23, 39, 68, .16) !important;
+}
+
+</style>
+<style id="section-heading-final-uniform-20261030">
+
+/* 통일된 대제목 아래 섹션 제목: 2028 대입전형 섹션 제목의 실제 글자 크기와 일치 */
+main .topline h2 {
+  font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif !important;
+  font-size: 20px !important;
+  line-height: 1.35 !important;
+  font-weight: 950 !important;
+  letter-spacing: -.045em !important;
+  word-break: keep-all !important;
+}
+@media(max-width:600px) {
+ main .topline h2 {font-size:19px !important;}
+}
+
+main .topline h2 {display:inline-flex !important;align-items:center !important;gap:10px !important;}
+
+/* 모두 같은 28px 동그라미, 동일한 벡터 체크 표시 */
+main .topline h2::before {
+  box-sizing:border-box !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  content:"" !important;
+  font-size:0 !important;
+  line-height:0 !important;
+  width:28px !important;
+  height:28px !important;
+  min-width:28px !important;
+  min-height:28px !important;
+  flex:0 0 28px !important;
+  padding:0 !important;
+  border-radius:50% !important;
+  background-color:#172744 !important;
+  background-image:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"%3E%3Cpath d="M7.4 14.2l4.3 4.3L20.7 9.5" fill="none" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/%3E%3C/svg%3E') !important;
+  background-position:center !important;
+  background-size:28px 28px !important;
+  background-repeat:no-repeat !important;
+  color:transparent !important;
+  letter-spacing:0 !important;
+  vertical-align:middle !important;
+  box-shadow:0 5px 14px rgba(23,39,68,.16) !important;
+}
+</style>
+
+<style id="haesong-cutoff-2026">
+/* 해송고 추정분할점수 표를 1학년 성취도 표와 분리하여 왼쪽 열 아래 배치 */
+.compare-stack{display:grid;align-content:start;min-width:0;gap:14px}
+.cutoff-heading{font-size:17px}
+.cutoff-scroll{width:100%;overflow-x:visible;-webkit-overflow-scrolling:touch}
+.cutoff-table{width:100%;min-width:0;border-collapse:collapse;table-layout:fixed;font-variant-numeric:tabular-nums}
+.cutoff-table th,.cutoff-table td{padding:11px 3px;text-align:center;border-bottom:1px solid #e5ebf5;line-height:1.3;font-size:12.5px}
+.cutoff-table thead th{background:#f7f9fe;color:#2d4161;font-weight:900;white-space:nowrap}
+.cutoff-table th:first-child{width:19%;text-align:left;padding-left:10px}
+.cutoff-table tbody th{color:#253953;font-weight:850}
+.cutoff-table tbody td{color:#253953;font-weight:700}
+.cutoff-table tbody tr:nth-child(even){background:#fafcff}
+.cutoff-table tbody tr:last-child th,.cutoff-table tbody tr:last-child td{border-bottom:0}
+.cutoff-table tbody tr:hover{background:#ecf3ff}
+/* 두 열이 나란히 보일 때 분할점수 표의 행 높이를 조정하여 양쪽 하단선을 일치시킨다. */
+@media(min-width:1021px){
+ .compare-stack .cutoff-table{height:100%}
+ .compare-stack .cutoff-table th,.compare-stack .cutoff-table td{padding:6px 3px}
+}
+@media(max-width:1020px){.cutoff-table th,.cutoff-table td{font-size:13.5px}}
+@media(max-width:670px){.compare-stack{gap:12px}.cutoff-heading{font-size:15px}.cutoff-scroll{overflow-x:auto}.cutoff-table{min-width:580px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="hero" aria-label="페이지 제목"><h1>학교별 학업성취사항</h1><p>학교별 과목 평균과 A~E 성취도 비율을 비교합니다.</p></header>
+<nav aria-label="전체 페이지 메뉴" class="global-menu-grid">
+  <a class="global-menu-button" href="index.html#inputSection">내신 입력·대학 예측</a>
+  <a aria-current="page" class="global-menu-button active" href="school_achievement.html">학교별 학업성취사항</a>
+<a class="global-menu-button" href="school_performance.html">학교별 수행평가</a>
+  <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
+  <a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
+  <a class="global-menu-button" href="student_admission_by_highschool_type.html">학종 고교유형</a>
+  <a class="global-menu-button" href="major_guide.html">전공 가이드</a>
+</nav>
+<main>
+<section class="card school-picker" aria-label="학교 선택">
+ 
+ <div class="school-grid" id="schoolTabs" role="tablist" aria-label="학교 선택"></div>
+</section>
+<section class="card" id="schoolDetail" aria-label="학교별 성취도">
+ <div class="topline"><h2 id="selectedSchool">대건고</h2><div class="year-tabs" id="yearTabs" aria-label="학년도 선택"><button class="year-tab" data-year="2026" aria-pressed="true" type="button">2026학년도</button><button class="year-tab" data-year="2025" aria-pressed="false" type="button">2025학년도</button></div></div>
+ <div class="compare-grid" id="compareGrid"></div>
+</section>
+<section class="card" id="subjectComparison" aria-label="주요과목 학교별 비교" hidden>
+ <div class="topline"><h2>주요과목 학교별 비교</h2><div class="year-tabs"><span class="year-tab" style="cursor:default;background:#e9f0fd">2026학년도 1학기</span></div></div>
+ <div id="genderComparison"></div>
+</section>
+</main>
+<footer class="unified-footer">학교별 학업성취사항 [ 송도이샘로봇 ]</footer>
+</div>
+<script id="academicData" type="application/json">{"해송고":{"2026-1":{"1학년":[{"subject":"공통국어1 (3)","avg":67,"dist":[37.1,29.5,19,9.5,4.8],"row":4},{"subject":"공통수학1 (4)","avg":63.9,"dist":[46.7,28.3,14.3,6.7,4.1],"row":5},{"subject":"공통영어1 (4)","avg":63.9,"dist":[41.3,17.1,16.8,11.7,13],"row":6},{"subject":"한국사1 (3)","avg":68.2,"dist":[32.4,30.2,20.6,11.1,5.7],"row":7},{"subject":"통합사회1 (3)","avg":80.8,"dist":[73.3,19,3.2,3.5,1],"row":8},{"subject":"통합과학1 (3)","avg":69.8,"dist":[35.9,29.5,22.2,9.5,2.9],"row":9},{"subject":"과학탐구실험1 (1)","avg":87.2,"dist":[85.1,14,1,null,null],"row":10},{"subject":"체육1 (2)","avg":81.3,"dist":[64.4,31.4,4.1,null,null],"row":11},{"subject":"음악 (3)","avg":79.1,"dist":[51,42.7,6.4,null,null],"row":12},{"subject":"미술 (3)","avg":88.4,"dist":[92.4,7,0.6,null,null],"row":13},{"subject":"정보 (3)","avg":73.2,"dist":[28.3,47,20,3.5,1.3],"row":14}],"2학년":[{"subject":"문학 (4)","avg":80.7,"dist":[79,6.1,4.9,6.1,3.9],"row":15},{"subject":"언어생활 탐구 (3)","avg":79.1,"dist":[54.2,23.2,10.7,4.2,7.7],"row":16},{"subject":"대수 (4)","avg":53,"dist":[34,27.5,32,4.2,2.3],"row":17},{"subject":"기하 (3)","avg":72.5,"dist":[56.1,38.8,5.1,0,0],"row":18},{"subject":"영어Ⅰ (4)","avg":60.3,"dist":[39.8,19.1,20.1,11.7,9.4],"row":19},{"subject":"미디어 영어 (3)","avg":67,"dist":[16.3,30.2,39.5,14,0],"row":20},{"subject":"세계사 (3)","avg":67.9,"dist":[33,29.6,18.4,13.4,5.6],"row":21},{"subject":"법과 사회 (3)","avg":62.2,"dist":[44.8,30.9,16.5,3.6,4.1],"row":22},{"subject":"윤리와 사상 (3)","avg":63.2,"dist":[16.8,29.7,31.2,10.4,11.9],"row":23},{"subject":"물리학 (3)","avg":80.6,"dist":[54.1,41.2,1.2,3.5,0],"row":24},{"subject":"화학 (3)","avg":78.2,"dist":[58.7,32.7,3.8,4.8,0],"row":25},{"subject":"생명과학 (3)","avg":69,"dist":[40,21.5,18.5,13.1,6.9],"row":26},{"subject":"지구과학 (3)","avg":70.1,"dist":[45.5,27.3,21.2,6.1,0],"row":27},{"subject":"생명과학 실험 (3)","avg":98.3,"dist":[100,0,0,0,0],"row":28},{"subject":"운동과 건강 (2)","avg":76.8,"dist":[42.4,51.1,6.5,null,null],"row":29},{"subject":"인공지능과 피지컬 컴퓨팅 (3)","avg":99.4,"dist":[100,0,0,0,0],"row":30},{"subject":"중국어 (3)","avg":73,"dist":[50,0,42.9,0,7.1],"row":31},{"subject":"일본어 (3)","avg":73.1,"dist":[50.8,20.7,22.7,5.4,0.3],"row":32}]},"2025-1":{"1학년":[{"subject":"공통국어1 (3)","avg":66.3,"dist":[28,29.2,22.6,15.4,4.7],"row":4},{"subject":"공통수학1 (4)","avg":63.9,"dist":[62.4,26.7,41.8,24.5,6],"row":5,"check":"성취도 비율 합계 확인 필요"},{"subject":"공통영어1 (4)","avg":72,"dist":[35.8,29.9,22,10.4,1.9],"row":6},{"subject":"한국사1 (3)","avg":72.1,"dist":[27,32.4,28,10.1,2.5],"row":7},{"subject":"통합사회1 (3)","avg":77.6,"dist":[64.8,27.7,4.4,1.9,1.3],"row":8},{"subject":"통합과학1 (3)","avg":71.4,"dist":[38.7,34,23,3.5,0.9],"row":9},{"subject":"과학탐구실험1 (1)","avg":83.3,"dist":[71.1,25.2,3.8,null,null],"row":10},{"subject":"체육1 (2)","avg":77.7,"dist":[48.4,46.9,4.7,null,null],"row":11},{"subject":"음악 (3)","avg":81.4,"dist":[65.6,31.3,3.1,null,null],"row":12},{"subject":"미술 (3)","avg":89.3,"dist":[96.2,1.9,1.9,null,null],"row":13},{"subject":"정보 (3)","avg":74.4,"dist":[24.8,52.5,17,4.4,1.3],"row":14}]},"2025-2":{"1학년":[{"subject":"공통국어2 (4)","avg":64.1,"dist":[30.2,30.5,23,8.8,7.5],"row":4},{"subject":"공통수학2 (4)","avg":53.4,"dist":[9.7,42.1,36.8,10.1,1.3],"row":5},{"subject":"공통영어2 (3)","avg":71.1,"dist":[31.8,36.5,19.5,9.7,2.5],"row":6},{"subject":"한국사2 (3)","avg":72.1,"dist":[42.8,27.7,18.9,6.9,3.8],"row":7},{"subject":"통합사회2 (3)","avg":71,"dist":[45.3,32.7,17,2.8,2.2],"row":8},{"subject":"통합과학2 (3)","avg":71.6,"dist":[39.9,31.4,22,6,0.6],"row":9},{"subject":"과학탐구실험2 (1)","avg":93.5,"dist":[95,3.5,1.6,null,null],"row":10},{"subject":"체육2 (2)","avg":79.6,"dist":[55.3,37.7,6.9,null,null],"row":11},{"subject":"음악 (3)","avg":81.2,"dist":[64.6,29.7,5.7,null,null],"row":12},{"subject":"미술 (3)","avg":88.2,"dist":[91.9,6.9,1.3,null,null],"row":13},{"subject":"인공지능 기초 (3)","avg":74.9,"dist":[22,23,47.2,5.7,2.2],"row":14}]}},"인천여고":{"2026-1":{"1학년":[{"subject":"공통국어1 (4)","avg":72.8,"dist":[17.1,30.1,24.1,22.7,6],"row":4},{"subject":"공통수학1 (4)","avg":65.8,"dist":[33.1,28.8,20.1,13.4,4.7],"row":5},{"subject":"공통영어1 (4)","avg":65.1,"dist":[16.4,30.4,24.1,22.7,6.4],"row":6},{"subject":"한국사1 (3)","avg":61.1,"dist":[15.1,21.1,26.1,34.1,3.7],"row":7},{"subject":"통합사회1 (4)","avg":69.4,"dist":[19.7,25.1,30.8,18.1,6.4],"row":8},{"subject":"통합과학1 (4)","avg":72.1,"dist":[10,15.4,23.1,46.2,5.4],"row":9},{"subject":"과학탐구실험1 (1)","avg":94.2,"dist":[95,4.3,0.7,null,null],"row":10},{"subject":"체육1 (2)","avg":78.8,"dist":[50.8,39.5,9.7,null,null],"row":11},{"subject":"음악 (2)","avg":77.2,"dist":[52.7,34,13.3,null,null],"row":12},{"subject":"미술 (2)","avg":91.3,"dist":[97.3,2.7,0,null,null],"row":13},{"subject":"정보 (4)","avg":69.5,"dist":[47,28.9,13.4,3.4,7.4],"row":14}],"2학년":[{"subject":"문학 (4)","avg":77.6,"dist":[31.4,32.6,14.5,12.8,8.7],"row":15},{"subject":"문학과 영상 (3)","avg":77.4,"dist":[26.7,38.4,15.1,10.5,9.3],"row":16},{"subject":"대수 (4)","avg":68.7,"dist":[51.2,23.6,14.5,7.4,3.3],"row":17},{"subject":"수학과 문화 (3)","avg":67.6,"dist":[1.9,28.2,51.5,16.5,1.9],"row":18},{"subject":"영어Ⅰ (4)","avg":71.2,"dist":[29.3,32.6,14.9,13.6,9.5],"row":19},{"subject":"미디어 영어 (3)","avg":66.2,"dist":[43.4,30.2,11.3,1.9,13.2],"row":20},{"subject":"영문학 (3)","avg":99.4,"dist":[100,0,0,0,0],"row":21},{"subject":"세계시민과 지리 (3)","avg":69.2,"dist":[42.6,21.3,6.4,14.9,14.9],"row":22},{"subject":"세계사 (3)","avg":64,"dist":[44,14,20,6,16],"row":23},{"subject":"사회와 문화 (3)","avg":69.3,"dist":[28.6,19.5,27.8,16.5,7.5],"row":24},{"subject":"현대사회와 윤리 (3)","avg":74.9,"dist":[47.2,26,13.4,8.7,4.7],"row":25},{"subject":"경제 (3)","avg":63.3,"dist":[20,22.9,28.6,14.3,14.3],"row":26},{"subject":"화학 (3)","avg":72.4,"dist":[36.4,37.4,15,8.4,2.8],"row":27},{"subject":"생명과학 (3)","avg":61.4,"dist":[14.9,24,41.3,19.8,0],"row":28},{"subject":"지구과학 (3)","avg":70.3,"dist":[20.8,24.5,30.2,18.9,5.7],"row":29},{"subject":"스포츠 문화 (1)","avg":83.7,"dist":[78.5,20.2,1.2,null,null],"row":30},{"subject":"음악 감상과 비평 (2)","avg":83,"dist":[70.5,24,5.4,null,null],"row":31},{"subject":"미술 창작 (2)","avg":91.6,"dist":[95.6,3.5,0.9,null,null],"row":32},{"subject":"인공지능 기초 (3)","avg":80.4,"dist":[33.7,48.2,16.9,1.2,0],"row":33},{"subject":"창의 공학 설계 (3)","avg":68.7,"dist":[53.6,28.6,7.1,0,10.7],"row":34},{"subject":"간호의 기초 (3)","avg":94.6,"dist":[92.9,0,0,0,7.1],"row":35},{"subject":"중국어 (3)","avg":69.7,"dist":[38.7,19.4,22.6,16.1,3.2],"row":36},{"subject":"일본어 (3)","avg":76,"dist":[49.4,23.5,17.3,9.9,0],"row":37},{"subject":"한문 (3)","avg":69.6,"dist":[26.3,21.1,15.8,15.8,21.1],"row":38}]},"2025-1":{"1학년":[{"subject":"공통국어1 (4)","avg":75.2,"dist":[5.5,43.7,30.7,12.2,7.9],"row":4},{"subject":"공통수학1 (4)","avg":63.3,"dist":[7.9,35.8,31.1,15,10.2],"row":5},{"subject":"공통영어1 (4)","avg":67.1,"dist":[19.3,33.1,18.5,15,14.2],"row":6},{"subject":"한국사1 (3)","avg":64.4,"dist":[23.2,17.3,31.1,26.4,2],"row":7},{"subject":"통합사회1 (4)","avg":78.2,"dist":[18.5,46.1,26.4,5.9,3.1],"row":8},{"subject":"통합과학1 (4)","avg":64.3,"dist":[6.7,30.3,28,18.9,16.1],"row":9},{"subject":"과학탐구실험1 (1)","avg":92.3,"dist":[89,10.6,0.4,null,null],"row":10},{"subject":"체육1 (2)","avg":87.1,"dist":[84.6,14.6,0.8,null,null],"row":11},{"subject":"음악 (2)","avg":84.2,"dist":[75,20.3,4.7,null,null],"row":12},{"subject":"미술 (2)","avg":89.8,"dist":[89.8,9.4,0.8,null,null],"row":13},{"subject":"정보 (4)","avg":73.8,"dist":[14.3,53.2,24.6,6.3,1.6],"row":14}]},"2025-2":{"1학년":[{"subject":"공통국어2 (4)","avg":74.8,"dist":[26.1,29.3,21.7,16.1,6.8],"row":4},{"subject":"공통수학2 (4)","avg":63,"dist":[24.1,18.9,23.7,21.7,11.6],"row":5},{"subject":"공통영어2 (4)","avg":72.5,"dist":[18.1,42.6,17.3,14.9,7.2],"row":6},{"subject":"한국사2 (3)","avg":67.9,"dist":[26.4,24,32,12.4,5.2],"row":7},{"subject":"통합사회2 (4)","avg":74.4,"dist":[16.8,30.4,30.8,15.2,6.8],"row":8},{"subject":"통합과학2 (4)","avg":72,"dist":[31.2,27.6,26,9.2,6],"row":9},{"subject":"과학탐구실험2 (1)","avg":89.1,"dist":[85.5,10,4.4,null,null],"row":10},{"subject":"체육2 (2)","avg":84.7,"dist":[69.5,27.7,2.8,null,null],"row":11},{"subject":"음악 (2)","avg":86.3,"dist":[82.9,14.6,2.4,null,null],"row":12},{"subject":"미술 (2)","avg":89.6,"dist":[80.5,19.5,0,null,null],"row":13},{"subject":"정보 (4)","avg":71.4,"dist":[28.6,33.3,24.6,8.7,4.8],"row":14}]}},"박문여고":{"2026-1":{"1학년":[{"subject":"공통국어1 (4)","avg":74.4,"dist":[24.1,35.7,26,8.4,5.8],"row":4},{"subject":"공통수학1 (3)","avg":70.7,"dist":[39.9,27.7,19.6,8.7,4.2],"row":5},{"subject":"공통영어1 (3)","avg":66.2,"dist":[23.5,14.5,24.1,19.6,18.3],"row":6},{"subject":"한국사1 (3)","avg":69,"dist":[33.4,26.4,24.8,9,6.4],"row":7},{"subject":"통합사회1 (4)","avg":74.7,"dist":[37.6,24.8,25.7,5.8,6.1],"row":8},{"subject":"통합과학1 (4)","avg":71.5,"dist":[24.4,27,21.5,21.5,5.5],"row":9},{"subject":"과학탐구실험1 (1)","avg":88.4,"dist":[92.6,4.2,3.2,null,null],"row":10},{"subject":"체육1 (2)","avg":84.4,"dist":[73.6,20.3,6.1,null,null],"row":11},{"subject":"음악 (3)","avg":90.2,"dist":[94.8,3.2,1.9,null,null],"row":12},{"subject":"미술 (3)","avg":85.7,"dist":[88.5,9,2.6,null,null],"row":13}],"2학년":[{"subject":"문학 (3)","avg":72.8,"dist":[55.6,21.9,7.3,8.6,6.6],"row":14},{"subject":"대수 (4)","avg":63.7,"dist":[36.8,21.9,25.2,11.6,4.6],"row":15},{"subject":"영어Ⅰ (3)","avg":66.7,"dist":[42.4,16.2,11.3,22.2,7.9],"row":16},{"subject":"세계시민과 지리 (4)","avg":58.4,"dist":[17.4,18.6,34.2,26.1,3.7],"row":17},{"subject":"동아시아 역사 기행 (4)","avg":66.2,"dist":[40.7,12.3,25.9,7.4,13.6],"row":18},{"subject":"법과 사회 (4)","avg":74.7,"dist":[36.6,23.7,22.9,13.7,3.1],"row":19},{"subject":"경제 (4)","avg":59.4,"dist":[23.9,23.9,21.7,19.6,10.9],"row":20},{"subject":"윤리와 사상 (4)","avg":69.7,"dist":[32.2,30.2,33.7,4,0],"row":21},{"subject":"물리학 (4)","avg":71,"dist":[33.3,33.3,12.7,15.9,4.8],"row":22},{"subject":"화학 (4)","avg":69.5,"dist":[28.3,25,27.2,19.6,0],"row":23},{"subject":"생명과학 (4)","avg":73.8,"dist":[45.9,30.3,11.9,11,0.9],"row":24},{"subject":"지구과학 (4)","avg":61.1,"dist":[25,25,29.2,20.8,0],"row":25},{"subject":"스포츠 생활1 (2)","avg":92.3,"dist":[95.7,4,0.3,null,null],"row":26},{"subject":"정보 (3)","avg":70.9,"dist":[28.5,34.9,22,10.2,4.3],"row":27},{"subject":"일본어 (3)","avg":70,"dist":[33.3,24.5,23.7,14.5,4],"row":28},{"subject":"한문 (3)","avg":73.3,"dist":[21.9,19.5,27.2,26.6,4.7],"row":29}]},"2025-1":{"1학년":[{"subject":"공통국어1 (4)","avg":71.9,"dist":[17.8,34.3,28.6,13.3,6],"row":4},{"subject":"공통수학1 (3)","avg":64.9,"dist":[8.3,41,37.5,11.4,1.9],"row":5},{"subject":"공통영어1 (3)","avg":61.5,"dist":[9.5,43.2,18.7,22.9,5.7],"row":6},{"subject":"한국사1 (3)","avg":67.9,"dist":[16.2,21.9,33,22.5,6.3],"row":7},{"subject":"통합사회1 (4)","avg":73.1,"dist":[26.3,45.4,18.7,5.4,4.1],"row":8},{"subject":"통합과학1 (4)","avg":67.3,"dist":[22.5,25.7,26.7,20.6,4.4],"row":9},{"subject":"과학탐구실험1 (1)","avg":92.6,"dist":[96.2,2.5,1.3,null,null],"row":10},{"subject":"체육1 (2)","avg":89.8,"dist":[94.3,5.1,0.6,null,null],"row":11},{"subject":"음악 (3)","avg":92.5,"dist":[98.1,0.6,1.3,null,null],"row":12},{"subject":"미술 (3)","avg":87.3,"dist":[93.6,4.5,1.9,null,null],"row":13}]},"2025-2":{"1학년":[{"subject":"공통국어2 (4)","avg":72.8,"dist":[22.5,36.3,22.5,11.8,6.9],"row":4},{"subject":"공통수학2 (3)","avg":63.7,"dist":[37.3,19.3,31.4,10.1,2],"row":5},{"subject":"공통영어2 (3)","avg":62.5,"dist":[22.9,23.2,19.9,28.8,5.2],"row":6},{"subject":"한국사2 (3)","avg":67.5,"dist":[34.3,22.9,24.2,10.1,8.5],"row":7},{"subject":"통합사회2 (4)","avg":72.5,"dist":[34,36.3,16.3,9.5,3.9],"row":8},{"subject":"통합과학2 (4)","avg":66.1,"dist":[29.4,23.2,14.1,18.6,14.7],"row":9},{"subject":"과학탐구실험2 (1)","avg":94,"dist":[98,0,2,null,null],"row":10},{"subject":"체육2 (2)","avg":87.6,"dist":[92.2,7.2,0.7,null,null],"row":11},{"subject":"음악 (3)","avg":93.1,"dist":[97.3,1.3,1.3,null,null],"row":12},{"subject":"미술 (3)","avg":87.3,"dist":[94.2,3.2,2.6,null,null],"row":13}]}},"대건고":{"2026-1":{"1학년":[{"subject":"공통국어1 (4)","avg":71.5,"dist":[24.9,40.9,21.1,10.6,2.6],"row":4},{"subject":"공통수학1 (4)","avg":66.3,"dist":[38,23.7,14.9,11.4,12],"row":5},{"subject":"공통영어1 (3)","avg":70.4,"dist":[32.3,29.4,24.3,12,2],"row":6},{"subject":"한국사1 (3)","avg":71.2,"dist":[30.6,27.4,22.9,14.6,4.6],"row":7},{"subject":"통합사회1 (4)","avg":65.2,"dist":[22.9,35.4,24.6,13.7,3.4],"row":8},{"subject":"통합과학1 (4)","avg":64.1,"dist":[29.4,23.7,16.6,13.1,17.1],"row":9},{"subject":"과학탐구실험1 (1)","avg":81.7,"dist":[69.4,19.7,10.9,null,null],"row":10},{"subject":"체육1 (2)","avg":87.7,"dist":[88.6,11.1,0.3,null,null],"row":11},{"subject":"음악 (2)","avg":87.1,"dist":[78.6,18.9,2.6,null,null],"row":12},{"subject":"미술 (2)","avg":74,"dist":[31.7,59.1,9.1,null,null],"row":13}],"2학년":[{"subject":"문학 (4)","avg":72.7,"dist":[24.2,49.6,17.3,4.6,4.3],"row":14},{"subject":"독서 토론과 글쓰기 (3)","avg":82.9,"dist":[54.5,23.4,13,5.2,3.9],"row":15},{"subject":"대수 (4)","avg":59.5,"dist":[29.7,26.5,15.6,15.6,12.7],"row":16},{"subject":"기하 (3)","avg":71.3,"dist":[43.6,34.2,14.1,4.7,3.4],"row":17},{"subject":"영어Ⅰ (4)","avg":63.9,"dist":[21.6,42.1,20.2,7.2,8.9],"row":18},{"subject":"세계 문화와 영어 (3)","avg":64.9,"dist":[17.1,29.3,24.4,17.1,12.2],"row":19},{"subject":"세계시민과 지리 (4)","avg":71.4,"dist":[44.8,36.2,5.2,8.6,5.2],"row":20},{"subject":"세계사 (4)","avg":72.7,"dist":[36.8,40.4,15.8,5.3,1.8],"row":21},{"subject":"현대사회와 윤리 (4)","avg":72.4,"dist":[45.2,32.1,15.5,7.1,0],"row":22},{"subject":"법과 사회 (4)","avg":61.6,"dist":[18.3,23.2,23.2,23.2,12.2],"row":23},{"subject":"마케팅과 광고 (3)","avg":92.3,"dist":[94.7,0,5.3,0,0],"row":24},{"subject":"세계 문제와 미래 사회 (3)","avg":89.7,"dist":[90,0,0,0,10],"row":25},{"subject":"물리학 (4)","avg":65.5,"dist":[29.1,41.9,22.3,5,1.7],"row":26},{"subject":"지구과학 (4)","avg":71.6,"dist":[33.5,38.6,18.4,7,2.5],"row":27},{"subject":"세포와 물질대사 (3)","avg":67.9,"dist":[46.2,7.7,17.9,17.9,10.3],"row":28},{"subject":"스포츠 문화 (1)","avg":79.4,"dist":[54.8,43.8,1.4,null,null],"row":29},{"subject":"음악 감상과 비평 (2)","avg":85.2,"dist":[76.6,19,4.4,null,null],"row":30},{"subject":"영화 제작 실습 (4)","avg":86.9,"dist":[40,45,10,5,0],"row":31},{"subject":"정보 (4)","avg":69.9,"dist":[32.7,21.8,29.1,7.3,9.1],"row":32},{"subject":"로봇과 공학세계 (4)","avg":73.3,"dist":[26.1,21.7,8.7,26.1,17.4],"row":33},{"subject":"인공지능 기초 (4)","avg":69.4,"dist":[30.7,22.7,28,10.7,8],"row":34},{"subject":"창의 공학 설계 (4)","avg":81,"dist":[28.6,28.6,21.4,21.4,0],"row":35},{"subject":"독일어 (4)","avg":74.3,"dist":[35.5,35.5,16.1,9.7,3.2],"row":36},{"subject":"일본어 (4)","avg":59,"dist":[8.3,32.1,52.4,7.1,0],"row":37}]},"2025-1":{"1학년":[{"subject":"공통국어1 (4)","avg":82,"dist":[49.1,44.5,5.5,0.9,0],"row":4},{"subject":"공통수학1 (4)","avg":76.6,"dist":[51.7,25.9,12.4,5.7,4.3],"row":5},{"subject":"공통영어1 (3)","avg":71.6,"dist":[29.3,24.7,25.9,13.5,6.6],"row":6},{"subject":"한국사1 (3)","avg":68.3,"dist":[21,30.5,29.6,14.7,4.3],"row":7},{"subject":"통합사회1 (4)","avg":76.9,"dist":[38.8,40.2,17.2,3.2,0.6],"row":8},{"subject":"통합과학1 (4)","avg":70.6,"dist":[43.7,28.4,18.1,7.2,2.6],"row":9},{"subject":"과학탐구실험1 (1)","avg":85.6,"dist":[79,16.4,4.6,null,null],"row":10},{"subject":"체육1 (2)","avg":84,"dist":[61.2,36.8,2,null,null],"row":11},{"subject":"음악 (2)","avg":86.7,"dist":[81.9,15.2,2.9,null,null],"row":12},{"subject":"미술 (2)","avg":78.8,"dist":[54.9,36.2,8.9,null,null],"row":13}]},"2025-2":{"1학년":[{"subject":"공통국어2 (4)","avg":82.4,"dist":[66.2,24.1,6.5,2.8,0.3],"row":4},{"subject":"공통수학2 (4)","avg":62.9,"dist":[37.8,21.3,13.4,12.8,14.8],"row":5},{"subject":"공통영어2 (3)","avg":70.6,"dist":[16.2,36.1,24.1,11.6,11.9],"row":6},{"subject":"한국사2 (3)","avg":76.1,"dist":[61.6,19.3,10.2,4.8,4],"row":7},{"subject":"통합사회2 (4)","avg":74.2,"dist":[42.3,32.7,14.5,6.5,4],"row":8},{"subject":"통합과학2 (4)","avg":71.5,"dist":[45.7,31,13.9,6,3.4],"row":9},{"subject":"과학탐구실험2 (1)","avg":85.9,"dist":[81,15.9,3.1,null,null],"row":10},{"subject":"체육2 (2)","avg":79.5,"dist":[51.7,45.5,2.8,null,null],"row":11},{"subject":"음악 연주와 창작 (2)","avg":75.8,"dist":[47.7,38.9,13.4,null,null],"row":12},{"subject":"미술 창작 (2)","avg":80.8,"dist":[56.3,40.3,3.4,null,null],"row":13}],"2학년":[{"subject":"연극 제작 실습 (4)","avg":85.3,"dist":[43.8,43.8,0,12.5,0],"row":14}]}},"송도고":{"2026-1":{"1학년":[{"subject":"공통국어1 (3)","avg":78.8,"dist":[60.1,22.7,10.2,6.4,0.6],"row":4},{"subject":"공통수학1 (4)","avg":72.3,"dist":[49.6,25.1,21.6,3.2,0.6],"row":5},{"subject":"공통영어1 (3)","avg":75.4,"dist":[50.1,13.1,15.5,17.8,3.5],"row":6},{"subject":"한국사1 (3)","avg":70.7,"dist":[48.1,21.6,27.7,2.3,0.3],"row":7},{"subject":"통합사회1 (4)","avg":78.8,"dist":[55.7,26.5,12,4.7,1.2],"row":8},{"subject":"통합과학1 (4)","avg":70,"dist":[42.3,15.2,21.3,16.9,4.4],"row":9},{"subject":"과학탐구실험1 (1)","avg":79.1,"dist":[66.5,19.5,14,null,null],"row":10},{"subject":"체육1 (2)","avg":78,"dist":[53.9,38.8,7.3,null,null],"row":11},{"subject":"음악 (3)","avg":84.4,"dist":[70.2,22.8,7,null,null],"row":12},{"subject":"미술 (3)","avg":89.7,"dist":[84.9,11.6,3.5,null,null],"row":13},{"subject":"정보 (3)","avg":76.5,"dist":[38,46.2,2.3,3.5,9.9],"row":14},{"subject":"로봇과 공학세계 (3)","avg":73.9,"dist":[49.4,19.2,20.3,11,0],"row":15}],"2학년":[{"subject":"문학 (3)","avg":75.3,"dist":[65.2,10.7,9.4,7.2,7.5],"row":16},{"subject":"주제 탐구 독서 (3)","avg":65.9,"dist":[26.7,27.4,26,9.6,10.3],"row":17},{"subject":"대수 (3)","avg":68.7,"dist":[46.4,20.4,15.4,17.2,0.6],"row":18},{"subject":"기하 (3)","avg":76.5,"dist":[59.5,18.5,12.1,8.1,1.7],"row":19},{"subject":"영어Ⅰ (3)","avg":72,"dist":[44.8,16.3,12.2,16.9,9.7],"row":20},{"subject":"세계시민과 지리 (3)","avg":69.8,"dist":[36.3,26,21.9,13.7,2.1],"row":21},{"subject":"세계사 (3)","avg":64.4,"dist":[34.2,30.1,34.2,1.4,0],"row":22},{"subject":"사회와 문화 (3)","avg":63.6,"dist":[42.5,13.7,19.9,14.4,9.6],"row":23},{"subject":"현대사회와 윤리 (3)","avg":57.3,"dist":[29.5,24,19.2,10.3,17.1],"row":24},{"subject":"물리학 (3)","avg":66.7,"dist":[40.5,37,16.8,3.5,2.3],"row":25},{"subject":"화학 (3)","avg":72.5,"dist":[51.4,21.4,17.3,5.8,4],"row":26},{"subject":"생명과학 (3)","avg":73.5,"dist":[41.6,33.5,17.9,5.2,1.7],"row":27},{"subject":"지구과학 (3)","avg":75.5,"dist":[62.5,16,18.1,2.8,0.7],"row":28},{"subject":"스포츠 문화 (1)","avg":76.5,"dist":[51.1,37.9,11,null,null],"row":29},{"subject":"음악 감상과 비평 (2)","avg":80.6,"dist":[65.7,22.9,11.4,null,null],"row":30},{"subject":"미술 창작 (2)","avg":85,"dist":[68.8,30.6,0.7,null,null],"row":31},{"subject":"인공지능 기초 (3)","avg":76.8,"dist":[58.6,20.7,13.8,6.9,0],"row":32},{"subject":"일본어 (3)","avg":78,"dist":[45.9,35.2,11.9,5,1.9],"row":33},{"subject":"한문 (3)","avg":69.4,"dist":[38.1,13.1,24.4,13.8,10.6],"row":34}]},"2025-1":{"1학년":[{"subject":"공통국어1 (3)","avg":77.8,"dist":[59.8,21.1,6.5,5,7.7],"row":4},{"subject":"공통수학1 (4)","avg":74.7,"dist":[63.2,16.4,15.2,5,0.3],"row":5},{"subject":"공통영어1 (3)","avg":76.4,"dist":[57.6,10.5,16.7,15.2,0],"row":6},{"subject":"한국사1 (3)","avg":70.4,"dist":[52,17.3,28.2,2.5,0],"row":7},{"subject":"통합사회1 (4)","avg":81.9,"dist":[71.5,17,9,2.2,0.3],"row":8},{"subject":"통합과학1 (4)","avg":79.3,"dist":[52.6,23.8,21.1,2.5,0],"row":9},{"subject":"과학탐구실험1 (1)","avg":90.2,"dist":[92,6.2,1.9,null,null],"row":10},{"subject":"체육1 (2)","avg":75.9,"dist":[46.4,45.5,8,null,null],"row":11},{"subject":"음악 (3)","avg":82.8,"dist":[70.2,19.9,9.9,null,null],"row":12},{"subject":"미술 (3)","avg":91,"dist":[88.3,8,3.7,null,null],"row":13},{"subject":"정보 (3)","avg":83.6,"dist":[69.6,16.8,8.1,5.6,0],"row":14},{"subject":"로봇과 공학세계 (3)","avg":81.6,"dist":[66.7,24.7,8.6,0,0],"row":15}]},"2025-2":{"1학년":[{"subject":"공통국어2 (3)","avg":71.7,"dist":[38.6,21.8,22.2,11.4,6],"row":4},{"subject":"공통수학2 (4)","avg":69.8,"dist":[40.5,26.3,13.6,16.5,3.2],"row":5},{"subject":"공통영어2 (3)","avg":72.1,"dist":[45.3,20.6,15.2,15.2,3.8],"row":6},{"subject":"한국사2 (3)","avg":70.8,"dist":[47.5,31.6,20.9,0,0],"row":7},{"subject":"통합사회2 (4)","avg":81,"dist":[51.3,28.8,15.5,4.4,0],"row":8},{"subject":"통합과학2 (4)","avg":76.2,"dist":[42.1,29.1,28.2,0.6,0],"row":9},{"subject":"과학탐구실험2 (1)","avg":87,"dist":[80.4,17.4,2.2,null,null],"row":10},{"subject":"체육2 (2)","avg":73.5,"dist":[33.9,62.3,3.8,null,null],"row":11},{"subject":"음악 (3)","avg":86.5,"dist":[77.8,14.6,7.6,null,null],"row":12},{"subject":"미술 (3)","avg":92.8,"dist":[92.4,5.1,2.5,null,null],"row":13},{"subject":"정보 (3)","avg":77.8,"dist":[75.9,15.2,8.9,0,0],"row":14},{"subject":"로봇과 공학세계 (3)","avg":77.6,"dist":[67.1,19,7,7,0],"row":15}]}},"신송고":{"2026-1":{"1학년":[{"subject":"공통국어1 (4)","avg":67,"dist":[24.2,28.3,21.7,18.9,6.9],"row":4},{"subject":"공통수학1 (4)","avg":73.6,"dist":[33.7,46.4,13.8,4.6,1.5],"row":5},{"subject":"공통영어1 (4)","avg":64,"dist":[32.7,22.2,19.4,15.6,10.2],"row":6},{"subject":"한국사1 (3)","avg":67.4,"dist":[30.9,22.7,32.4,11.5,2.6],"row":7},{"subject":"통합사회1 (3)","avg":70.2,"dist":[12,30.4,32.9,19.6,5.1],"row":8},{"subject":"통합과학1 (3)","avg":68.1,"dist":[40.1,19.1,13,12.8,15.1],"row":9},{"subject":"과학탐구실험1 (1)","avg":90.4,"dist":[82.7,13.3,4.1,null,null],"row":10},{"subject":"체육1 (2)","avg":79.4,"dist":[59.2,38,2.8,null,null],"row":11},{"subject":"음악 (2)","avg":72.1,"dist":[36.9,39.5,23.6,null,null],"row":12},{"subject":"미술 (2)","avg":82.1,"dist":[65.5,31.5,3,null,null],"row":13},{"subject":"정보 (3)","avg":68.1,"dist":[23.9,23.9,27.4,19.8,5.1],"row":14},{"subject":"창의 공학 설계 (3)","avg":80.9,"dist":[45.1,35.9,10.8,4.1,4.1],"row":15}],"2학년":[{"subject":"화법과 언어 (4)","avg":67.9,"dist":[28.3,34.4,23.2,8.6,5.4],"row":16},{"subject":"문학과 영상 (3)","avg":68.2,"dist":[21.8,35.9,20.5,6.4,15.4],"row":17},{"subject":"대수 (4)","avg":63.6,"dist":[28.7,29.9,26.8,7.6,7],"row":18},{"subject":"기하 (3)","avg":66,"dist":[40.3,19.9,26,10.7,3.1],"row":19},{"subject":"영어Ⅰ (4)","avg":60.5,"dist":[23.9,23.2,19.1,15.3,18.5],"row":20},{"subject":"세계 문화와 영어 (3)","avg":80.1,"dist":[57.5,22.5,12.5,5,2.5],"row":21},{"subject":"세계시민과 지리 (3)","avg":58,"dist":[14.1,34.6,26.9,10.3,14.1],"row":22},{"subject":"세계사 (3)","avg":59.6,"dist":[22.2,20.4,22.2,25.9,9.3],"row":23},{"subject":"사회와 문화 (3)","avg":66.6,"dist":[35.1,18.9,20.7,25.2,0],"row":24},{"subject":"현대사회와 윤리 (3)","avg":64.7,"dist":[23.6,42.7,22.5,11.2,0],"row":25},{"subject":"물리학 (3)","avg":61.6,"dist":[32.6,7.7,26,28.7,5],"row":26},{"subject":"화학 (3)","avg":63.2,"dist":[40,22.3,23.4,13.7,0.6],"row":27},{"subject":"생명과학 (3)","avg":61.2,"dist":[28.5,21.5,27.8,20.8,1.4],"row":28},{"subject":"지구과학 (3)","avg":60.2,"dist":[25.5,28.2,24.5,14.5,7.3],"row":29},{"subject":"스포츠 생활1 (2)","avg":82.2,"dist":[63.7,30.6,5.7,null,null],"row":30},{"subject":"로봇과 공학세계 (3)","avg":78.4,"dist":[23.5,45.9,24.7,4.7,1.2],"row":31},{"subject":"데이터 과학 (3)","avg":74.8,"dist":[38.6,37.9,15.2,6.8,1.5],"row":32},{"subject":"일본어 (3)","avg":79.9,"dist":[33,32,22.7,10.3,2.1],"row":33}]},"2025-1":{"1학년":[{"subject":"공통국어1 (4)","avg":77.8,"dist":[59.8,21.1,6.5,5,7.7],"row":4},{"subject":"공통수학1 (4)","avg":74.7,"dist":[63.2,16.4,15.2,5,0.3],"row":5},{"subject":"공통영어1 (4)","avg":76.4,"dist":[57.6,10.5,16.7,15.2,0],"row":6},{"subject":"한국사1 (3)","avg":70.4,"dist":[52,17.3,28.2,2.5,0],"row":7},{"subject":"통합사회1 (3)","avg":81.9,"dist":[71.5,17,9,2.2,0.3],"row":8},{"subject":"통합과학1 (3)","avg":79.3,"dist":[52.6,23.8,21.1,2.5,0],"row":9},{"subject":"과학탐구실험1 (1)","avg":90.2,"dist":[92,6.2,1.9,null,null],"row":10},{"subject":"체육1 (2)","avg":75.9,"dist":[46.4,45.5,8,null,null],"row":11},{"subject":"음악 (2)","avg":82.8,"dist":[70.2,19.9,9.9,null,null],"row":12},{"subject":"미술 (2)","avg":91,"dist":[88.3,8,3.7,null,null],"row":13},{"subject":"정보 (3)","avg":83.6,"dist":[69.6,16.8,8.1,5.6,0],"row":14},{"subject":"창의 공학 설계 (3)","avg":81.6,"dist":[66.7,24.7,8.6,0,0],"row":15}]},"2025-2":{"1학년":[{"subject":"공통국어2 (4)","avg":69.5,"dist":[31.4,27,22,11.9,7.5],"row":4},{"subject":"공통수학2 (4)","avg":67.7,"dist":[30.5,30.5,20.8,13.2,5],"row":5},{"subject":"공통영어2 (4)","avg":55.1,"dist":[20.8,17.9,17.3,17.9,26.1],"row":6},{"subject":"한국사2 (3)","avg":65,"dist":[24.8,20.4,30.2,16.7,7.9],"row":7},{"subject":"통합사회2 (3)","avg":73.9,"dist":[27,23.9,25.2,15.1,8.8],"row":8},{"subject":"통합과학2 (3)","avg":63.7,"dist":[29.2,17.3,20.4,16.7,16.4],"row":9},{"subject":"과학탐구실험2 (1)","avg":83.8,"dist":[76.1,17.9,6,null,null],"row":10},{"subject":"체육2 (2)","avg":85.4,"dist":[77,20.4,2.5,null,null],"row":11},{"subject":"음악 (2)","avg":79.9,"dist":[58.6,32.5,8.9,null,null],"row":12},{"subject":"미술 (2)","avg":76.7,"dist":[58.4,29.2,12.4,null,null],"row":13},{"subject":"정보 (3)","avg":66.1,"dist":[21.7,25.5,24.8,19.7,8.3],"row":14},{"subject":"창의 공학 설계 (3)","avg":80,"dist":[37.9,42.2,10.6,8.1,1.2],"row":15}]}},"연송고":{"2026-1":{"1학년":[{"subject":"공통국어1 (3)","avg":69.3,"dist":[52.6,25.3,12.5,4.7,4.7],"row":4},{"subject":"공통수학1 (4)","avg":61.5,"dist":[43.2,29.8,14.2,7.8,5],"row":5},{"subject":"공통영어1 (4)","avg":64.3,"dist":[26.5,22.6,30.1,15.6,5.3],"row":6},{"subject":"한국사1 (3)","avg":60.8,"dist":[27.6,15.6,23.4,16.7,16.7],"row":7},{"subject":"통합사회1 (3)","avg":69.2,"dist":[31.8,22,21.2,17.5,7.5],"row":8},{"subject":"통합과학1 (4)","avg":73,"dist":[44,23.7,15.9,10,6.4],"row":9},{"subject":"과학탐구실험1 (1)","avg":82.2,"dist":[69.9,19.2,10.9,null,null],"row":10},{"subject":"체육1 (2)","avg":82.5,"dist":[71,27,1.9,null,null],"row":11},{"subject":"음악 (3)","avg":66.5,"dist":[16.7,56.2,27.2,null,null],"row":12},{"subject":"미술 (3)","avg":82.5,"dist":[78.2,18.3,3.6,null,null],"row":13},{"subject":"정보 (3)","avg":69.6,"dist":[10.6,13.9,22,33.1,20.3],"row":14}],"2학년":[{"subject":"문학 (4)","avg":69.3,"dist":[34.7,26.3,17.2,11.3,10.6],"row":15},{"subject":"주제 탐구 독서 (3)","avg":65.7,"dist":[44.7,14,11.4,5.3,24.6],"row":16},{"subject":"대수 (4)","avg":60.8,"dist":[38.7,31,18.2,9.1,2.9],"row":17},{"subject":"기하 (3)","avg":67.9,"dist":[33.1,32.3,19.2,10.8,4.6],"row":18},{"subject":"영어Ⅰ (4)","avg":60.5,"dist":[17.9,23.4,23,21.9,13.9],"row":19},{"subject":"영미 문학 읽기 (3)","avg":75.8,"dist":[40,30,20,10,0],"row":20},{"subject":"한국지리 탐구 (3)","avg":68.3,"dist":[36.2,31.5,15.7,9.4,7.1],"row":21},{"subject":"동아시아 역사 기행 (3)","avg":72.2,"dist":[36.7,26.7,20.8,13.3,2.5],"row":22},{"subject":"윤리와 사상 (3)","avg":57.7,"dist":[30.1,14,14.7,13.3,28],"row":23},{"subject":"세계 문제와 미래 사회 (3)","avg":90.7,"dist":[83.3,16.7,0,0,0],"row":24},{"subject":"물리학 (3)","avg":64.2,"dist":[25.4,27.9,27.9,12.3,6.6],"row":25},{"subject":"화학 (3)","avg":82.3,"dist":[65.3,11.6,16.5,4.1,2.5],"row":26},{"subject":"생명과학 (3)","avg":75.5,"dist":[31.5,26.1,31.5,8.1,2.7],"row":27},{"subject":"지구과학 (3)","avg":68.2,"dist":[30.8,44.9,15.4,9,0],"row":28},{"subject":"과학과제 연구 (3)","avg":91.6,"dist":[92.9,0,0,0,7.1],"row":29},{"subject":"스포츠 문화 (2)","avg":84.5,"dist":[69.7,28.5,1.8,null,null],"row":30},{"subject":"프로그래밍 (3)","avg":71.9,"dist":[17,19.6,23.2,20.5,19.6],"row":31},{"subject":"일본어 (3)","avg":65.9,"dist":[33.3,18.5,20.4,22.8,4.9],"row":32}]},"2025-1":{"1학년":[{"subject":"공통국어1 (3)","avg":67.9,"dist":[15.1,32.4,33.1,16.2,3.2],"row":4},{"subject":"공통수학1 (4)","avg":68.2,"dist":[13.7,41.9,30.3,12,2.1],"row":5},{"subject":"공통영어1 (4)","avg":60.1,"dist":[20.1,21.1,22.5,14.1,22.2],"row":6},{"subject":"한국사1 (3)","avg":70.6,"dist":[29.9,30.6,27.1,9.2,3.2],"row":7},{"subject":"통합사회1 (4)","avg":71.7,"dist":[53.2,16.9,18.3,7.4,4.2],"row":8},{"subject":"통합과학1 (4)","avg":78.8,"dist":[31,20.4,22.9,15.8,9.9],"row":9},{"subject":"과학탐구실험1 (1)","avg":87.7,"dist":[87,12,1.1,null,null],"row":10},{"subject":"체육1 (2)","avg":84.9,"dist":[79.6,20.4,0,null,null],"row":11},{"subject":"음악 (2)","avg":72.2,"dist":[40.8,41.6,17.6,null,null],"row":12},{"subject":"미술 (2)","avg":86.6,"dist":[84.3,14.5,1.3,null,null],"row":13},{"subject":"정보 (3)","avg":67.8,"dist":[7.7,13,18,35.2,26.1],"row":14}]},"2025-2":{"1학년":[{"subject":"공통국어2 (3)","avg":66.5,"dist":[36.6,28.6,16.3,10.5,8],"row":4},{"subject":"공통수학2 (4)","avg":65.7,"dist":[19.9,38.8,22.5,12.3,6.5],"row":5},{"subject":"공통영어2 (4)","avg":58.8,"dist":[21.4,18.1,24.6,16.3,19.6],"row":6},{"subject":"한국사2 (3)","avg":70.8,"dist":[30.8,30.4,27.2,8.7,2.9],"row":7},{"subject":"통합사회2 (4)","avg":68.3,"dist":[27.5,25.7,16.3,19.9,10.5],"row":8},{"subject":"통합과학2 (4)","avg":74.2,"dist":[22.1,21.4,19.9,14.9,21.7],"row":9},{"subject":"과학탐구실험2 (1)","avg":79.3,"dist":[58,35.5,6.5,null,null],"row":10},{"subject":"체육2 (2)","avg":80.2,"dist":[60.1,36.2,3.6,null,null],"row":11},{"subject":"음악 (2)","avg":72.2,"dist":[41.3,33.5,25.2,null,null],"row":12},{"subject":"미술 (2)","avg":87.2,"dist":[87.6,12.4,0,null,null],"row":13},{"subject":"인공지능 기초 (3)","avg":69.9,"dist":[12.7,13.8,23.9,24.3,25.4],"row":14}]}}}</script>
+<script>
+'use strict';
+const DATA=JSON.parse(document.getElementById('academicData').textContent);
+const schoolList=['대건고', '송도고', '신송고', '연송고', '해송고', '박문여고', '인천여고'];
+const COMPARE_KEY='__comparison__';
+const subjects=['공통국어1','공통수학1','공통영어1','통합사회1','통합과학1','대수','기하','물리학','화학','생명과학','지구과학'];
+const maleSchools=['대건고','송도고','신송고','연송고'];
+const femaleSchools=['해송고','박문여고','인천여고'];
+const state={school:schoolList[0],year:'2026'};
+const $=id=>document.getElementById(id);
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=v=>v===null||v===undefined||v===''?'–':String(v);
+function subjectParts(subject){
+ const m=subject.match(/^(.*?)\s*\((\d+)\)$/);
+ return m ? {name:m[1],unit:m[2]} : {name:subject,unit:''};
+}
+function courseName(subject){
+ const c=subjectParts(subject);
+ return esc(c.name)+(c.unit?` <span class="subunit">(${esc(c.unit)})</span>`:'');
+}
+function filteredRows(period,grade){return DATA[state.school]?.[period]?.[grade]||[];}
+function renderTable(rows){
+ if(!rows.length)return '<div class="empty">–</div>';
+ const headers='<thead><tr><th scope="col">과목</th><th scope="col">평균</th>'+[...'ABCDE'].map(c=>`<th scope="col">${c}</th>`).join('')+'</tr></thead>';
+ const body=rows.map(r=>`<tr${r.check?' class="suspect" title="원본 수치 확인 필요"':''}><td>${courseName(r.subject)}</td><td>${esc(fmt(r.avg))}</td>${r.dist.map(v=>`<td>${esc(fmt(v))}</td>`).join('')}</tr>`).join('');
+ return `<table class="compare-table">${headers}<tbody>${body}</tbody></table>`;
+}
+function renderMobile(rows){
+ if(!rows.length)return '<div class="empty">–</div>';
+ return '<div class="mobile-rows">'+rows.map(r=>`<article class="mini-subject"${r.check?' title="원본 수치 확인 필요"':''}><div class="mini-top"><span class="mini-name">${courseName(r.subject)}</span><strong class="mini-avg">${esc(fmt(r.avg))}</strong></div><div class="mini-dist">${r.dist.map((v,i)=>`<div><b>${'ABCDE'[i]}</b><span>${esc(fmt(v))}</span></div>`).join('')}</div></article>`).join('')+'</div>';
+}
+/* 학교에서 공개한 2026학년도 1학기말 최종 성취수준 추정분할점수(종합) */
+const HAESONG_CUTOFF_2026={
+ subjects:['공통국어1','공통수학1','공통영어1','한국사1','통합사회1','통합과학1','정보'],
+ rows:[
+  ['A/B',[77,69,73,79,76,81,81]],
+  ['B/C',[62,54,61,64,59,64,66]],
+  ['C/D',[46,40,49,49,43,47,50]],
+  ['D/E',[31,25,36,34,26,30,34]],
+  ['E/미도달',[17,12,20,15,14,16,null]]
+ ]
+};
+function renderHaesongCutoff(){
+ const heads=HAESONG_CUTOFF_2026.subjects.map(name=>`<th scope="col">${esc(name)}</th>`).join('');
+ const rows=HAESONG_CUTOFF_2026.rows.map(([level,values])=>
+  `<tr><th scope="row">${esc(level)}</th>${values.map(value=>`<td>${esc(fmt(value))}</td>`).join('')}</tr>`
+ ).join('');
+ return `<section class="compare-panel" aria-label="해송고 2026학년도 1학년 성취수준 추정분할점수">`+
+  `<h3 class="compare-heading cutoff-heading">성취수준 추정분할점수</h3>`+
+  `<div class="cutoff-scroll" role="region" aria-label="성취수준 추정분할점수 표" tabindex="0">`+
+  `<table class="cutoff-table"><thead><tr><th scope="col">과목</th>${heads}</tr></thead><tbody>${rows}</tbody></table>`+
+  `</div></section>`;
+}
+function panel(title,rows,extra){
+ return `<section class="compare-panel" aria-label="${esc(title)}"><h3 class="compare-heading">${esc(title)}</h3>${renderTable(rows)}${renderMobile(rows)}${extra||''}</section>`;
+}
+function getMajorRow(school,subject){
+ const grade=subjects.indexOf(subject)<5?'1학년':'2학년';
+ return (DATA[school]?.['2026-1']?.[grade]||[]).find(r=>subjectParts(r.subject).name===subject)||null;
+}
+function renderSubjectCompare(){
+ // 성별 그룹은 기존 화면에 사용되던 학교 구성과 순서를 유지한다.
+ const allSchools=[...maleSchools,...femaleSchools];
+ const genderHeader=`<tr class="group-row"><th scope="col" rowspan="3" class="subject-head">과목</th>`+
+   `<th scope="colgroup" colspan="${maleSchools.length*2}" class="boys-head">남고</th>`+
+   `<th scope="colgroup" colspan="${femaleSchools.length*2}" class="girls-head girls-divider">여고</th></tr>`;
+ const schoolHeader='<tr class="school-row">'+allSchools.map((name,i)=>
+   `<th scope="colgroup" colspan="2" class="${i>=maleSchools.length?'girls-school':''} ${i===maleSchools.length?'girls-divider':''}">${esc(name)}</th>`
+ ).join('')+'</tr>';
+ const metricHeader='<tr class="metric-row">'+allSchools.map((name,i)=>{
+   const girl=i>=maleSchools.length;
+   const cls=girl?'girls-metric':'';
+   return `<th scope="col" class="${cls} ${i===maleSchools.length?'girls-divider':''}" aria-label="${esc(name)} 평균">평균</th>`+
+      `<th scope="col" class="${cls}" aria-label="${esc(name)} A비율">A비율</th>`;
+ }).join('')+'</tr>';
+ const rows=subjects.map((subject,index)=>{
+   const cells=allSchools.map((name,i)=>{
+     const r=getMajorRow(name,subject);
+     const divider=i===maleSchools.length?' girls-divider':'';
+     if(!r)return `<td class="missing-cell${divider}">–</td><td class="missing-cell">–</td>`;
+     return `<td class="avg-cell${divider}">${esc(fmt(r.avg))}</td>`+
+       `<td class="a-cell">${r.dist?.[0]==null?'–':esc(fmt(r.dist[0]))+'%'}</td>`;
+   }).join('');
+   return `<tr><th scope="row">${esc(subject)}</th>${cells}</tr>`;
+ }).join('');
+ $('genderComparison').innerHTML='<div class="matrix-wrap" role="region" aria-label="주요과목 학교별 평균 및 A비율 비교" tabindex="0">'+
+   '<table class="matrix-table"><colgroup><col class="subject-col">'+
+   allSchools.map(()=>'<col class="value-col"><col class="value-col">').join('')+
+   '</colgroup><thead>'+genderHeader+schoolHeader+metricHeader+'</thead><tbody>'+rows+'</tbody></table></div>';
+}
+function render(){
+ const comparison=state.school===COMPARE_KEY;
+ $('schoolTabs').innerHTML=[...schoolList,COMPARE_KEY].map((name,i)=>`<button type="button" class="school-tab${name===COMPARE_KEY?' compare-tab':''}" role="tab" id="tab-${i}" data-school="${esc(name)}" aria-selected="${name===state.school}" tabindex="${name===state.school?'0':'-1'}">${name===COMPARE_KEY?'주요과목 학교별 비교':esc(name)}</button>`).join('');
+ $('schoolDetail').hidden=comparison;
+ $('subjectComparison').hidden=!comparison;
+ if(comparison){renderSubjectCompare();return;}
+ $('selectedSchool').textContent=state.school;
+ document.querySelectorAll('[data-year]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.year===state.year)));
+ let a,b;
+ if(state.year==='2026'){
+  a=panel('1학년 · 1학기',filteredRows('2026-1','1학년'));
+  if(state.school==='해송고')a=`<div class="compare-stack">${a}${renderHaesongCutoff()}</div>`;
+  b=panel('2학년 · 1학기',filteredRows('2026-1','2학년'));
+ }else{
+  const additional=filteredRows('2025-2','2학년');
+  const appendix=additional.length?`<h4 class="subheading">2학년</h4>${renderTable(additional)}${renderMobile(additional)}`:'';
+  a=panel('1학년 · 1학기',filteredRows('2025-1','1학년'));
+  b=panel('1학년 · 2학기',filteredRows('2025-2','1학년'),appendix);
+ }
+ $('compareGrid').innerHTML=a+b;
+ // 폰트 로딩이나 화면 크기가 바뀌어도 해송고 좌우 표의 맨 아래 테두리를 일치시킨다.
+ requestAnimationFrame(alignHaesongBottom);
+}
+function alignHaesongBottom(){
+ const grid=$('compareGrid');
+ const scroll=grid.querySelector('.compare-stack .cutoff-scroll');
+ if(!scroll)return;
+ scroll.style.height='';
+ if(window.matchMedia('(max-width:1020px)').matches)return;
+ const right=grid.querySelector(':scope > .compare-panel');
+ if(!right)return;
+ // 표와 바깥쪽 테두리 1px을 고려해 좌·우 카드의 하단선을 정확히 맞춘다.
+ const targetHeight=right.getBoundingClientRect().bottom-scroll.getBoundingClientRect().top-1;
+ if(targetHeight>0)scroll.style.height=`${targetHeight.toFixed(3)}px`;
+}
+window.addEventListener('resize',()=>requestAnimationFrame(alignHaesongBottom));
+if(document.fonts)document.fonts.ready.then(()=>requestAnimationFrame(alignHaesongBottom));
+$('schoolTabs').addEventListener('click',e=>{
+ const b=e.target.closest('[data-school]');if(!b)return;state.school=b.dataset.school;render();
+});
+$('schoolTabs').addEventListener('keydown',e=>{
+ if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
+ e.preventDefault();const names=[...schoolList,COMPARE_KEY];const i=names.indexOf(state.school);
+ const j=e.key==='Home'?0:e.key==='End'?names.length-1:(i+(e.key==='ArrowRight'?1:-1)+names.length)%names.length;
+ state.school=names[j];render();$('schoolTabs').querySelector('[aria-selected="true"]').focus();
+});
+$('yearTabs').addEventListener('click',e=>{
+ const b=e.target.closest('[data-year]');if(!b)return;state.year=b.dataset.year;render();
+});
+render();
+</script>
+</body>
+</html>
