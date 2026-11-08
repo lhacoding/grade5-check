@@ -2231,7 +2231,6 @@ html, body { max-width:100% !important; overflow-x:hidden !important; }
   #upperStudentPool .pool-table td {padding:5px 2px}
 }
 </style>
-
 <style id="final-compact-table-style">
   /* 표 세로 길이 축소: 좌우 여백은 유지하고 위·아래 패딩만 줄임 */
   .table-wrap table thead th,
@@ -2303,9 +2302,6 @@ html, body { max-width:100% !important; overflow-x:hidden !important; }
     .cohort-vbar-label { font-size:9.8px !important; }
   }
 </style>
-
-
-
 <style id="school-table-total-style">
   #dataTable tfoot th,
   #dataTable tfoot td{
@@ -2432,8 +2428,6 @@ html, body { max-width:100% !important; overflow-x:hidden !important; }
     .school-group-total-wrap{ gap:10px; }
   }
 </style>
-
-
 <style id="institute-row-style">
   #dataTable tbody tr.institute-row th,
   #dataTable tbody tr.institute-row td{
@@ -2465,8 +2459,6 @@ html, body { max-width:100% !important; overflow-x:hidden !important; }
     text-underline-offset:2px;
   }
 </style>
-
-
 <style id="missing-highschool-data-style">
   #dataTable tbody tr.unavailable-row th,
   #dataTable tbody tr.unavailable-row td{
@@ -2498,8 +2490,6 @@ html, body { max-width:100% !important; overflow-x:hidden !important; }
     color:#8b97a8;
   }
 </style>
-
-
 <style id="school-performance-menu-match">
 /* 학교별 수행평가 페이지의 공통 메뉴 글자·줄바꿈·열 수 통일 */
 .global-menu-grid {
@@ -2685,7 +2675,172 @@ main.page > .panel.section .section-title h2::before {
   box-shadow:0 5px 14px rgba(23,39,68,.16) !important;
 }
 </style>
-</head>
+<style id="stem-2026-table-style">
+  #stem2026 { margin-top:18px; }
+  #stem2026 .section-title h2 { white-space:normal !important; }
+  #stem2026 .stem-unit-guide { margin:0 2px 12px; color:#5f6e86; font-size:12.5px; line-height:1.5; font-weight:700; word-break:keep-all; }
+  #stem2026 .stem-table-wrap { width:100%; overflow-x:auto; border:1px solid var(--line); border-radius:18px; background:#fff; }
+  #stem2026 .stem-table { width:100%; min-width:0; table-layout:fixed; border-collapse:separate; border-spacing:0; font-size:13.5px; }
+  #stem2026 .stem-table col.school { width:31%; }
+  #stem2026 .stem-table col.year { width:9%; }
+  #stem2026 .stem-table col.metric { width:12%; }
+  #stem2026 .stem-table thead th { width:auto; padding:12px 5px; border-right:1px solid #e7edf6; border-bottom:1px solid var(--line); background:#f3f7fd; color:#172744; font-weight:950; text-align:center; white-space:nowrap; }
+  #stem2026 .stem-table tbody th, #stem2026 .stem-table tbody td { padding:8px 6px; border-right:1px solid #edf2f8; border-bottom:1px solid #edf2f8; color:#172643; text-align:center; vertical-align:middle; font-variant-numeric:tabular-nums; }
+  #stem2026 .stem-table tbody td { font-weight:850; }
+  #stem2026 .stem-table tbody .stem-school-name { background:#fbfcff; font-weight:900; white-space:normal; overflow-wrap:anywhere; word-break:keep-all; line-height:1.45; border-bottom:1px solid #d8e1ed; }
+  #stem2026 .stem-table tbody .stem-year { font-weight:800; background:#f7f9fd; color:#40546f; white-space:nowrap; }
+  #stem2026 .stem-table tbody .year-2026 td { background:#fff; }
+  #stem2026 .stem-table tbody .year-2025 td { background:#fbfcff; }
+  #stem2026 .stem-table tbody .year-2026 th, #stem2026 .stem-table tbody .year-2026 td { border-bottom:1px solid #d8e1ed; }
+  #stem2026 .stem-table tbody tr:last-child th, #stem2026 .stem-table tbody tr:last-child td { border-bottom:0; }
+  #stem2026 .stem-table thead th:last-child, #stem2026 .stem-table tbody td:last-child { border-right:0; }
+  #stem2026 .stem-table tbody tr:hover td { background:#f1f6fe; }
+  #stem2026 .stem-table .unknown { color:#97a4b7; font-weight:700; }
+  #stem2026 .stem-table .incheon .stem-school-name { color:#153868; }
+  @media (max-width:680px) {
+    #stem2026 .stem-table { font-size:11.2px; }
+    #stem2026 .stem-table col.school { width:30%; }
+    #stem2026 .stem-table col.year { width:10%; }
+    #stem2026 .stem-table col.metric { width:12%; }
+    #stem2026 .stem-table thead th { padding:9px 1px; font-size:10px; letter-spacing:-.045em; }
+    #stem2026 .stem-table tbody th, #stem2026 .stem-table tbody td { padding:8px 2px; }
+    #stem2026 .stem-table tbody .stem-school-name { font-size:10.6px; }
+    #stem2026 .stem-table tbody .stem-year { font-size:10px; }
+    #stem2026 .stem-unit-guide { font-size:11px; }
+  }
+  @media (max-width:390px) {
+    #stem2026 .stem-table { font-size:10.2px; }
+    #stem2026 .stem-table thead th { font-size:9px; padding:8px 1px; }
+    #stem2026 .stem-table tbody .stem-school-name { font-size:9.6px; }
+    #stem2026 .stem-table tbody .stem-year { font-size:9.2px; }
+  }
+</style>
+<style id="stem-horizontal-year-layout-v2">
+/* 학년도 좌우 비교: 대학별 2025/2026을 나란히, 학교당 한 행 */
+#stem2026 .stem-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
+#stem2026 .stem-horizontal-years { width:100%; min-width:1020px; table-layout:fixed; border-collapse:separate; border-spacing:0; font-size:13px; }
+#stem2026 .stem-horizontal-years col.stem-school-col { width:20%; }
+#stem2026 .stem-horizontal-years col.stem-year-col { width:8%; }
+#stem2026 .stem-horizontal-years thead th { background:#f3f7fd; padding:10px 4px; text-align:center; white-space:nowrap; font-size:12px; }
+#stem2026 .stem-horizontal-years thead tr:first-child th { font-size:13px; background:#eaf1fb; border-bottom:1px solid #d8e1ed; }
+#stem2026 .stem-horizontal-years thead tr:nth-child(2) th { font-size:11.5px; padding:8px 3px; }
+#stem2026 .stem-horizontal-years .stem-label-2025 { color:#64748b; background:#f3f6fb; }
+#stem2026 .stem-horizontal-years .stem-label-2026 { color:#173969; background:#eaf2ff; border-right:2px solid #d3ddec; }
+#stem2026 .stem-horizontal-years tbody .stem-school-name { font-size:12.5px; padding:10px 6px; background:#fbfcff; white-space:normal; overflow-wrap:normal; word-break:keep-all; }
+#stem2026 .stem-horizontal-years tbody td { padding:10px 4px; background:#fbfcff; font-size:12.5px; }
+#stem2026 .stem-horizontal-years tbody .stem-value-2025 { background:#f8faff; color:#4b5b72; }
+#stem2026 .stem-horizontal-years tbody .stem-value-2026 { background:#fff; color:#102443; border-right:2px solid #d3ddec; font-weight:950; }
+#stem2026 .stem-horizontal-years tbody .unknown { color:#9aa6b7 !important; font-weight:700; }
+#stem2026 .stem-horizontal-years tbody tr:hover td { background:#eef5ff; }
+#stem2026 .stem-horizontal-years thead th:last-child,
+#stem2026 .stem-horizontal-years tbody td:last-child { border-right:0; }
+#stem2026 .stem-horizontal-years .stem-sticky-school { position:sticky; left:0; z-index:2; box-shadow:2px 0 4px rgba(17,35,63,.04); }
+#stem2026 .stem-horizontal-years thead .stem-sticky-school { z-index:3; background:#eaf1fb; }
+@media(max-width:680px) {
+ #stem2026 .stem-horizontal-years { min-width:1010px; font-size:12px; }
+ #stem2026 .stem-horizontal-years thead th { font-size:12px; }
+ #stem2026 .stem-horizontal-years tbody .stem-school-name { font-size:12px; }
+ #stem2026 .stem-horizontal-years tbody td { font-size:12px; }
+}
+</style>
+<style id="table-border-and-sticky-fix">
+/* 2026-11: 모든 표에 동일한 1px 내부 경계선을 적용. 그룹 구분은 색으로만 표현. */
+:root { --uniform-table-rule: #dbe3ef; }
+:is(.cohort-mini-table, #dataTable, .analysis-table, #stem2026 .stem-table) {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+:is(.cohort-mini-table, #dataTable, .analysis-table, #stem2026 .stem-table) thead th,
+:is(.cohort-mini-table, #dataTable, .analysis-table, #stem2026 .stem-table) tbody th,
+:is(.cohort-mini-table, #dataTable, .analysis-table, #stem2026 .stem-table) tbody td {
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 1px solid var(--uniform-table-rule) !important;
+  border-bottom: 1px solid var(--uniform-table-rule) !important;
+}
+:is(.cohort-mini-table, #dataTable, .analysis-table, #stem2026 .stem-table) thead tr > :last-child,
+:is(.cohort-mini-table, #dataTable, .analysis-table, #stem2026 .stem-table) tbody tr > :last-child {
+  border-right: 0 !important;
+}
+:is(.cohort-mini-table, #dataTable, .analysis-table, #stem2026 .stem-table) tbody tr:last-child > * {
+  border-bottom: 0 !important;
+}
+/* 최하단 비교표: 연도별 경계선을 2px에서 1px로 통일 */
+#stem2026 .stem-horizontal-years .stem-label-2026,
+#stem2026 .stem-horizontal-years tbody .stem-value-2026 {
+  border-right: 1px solid var(--uniform-table-rule) !important;
+}
+#stem2026 .stem-horizontal-years thead tr:first-child th {
+  border-bottom: 1px solid var(--uniform-table-rule) !important;
+}
+/* 원래 표의 가로 고정 학교 열은 유지 */
+#stem2026 .stem-horizontal-years .stem-sticky-school { box-shadow: none !important; }
+/* 창 스크롤 시 보여주는 표의 제목행 복제본: 표 자체 높이를 변경하지 않음 */
+.fixed-table-header-overlay {
+  position: fixed;
+  top: 0;
+  z-index: 700;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #f3f7fd;
+  pointer-events: none;
+  border: 1px solid var(--uniform-table-rule);
+  border-top: 0;
+  box-shadow: 0 3px 10px rgba(23,39,68,.11);
+  scrollbar-width: none;
+}
+.fixed-table-header-overlay::-webkit-scrollbar { display: none; }
+.fixed-table-header-overlay table { margin: 0 !important; }
+@media print { .fixed-table-header-overlay { display: none !important; } }
+</style>
+<style id="stem-compare-font-parity-20261108">
+/* 위의 경쟁 규모 표(14.5px)와 하단 대학별 비교표의 글자 크기 일치 */
+#stem2026 .stem-horizontal-years {
+  font-size:14.5px !important;
+  min-width:1100px;
+}
+#stem2026 .stem-horizontal-years thead th,
+#stem2026 .stem-horizontal-years thead tr:first-child th,
+#stem2026 .stem-horizontal-years thead tr:nth-child(2) th,
+#stem2026 .stem-horizontal-years tbody .stem-school-name,
+#stem2026 .stem-horizontal-years tbody td {
+  font-size:14.5px !important;
+  line-height:1.35;
+  letter-spacing:-.02em;
+}
+/* 표 두 줄 헤더와 본문에 읽기 좋은 공간 확보 */
+#stem2026 .stem-horizontal-years thead th { padding:11px 5px !important; }
+#stem2026 .stem-horizontal-years tbody th,
+#stem2026 .stem-horizontal-years tbody td { padding:12px 6px !important; }
+/* 창 폭이 좁아도 글씨를 축소하지 않고, 필요한 경우 가로 스크롤 */
+@media(max-width:680px) {
+  #stem2026 .stem-horizontal-years { min-width:1100px; }
+}
+</style>
+<style id="unified-table-footnotes-20261108">
+/* 표에 붙는 설명은 예외 없이 표 아래에, ※ 표시로 시작 */
+main.page .table-footnote {
+  display:block !important;
+  margin:10px 2px 0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  color:#5f6e86 !important;
+  font-size:12.5px !important;
+  font-weight:650 !important;
+  line-height:1.58 !important;
+  text-align:left !important;
+  word-break:keep-all;
+}
+main.page .table-footnote strong,
+main.page .table-footnote b { display:inline !important; font-size:inherit; }
+main.page .table-footnote a { overflow-wrap:anywhere; }
+@media(max-width:620px) {
+  main.page .table-footnote { font-size:11.5px !important; line-height:1.55 !important; }
+}
+</style></head>
 <body>
 <header aria-label="페이지 제목" class="site-hero">
 <h1>학생부종합 고교유형별 입학자 수</h1>
@@ -2693,13 +2848,13 @@ main.page > .panel.section .section-title h2::before {
 </header>
 <section aria-label="전체 페이지 메뉴" class="global-menu-section">
 <div class="global-menu-grid">
-  <a class="global-menu-button" href="index.html#inputSection">내신 입력·대학 예측</a>
-  <a class="global-menu-button" href="school_achievement.html">학교별 학업성취사항</a>
+<a class="global-menu-button" href="index.html#inputSection">내신 입력·대학 예측</a>
+<a class="global-menu-button" href="school_achievement.html">학교별 학업성취사항</a>
 <a class="global-menu-button" href="school_performance.html">학교별 수행평가</a>
-  <a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
-  <a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
-  <a aria-current="page" class="global-menu-button active" href="student_admission_by_highschool_type.html">학종 고교유형</a>
-  <a class="global-menu-button" href="major_guide.html">전공 가이드</a>
+<a class="global-menu-button" href="engineering_admission.html">공학 수시 입결</a>
+<a class="global-menu-button" href="2028_ad.html">2028 대입전형</a>
+<a aria-current="page" class="global-menu-button active" href="student_admission_by_highschool_type.html">학종 고교유형</a>
+<a class="global-menu-button" href="major_guide.html">전공 가이드</a>
 </div>
 </section>
 <main class="page">
@@ -2708,60 +2863,58 @@ main.page > .panel.section .section-title h2::before {
 <h2>현재 학년별 전국 학생 규모</h2>
 <div class="data-year-label">2026년 현재 · 초1~고3</div>
 </div>
-<div class="guide-desc">
-      초1부터 고3까지 학년별 학생 수와 예상 대학 입학 학년을 비교할 수 있도록 정리했습니다.
-    </div>
+
 <div class="cohort-layout">
-  <div class="cohort-pane">
-    <div class="cohort-pane-head"><h3>중·고등학교</h3><span>고3~중1</span></div>
-    <table class="cohort-mini-table">
-      <colgroup><col style="width:16%"/><col style="width:20%"/><col style="width:28%"/><col style="width:36%"/></colgroup>
-      <thead><tr><th>학년</th><th>출생연도</th><th>대학 입학</th><th>학생 수</th></tr></thead>
-      <tbody>
-        <tr><th>고3</th><td>2008년생</td><td>2027학년도</td><td class="cohort-count">430,520명</td></tr>
-        <tr><th>고2</th><td>2009년생</td><td>2028학년도</td><td class="cohort-count">425,400명</td></tr>
-        <tr><th>고1</th><td>2010년생</td><td>2029학년도</td><td class="cohort-count">448,999명</td></tr>
-        <tr><th>중3</th><td>2011년생</td><td>2030학년도</td><td class="cohort-count">453,555명</td></tr>
-        <tr><th>중2</th><td>2012년생</td><td>2031학년도</td><td class="cohort-count">467,802명</td></tr>
-        <tr><th>중1</th><td>2013년생</td><td>2032학년도</td><td class="cohort-count">423,410명</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="cohort-pane">
-    <div class="cohort-pane-head"><h3>초등학교</h3><span>초1~초6</span></div>
-    <table class="cohort-mini-table">
-      <colgroup><col style="width:16%"/><col style="width:20%"/><col style="width:28%"/><col style="width:36%"/></colgroup>
-      <thead><tr><th>학년</th><th>출생연도</th><th>대학 입학</th><th>학생 수</th></tr></thead>
-      <tbody>
-        <tr><th>초1</th><td>2019년생</td><td>2038학년도</td><td class="cohort-count">301,341명</td></tr>
-        <tr><th>초2</th><td>2018년생</td><td>2037학년도</td><td class="cohort-count">324,040명</td></tr>
-        <tr><th>초3</th><td>2017년생</td><td>2036학년도</td><td class="cohort-count">350,945명</td></tr>
-        <tr><th>초4</th><td>2016년생</td><td>2035학년도</td><td class="cohort-count">398,003명</td></tr>
-        <tr><th>초5</th><td>2015년생</td><td>2034학년도</td><td class="cohort-count">426,836명</td></tr>
-        <tr><th>초6</th><td>2014년생</td><td>2033학년도</td><td class="cohort-count">422,254명</td></tr>
-      </tbody>
-    </table>
-  </div>
+<div class="cohort-pane">
+<div class="cohort-pane-head"><h3>중·고등학교</h3><span>고3~중1</span></div>
+<table class="cohort-mini-table">
+<colgroup><col style="width:16%"/><col style="width:20%"/><col style="width:28%"/><col style="width:36%"/></colgroup>
+<thead><tr><th>학년</th><th>출생연도</th><th>대학 입학</th><th>학생 수</th></tr></thead>
+<tbody>
+<tr><th>고3</th><td>2008년생</td><td>2027학년도</td><td class="cohort-count">430,520명</td></tr>
+<tr><th>고2</th><td>2009년생</td><td>2028학년도</td><td class="cohort-count">425,400명</td></tr>
+<tr><th>고1</th><td>2010년생</td><td>2029학년도</td><td class="cohort-count">448,999명</td></tr>
+<tr><th>중3</th><td>2011년생</td><td>2030학년도</td><td class="cohort-count">453,555명</td></tr>
+<tr><th>중2</th><td>2012년생</td><td>2031학년도</td><td class="cohort-count">467,802명</td></tr>
+<tr><th>중1</th><td>2013년생</td><td>2032학년도</td><td class="cohort-count">423,410명</td></tr>
+</tbody>
+</table>
 </div>
-<div class="cohort-chart" aria-label="학년별 학생 수 세로 막대그래프">
-  <div class="cohort-chart-head"><h3>학년별 학생 수 비교</h3><span>막대 높이 = 학생 수</span></div>
-  <div class="cohort-chart-body">
-    <div class="cohort-vbars">
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">430,520명</div><div class="cohort-vbar high" style="height:92.0%" title="고3 430,520명"></div></div></div><div class="cohort-vbar-label">고3</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">425,400명</div><div class="cohort-vbar high" style="height:90.9%" title="고2 425,400명"></div></div></div><div class="cohort-vbar-label">고2</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">448,999명</div><div class="cohort-vbar high" style="height:96.0%" title="고1 448,999명"></div></div></div><div class="cohort-vbar-label">고1</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">453,555명</div><div class="cohort-vbar middle" style="height:96.9%" title="중3 453,555명"></div></div></div><div class="cohort-vbar-label">중3</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">467,802명</div><div class="cohort-vbar middle" style="height:100%" title="중2 467,802명"></div></div></div><div class="cohort-vbar-label">중2</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">423,410명</div><div class="cohort-vbar middle" style="height:90.5%" title="중1 423,410명"></div></div></div><div class="cohort-vbar-label">중1</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">422,254명</div><div class="cohort-vbar elementary" style="height:90.3%" title="초6 422,254명"></div></div></div><div class="cohort-vbar-label">초6</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">426,836명</div><div class="cohort-vbar elementary" style="height:91.2%" title="초5 426,836명"></div></div></div><div class="cohort-vbar-label">초5</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">398,003명</div><div class="cohort-vbar elementary" style="height:85.1%" title="초4 398,003명"></div></div></div><div class="cohort-vbar-label">초4</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">350,945명</div><div class="cohort-vbar elementary" style="height:75.0%" title="초3 350,945명"></div></div></div><div class="cohort-vbar-label">초3</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">324,040명</div><div class="cohort-vbar elementary" style="height:69.3%" title="초2 324,040명"></div></div></div><div class="cohort-vbar-label">초2</div></div>
-      <div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">301,341명</div><div class="cohort-vbar elementary" style="height:64.4%" title="초1 301,341명"></div></div></div><div class="cohort-vbar-label">초1</div></div>
-    </div>
-    <div class="cohort-chart-legend"><span><i class="high"></i>고등학교</span><span><i class="middle"></i>중학교</span><span><i class="elementary"></i>초등학교</span></div>
-  </div>
+<div class="cohort-pane">
+<div class="cohort-pane-head"><h3>초등학교</h3><span>초1~초6</span></div>
+<table class="cohort-mini-table">
+<colgroup><col style="width:16%"/><col style="width:20%"/><col style="width:28%"/><col style="width:36%"/></colgroup>
+<thead><tr><th>학년</th><th>출생연도</th><th>대학 입학</th><th>학생 수</th></tr></thead>
+<tbody>
+<tr><th>초1</th><td>2019년생</td><td>2038학년도</td><td class="cohort-count">301,341명</td></tr>
+<tr><th>초2</th><td>2018년생</td><td>2037학년도</td><td class="cohort-count">324,040명</td></tr>
+<tr><th>초3</th><td>2017년생</td><td>2036학년도</td><td class="cohort-count">350,945명</td></tr>
+<tr><th>초4</th><td>2016년생</td><td>2035학년도</td><td class="cohort-count">398,003명</td></tr>
+<tr><th>초5</th><td>2015년생</td><td>2034학년도</td><td class="cohort-count">426,836명</td></tr>
+<tr><th>초6</th><td>2014년생</td><td>2033학년도</td><td class="cohort-count">422,254명</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-label="학년별 학생 수 세로 막대그래프" class="cohort-chart">
+<div class="cohort-chart-head"><h3>학년별 학생 수 비교</h3><span>막대 높이 = 학생 수</span></div>
+<div class="cohort-chart-body">
+<div class="cohort-vbars">
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">430,520명</div><div class="cohort-vbar high" style="height:92.0%" title="고3 430,520명"></div></div></div><div class="cohort-vbar-label">고3</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">425,400명</div><div class="cohort-vbar high" style="height:90.9%" title="고2 425,400명"></div></div></div><div class="cohort-vbar-label">고2</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">448,999명</div><div class="cohort-vbar high" style="height:96.0%" title="고1 448,999명"></div></div></div><div class="cohort-vbar-label">고1</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">453,555명</div><div class="cohort-vbar middle" style="height:96.9%" title="중3 453,555명"></div></div></div><div class="cohort-vbar-label">중3</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">467,802명</div><div class="cohort-vbar middle" style="height:100%" title="중2 467,802명"></div></div></div><div class="cohort-vbar-label">중2</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">423,410명</div><div class="cohort-vbar middle" style="height:90.5%" title="중1 423,410명"></div></div></div><div class="cohort-vbar-label">중1</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">422,254명</div><div class="cohort-vbar elementary" style="height:90.3%" title="초6 422,254명"></div></div></div><div class="cohort-vbar-label">초6</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">426,836명</div><div class="cohort-vbar elementary" style="height:91.2%" title="초5 426,836명"></div></div></div><div class="cohort-vbar-label">초5</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">398,003명</div><div class="cohort-vbar elementary" style="height:85.1%" title="초4 398,003명"></div></div></div><div class="cohort-vbar-label">초4</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">350,945명</div><div class="cohort-vbar elementary" style="height:75.0%" title="초3 350,945명"></div></div></div><div class="cohort-vbar-label">초3</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">324,040명</div><div class="cohort-vbar elementary" style="height:69.3%" title="초2 324,040명"></div></div></div><div class="cohort-vbar-label">초2</div></div>
+<div class="cohort-vbar-item"><div class="cohort-vbar-box"><div class="cohort-vbar-stack"><div class="cohort-vbar-value">301,341명</div><div class="cohort-vbar elementary" style="height:64.4%" title="초1 301,341명"></div></div></div><div class="cohort-vbar-label">초1</div></div>
+</div>
+<div class="cohort-chart-legend"><span><i class="high"></i>고등학교</span><span><i class="middle"></i>중학교</span><span><i class="elementary"></i>초등학교</span></div>
+</div>
 </div>
 </section>
 <section class="panel section">
@@ -2769,7 +2922,6 @@ main.page > .panel.section .section-title h2::before {
 <h2>대학별 학생부종합전형 고교유형 입학자 수</h2>
 <div class="data-year-label">2025학년도 입학생 기준 자료</div>
 </div>
-
 <div class="table-wrap highschool-table-wrap">
 <table id="dataTable">
 <thead>
@@ -2788,20 +2940,14 @@ main.page > .panel.section .section-title h2::before {
 </table>
 </div>
 <div class="mobile-list" id="mobileList"></div>
-<p class="note institute-data-note">
-  ※ 과기·특성화대 6곳은
-  <a href="https://major-research.tistory.com/entry/2025%ED%95%99%EB%85%84%EB%8F%84-%EA%B3%BC%EA%B8%B0%EC%9B%90-%EC%88%98%EC%8B%9C-%EC%A0%84%ED%98%95%EB%B3%84-%EC%8B%A0%EC%9E%85%EC%83%9D-%EA%B3%A0%EA%B5%90-%EC%9C%A0%ED%98%95-%EC%84%B8%EB%B6%80-%EB%B6%84%EC%84%9D-%EC%9E%90%EB%A3%8C-%EB%B9%84%EC%9D%BC%EB%B0%98%EA%B3%A0-%EB%8C%80%ED%95%99-%EC%A7%84%ED%95%99-%EC%9C%A0%EB%B6%88%EB%A6%AC" target="_blank" rel="noopener">2025학년도 정원 내 수시 학생부종합전형 최종 등록자</a> 기준입니다.
-</p>
-<p class="note">한양대 ERICA는 <a href="https://goerica.hanyang.ac.kr/upload/BBS0062/20250514160613TDQ4L5.PDF" target="_blank" rel="noopener">2025학년도 공식 입시결과(24쪽)</a>의 정원 내 일반전형 학종 최종등록자 기준입니다. 원자료의 과학고·영재고 합산 5명은 특목고 합계에 포함했습니다. 과고·영재고 각각의 열에는 나누어 넣지 않았습니다. 총인원에는 다른 고교유형 6명도 포함됩니다.</p>
+<p class="note institute-data-note table-footnote">※ 과기·특성화대 6곳은 <a href="https://major-research.tistory.com/entry/2025%ED%95%99%EB%85%84%EB%8F%84-%EA%B3%BC%EA%B8%B0%EC%9B%90-%EC%88%98%EC%8B%9C-%EC%A0%84%ED%98%95%EB%B3%84-%EC%8B%A0%EC%9E%85%EC%83%9D-%EA%B3%A0%EA%B5%90-%EC%9C%A0%ED%98%95-%EC%84%B8%EB%B6%80-%EB%B6%84%EC%84%9D-%EC%9E%90%EB%A3%8C-%EB%B9%84%EC%9D%BC%EB%B0%98%EA%B3%A0-%EB%8C%80%ED%95%99-%EC%A7%84%ED%95%99-%EC%9C%A0%EB%B6%88%EB%A6%AC" rel="noopener" target="_blank">2025학년도 정원 내 수시 학생부종합전형 최종 등록자</a> 기준입니다.</p>
+<p class="note table-footnote">※ 한양대 ERICA는 <a href="https://goerica.hanyang.ac.kr/upload/BBS0062/20250514160613TDQ4L5.PDF" rel="noopener" target="_blank">2025학년도 공식 입시결과(24쪽)</a>의 학종 일반전형 기준입니다. 과고·영재고 합산 5명은 개별 열에 분리하지 않았고, 총인원에는 기타 유형 6명이 포함됩니다.</p>
 </section>
 <section class="panel section analysis-section" id="upperStudentPool">
 <div class="section-title">
 <h2>상위권 대학 진학 경쟁군 규모</h2>
-
 </div>
-<div class="guide-desc">
-      전체 23,315명을 기준으로 학교군별 비율을 적용해 <strong>상위권 대학 지원 경쟁군을 약 15,600명으로 가정</strong>했습니다.
-    </div>
+
 <div class="analysis-table-wrap analysis-desktop">
 <table class="analysis-table pool-table">
 <colgroup><col/><col/><col/><col/><col/></colgroup>
@@ -2911,19 +3057,18 @@ main.page > .panel.section .section-title h2::before {
 <div class="pool-mobile-stat"><small>적용 인원</small><strong>약 1,573명</strong></div>
 </div>
 <div class="pool-mobile-schools">단대부고 381 · 낙생고 268 · 화성고 300 · 강서고 287 · 상문고 420 · 숙명여고 371 · 중산고 300 · 진선여고 295</div>
-</article></div>
-
+</article></div><div class="guide-desc table-footnote">※ 학교군별 인원 23,315명에 가정 비율을 적용한 추정치로, 상위권 대학 진학 경쟁군을 약 15,600명으로 보았습니다.</div>
 </section>
 <section class="panel section analysis-section" id="admission2028">
 <div class="section-title"><h2>2028학년도 주요 대학 모집인원(예체능 제외)</h2><div class="data-year-label">대학별 2028학년도 시행계획</div></div>
-<div class="guide-desc">예체능 제외 합계는 대학별 2028학년도 시행계획의 정원 내 모집인원 기준입니다. 대학명을 누르면 원문을 볼 수 있습니다.</div>
+
 <div class="analysis-table-wrap arts-table-wrap"><table class="analysis-table admission-table arts-table">
 <colgroup><col/><col/><col/><col/><col/><col/><col/><col/><col/></colgroup>
-<thead><tr><th>대학군</th><th>대학</th><th>교과</th><th>종합</th><th>논술</th><th>정시</th><th>계</th><th>예체능 제외 합계</th><th>누적합계</th></tr></thead><tbody><tr><th class="group-cell" rowspan="3">SKY</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1rR-cQPXGFjwtusR5bdfnwi5SHSegTpQs/view?usp=drive_link" target="_blank" rel="noopener">서울대</a></th><td>-</td><td>2,429</td><td>-</td><td>1,267</td><td>3,696</td><td class="sum-cell">3,317</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1ePkz32fje42DzNnnNQhmWh_-hI9A3XTC/view?usp=drive_link" target="_blank" rel="noopener">연세대</a></th><td>564</td><td>1,652</td><td>334</td><td>1,233</td><td>3,783</td><td class="sum-cell">3,395</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1TOmZZO3bm4PysC6XCyFs5uQ155IrJ4yb/view?usp=drive_link" target="_blank" rel="noopener">고려대</a></th><td>672</td><td>1,609</td><td>367</td><td>1,867</td><td>4,515</td><td class="sum-cell">4,373</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">SKY 소계</th><td>1,236</td><td>5,690</td><td>701</td><td>4,367</td><td>11,994</td><td>11,085</td><td class="cumulative-cell">11,085</td></tr><tr><th class="group-cell" rowspan="6">과기·특성화대</th><th class="univ-cell">KAIST</th><td>-</td><td>880</td><td>-</td><td>-</td><td>880</td><td class="sum-cell">880</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">POSTECH</th><td>-</td><td>370</td><td>-</td><td>-</td><td>370</td><td class="sum-cell">370</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">GIST</th><td>-</td><td>330</td><td>-</td><td>-</td><td>330</td><td class="sum-cell">330</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">DGIST</th><td>-</td><td>330</td><td>-</td><td>-</td><td>330</td><td class="sum-cell">330</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">UNIST</th><td>-</td><td>570</td><td>-</td><td>10</td><td>580</td><td class="sum-cell">580</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">KENTECH</th><td>-</td><td>100</td><td>-</td><td>10</td><td>110</td><td class="sum-cell">110</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">과기·특성화대 소계</th><td>-</td><td>2,580</td><td>-</td><td>20</td><td>2,600</td><td>2,600</td><td class="cumulative-cell">13,685</td></tr><tr><th class="group-cell" rowspan="3">서성한</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1dSjBtuQZ2GrKasB3dmYuIwAPr_Kj1_G-/view?usp=drive_link" target="_blank" rel="noopener">서강대</a></th><td>180</td><td>696</td><td>170</td><td>719</td><td>1,765</td><td class="sum-cell">1,647</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1nkpFG64KVKHuHEwound1SwGAOHK8E7iC/view?usp=drive_link" target="_blank" rel="noopener">성균관대</a></th><td>415</td><td>1,299</td><td>376</td><td>1,698</td><td>3,788</td><td class="sum-cell">3,245</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1ks8hkyy2LP0_j6zUQYAH-nU2GXzKzFfE/view?usp=drive_link" target="_blank" rel="noopener">한양대(서울)</a></th><td>506</td><td>1,190</td><td>289</td><td>1,037</td><td>3,022</td><td class="sum-cell">2,706</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">서성한 소계</th><td>1,101</td><td>3,185</td><td>835</td><td>3,454</td><td>8,575</td><td>7,598</td><td class="cumulative-cell">21,283</td></tr><tr><th class="group-cell" rowspan="4">중경외시</th><th class="univ-cell"><a href="https://drive.google.com/file/d/14XISIunoVOXTldYdMS3qxdixQ5uoKFaT/view?usp=drive_link" target="_blank" rel="noopener">중앙대(서울)</a></th><td>410</td><td>1,031</td><td>446</td><td>1,589</td><td>3,476</td><td class="sum-cell">3,146</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1CAPd1wdWASpV43vflAPyRI8Sn1jGpL38/view?usp=drive_link" target="_blank" rel="noopener">경희대</a></th><td>580</td><td>1,354</td><td>469</td><td>2,221</td><td>4,624</td><td class="sum-cell">4,056</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1hxUyqm-1RAMDGV4ycN7oE0aLtGaziO1X/view?usp=drive_link" target="_blank" rel="noopener">한국외대</a></th><td>375</td><td>1,288</td><td>449</td><td>1,552</td><td>3,664</td><td class="sum-cell">3,437</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1t8tw-bJLE6YA39rm1ARSHQYIgE5AfKFL/view?usp=drive_link" target="_blank" rel="noopener">서울시립대</a></th><td>346</td><td>602</td><td>86</td><td>776</td><td>1,810</td><td class="sum-cell">1,670</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">중경외시 소계</th><td>1,711</td><td>4,275</td><td>1,450</td><td>6,138</td><td>13,574</td><td>12,309</td><td class="cumulative-cell">33,592</td></tr><tr><th class="group-cell" rowspan="4">건동홍숙</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1ror2TjnYQnTAVkse27kJ6jD_4v-T5p2q/view?usp=drive_link" target="_blank" rel="noopener">건국대(서울)</a></th><td>348</td><td>1,010</td><td>327</td><td>1,472</td><td>3,157</td><td class="sum-cell">2,715</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1qUirqu3hymuMQHMMaha08iN3ft-axaVG/view?usp=drive_link" target="_blank" rel="noopener">동국대(서울)</a></th><td>604</td><td>1,028</td><td>291</td><td>991</td><td>2,914</td><td class="sum-cell">2,710</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1PkJylLR34V3anc-Bl1aNbvIMMK-uzYE9/view?usp=drive_link" target="_blank" rel="noopener">홍익대(서울)</a></th><td>452</td><td>511</td><td>384</td><td>806</td><td>2,153</td><td class="sum-cell">1,939</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/143X6At6c-MOyv5ajU8x2QnH7GJhOOUxO/view?usp=drive_link" target="_blank" rel="noopener">숙명여대</a></th><td>314</td><td>549</td><td>214</td><td>984</td><td>2,061</td><td class="sum-cell">1,825</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">건동홍숙 소계</th><td>1,718</td><td>3,098</td><td>1,216</td><td>4,253</td><td>10,285</td><td>9,189</td><td class="cumulative-cell">42,781</td></tr><tr><th class="group-cell" rowspan="15">국숭세단·주요 공학대</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1JBR1xgAwhzFCWxs7GHjMongVdf2EkCfi/view?usp=sharing" target="_blank" rel="noopener">국민대</a></th><td>620</td><td>1,041</td><td>237</td><td>1,003</td><td>2,901</td><td class="sum-cell">2,477</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1p6dPVvcRZeSlJppUMC57K3ScmNkIBlIh/view?usp=drive_link" target="_blank" rel="noopener">숭실대</a></th><td>462</td><td>889</td><td>240</td><td>1,313</td><td>2,904</td><td class="sum-cell">2,899</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1axqOGP5Pr-ndcsGVMgnkaiHcP4zgIWvx/view?usp=drive_link" target="_blank" rel="noopener">세종대</a></th><td>411</td><td>861</td><td>344</td><td>1,019</td><td>2,635</td><td class="sum-cell">2,254</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1gcy4xhfhuSLGjZE7r097Q_DMAbWI_CVq/view?usp=sharing" target="_blank" rel="noopener">단국대(죽전)</a></th><td>265</td><td>773</td><td>300</td><td>783</td><td>2,121</td><td class="sum-cell">1,912</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1PuzYlVLc1gDGvLO3UcA_glLynKZm73u6/view?usp=drive_link" target="_blank" rel="noopener">서울과기대</a></th><td>393</td><td>888</td><td>150</td><td>776</td><td>2,207</td><td class="sum-cell">2,021</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1O_9Twicm08GDOOUV8F0El9ULKqGdIfc3/view?usp=sharing" target="_blank" rel="noopener">광운대</a></th><td>191</td><td>601</td><td>181</td><td>764</td><td>1,737</td><td class="sum-cell">1,647</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1PynCQxIy_0qJCo4R6F_wIGEvA8Xb2eI1/view?usp=sharing" target="_blank" rel="noopener">한양대 ERICA</a></th><td>380</td><td>810</td><td>203</td><td>864</td><td>2,257</td><td class="sum-cell">1,972</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1WwiBgBR-HZ2o4JyRujf03hvIQDQvwBrd/view?usp=drive_link" target="_blank" rel="noopener">아주대</a></th><td>279</td><td>956</td><td>224</td><td>748</td><td>2,207</td><td class="sum-cell">2,207</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1y04rTi_5IAGKh9BhS5CU0x8P9eyGaCP2/view?usp=drive_link" target="_blank" rel="noopener">인하대</a></th><td>485</td><td>1,475</td><td>449</td><td>1,219</td><td>3,628</td><td class="sum-cell">3,335</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1lWHHm3Tp4mGXBNV_vw8ooDBqblCSA-c9/view?usp=drive_link" target="_blank" rel="noopener">한국항공대</a></th><td>217</td><td>186</td><td>198</td><td>265</td><td>866</td><td class="sum-cell">821</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1AdJ585m6oHytiSFKpMoYmNZH4nQvOAxY/view?usp=drive_link" target="_blank" rel="noopener">한국기술교육대</a></th><td>277</td><td>349</td><td>150</td><td>149</td><td>925</td><td class="sum-cell">835</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1pVKIZLAx7MhWo0cHOtDwZTBD8xQ_uHVb/view?usp=drive_link" target="_blank" rel="noopener">한국공학대</a></th><td>384</td><td>514</td><td>200</td><td>504</td><td>1,602</td><td class="sum-cell">1,409</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1FpHY1T4qxqjr4fH9u60OEhfmnNlW_vN6/view?usp=drive_link" target="_blank" rel="noopener">명지대(서울+자연)</a></th><td>787</td><td>849</td><td>-</td><td>874</td><td>2,510</td><td class="sum-cell">2,294</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1xgs8EWmn-Y-Je3v-qLSc7p7gxXK9csVH/view?usp=sharing" target="_blank" rel="noopener">가천대</a></th><td>936</td><td>880</td><td>1,054</td><td>1,283</td><td>4,153</td><td class="sum-cell">3,605</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1jtOdH5OuC4wL5vlLZr6dl_5Pz34L34XR/view?usp=drive_link" target="_blank" rel="noopener">인천대</a></th><td>690</td><td>971</td><td>-</td><td>875</td><td>2,536</td><td class="sum-cell">2,269</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">국숭세단·주요 공학대 소계</th><td>6,777</td><td>12,043</td><td>3,930</td><td>12,439</td><td>35,189</td><td>31,957</td><td class="cumulative-cell">74,738</td></tr><tr class="grand-total-row"><th colspan="2">35개 대학 합계</th><td>12,543</td><td>30,871</td><td>8,132</td><td>30,671</td><td>82,217</td><td>74,738</td><td class="cumulative-cell">74,738</td></tr></tbody></table></div>
+<thead><tr><th>대학군</th><th>대학</th><th>교과</th><th>종합</th><th>논술</th><th>정시</th><th>계</th><th>예체능 제외 합계</th><th>누적합계</th></tr></thead><tbody><tr><th class="group-cell" rowspan="3">SKY</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1rR-cQPXGFjwtusR5bdfnwi5SHSegTpQs/view?usp=drive_link" rel="noopener" target="_blank">서울대</a></th><td>-</td><td>2,429</td><td>-</td><td>1,267</td><td>3,696</td><td class="sum-cell">3,317</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1ePkz32fje42DzNnnNQhmWh_-hI9A3XTC/view?usp=drive_link" rel="noopener" target="_blank">연세대</a></th><td>564</td><td>1,652</td><td>334</td><td>1,233</td><td>3,783</td><td class="sum-cell">3,395</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1TOmZZO3bm4PysC6XCyFs5uQ155IrJ4yb/view?usp=drive_link" rel="noopener" target="_blank">고려대</a></th><td>672</td><td>1,609</td><td>367</td><td>1,867</td><td>4,515</td><td class="sum-cell">4,373</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">SKY 소계</th><td>1,236</td><td>5,690</td><td>701</td><td>4,367</td><td>11,994</td><td>11,085</td><td class="cumulative-cell">11,085</td></tr><tr><th class="group-cell" rowspan="6">과기·특성화대</th><th class="univ-cell">KAIST</th><td>-</td><td>880</td><td>-</td><td>-</td><td>880</td><td class="sum-cell">880</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">POSTECH</th><td>-</td><td>370</td><td>-</td><td>-</td><td>370</td><td class="sum-cell">370</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">GIST</th><td>-</td><td>330</td><td>-</td><td>-</td><td>330</td><td class="sum-cell">330</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">DGIST</th><td>-</td><td>330</td><td>-</td><td>-</td><td>330</td><td class="sum-cell">330</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">UNIST</th><td>-</td><td>570</td><td>-</td><td>10</td><td>580</td><td class="sum-cell">580</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell">KENTECH</th><td>-</td><td>100</td><td>-</td><td>10</td><td>110</td><td class="sum-cell">110</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">과기·특성화대 소계</th><td>-</td><td>2,580</td><td>-</td><td>20</td><td>2,600</td><td>2,600</td><td class="cumulative-cell">13,685</td></tr><tr><th class="group-cell" rowspan="3">서성한</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1dSjBtuQZ2GrKasB3dmYuIwAPr_Kj1_G-/view?usp=drive_link" rel="noopener" target="_blank">서강대</a></th><td>180</td><td>696</td><td>170</td><td>719</td><td>1,765</td><td class="sum-cell">1,647</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1nkpFG64KVKHuHEwound1SwGAOHK8E7iC/view?usp=drive_link" rel="noopener" target="_blank">성균관대</a></th><td>415</td><td>1,299</td><td>376</td><td>1,698</td><td>3,788</td><td class="sum-cell">3,245</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1ks8hkyy2LP0_j6zUQYAH-nU2GXzKzFfE/view?usp=drive_link" rel="noopener" target="_blank">한양대(서울)</a></th><td>506</td><td>1,190</td><td>289</td><td>1,037</td><td>3,022</td><td class="sum-cell">2,706</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">서성한 소계</th><td>1,101</td><td>3,185</td><td>835</td><td>3,454</td><td>8,575</td><td>7,598</td><td class="cumulative-cell">21,283</td></tr><tr><th class="group-cell" rowspan="4">중경외시</th><th class="univ-cell"><a href="https://drive.google.com/file/d/14XISIunoVOXTldYdMS3qxdixQ5uoKFaT/view?usp=drive_link" rel="noopener" target="_blank">중앙대(서울)</a></th><td>410</td><td>1,031</td><td>446</td><td>1,589</td><td>3,476</td><td class="sum-cell">3,146</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1CAPd1wdWASpV43vflAPyRI8Sn1jGpL38/view?usp=drive_link" rel="noopener" target="_blank">경희대</a></th><td>580</td><td>1,354</td><td>469</td><td>2,221</td><td>4,624</td><td class="sum-cell">4,056</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1hxUyqm-1RAMDGV4ycN7oE0aLtGaziO1X/view?usp=drive_link" rel="noopener" target="_blank">한국외대</a></th><td>375</td><td>1,288</td><td>449</td><td>1,552</td><td>3,664</td><td class="sum-cell">3,437</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1t8tw-bJLE6YA39rm1ARSHQYIgE5AfKFL/view?usp=drive_link" rel="noopener" target="_blank">서울시립대</a></th><td>346</td><td>602</td><td>86</td><td>776</td><td>1,810</td><td class="sum-cell">1,670</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">중경외시 소계</th><td>1,711</td><td>4,275</td><td>1,450</td><td>6,138</td><td>13,574</td><td>12,309</td><td class="cumulative-cell">33,592</td></tr><tr><th class="group-cell" rowspan="4">건동홍숙</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1ror2TjnYQnTAVkse27kJ6jD_4v-T5p2q/view?usp=drive_link" rel="noopener" target="_blank">건국대(서울)</a></th><td>348</td><td>1,010</td><td>327</td><td>1,472</td><td>3,157</td><td class="sum-cell">2,715</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1qUirqu3hymuMQHMMaha08iN3ft-axaVG/view?usp=drive_link" rel="noopener" target="_blank">동국대(서울)</a></th><td>604</td><td>1,028</td><td>291</td><td>991</td><td>2,914</td><td class="sum-cell">2,710</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1PkJylLR34V3anc-Bl1aNbvIMMK-uzYE9/view?usp=drive_link" rel="noopener" target="_blank">홍익대(서울)</a></th><td>452</td><td>511</td><td>384</td><td>806</td><td>2,153</td><td class="sum-cell">1,939</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/143X6At6c-MOyv5ajU8x2QnH7GJhOOUxO/view?usp=drive_link" rel="noopener" target="_blank">숙명여대</a></th><td>314</td><td>549</td><td>214</td><td>984</td><td>2,061</td><td class="sum-cell">1,825</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">건동홍숙 소계</th><td>1,718</td><td>3,098</td><td>1,216</td><td>4,253</td><td>10,285</td><td>9,189</td><td class="cumulative-cell">42,781</td></tr><tr><th class="group-cell" rowspan="15">국숭세단·주요 공학대</th><th class="univ-cell"><a href="https://drive.google.com/file/d/1JBR1xgAwhzFCWxs7GHjMongVdf2EkCfi/view?usp=sharing" rel="noopener" target="_blank">국민대</a></th><td>620</td><td>1,041</td><td>237</td><td>1,003</td><td>2,901</td><td class="sum-cell">2,477</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1p6dPVvcRZeSlJppUMC57K3ScmNkIBlIh/view?usp=drive_link" rel="noopener" target="_blank">숭실대</a></th><td>462</td><td>889</td><td>240</td><td>1,313</td><td>2,904</td><td class="sum-cell">2,899</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1axqOGP5Pr-ndcsGVMgnkaiHcP4zgIWvx/view?usp=drive_link" rel="noopener" target="_blank">세종대</a></th><td>411</td><td>861</td><td>344</td><td>1,019</td><td>2,635</td><td class="sum-cell">2,254</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1gcy4xhfhuSLGjZE7r097Q_DMAbWI_CVq/view?usp=sharing" rel="noopener" target="_blank">단국대(죽전)</a></th><td>265</td><td>773</td><td>300</td><td>783</td><td>2,121</td><td class="sum-cell">1,912</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1PuzYlVLc1gDGvLO3UcA_glLynKZm73u6/view?usp=drive_link" rel="noopener" target="_blank">서울과기대</a></th><td>393</td><td>888</td><td>150</td><td>776</td><td>2,207</td><td class="sum-cell">2,021</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1O_9Twicm08GDOOUV8F0El9ULKqGdIfc3/view?usp=sharing" rel="noopener" target="_blank">광운대</a></th><td>191</td><td>601</td><td>181</td><td>764</td><td>1,737</td><td class="sum-cell">1,647</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1PynCQxIy_0qJCo4R6F_wIGEvA8Xb2eI1/view?usp=sharing" rel="noopener" target="_blank">한양대 ERICA</a></th><td>380</td><td>810</td><td>203</td><td>864</td><td>2,257</td><td class="sum-cell">1,972</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1WwiBgBR-HZ2o4JyRujf03hvIQDQvwBrd/view?usp=drive_link" rel="noopener" target="_blank">아주대</a></th><td>279</td><td>956</td><td>224</td><td>748</td><td>2,207</td><td class="sum-cell">2,207</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1y04rTi_5IAGKh9BhS5CU0x8P9eyGaCP2/view?usp=drive_link" rel="noopener" target="_blank">인하대</a></th><td>485</td><td>1,475</td><td>449</td><td>1,219</td><td>3,628</td><td class="sum-cell">3,335</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1lWHHm3Tp4mGXBNV_vw8ooDBqblCSA-c9/view?usp=drive_link" rel="noopener" target="_blank">한국항공대</a></th><td>217</td><td>186</td><td>198</td><td>265</td><td>866</td><td class="sum-cell">821</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1AdJ585m6oHytiSFKpMoYmNZH4nQvOAxY/view?usp=drive_link" rel="noopener" target="_blank">한국기술교육대</a></th><td>277</td><td>349</td><td>150</td><td>149</td><td>925</td><td class="sum-cell">835</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1pVKIZLAx7MhWo0cHOtDwZTBD8xQ_uHVb/view?usp=drive_link" rel="noopener" target="_blank">한국공학대</a></th><td>384</td><td>514</td><td>200</td><td>504</td><td>1,602</td><td class="sum-cell">1,409</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1FpHY1T4qxqjr4fH9u60OEhfmnNlW_vN6/view?usp=drive_link" rel="noopener" target="_blank">명지대(서울+자연)</a></th><td>787</td><td>849</td><td>-</td><td>874</td><td>2,510</td><td class="sum-cell">2,294</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1xgs8EWmn-Y-Je3v-qLSc7p7gxXK9csVH/view?usp=sharing" rel="noopener" target="_blank">가천대</a></th><td>936</td><td>880</td><td>1,054</td><td>1,283</td><td>4,153</td><td class="sum-cell">3,605</td><td class="cumulative-cell"></td></tr><tr><th class="univ-cell"><a href="https://drive.google.com/file/d/1jtOdH5OuC4wL5vlLZr6dl_5Pz34L34XR/view?usp=drive_link" rel="noopener" target="_blank">인천대</a></th><td>690</td><td>971</td><td>-</td><td>875</td><td>2,536</td><td class="sum-cell">2,269</td><td class="cumulative-cell"></td></tr><tr class="subtotal-row"><th colspan="2">국숭세단·주요 공학대 소계</th><td>6,777</td><td>12,043</td><td>3,930</td><td>12,439</td><td>35,189</td><td>31,957</td><td class="cumulative-cell">74,738</td></tr><tr class="grand-total-row"><th colspan="2">35개 대학 합계</th><td>12,543</td><td>30,871</td><td>8,132</td><td>30,671</td><td>82,217</td><td>74,738</td><td class="cumulative-cell">74,738</td></tr></tbody></table></div><div class="guide-desc table-footnote">※ 2028학년도 대학별 시행계획의 정원 내 모집인원(예체능 제외) 기준입니다. 대학명을 누르면 원문이 열립니다.</div>
 </section>
 <section class="panel section analysis-section" id="g2Competition">
 <div class="section-title"><h2>현 고2 기준 주요 대학 진학 경쟁 규모</h2><div class="data-year-label">현 고2 425,400명 · N수생 35% 가정</div></div>
-<div class="guide-desc">재학생 전용 전형에는 N수생 비율을 적용하지 않고, 나머지 모집인원에서 N수생 몫과 상위권 학교군 추정 인원을 차감했습니다.</div>
+
 <div class="analysis-table-wrap arts-table-wrap"><table class="analysis-table competition-table arts-competition-table general-seats-table">
 <thead><tr><th>누적 대학군</th><th>모집인원</th><th>N수 인원 제외</th><th>상위권 학교군 차감</th><th>상위권 비율</th><th>일반고 잔여 비율</th><th>일반고 잔여 인원</th><th>일반고 학생 대비</th></tr></thead>
 <tbody>
@@ -2931,8 +3076,20 @@ main.page > .panel.section .section-title h2::before {
 <tr><th>건동홍숙까지</th><td>42,781명</td><td>29,591명</td><td>약 14,050명</td><td>47.5%</td><td><b>52.5%</b></td><td><b>약 15,541명</b></td><td>약 4.7%</td></tr>
 <tr><th>35개 대학 전체</th><td>74,738명</td><td>50,363명</td><td>약 14,050명</td><td>27.9%</td><td><b>72.1%</b></td><td><b>약 36,313명</b></td><td>약 10.9%</td></tr>
 </tbody></table></div>
-<p class="analysis-note"><b>계산 기준:</b> <a href="https://edu.chosun.com/m/edu_article.html?contid=2026061580069" target="_blank" rel="noopener">재학생 전용 5,096명</a>은 유지하고, 나머지에 N수생 35%를 적용한 뒤 상위권 학교군 약 14,050명을 차감했습니다. 비율은 N수 제외 인원 기준, 마지막 열은 <a href="https://www.nocutnews.co.kr/news/6542794" target="_blank" rel="noopener">일반고 신입생 332,171명</a> 대비입니다.</p>
-<p class="analysis-note"><b>교과전형 가정:</b> 재학생 전용 교과 3,702명 중 <b>일반고 90%, 약 3,332명</b>으로 추정했습니다(<a href="https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=3165&amp;s_code=BBS_SUBJECT&amp;s_data=&amp;s_page=1&amp;s_type=" target="_blank" rel="noopener">연세대 실제 95.3%</a> 참고). 일반고 잔여 인원에 포함했습니다.</p>
+<p class="analysis-note table-footnote">※ 계산 가정: <a href="https://edu.chosun.com/m/edu_article.html?contid=2026061580069" rel="noopener" target="_blank">재학생 전용 5,096명</a>은 N수생 비율을 적용하지 않고, 나머지에는 N수생 35%를 적용한 뒤 상위권 학교군 약 14,050명(앞 표에서 최상위 일반고 제외)을 차감했습니다. 상위권 비율은 N수생 제외 인원 기준, 마지막 열은 <a href="https://www.nocutnews.co.kr/news/6542794" rel="noopener" target="_blank">일반고 신입생 332,171명</a> 대비입니다.</p>
+<p class="analysis-note table-footnote">※ 교과전형: 재학생 전용 교과 3,702명 중 일반고 90%(약 3,332명)를 가정해 일반고 잔여 인원에 포함했습니다.</p>
+</section>
+<section aria-label="2025학년도 및 2026학년도 과기특성화대학 등록 실적" class="panel section analysis-section" id="stem2026">
+<div class="section-title">
+<h2>2025·2026학년도 과기특성화대학 등록 실적</h2>
+<div class="data-year-label">2025·2026학년도 · 학교별 등록자</div>
+</div>
+
+<div class="stem-table-wrap">
+<table aria-label="학교별 KAIST, POSTECH, GIST, DGIST, UNIST 2025년과 2026년 등록 인원을 대학별 좌우 열로 비교" class="stem-table stem-compare-table stem-horizontal-years">
+<colgroup><col class="stem-school-col"/><col class="stem-year-col"/><col class="stem-year-col"/><col class="stem-year-col"/><col class="stem-year-col"/><col class="stem-year-col"/><col class="stem-year-col"/><col class="stem-year-col"/><col class="stem-year-col"/><col class="stem-year-col"/><col class="stem-year-col"/></colgroup>
+<thead><tr><th class="stem-sticky-school" rowspan="2" scope="col">학교</th><th class="stem-university" colspan="2" scope="colgroup">KAIST</th><th class="stem-university" colspan="2" scope="colgroup">POSTECH</th><th class="stem-university" colspan="2" scope="colgroup">GIST</th><th class="stem-university" colspan="2" scope="colgroup">DGIST</th><th class="stem-university" colspan="2" scope="colgroup">UNIST</th></tr><tr><th class="stem-label-2025" scope="col">2025</th><th class="stem-label-2026" scope="col">2026</th><th class="stem-label-2025" scope="col">2025</th><th class="stem-label-2026" scope="col">2026</th><th class="stem-label-2025" scope="col">2025</th><th class="stem-label-2026" scope="col">2026</th><th class="stem-label-2025" scope="col">2025</th><th class="stem-label-2026" scope="col">2026</th><th class="stem-label-2025" scope="col">2025</th><th class="stem-label-2026" scope="col">2026</th></tr></thead><tbody><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="한국과학영재학교">한국과학영재학교</th><td class="stem-value-2025">62</td><td class="stem-value-2026">71</td><td class="stem-value-2025">4</td><td class="stem-value-2026">3</td><td class="stem-value-2025">1</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025">1</td><td class="stem-value-2026">1</td><td class="stem-value-2025">3</td><td class="stem-value-2026">7</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="경기북과학고 · 2025년 5개 대학 전체 등록자 62명 (대학별 확인분만 표시)">경기북과학고</th><td class="stem-value-2025">49</td><td class="stem-value-2026">48</td><td class="stem-value-2025">6</td><td class="stem-value-2026">7</td><td class="stem-value-2025">4</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025">1</td><td class="stem-value-2026">2</td><td class="stem-value-2025">2</td><td class="stem-value-2026">6</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="한성과학고 · 2025년 5개 대학 전체 등록자 66명 (대학별 확인분만 표시)">한성과학고</th><td class="stem-value-2025">39</td><td class="stem-value-2026">47</td><td class="stem-value-2025">16</td><td class="stem-value-2026">14</td><td class="stem-value-2025">4</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025">0</td><td class="stem-value-2026">3</td><td class="stem-value-2025">7</td><td class="stem-value-2026">4</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="부산과학고 · 2025년 5개 대학 전체 등록자 55명 (대학별 확인분만 표시)">부산과학고</th><td class="stem-value-2025">32</td><td class="stem-value-2026">35</td><td class="stem-value-2025">13</td><td class="stem-value-2026">6</td><td class="stem-value-2025">1</td><td class="stem-value-2026">3</td><td class="stem-value-2025">2</td><td class="stem-value-2026">8</td><td class="stem-value-2025">7</td><td class="stem-value-2026">2</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="대전동신과학고 · 2025년 5개 대학 전체 등록자 42명 (대학별 확인분만 표시)">대전동신과학고</th><td class="stem-value-2025">29</td><td class="stem-value-2026">31</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">7</td><td class="stem-value-2025">3</td><td class="stem-value-2026">2</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">4</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="세종과학고 · 2025년 5개 대학 전체 등록자 65명 (대학별 확인분만 표시)">세종과학고</th><td class="stem-value-2025">35</td><td class="stem-value-2026">29</td><td class="stem-value-2025">23</td><td class="stem-value-2026">20</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">5</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td><td class="stem-value-2025">2</td><td class="stem-value-2026">3</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="전남과학고 · 2025년 5개 대학 전체 등록자 45명 (대학별 확인분만 표시)">전남과학고</th><td class="stem-value-2025">21</td><td class="stem-value-2026">29</td><td class="stem-value-2025">7</td><td class="stem-value-2026">4</td><td class="stem-value-2025">11</td><td class="stem-value-2026">8</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">3</td><td class="stem-value-2025">6</td><td class="stem-value-2026">2</td></tr><tr class="stem-one-school incheon"><th class="stem-school-name stem-sticky-school" scope="row" title="인천과학고 · 2025년 5개 대학 전체 등록자 37명 (대학별 확인분만 표시)">인천과학고</th><td class="stem-value-2025">27</td><td class="stem-value-2026">26</td><td class="stem-value-2025">4</td><td class="stem-value-2026">5</td><td class="stem-value-2025">6</td><td class="stem-value-2026">2</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">5</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="경남과학고 · 2025년 5개 대학 전체 등록자 41명 (대학별 확인분만 표시)">경남과학고</th><td class="stem-value-2025">20</td><td class="stem-value-2026">23</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">7</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td><td class="stem-value-2025">1</td><td class="stem-value-2026">2</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">11</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="부산일과학고 · 2025년 5개 대학 전체 등록자 37명 (대학별 확인분만 표시)">부산일과학고</th><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">18</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">6</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">4</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="대구일과학고 · 2025년 5개 대학 전체 등록자 35명 (대학별 확인분만 표시)">대구일과학고</th><td class="stem-value-2025">15</td><td class="stem-value-2026">18</td><td class="stem-value-2025">7</td><td class="stem-value-2026">8</td><td class="stem-value-2025">4</td><td class="stem-value-2026">3</td><td class="stem-value-2025">2</td><td class="stem-value-2026">5</td><td class="stem-value-2025">7</td><td class="stem-value-2026">4</td></tr><tr class="stem-one-school incheon"><th class="stem-school-name stem-sticky-school" scope="row" title="인천진산과학고 · 2025년 5개 대학 전체 등록자 31명 (대학별 확인분만 표시)">인천진산과학고</th><td class="stem-value-2025">21</td><td class="stem-value-2026">18</td><td class="stem-value-2025">1</td><td class="stem-value-2026">3</td><td class="stem-value-2025">5</td><td class="stem-value-2026">3</td><td class="stem-value-2025">1</td><td class="stem-value-2026">5</td><td class="stem-value-2025">3</td><td class="stem-value-2026">6</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="충북과학고 · 2025년 5개 대학 전체 등록자 29명 (대학별 확인분만 표시)">충북과학고</th><td class="stem-value-2025">13</td><td class="stem-value-2026">18</td><td class="stem-value-2025">4</td><td class="stem-value-2026">6</td><td class="stem-value-2025">11</td><td class="stem-value-2026">4</td><td class="stem-value-2025">0</td><td class="stem-value-2026">1</td><td class="stem-value-2025">1</td><td class="stem-value-2026">2</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="강원과학고 · 2025년 5개 대학 전체 등록자 28명 (대학별 확인분만 표시)">강원과학고</th><td class="stem-value-2025">15</td><td class="stem-value-2026">17</td><td class="stem-value-2025">3</td><td class="stem-value-2026">4</td><td class="stem-value-2025">3</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">3</td><td class="stem-value-2025">7</td><td class="stem-value-2026">4</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="경기과학고">경기과학고</th><td class="stem-value-2025">15</td><td class="stem-value-2026">17</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025">2</td><td class="stem-value-2026">1</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="경산과학고 · 2025년 5개 대학 전체 등록자 23명 (대학별 확인분만 표시)">경산과학고</th><td class="stem-value-2025">11</td><td class="stem-value-2026">17</td><td class="stem-value-2025">3</td><td class="stem-value-2026">5</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">3</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">3</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">4</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="충남과학고 · 2025년 5개 대학 전체 등록자 25명 (대학별 확인분만 표시)">충남과학고</th><td class="stem-value-2025">6</td><td class="stem-value-2026">15</td><td class="stem-value-2025">4</td><td class="stem-value-2026">6</td><td class="stem-value-2025">10</td><td class="stem-value-2026">5</td><td class="stem-value-2025">2</td><td class="stem-value-2026">3</td><td class="stem-value-2025">3</td><td class="stem-value-2026">1</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="경북과학고 · 2025년 5개 대학 전체 등록자 25명 (대학별 확인분만 표시)">경북과학고</th><td class="stem-value-2025">16</td><td class="stem-value-2026">15</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">3</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="대구과학고">대구과학고</th><td class="stem-value-2025">9</td><td class="stem-value-2026">14</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">3</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">3</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="제주과학고 · 2025년 5개 대학 전체 등록자 24명 (대학별 확인분만 표시)">제주과학고</th><td class="stem-value-2025">15</td><td class="stem-value-2026">14</td><td class="stem-value-2025">1</td><td class="stem-value-2026">3</td><td class="stem-value-2025">2</td><td class="stem-value-2026">4</td><td class="stem-value-2025">1</td><td class="stem-value-2026">1</td><td class="stem-value-2025">5</td><td class="stem-value-2026">6</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="광주과학고">광주과학고</th><td class="stem-value-2025">14</td><td class="stem-value-2026">13</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">6</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">7</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="울산과학고 · 2025년 5개 대학 전체 등록자 25명 (대학별 확인분만 표시)">울산과학고</th><td class="stem-value-2025">6</td><td class="stem-value-2026">12</td><td class="stem-value-2025">7</td><td class="stem-value-2026">10</td><td class="stem-value-2025">3</td><td class="stem-value-2026">3</td><td class="stem-value-2025">2</td><td class="stem-value-2026">5</td><td class="stem-value-2025">7</td><td class="stem-value-2026">6</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="전북과학고 · 2025년 5개 대학 전체 등록자 35명 (대학별 확인분만 표시)">전북과학고</th><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">11</td><td class="stem-value-2025">9</td><td class="stem-value-2026">6</td><td class="stem-value-2025">9</td><td class="stem-value-2026">10</td><td class="stem-value-2025">2</td><td class="stem-value-2026">4</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">4</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="대전과학고">대전과학고</th><td class="stem-value-2025">14</td><td class="stem-value-2026">10</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">4</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td></tr><tr class="stem-one-school incheon"><th class="stem-school-name stem-sticky-school" scope="row" title="인천과학예술영재학교">인천과학예술영재학교</th><td class="stem-value-2025">18</td><td class="stem-value-2026">10</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="서울과학고">서울과학고</th><td class="stem-value-2025">2</td><td class="stem-value-2026">8</td><td class="stem-value-2025">1</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="창원과학고 · 2025년 5개 대학 전체 등록자 29명 (대학별 확인분만 표시)">창원과학고</th><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">8</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">9</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">4</td><td class="stem-value-2025">1</td><td class="stem-value-2026">4</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">4</td></tr><tr class="stem-one-school"><th class="stem-school-name stem-sticky-school" scope="row" title="세종과학예술영재학교">세종과학예술영재학교</th><td class="stem-value-2025">6</td><td class="stem-value-2026">5</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">6</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">2</td></tr><tr class="stem-one-school incheon"><th class="stem-school-name stem-sticky-school" scope="row" title="인천포스코고">인천포스코고</th><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">4</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">5</td><td class="stem-value-2025">1</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">3</td></tr><tr class="stem-one-school incheon"><th class="stem-school-name stem-sticky-school" scope="row" title="인천하늘고">인천하늘고</th><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">1</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">4</td><td class="stem-value-2025 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2026">4</td><td class="stem-value-2025">1</td><td class="stem-value-2026 unknown" title="자료 미확인 또는 미공개">—</td><td class="stem-value-2025">7</td><td class="stem-value-2026">10</td></tr></tbody></table>
+</div><p class="stem-unit-guide table-footnote">※ — : 자료 미확인 또는 미공개</p>
 </section>
 <footer class="unified-footer">학생부종합 고교유형별 입학자 수 [ 송도이샘로봇 ]</footer>
 </main>
@@ -3142,6 +3299,123 @@ renderTable();
   window.addEventListener('load',balance);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(balance);
   balance();
+})();
+</script>
+<script id="table-sticky-headings-script">
+/* 화면을 세로로 스크롤하는 동안 현재 표의 THEAD를 고정해 보여줍니다.
+   가로 스크롤 표도 상단 고정 헤더와 원본 표의 scrollLeft를 동기화합니다.
+   overflow:hidden / overflow-x:auto 컨테이너 때문에 CSS sticky가 막히는 문제를 해결합니다. */
+(function () {
+  'use strict';
+  const tables = Array.from(document.querySelectorAll('main.page table'))
+    .filter(table => table.tHead && table.tHead.rows.length);
+  const relevantStyle = [
+    'box-sizing','display','table-layout','border-collapse','border-spacing',
+    'background','background-color','color','font-family','font-size','font-style',
+    'font-weight','line-height','letter-spacing','text-align','vertical-align',
+    'white-space','overflow-wrap','word-break','padding-top','padding-bottom',
+    'padding-right','padding-left','border-top','border-bottom','border-left',
+    'border-right','min-height','text-shadow','text-transform'
+  ];
+  const states = tables.map(table => {
+    const wrapper = table.parentElement;
+    const overlay = document.createElement('div');
+    overlay.className = 'fixed-table-header-overlay';
+    overlay.setAttribute('aria-hidden','true');
+    overlay.hidden = true;
+    overlay.style.display = 'none';
+    document.body.appendChild(overlay);
+    return { table, wrapper, overlay, shown: false, lastWidth: 0 };
+  });
+  function copyStyles(source, target) {
+    const css = getComputedStyle(source);
+    relevantStyle.forEach(prop => target.style.setProperty(prop, css.getPropertyValue(prop)));
+  }
+  function buildHeader(state) {
+    const source = state.table;
+    const sourceHead = source.tHead;
+    const tableRect = source.getBoundingClientRect();
+    const clone = document.createElement('table');
+    copyStyles(source, clone);
+    // 원본 표의 실제 열 너비를 픽셀로 복사해 모든 제목이 데이터 열과 일치하도록 합니다.
+    const group = document.createElement('colgroup');
+    const sourceCols = Array.from(source.querySelectorAll(':scope > colgroup > col'));
+    let widths = sourceCols.map(col => col.getBoundingClientRect().width);
+    if (!widths.length) {
+      const first = sourceHead.rows[0];
+      widths = [];
+      Array.from(first.cells).forEach(cell => {
+        const count = Math.max(1, cell.colSpan || 1);
+        const part = cell.getBoundingClientRect().width / count;
+        for (let i=0; i<count; ++i) widths.push(part);
+      });
+    }
+    widths.forEach(w => {
+      const col = document.createElement('col');
+      col.style.width = Math.max(0,w) + 'px';
+      group.appendChild(col);
+    });
+    clone.appendChild(group);
+    const head = sourceHead.cloneNode(true);
+    copyStyles(sourceHead, head);
+    Array.from(sourceHead.rows).forEach((srcRow, i) => {
+      const cloneRow = head.rows[i];
+      copyStyles(srcRow, cloneRow);
+      cloneRow.style.height = srcRow.getBoundingClientRect().height + 'px';
+      Array.from(srcRow.cells).forEach((srcCell,j) => {
+        const cell = cloneRow.cells[j];
+        copyStyles(srcCell,cell);
+        cell.style.width = srcCell.getBoundingClientRect().width + 'px';
+        // 원래 학교 제목의 좌측 고정 열을 복제본에서도 유지합니다.
+        if (srcCell.classList.contains('stem-sticky-school')) {
+          cell.style.position='sticky'; cell.style.left='0px'; cell.style.zIndex='2';
+        }
+      });
+    });
+    clone.appendChild(head);
+    clone.style.width = tableRect.width+'px';
+    clone.style.minWidth = tableRect.width+'px';
+    clone.style.maxWidth = tableRect.width+'px';
+    clone.style.tableLayout = 'fixed';
+    state.overlay.replaceChildren(clone);
+    state.lastWidth = tableRect.width;
+  }
+  function refresh() {
+    states.forEach(state => {
+      const {table,wrapper,overlay} = state;
+      const head = table.tHead;
+      if (!head) return;
+      const w = wrapper.getBoundingClientRect();
+      const h = head.getBoundingClientRect();
+      const usable = w.width > 80 && h.height > 0 && w.bottom > h.height && h.top < 0;
+      if (!usable) {
+        overlay.style.display='none';
+        state.shown=false;
+        return;
+      }
+      // 표시 상태로 새로 진입할 때는 실제 셀 너비를 다시 측정합니다.
+      const sourceWidth=table.getBoundingClientRect().width;
+      if (!state.shown || Math.abs(state.lastWidth-sourceWidth)>1) buildHeader(state);
+      overlay.style.display='block';
+      overlay.style.left=w.left+'px';
+      overlay.style.width=w.width+'px';
+      overlay.style.height=h.height+'px';
+      overlay.scrollLeft=wrapper.scrollLeft;
+      state.shown=true;
+    });
+  }
+  let pending = false;
+  function requestRefresh() {
+    if (pending) return;
+    pending=true;
+    requestAnimationFrame(() => { pending=false; refresh(); });
+  }
+  window.addEventListener('scroll',requestRefresh,{passive:true});
+  window.addEventListener('resize',() => { states.forEach(s=>s.shown=false);requestRefresh(); },{passive:true});
+  window.addEventListener('orientationchange',requestRefresh,{passive:true});
+  states.forEach(s=>s.wrapper.addEventListener('scroll',requestRefresh,{passive:true}));
+  if (document.fonts) document.fonts.ready.then(() => {states.forEach(s=>s.shown=false);requestRefresh();});
+  requestRefresh();
 })();
 </script>
 </body>
