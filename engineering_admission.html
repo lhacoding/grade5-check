@@ -884,6 +884,127 @@ header.site-hero p {
 
 .section-title .mark {margin:0 !important;}
 </style>
+
+<style id="sw-admission-minimal-style">
+/* 학교·학과 필드 두 칸을 좁혀 기존 4개 조회 필드 오른쪽에 버튼을 배치 */
+@media (min-width:1120px) {
+  .filter-card:has(#swToggleBtn) .controls {
+    grid-template-columns: 1.28fr 1.28fr .87fr .87fr .75fr;
+  }
+}
+/* 중간 폭에서는 전형·지역(첫 줄), 학교·학과·SW(둘째 줄)의 2+3 배치 */
+@media (min-width:720px) and (max-width:1119px) {
+  .filter-card:has(#swToggleBtn) .controls {
+    grid-template-columns:repeat(6, minmax(0,1fr));
+  }
+  .filter-card:has(#swToggleBtn) .controls > .field:nth-child(-n+2) {
+    grid-column:span 3;
+  }
+  .filter-card:has(#swToggleBtn) .controls > .field:nth-child(n+3) {
+    grid-column:span 2;
+  }
+}
+/* 휴대폰에서는 버튼과 선택 상자가 눌리지 않도록 2열로 재배치 */
+@media (min-width:420px) and (max-width:719px) {
+  .filter-card:has(#swToggleBtn) .controls {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .filter-card:has(#swToggleBtn) .controls > .sw-only-field {grid-column:1 / -1;}
+}
+@media (max-width:419px) {
+  .filter-card:has(#swToggleBtn) .controls {grid-template-columns:1fr;}
+}
+.filter-card:has(#swToggleBtn) { padding-inline: clamp(20px,2.4vw,30px); }
+.sw-only-field {min-width:0;}
+.sw-only-field .sw-action {
+  display:block; width:100%; height:var(--ctl-h); min-width:0;
+  padding:0 8px; border:1px solid #172744;
+  border-radius:var(--radius-sm); background:#172744; color:#fff;
+  font-family:inherit; font-size:var(--fs-label); font-weight:850;
+  white-space:nowrap; cursor:pointer; letter-spacing:-.03em;
+  box-shadow:0 5px 13px rgba(23,39,68,.12);
+}
+.sw-only-field .sw-action:hover,
+.sw-only-field .sw-action[aria-pressed="true"] {
+  background:#263c66; border-color:#263c66;
+}
+#swResultSection[hidden], #swRegularResult[hidden], #swRegularRecommend[hidden] {display:none !important;}
+#swResultSection {padding:var(--pad-card) clamp(20px,2.4vw,30px);}
+#swResultSection .sw-heading-row {display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--gap-md);}
+#swResultSection .sw-stat-row {display:flex;gap:8px;flex-wrap:wrap;}
+#swResultSection .sw-stat {
+  padding:5px 12px; border:1px solid #dce5f5; border-radius:10px;
+  background:#f3f7fd; color:#344765; font-size:var(--fs-small);font-weight:800;
+}
+#swResultSection .sw-stat b{font-variant-numeric:tabular-nums;color:#172744;}
+#swResultSection .sw-table-box {
+  border:1px solid var(--line); border-radius:var(--radius-sm);
+  overflow-x:auto; max-width:100%;
+}
+/* 기존 공학 수시 입결의 대학별 상세표와 동일한 본문 글자 크기 체계 */
+#swResultSection .sw-table {
+  --sw-table-fs:clamp(13px, .35vw + 10.5px, 15px);
+  width:100%; min-width:790px; border-collapse:collapse;
+  table-layout:auto; font-size:var(--sw-table-fs);
+}
+/* 긴 세로 여백을 없애 기존 입결표의 촘촘한 행 간격에 맞춤 */
+#swResultSection .sw-table th, #swResultSection .sw-table td {
+  padding:6px clamp(10px,1.05vw,16px);
+  border-bottom:1px solid var(--line2); text-align:left;
+  vertical-align:middle; line-height:1.25;
+}
+#swResultSection .sw-table th {
+  padding-top:9px; padding-bottom:9px;
+  background:#f5f8fd; color:#41527a;
+  font-weight:850; white-space:nowrap; border-bottom:1px solid var(--line);
+}
+/* 그룹별 병합 표: 지역·학교는 학교 단위, 전형명·전형유형은 전형 단위로 표시한다. */
+#swResultSection .sw-table tbody td {
+  border-bottom:0;
+}
+#swResultSection .sw-table td.sw-region,
+#swResultSection .sw-table td.sw-school,
+#swResultSection .sw-table td.sw-admission,
+#swResultSection .sw-table td.sw-kind {
+  background:#f7f9fd;
+  vertical-align:middle;
+  border-bottom:1px solid #dce4f0;
+}
+#swResultSection .sw-table td.sw-region {white-space:nowrap;color:#536985;}
+#swResultSection .sw-table td.sw-school {font-weight:850;white-space:nowrap;}
+#swResultSection .sw-table td.sw-admission {font-weight:750;word-break:keep-all;}
+#swResultSection .sw-table td.sw-kind {color:#51647f;white-space:nowrap;font-size:calc(var(--sw-table-fs) * .83);}
+#swResultSection .sw-table td.sw-major {word-break:keep-all;}
+#swResultSection .sw-table td.sw-major,
+#swResultSection .sw-table td.sw-count {
+  border-bottom:1px solid #edf1f7;
+}
+#swResultSection .sw-table td.sw-count,
+#swResultSection .sw-table th:last-child {
+  text-align:right;white-space:nowrap;min-width:98px;font-weight:850;
+  font-variant-numeric:tabular-nums;
+}
+/* 학교 경계는 모든 열에 같은 굵기, 전형 경계는 전형명 오른쪽만 구분한다. */
+#swResultSection .sw-table tbody tr.sw-school-start:not(:first-child) td {
+  border-top:2px solid #dce4f0;
+}
+#swResultSection .sw-table tbody tr.sw-admission-start:not(.sw-school-start) td {
+  border-top:1px solid #dce4f0;
+}
+#swResultSection .sw-table tbody tr:hover td.sw-major,
+#swResultSection .sw-table tbody tr:hover td.sw-count {background:#f8faff;}
+/* 전체 합계는 표 본문의 첫째 열 색상보다 우선하여 높은 명도로 표시 */
+#swResultSection .sw-table tfoot td,
+#swResultSection .sw-table tfoot td:first-child {
+  background:#172744;
+  color:#fff;
+  font-weight:900;
+  border:0;
+}
+@media(max-width:600px){
+  #swResultSection {padding-inline:14px;}
+  #swResultSection .sw-table {font-size:var(--sw-table-fs);}
+  .sw-only-field {width:100%;}
+}
+</style>
 </head>
 <body>
 <div class="container">
@@ -928,10 +1049,37 @@ header.site-hero p {
       <span class="label">학과 계열 선택</span>
       <select aria-label="학과 계열 선택" id="majorSelect"></select>
     </div>
+    <div class="field sw-only-field">
+      <span class="label" aria-hidden="true">&nbsp;</span>
+      <button type="button" class="sw-action" id="swToggleBtn" aria-pressed="false" aria-controls="swResultSection">SW특기자전형</button>
+    </div>
   </div>
 </section>
 
-<section aria-label="학교 학과별 입결 결과" class="result-card">
+
+<!-- 2027 SW 특화전형 모집현황: 기존 조회 조건 및 7개 상단 메뉴와 독립 -->
+<section id="swResultSection" class="result-card" aria-label="2027 SW특기자전형 모집현황" hidden>
+  <div class="sw-heading-row">
+    <div class="section-title"><span class="mark" aria-hidden="true">✓</span><div>
+      <h2>2027학년도 SW특기자·우수인재 전형</h2>
+      <p class="section-sub">서울·경기 소재 대학 · 군 관련 계약학과 제외</p>
+    </div></div>
+    <div class="sw-stat-row" id="swStats" aria-label="지역별 모집인원"></div>
+  </div>
+  <div class="sw-table-box">
+    <table class="sw-table" aria-label="2027학년도 SW 특화전형 학과별 모집인원">
+      <colgroup><col style="width:8%"><col style="width:15%"><col style="width:20%"><col style="width:13%"><col style="width:34%"><col style="width:10%"></colgroup>
+      <thead><tr>
+        <th scope="col">지역</th><th scope="col">학교</th><th scope="col">전형명</th>
+        <th scope="col">전형유형</th><th scope="col">학과·학부</th><th scope="col">모집인원</th>
+      </tr></thead>
+      <tbody id="swTableBody"></tbody>
+      <tfoot id="swTableTotal"></tfoot>
+    </table>
+  </div>
+</section>
+
+<section id="swRegularResult" aria-label="학교 학과별 입결 결과" class="result-card">
   <div class="result-card-head">
     <div class="section-title">
       <span class="mark">&#10003;</span>
@@ -963,7 +1111,7 @@ header.site-hero p {
   </div>
 </section>
 
-<section class="recommend-card" aria-label="지원가능 대학 및 학과 추천">
+<section id="swRegularRecommend" class="recommend-card" aria-label="지원가능 대학 및 학과 추천">
   <div class="section-title">
     <span class="mark">&#10003;</span>
     <div>
@@ -1563,6 +1711,12 @@ header.site-hero p {
     const BALANCE_GRIDS = ['.global-menu-grid', '.controls'];
     function balanceGrids(){
       BALANCE_GRIDS.forEach(sel => document.querySelectorAll(sel).forEach(grid => {
+        // SW 버튼이 있는 조회 조건은 CSS의 5열/2+3열/모바일 배치를 따른다.
+        // JS의 균등 열 재분배가 학교 선택을 첫 줄로 올리지 않도록 제외한다.
+        if (grid.matches('.controls') && grid.querySelector('#swToggleBtn')) {
+          grid.style.removeProperty('grid-template-columns');
+          return;
+        }
         const n = grid.children.length;
         if (!n || !grid.clientWidth) return;
         const cs = getComputedStyle(grid);
@@ -1629,5 +1783,116 @@ header.site-hero p {
     window.addEventListener('load', fitAll);
 
 </script>
+
+<!-- 기존 조회 JS/데이터는 수정하지 않고 SW 독립 기능만 추가 -->
+<script id="sw-recruitment-data" type="application/json">[{"region":"서울","school":"광운대","admission":"소프트웨어우수인재","kind":"학생부종합","major":"컴퓨터정보공학부","count":20},{"region":"서울","school":"광운대","admission":"소프트웨어우수인재","kind":"학생부종합","major":"소프트웨어학부","count":18},{"region":"서울","school":"광운대","admission":"소프트웨어우수인재","kind":"학생부종합","major":"정보융합학부","count":18},{"region":"서울","school":"광운대","admission":"소프트웨어우수인재","kind":"학생부종합","major":"로봇학부 AI로봇전공","count":16},{"region":"서울","school":"국민대","admission":"알고리즘우수자","kind":"학생부종합","major":"소프트웨어학부","count":7},{"region":"서울","school":"국민대","admission":"알고리즘우수자","kind":"학생부종합","major":"인공지능학부","count":3},{"region":"서울","school":"삼육대","admission":"S/W인재","kind":"학생부종합","major":"컴퓨터공학부","count":10},{"region":"서울","school":"삼육대","admission":"S/W인재","kind":"학생부종합","major":"인공지능융합학부","count":15},{"region":"서울","school":"삼육대","admission":"S/W인재","kind":"학생부종합","major":"데이터클라우드공학과","count":5},{"region":"서울","school":"서울여대","admission":"SW융합인재","kind":"학생부종합","major":"디지털미디어학과","count":8},{"region":"서울","school":"서울여대","admission":"SW융합인재","kind":"학생부종합","major":"지능정보보호학부","count":8},{"region":"서울","school":"서울여대","admission":"SW융합인재","kind":"학생부종합","major":"AI융합학부 인공지능전공","count":4},{"region":"서울","school":"서울여대","admission":"SW융합인재","kind":"학생부종합","major":"AI융합학부 소프트웨어전공","count":6},{"region":"서울","school":"서울여대","admission":"SW융합인재","kind":"학생부종합","major":"AI융합학부 데이터사이언스전공","count":7},{"region":"서울","school":"숙명여대","admission":"소프트웨어인재","kind":"학생부종합","major":"인공지능공학부","count":14},{"region":"서울","school":"숙명여대","admission":"소프트웨어인재","kind":"학생부종합","major":"컴퓨터과학전공","count":12},{"region":"서울","school":"숙명여대","admission":"소프트웨어인재","kind":"학생부종합","major":"데이터사이언스전공","count":9},{"region":"서울","school":"숭실대","admission":"SW우수자","kind":"학생부종합","major":"컴퓨터학부","count":4},{"region":"서울","school":"숭실대","admission":"SW우수자","kind":"학생부종합","major":"글로벌미디어학부","count":4},{"region":"서울","school":"숭실대","admission":"SW우수자","kind":"학생부종합","major":"AI소프트웨어학부","count":9},{"region":"서울","school":"숭실대","admission":"정보보호특기자","kind":"실기·실적","major":"정보보호학과","count":4},{"region":"경기","school":"단국대 죽전","admission":"SW인재","kind":"학생부종합","major":"퇴계혁신칼리지 SW융합계열광역","count":34},{"region":"경기","school":"한국외대 글로벌","admission":"SW인재","kind":"학생부종합","major":"컴퓨터공학부","count":24},{"region":"경기","school":"한국외대 글로벌","admission":"SW인재","kind":"학생부종합","major":"AI로봇공학과","count":10},{"region":"경기","school":"아주대","admission":"첨단융합인재","kind":"학생부종합","major":"AI컴퓨터공학부","count":30}]</script>
+<script id="sw-recruitment-ui">
+(() => {
+  'use strict';
+  const data = JSON.parse(document.getElementById('sw-recruitment-data').textContent);
+  const btn = document.getElementById('swToggleBtn');
+  const swSection = document.getElementById('swResultSection');
+  const normalResult = document.getElementById('swRegularResult');
+  const normalRecommend = document.getElementById('swRegularRecommend');
+  const body = document.getElementById('swTableBody');
+  const foot = document.getElementById('swTableTotal');
+  const stats = document.getElementById('swStats');
+
+  function appendCell(row, text, tag='td', colSpan=1, className='', rowSpan=1) {
+    const cell = document.createElement(tag);
+    cell.textContent = String(text);
+    if (colSpan !== 1) cell.colSpan = colSpan;
+    if (rowSpan > 1) cell.rowSpan = rowSpan;
+    if (className) cell.className = className;
+    row.appendChild(cell);
+  }
+  function runLength(start, sameGroup) {
+    // 정렬된 데이터에서 연속되는 동일 학교/전형을 한 번만 표시할 행 수를 계산한다.
+    let end = start + 1;
+    while (end < data.length && sameGroup(data[start], data[end])) end++;
+    return end - start;
+  }
+  function buildTable() {
+    // 같은 학교는 지역·학교 셀을 병합하고, 같은 전형은 전형명·유형도 병합한다.
+    // 학과·모집인원은 각각 행으로 남기고 학교별 소계는 만들지 않는다.
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < data.length; i++) {
+      const rec = data[i];
+      const tr = document.createElement('tr');
+      const schoolFirst = i === 0 || data[i-1].region !== rec.region || data[i-1].school !== rec.school;
+      const admissionFirst = schoolFirst || data[i-1].admission !== rec.admission || data[i-1].kind !== rec.kind;
+      if (schoolFirst) {
+        tr.classList.add('sw-school-start');
+        const schoolRows = runLength(i, (a, b) => a.region === b.region && a.school === b.school);
+        appendCell(tr, rec.region, 'td', 1, 'sw-region', schoolRows);
+        appendCell(tr, rec.school, 'td', 1, 'sw-school', schoolRows);
+      }
+      if (admissionFirst) {
+        tr.classList.add('sw-admission-start');
+        const admissionRows = runLength(i, (a, b) => a.region === b.region && a.school === b.school && a.admission === b.admission && a.kind === b.kind);
+        appendCell(tr, rec.admission, 'td', 1, 'sw-admission', admissionRows);
+        appendCell(tr, rec.kind, 'td', 1, 'sw-kind', admissionRows);
+      }
+      appendCell(tr, rec.major, 'td', 1, 'sw-major');
+      appendCell(tr, rec.count.toLocaleString('ko-KR')+'명', 'td', 1, 'sw-count');
+      fragment.appendChild(tr);
+    }
+    body.replaceChildren(fragment);
+    const total = data.reduce((sum,rec)=>sum+rec.count,0);
+    const footerRow = document.createElement('tr');
+    appendCell(footerRow,'전체 합계','td',5);
+    appendCell(footerRow,total.toLocaleString('ko-KR')+'명');
+    foot.replaceChildren(footerRow);
+    const city = data.filter(rec=>rec.region==='서울').reduce((s,rec)=>s+rec.count,0);
+    const province = data.filter(rec=>rec.region==='경기').reduce((s,rec)=>s+rec.count,0);
+    stats.replaceChildren();
+    for (const [label,n] of [['서울',city],['경기',province],['합계',total]]) {
+      const stat = document.createElement('span');
+      stat.className='sw-stat';
+      stat.textContent=label+' ';
+      const bold = document.createElement('b');
+      bold.textContent=n.toLocaleString('ko-KR')+'명';
+      stat.appendChild(bold);
+      stats.appendChild(stat);
+    }
+  }
+  buildTable();
+
+  // SW 전용 표와 원래 입결 조회 화면은 서로 배타적으로 표시한다.
+  // 기존 입결 조회의 필터 값과 이벤트 처리 로직은 그대로 유지한다.
+  function setSWView(active) {
+    btn.setAttribute('aria-pressed', String(active));
+    swSection.hidden = !active;
+    normalResult.hidden = active;
+    normalRecommend.hidden = active;
+  }
+
+  // SW 버튼: SW 모집현황 열기 / 다시 누르면 원래 입결 조회로 복귀
+  btn.addEventListener('click', () => {
+    setSWView(btn.getAttribute('aria-pressed') !== 'true');
+  });
+
+  // 기존 왼쪽 메뉴를 클릭하면, 선택된 전형·지역에 맞는 입결 조회가 보여야 한다.
+  // 원본 JS의 전형·지역·학교·학과 필터 갱신 이벤트와 독립적으로 동작한다.
+  for (const id of ['typeTabs', 'regionTabs']) {
+    document.getElementById(id).addEventListener('click', event => {
+      if (event.target.closest('.tab')) setSWView(false);
+    });
+  }
+  for (const id of ['schoolSelect', 'majorSelect']) {
+    document.getElementById(id).addEventListener('change', () => setSWView(false));
+  }
+
+  // 상단 '공학 수시 입결' 메뉴를 다시 선택해도 현재 페이지에서 입결 조회로 복귀한다.
+  const currentMenu = document.querySelector('.global-menu-grid a[aria-current="page"]');
+  if (currentMenu) {
+    currentMenu.addEventListener('click', event => {
+      event.preventDefault();
+      setSWView(false);
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
