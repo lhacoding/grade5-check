@@ -4615,6 +4615,71 @@ body.curriculum-modal-open{overflow:hidden!important}
   box-shadow:0 5px 14px rgba(23,39,68,.16) !important;
 }
 </style>
+
+<style id="school-cards-responsive-overflow-fix">
+/* 학교 선택: 충분한 가로 공간이 있으면 3개 카드가 한 행에 남도록 한다.
+   학교명 버튼만 카드 내부에서 줄바꿈하여 전체 세로 길이를 최소화한다. */
+.school-section .school-groups {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(98px, .45fr) !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  align-items: stretch !important;
+}
+.school-section .school-group,
+.curriculum-links-section .school-group {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+.school-section .direct-input-group {
+  grid-column: auto !important;
+}
+.school-section .school-group .tab-row,
+.curriculum-links-section .school-group .tab-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-content: flex-start !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+.curriculum-links-section .school-groups {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+/* 화면이 아주 좁을 때만 학교 선택을 2열로 전환. */
+@media (max-width: 480px) {
+  .school-section .school-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  .school-section .direct-input-group {
+    grid-column: 1 / 2 !important;
+  }
+}
+/* 휴대폰의 최소 폭에서는 1열 사용. */
+@media (max-width: 380px) {
+  .school-section .school-groups {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .school-section .direct-input-group {
+    grid-column: auto !important;
+  }
+}
+/* 편제표도 좌우가 충분하면 남고·여고 2열 유지. */
+.curriculum-links-section .school-groups {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+/* 매우 좁은 휴대폰 화면에만 편제표를 1열로 표시. */
+@media (max-width: 420px) {
+  .curriculum-links-section .school-groups {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+</style>
 </head>
 <body>
 <header class="site-hero" aria-label="페이지 제목">
