@@ -390,6 +390,216 @@ main .topline h2::before {
 @media(max-width:1020px){.cutoff-table th,.cutoff-table td{font-size:13.5px}}
 @media(max-width:670px){.compare-stack{gap:12px}.cutoff-heading{font-size:15px}.cutoff-scroll{overflow-x:auto}.cutoff-table{min-width:580px}}
 </style>
+<style id="middle-school-2026-style">
+/* 중학교 비교표는 고등학교 자료와 완전히 분리하여 기존 표시를 유지합니다. */
+.middle-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.middle-head h2{margin:0}
+.middle-school-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin:6px 0 14px}
+.middle-school-button{min-height:41px;min-width:0;border:1px solid #d9e2f0;border-radius:10px;background:#f3f6fc;color:#293e5d;font-size:14px;font-weight:850;padding:7px 2px}
+.middle-school-button:hover{background:#e5edfb}
+.middle-school-button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.middle-controls{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:11px}
+.middle-selected{font-size:17px;font-weight:900;color:#213759}
+.middle-grade-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.middle-grade-button{min-height:36px;min-width:82px;border:1px solid #d5dfef;border-radius:10px;background:#f3f6fc;color:#344766;font-size:13.5px;font-weight:850;padding:6px 12px}
+.middle-grade-button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.middle-table-wrap{width:100%;overflow-x:auto;overscroll-behavior-x:contain;border:1px solid #d8e2f0;border-radius:14px;background:#fff;-webkit-overflow-scrolling:touch}
+.middle-table{width:100%;min-width:1170px;table-layout:fixed;border-spacing:0;border-collapse:separate;font-variant-numeric:tabular-nums}
+.middle-table .middle-subject-column{width:138px}
+.middle-table th,.middle-table td{padding:10px 3px;text-align:center;border-bottom:1px solid #e4ebf5;border-right:1px solid #e4ebf5;white-space:nowrap}
+.middle-table tr>*:last-child{border-right:0}
+.middle-table tbody tr:last-child>*{border-bottom:0}
+.middle-table thead .middle-term-heading{background:#e4edfb;color:#243b5c;font-size:15px;font-weight:900;height:39px}
+.middle-table thead .middle-term-heading:nth-child(3){background:#e9effa}
+.middle-table thead .middle-term-heading:nth-child(4){background:#e4edfb}
+.middle-table thead tr:nth-child(2) th{background:#f5f8fe;color:#405577;font-size:12.5px;font-weight:850;height:35px}
+.middle-table .middle-subject-head{position:sticky;left:0;z-index:3;text-align:left;padding-left:15px;background:#e5eefd!important;color:#243b5c;font-size:14px!important;font-weight:900;box-shadow:2px 0 4px #2b45610e}
+.middle-table tbody th{position:sticky;left:0;z-index:2;background:white;text-align:left;padding-left:14px;color:#243b5c;font-size:13.5px;font-weight:850;box-shadow:2px 0 4px #2b45610e;white-space:normal;overflow-wrap:break-word}
+.middle-table tbody td{font-size:13px;color:#30435f;font-weight:650}
+.middle-table tbody td.middle-average{font-weight:900;color:#164275}
+.middle-table tbody tr:nth-child(even) td,.middle-table tbody tr:nth-child(even) th{background:#f8faff}
+.middle-table tbody tr:hover td,.middle-table tbody tr:hover th{background:#eaf2ff}
+.middle-table .middle-group-first{border-left:2px solid #bacbe3!important}
+.middle-table .middle-empty{color:#a3adbd;font-weight:500}
+@media(max-width:1100px){.middle-school-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:600px){.middle-school-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.middle-school-button{font-size:13.5px}.middle-selected{font-size:16px}.middle-grade-button{min-width:74px;padding:5px 9px}}
+</style>
+<style id="unified-school-selector-20261114">
+/* 학교 선택은 고등학교 / 중학교 두 줄로 고정합니다. */
+.school-picker{padding:13px 14px;margin:11px 0}
+.school-group+.school-group{margin-top:10px;padding-top:10px;border-top:1px solid #e3eaf4}
+.school-grid{grid-template-columns:repeat(7,minmax(0,1fr)) minmax(160px,1.55fr);gap:6px}
+.middle-school-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr)) minmax(160px,1.55fr);gap:6px;margin:0}
+.school-tab,.middle-school-button{min-width:0;min-height:38px;padding:6px 5px;border:1px solid #d9e2f0;border-radius:9px;background:#f3f6fc;color:#2c3d59;font-family:inherit;font-size:13.5px;font-weight:850;line-height:1.2;white-space:normal}
+.school-tab:hover,.middle-school-button:hover{background:#e5edfb}
+.school-tab[aria-selected=true],.middle-school-button[aria-selected=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.school-tab.compare-tab,.middle-school-button.compare-tab{font-size:12.5px}
+.middle-controls{margin-bottom:14px}
+.middle-selected{display:none}
+.middle-grade-tabs{align-items:center}
+.middle-term-tabs{display:flex;gap:7px;justify-content:flex-end;margin:-2px 0 12px;flex-wrap:wrap}
+.middle-term-button{min-height:37px;padding:7px 14px;border:1px solid #d5dfef;border-radius:10px;background:#f3f6fc;color:#344766;font-size:13px;font-weight:850}
+.middle-term-button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:white}
+.middle-matrix-table{min-width:1190px}
+.middle-matrix-table col.subject-col{width:138px}
+.middle-matrix-table col.value-col{width:calc((100% - 138px)/16)}
+.middle-matrix-table .group-row th{background:#e5eefe;font-size:12.5px;height:39px}
+.middle-matrix-table .group-row .subject-head{font-size:14px}
+.middle-matrix-table .metric-row th{background:#f9fbfe;font-size:12px}
+.middle-matrix-table tbody th{white-space:normal;overflow-wrap:break-word}
+@media(max-width:1080px){
+ .school-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .middle-school-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .school-tab.compare-tab,.middle-school-button.compare-tab{font-size:13px}
+}
+@media(max-width:660px){
+ .school-picker{padding:10px}
+ .school-grid,.middle-school-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .school-tab,.middle-school-button{min-height:38px;font-size:13.5px}
+ .middle-term-tabs{justify-content:stretch}
+ .middle-term-button{flex:1;min-width:100px;padding:7px 4px;font-size:12px}
+ .middle-controls{align-items:center}
+}
+</style>
+
+<style id="middle-grades-continuous-20261114">
+/* 중학교 상세표·비교표: 학년/과목을 표 좌측에 고정하고 세 학년을 세로로 연결 */
+.middle-table {min-width:1240px}
+.middle-table .middle-grade-column {width:76px}
+.middle-table .middle-subject-column {width:134px}
+.middle-table thead th.middle-grade-head,
+.middle-matrix-table thead th.middle-grade-head {
+ position:sticky;left:0;z-index:5;text-align:center;padding:8px 2px;
+ background:#e2ebfa!important;color:#1c365b;font-size:13.5px;font-weight:900;
+}
+.middle-table thead th.middle-subject-head {left:76px;z-index:4}
+.middle-table tbody th.middle-grade-cell,
+.middle-matrix-table tbody th.middle-grade-cell {
+ position:sticky;left:0;z-index:3;background:#edf3ff!important;color:#203b61;
+ padding:10px 3px;text-align:center;font-weight:900;font-size:14px;
+ border-right:1px solid #c4d2e7;vertical-align:middle;white-space:nowrap;
+}
+.middle-table tbody th.middle-subject-cell {left:76px;z-index:2}
+.middle-matrix-table {min-width:1260px}
+.middle-matrix-table col.grade-col {width:76px}
+.middle-matrix-table col.subject-col {width:134px}
+.middle-matrix-table col.value-col {width:calc((100% - 210px)/16)}
+.middle-matrix-table thead th.middle-subject-head {left:76px;z-index:4}
+.middle-matrix-table tbody th.middle-subject-cell {left:76px;z-index:2}
+.middle-table tbody tr.middle-grade-start > *,
+.middle-matrix-table tbody tr.middle-grade-start > * {border-top:2px solid #d0dbea}
+.middle-table tbody td.middle-no-data,
+.middle-matrix-table tbody td.middle-no-data {
+ padding:16px 8px;background:#fafcff;color:#8b99ac;text-align:center;font-size:13px;
+}
+/* rowspan 셀은 학교 자료의 학년별 과목 개수에 맞춰 높이가 자동 결정됩니다. */
+</style>
+
+<style id="school-table-sticky-heading-20261114">
+/* 문서 전체를 세로로 스크롤할 때, 표 열 제목을 뷰포트 상단에 유지합니다.
+   가로 스크롤 영역을 가진 표는 별도 고정 사본으로 스크롤 위치를 맞춥니다. */
+.school-sticky-head-viewport {
+ position:fixed;top:0;overflow-x:auto;overflow-y:hidden;
+ z-index:120;pointer-events:none;background:#fff;
+ box-shadow:0 5px 13px rgba(18,35,66,.14);
+ scrollbar-width:none;-ms-overflow-style:none;
+}
+.school-sticky-head-viewport::-webkit-scrollbar{display:none}
+.school-sticky-head-viewport table{margin:0}
+.school-sticky-head-viewport thead th{box-shadow:inset 0 -1px #c8d7e9}
+</style>
+<style id="school-heading-semester-alignment-20261114">
+/* 고등학교 학기 표시와 중학교 학기 버튼의 텍스트를 박스 정중앙에 배치 */
+.year-tabs .year-tab,
+.middle-term-tabs .middle-term-button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  vertical-align:middle;
+  line-height:1.25;
+  box-sizing:border-box;
+}
+/* 고등학교 비교표의 고정 학기 표시도 충분한 높이와 수직 중앙 정렬 유지 */
+#subjectComparison .year-tabs .year-tab {min-height:42px; padding:8px 13px;}
+/* 중학교 비교표: 제목과 학기 선택을 한 줄에, 제목은 왼쪽·학기는 오른쪽 */
+#middleSchoolSection .topline.middle-controls {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:nowrap;
+  gap:12px;
+  margin-bottom:14px;
+}
+#middleSchoolSection .middle-term-tabs {
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  flex-wrap:nowrap;
+  flex:0 0 auto;
+  gap:7px;
+  margin:0;
+}
+/* 비교표와 중학교 상세표의 과목 열은 머리글·자료 모두 가운데 정렬 */
+.matrix-table .group-row .subject-head,
+.matrix-table tbody th:not(.middle-grade-cell),
+.middle-table thead th.middle-subject-head,
+.middle-table tbody th.middle-subject-cell {
+  text-align:center!important;
+  padding-left:6px!important;
+  padding-right:6px!important;
+}
+@media(max-width:780px) {
+  #middleSchoolSection .topline.middle-controls {flex-wrap:wrap;}
+  #middleSchoolSection .middle-term-tabs {width:100%;flex:1 1 100%;justify-content:stretch;}
+  #middleSchoolSection .middle-term-button {flex:1;min-width:0;padding:8px 4px;}
+}
+</style>
+
+<style id="school-table-group-separators-20261114">
+/* 학교·학기 경계는 일반 격자와 같은 1px을 사용합니다.
+   왼쪽/오른쪽 테두리를 동시에 그리지 않아 열 경계가 두꺼워지거나 어긋나지 않습니다. */
+:root { --school-group-divider: #c2cee1; }
+
+/* 고등학교 비교표: 과목 열 및 각 학교의 A비율 열 오른쪽 경계 */
+.matrix-table:not(.middle-matrix-table) .group-row .subject-head,
+.matrix-table:not(.middle-matrix-table) .group-row .boys-head,
+.matrix-table:not(.middle-matrix-table) .school-row th:not(:last-child),
+.matrix-table:not(.middle-matrix-table) .metric-row th:nth-child(even):not(:last-child),
+.matrix-table:not(.middle-matrix-table) tbody th,
+.matrix-table:not(.middle-matrix-table) tbody td:nth-last-child(2n+3) {
+  border-right: 1px solid var(--school-group-divider) !important;
+}
+/* 남고·여고 경계의 중복 왼쪽 선 제거 */
+.matrix-table:not(.middle-matrix-table) .girls-divider {
+  border-left: 0 !important;
+}
+
+/* 중학교 학교별 비교표: 과목 열 및 각 학교 A비율 열 오른쪽 경계 */
+.middle-matrix-table thead th.middle-subject-head,
+.middle-matrix-table tbody th.middle-subject-cell,
+.middle-matrix-table .group-row th:nth-child(n+3):not(:last-child),
+.middle-matrix-table .metric-row th:nth-child(even):not(:last-child),
+.middle-matrix-table tbody td:nth-last-child(2n+3) {
+  border-right: 1px solid var(--school-group-divider) !important;
+}
+
+/* 중학교 개별학교: 과목 열 및 2025년 1·2학기의 E열 오른쪽 경계.
+   모든 경계는 항상 앞 그룹의 '오른쪽'에서만 그려집니다. */
+.middle-table thead th.middle-subject-head,
+.middle-table tbody th.middle-subject-cell,
+.middle-table thead th.middle-term-heading:not(:last-child),
+.middle-table thead tr:nth-child(2) th:nth-child(6),
+.middle-table thead tr:nth-child(2) th:nth-child(12),
+.middle-table tbody td:nth-last-child(13),
+.middle-table tbody td:nth-last-child(7) {
+  border-right: 1px solid var(--school-group-divider) !important;
+}
+/* 원본의 다음 학기 '왼쪽 2px' 설정 제거: 이중선과 가로 좌표 차이 방지 */
+.middle-table .middle-group-first {
+  border-left: 0 !important;
+}
+</style>
 </head>
 <body>
 <div class="container">
@@ -405,17 +615,32 @@ main .topline h2::before {
 </nav>
 <main>
 <section class="card school-picker" aria-label="학교 선택">
- 
- <div class="school-grid" id="schoolTabs" role="tablist" aria-label="학교 선택"></div>
+ <div class="school-group">
+  <div class="school-grid" id="schoolTabs" role="tablist" aria-label="고등학교 선택"></div>
+ </div>
+ <div class="school-group middle-picker-group">
+  <div class="middle-school-grid" id="middleSchoolTabs" role="tablist" aria-label="중학교 선택"></div>
+ </div>
 </section>
 <section class="card" id="schoolDetail" aria-label="학교별 성취도">
  <div class="topline"><h2 id="selectedSchool">대건고</h2><div class="year-tabs" id="yearTabs" aria-label="학년도 선택"><button class="year-tab" data-year="2026" aria-pressed="true" type="button">2026학년도</button><button class="year-tab" data-year="2025" aria-pressed="false" type="button">2025학년도</button></div></div>
  <div class="compare-grid" id="compareGrid"></div>
 </section>
-<section class="card" id="subjectComparison" aria-label="주요과목 학교별 비교" hidden>
- <div class="topline"><h2>주요과목 학교별 비교</h2><div class="year-tabs"><span class="year-tab" style="cursor:default;background:#e9f0fd">2026학년도 1학기</span></div></div>
+<section class="card" id="subjectComparison" aria-label="고등학교별 A비율" hidden>
+ <div class="topline"><h2>고등학교별 A비율</h2><div class="year-tabs"><span class="year-tab" style="cursor:default;background:#e9f0fd">2026학년도 1학기</span></div></div>
  <div id="genderComparison"></div>
 </section>
+<section class="card" id="middleSchoolSection" aria-label="중학교 학업성취사항" hidden>
+ <div class="topline middle-controls">
+  <h2 id="middleSelectedSchool">능허대중</h2>
+  <div class="middle-term-tabs" id="middleTermTabs" role="group" aria-label="비교 학기 선택" hidden>
+   <button type="button" class="middle-term-button" data-middle-term="2025-1" aria-pressed="false">2025년 1학기</button>
+   <button type="button" class="middle-term-button" data-middle-term="2025-2" aria-pressed="false">2025년 2학기</button>
+   <button type="button" class="middle-term-button" data-middle-term="2026-1" aria-pressed="true">2026년 1학기</button>
+  </div>
+ </div>
+ <div id="middleComparisonContent"></div>
+ </section>
 </main>
 <footer class="unified-footer">학교별 학업성취사항 [ 송도이샘로봇 ]</footer>
 </div>
@@ -425,10 +650,13 @@ main .topline h2::before {
 const DATA=JSON.parse(document.getElementById('academicData').textContent);
 const schoolList=['대건고', '송도고', '신송고', '연송고', '해송고', '박문여고', '인천여고'];
 const COMPARE_KEY='__comparison__';
+const middleSchoolList=['능허대중','해송중','예송중','신정중','신송중','박문중','은송중','현송중'];
+const MIDDLE_COMPARE_KEY='__middle_comparison__';
 const subjects=['공통국어1','공통수학1','공통영어1','통합사회1','통합과학1','대수','기하','물리학','화학','생명과학','지구과학'];
 const maleSchools=['대건고','송도고','신송고','연송고'];
 const femaleSchools=['해송고','박문여고','인천여고'];
-const state={school:schoolList[0],year:'2026'};
+const state={school:schoolList[0],year:'2026',type:'high'};
+window.schoolPageState=state;
 const $=id=>document.getElementById(id);
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=v=>v===null||v===undefined||v===''?'–':String(v);
@@ -511,10 +739,20 @@ function renderSubjectCompare(){
    '</colgroup><thead>'+genderHeader+schoolHeader+metricHeader+'</thead><tbody>'+rows+'</tbody></table></div>';
 }
 function render(){
+ const high=state.type==='high';
  const comparison=state.school===COMPARE_KEY;
- $('schoolTabs').innerHTML=[...schoolList,COMPARE_KEY].map((name,i)=>`<button type="button" class="school-tab${name===COMPARE_KEY?' compare-tab':''}" role="tab" id="tab-${i}" data-school="${esc(name)}" aria-selected="${name===state.school}" tabindex="${name===state.school?'0':'-1'}">${name===COMPARE_KEY?'주요과목 학교별 비교':esc(name)}</button>`).join('');
- $('schoolDetail').hidden=comparison;
- $('subjectComparison').hidden=!comparison;
+ $('schoolTabs').innerHTML=[...schoolList,COMPARE_KEY].map((name,i)=>{
+   const active=high && name===state.school;
+   return `<button type="button" class="school-tab${name===COMPARE_KEY?' compare-tab':''}" role="tab" id="tab-high-${i}" data-school="${esc(name)}" aria-selected="${active}" tabindex="${active?'0':'-1'}">${name===COMPARE_KEY?'고등학교별 A비율':esc(name)}</button>`;
+ }).join('');
+ $('middleSchoolTabs').innerHTML=[...middleSchoolList,MIDDLE_COMPARE_KEY].map((name,i)=>{
+   const active=!high && name===state.school;
+   return `<button type="button" class="middle-school-button${name===MIDDLE_COMPARE_KEY?' compare-tab':''}" role="tab" id="tab-middle-${i}" data-middle-school="${esc(name)}" aria-selected="${active}" tabindex="${active?'0':'-1'}">${name===MIDDLE_COMPARE_KEY?'중학교별 A비율':esc(name)}</button>`;
+ }).join('');
+ $('schoolDetail').hidden=!high || comparison;
+ $('subjectComparison').hidden=!high || !comparison;
+ $('middleSchoolSection').hidden=high;
+ if(!high){if(window.middleSchoolRenderer)window.middleSchoolRenderer();return;}
  if(comparison){renderSubjectCompare();return;}
  $('selectedSchool').textContent=state.school;
  document.querySelectorAll('[data-year]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.year===state.year)));
@@ -548,18 +786,236 @@ function alignHaesongBottom(){
 window.addEventListener('resize',()=>requestAnimationFrame(alignHaesongBottom));
 if(document.fonts)document.fonts.ready.then(()=>requestAnimationFrame(alignHaesongBottom));
 $('schoolTabs').addEventListener('click',e=>{
- const b=e.target.closest('[data-school]');if(!b)return;state.school=b.dataset.school;render();
+ const b=e.target.closest('[data-school]');if(!b)return;
+ state.type='high';state.school=b.dataset.school;render();
 });
-$('schoolTabs').addEventListener('keydown',e=>{
- if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
- e.preventDefault();const names=[...schoolList,COMPARE_KEY];const i=names.indexOf(state.school);
- const j=e.key==='Home'?0:e.key==='End'?names.length-1:(i+(e.key==='ArrowRight'?1:-1)+names.length)%names.length;
- state.school=names[j];render();$('schoolTabs').querySelector('[aria-selected="true"]').focus();
+$('middleSchoolTabs').addEventListener('click',e=>{
+ const b=e.target.closest('[data-middle-school]');if(!b)return;
+ state.type='middle';state.school=b.dataset.middleSchool;render();
 });
+function handleSchoolArrows(event,container,names,type,attribute){
+ if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+ event.preventDefault();
+ const selected=state.type===type?state.school:container.querySelector('[aria-selected="true"]')?.getAttribute(attribute);
+ const i=Math.max(0,names.indexOf(selected));
+ const j=event.key==='Home'?0:event.key==='End'?names.length-1:(i+(event.key==='ArrowRight'?1:-1)+names.length)%names.length;
+ state.type=type;state.school=names[j];render();
+ container.querySelector('[aria-selected="true"]')?.focus();
+}
+$('schoolTabs').addEventListener('keydown',event=>handleSchoolArrows(event,$('schoolTabs'),[...schoolList,COMPARE_KEY],'high','data-school'));
+$('middleSchoolTabs').addEventListener('keydown',event=>handleSchoolArrows(event,$('middleSchoolTabs'),[...middleSchoolList,MIDDLE_COMPARE_KEY],'middle','data-middle-school'));
 $('yearTabs').addEventListener('click',e=>{
  const b=e.target.closest('[data-year]');if(!b)return;state.year=b.dataset.year;render();
 });
 render();
+</script>
+<script id="middleAcademicData" type="application/json">{"현송중":{"2025-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"78.9","dist":["34.5","24.9","15.9","11.0","13.7"]},{"subject":"도덕","avg":"82.7","dist":["44.7","21.0","15.2","11.7","7.3"]},{"subject":"역사","avg":"71.4","dist":["25.4","17.8","12.5","15.9","28.4"]},{"subject":"수학","avg":"79.5","dist":["48.2","15.9","9.8","4.9","21.3"]},{"subject":"과학","avg":"73.9","dist":["34.0","17.4","12.0","8.6","28.1"]},{"subject":"기술·가정","avg":"76.5","dist":["26.4","23.0","18.1","16.1","16.4"]},{"subject":"영어","avg":"80.8","dist":["46.2","18.3","14.7","5.6","15.2"]},{"subject":"생활 중국어","avg":"80.3","dist":["39.9","18.6","18.8","9.8","13.0"]}],"3학년":[{"subject":"국어","avg":"79.4","dist":["38.8","21.0","12.0","11.0","17.2"]},{"subject":"사회","avg":"79.6","dist":["38.5","16.8","15.1","13.7","15.8"]},{"subject":"도덕","avg":"79.6","dist":["38.8","16.2","19.9","11.7","13.4"]},{"subject":"역사","avg":"76.5","dist":["34.4","19.6","13.7","11.7","20.6"]},{"subject":"수학","avg":"75.8","dist":["38.1","17.9","12.4","9.6","22.0"]},{"subject":"과학","avg":"77.4","dist":["40.9","14.8","10.3","12.0","22.0"]},{"subject":"기술·가정","avg":"78.3","dist":["31.6","20.3","20.6","15.1","12.4"]},{"subject":"영어","avg":"81.3","dist":["51.9","15.5","9.3","7.6","15.8"]}]},"2025-2":{"1학년":[{"subject":"국어","avg":"82.2","dist":["39.0","27.1","16.8","9.1","8.1"]},{"subject":"사회","avg":"80.5","dist":["33.3","25.9","19.0","12.9","8.9"]},{"subject":"도덕","avg":"77.8","dist":["30.1","25.9","14.9","12.7","16.4"]},{"subject":"수학","avg":"78.8","dist":["41.2","20.6","10.5","8.5","19.2"]},{"subject":"과학","avg":"83.8","dist":["53.3","18.2","10.1","6.5","11.9"]},{"subject":"기술·가정","avg":"82.4","dist":["40.8","24.0","17.0","10.3","7.9"]},{"subject":"영어","avg":"82.8","dist":["51.5","19.0","9.1","6.7","13.7"]},{"subject":"생활 중국어","avg":"83.0","dist":["44.8","18.8","17.4","10.3","8.7"]}],"2학년":[{"subject":"국어","avg":"77.4","dist":["34.2","24.0","12.5","12.0","17.4"]},{"subject":"도덕","avg":"81.5","dist":["41.8","24.2","14.4","8.3","11.2"]},{"subject":"역사","avg":"74.1","dist":["34.2","16.4","13.7","9.5","26.2"]},{"subject":"수학","avg":"74.9","dist":["31.3","21.0","15.4","10.3","22.0"]},{"subject":"과학","avg":"75.4","dist":["39.4","14.9","13.2","7.6","24.9"]},{"subject":"기술·가정","avg":"77.2","dist":["35.9","14.9","13.9","15.2","20.0"]},{"subject":"영어","avg":"79.1","dist":["42.8","17.1","16.6","8.1","15.4"]},{"subject":"생활 중국어","avg":"75.4","dist":["35.9","13.7","11.7","15.2","23.5"]}],"3학년":[{"subject":"국어","avg":"77.0","dist":["38.7","15.1","16.1","11.3","18.8"]},{"subject":"사회","avg":"85.0","dist":["51.4","20.9","14.0","4.8","8.9"]},{"subject":"도덕","avg":"81.6","dist":["45.5","21.6","12.7","8.6","11.6"]},{"subject":"역사","avg":"78.2","dist":["44.9","12.7","10.3","15.1","17.1"]},{"subject":"수학","avg":"73.4","dist":["32.2","19.2","13.0","9.6","26.0"]},{"subject":"과학","avg":"76.7","dist":["43.8","11.6","12.3","7.9","24.3"]},{"subject":"기술·가정","avg":"81.5","dist":["44.2","20.5","15.1","9.2","11.0"]},{"subject":"영어","avg":"83.1","dist":["58.2","13.4","9.2","4.5","14.7"]}]},"2026-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"81.7","dist":["45.1","23.2","12.5","7.7","11.5"]},{"subject":"역사","avg":"77.3","dist":["47.0","13.0","9.9","8.5","21.7"]},{"subject":"도덕","avg":"76.3","dist":["20.4","26.3","24.1","16.2","13.0"]},{"subject":"수학","avg":"74.8","dist":["30.8","24.7","12.1","9.7","22.7"]},{"subject":"과학","avg":"78.7","dist":["40.7","19.8","13.0","8.7","17.8"]},{"subject":"기술·가정","avg":"84.5","dist":["48.9","21.4","14.5","10.1","5.1"]},{"subject":"영어","avg":"75.6","dist":["30.0","24.1","15.4","12.8","17.8"]},{"subject":"생활 중국어","avg":"80.9","dist":["41.3","18.2","15.2","12.8","12.6"]}],"3학년":[{"subject":"국어","avg":"81.1","dist":["46.6","20.0","9.1","11.1","13.3"]},{"subject":"사회","avg":"86.0","dist":["59.1","13.1","11.3","5.4","11.1"]},{"subject":"역사","avg":"72.7","dist":["36.5","15.5","9.1","11.3","27.6"]},{"subject":"수학","avg":"72.5","dist":["35.7","16.0","9.9","9.6","28.8"]},{"subject":"과학","avg":"79.7","dist":["50.5","10.6","11.8","6.2","20.9"]},{"subject":"기술·가정","avg":"84.7","dist":["49.3","21.4","15.3","8.1","5.9"]},{"subject":"정보","avg":"80.9","dist":["33.5","25.6","18.7","13.1","9.1"]},{"subject":"영어","avg":"82.4","dist":["55.4","15.3","8.6","6.2","14.5"]}]}},"은송중":{"2025-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"73.0","dist":["22.7","24.0","18.0","12.0","23.3"]},{"subject":"도덕","avg":"75.3","dist":["32.0","16.7","20.7","10.7","20.0"]},{"subject":"역사","avg":"70.2","dist":["31.3","16.7","9.3","9.3","33.3"]},{"subject":"수학","avg":"70.7","dist":["36.7","12.0","11.3","6.7","33.3"]},{"subject":"과학","avg":"60.5","dist":["16.7","14.0","13.3","10.0","46.0"]},{"subject":"기술·가정","avg":"74.8","dist":["29.3","20.0","19.3","14.0","17.3"]},{"subject":"영어","avg":"80.8","dist":["53.3","12.7","7.3","8.0","18.7"]},{"subject":"한문","avg":"60.0","dist":["18.7","6.7","8.7","12.0","54.0"]}],"3학년":[{"subject":"국어","avg":"73.5","dist":["28.4","22.4","14.9","7.5","26.9"]},{"subject":"사회","avg":"64.7","dist":["23.9","14.9","7.5","9.0","44.8"]},{"subject":"도덕","avg":"79.1","dist":["49.3","7.5","19.4","4.5","19.4"]},{"subject":"역사","avg":"56.4","dist":["20.9","10.4","6.0","6.0","56.7"]},{"subject":"수학","avg":"57.8","dist":["22.4","7.5","10.4","4.5","55.2"]},{"subject":"과학","avg":"58.1","dist":["14.9","11.9","11.9","10.4","50.7"]},{"subject":"영어","avg":"73.5","dist":["37.3","17.9","10.4","7.5","26.9"]},{"subject":"한문","avg":"54.7","dist":["9.0","10.4","7.5","14.9","58.2"]}]},"2025-2":{"1학년":[{"subject":"국어","avg":"81.8","dist":["37.4","27.4","16.5","10.9","7.8"]},{"subject":"사회","avg":"73.1","dist":["29.3","19.6","11.8","10.9","28.3"]},{"subject":"도덕","avg":"80.5","dist":["35.5","22.7","21.2","11.2","9.3"]},{"subject":"수학","avg":"70.2","dist":["29.3","15.6","12.8","7.5","34.9"]},{"subject":"과학","avg":"65.6","dist":["20.2","13.7","11.5","13.1","41.4"]},{"subject":"기술·가정","avg":"70.4","dist":["19.6","15.0","17.1","19.6","28.7"]},{"subject":"영어","avg":"78.1","dist":["38.3","21.2","14.3","6.2","19.9"]}],"2학년":[{"subject":"국어","avg":"73.2","dist":["29.1","18.9","14.9","12.2","25.0"]},{"subject":"도덕","avg":"73.5","dist":["29.7","16.2","18.9","16.9","18.2"]},{"subject":"역사","avg":"71.9","dist":["29.7","15.5","16.2","10.1","28.4"]},{"subject":"수학","avg":"69.2","dist":["28.4","19.6","8.8","10.1","33.1"]},{"subject":"과학","avg":"63.2","dist":["29.7","9.5","6.8","7.4","46.6"]},{"subject":"기술·가정","avg":"73.2","dist":["29.7","17.6","14.2","18.2","20.3"]},{"subject":"영어","avg":"72.1","dist":["43.2","9.5","8.8","8.8","29.7"]},{"subject":"한문","avg":"58.6","dist":["16.9","4.7","10.1","12.2","56.1"]}],"3학년":[{"subject":"국어","avg":"66.7","dist":["27.5","18.8","7.2","5.8","40.6"]},{"subject":"사회","avg":"64.5","dist":["27.5","11.6","8.7","8.7","43.5"]},{"subject":"도덕","avg":"75.5","dist":["34.8","23.2","10.1","13.0","18.8"]},{"subject":"역사","avg":"68.1","dist":["27.5","15.9","15.9","1.4","39.1"]},{"subject":"수학","avg":"54.1","dist":["23.2","4.3","0.0","13.0","59.4"]},{"subject":"과학","avg":"52.6","dist":["14.5","11.6","4.3","4.3","65.2"]},{"subject":"영어","avg":"65.8","dist":["33.3","7.2","8.7","7.2","43.5"]},{"subject":"한문","avg":"53.6","dist":["10.1","7.2","11.6","11.6","59.4"]}]},"2026-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"79.7","dist":["37.8","21.1","17.6","11.5","12.1"]},{"subject":"역사","avg":"75.0","dist":["31.9","14.2","14.9","14.6","24.5"]},{"subject":"도덕","avg":"75.5","dist":["34.4","17.0","16.1","9.6","22.9"]},{"subject":"수학","avg":"70.8","dist":["36.2","14.2","9.0","7.4","33.1"]},{"subject":"과학","avg":"68.6","dist":["26.0","15.5","9.3","10.8","38.4"]},{"subject":"기술·가정","avg":"71.2","dist":["21.1","16.7","19.2","14.9","28.2"]},{"subject":"영어","avg":"75.7","dist":["38.1","17.3","12.7","8.4","23.5"]},{"subject":"한문","avg":"74.5","dist":["35.3","11.5","12.4","14.6","26.3"]}],"3학년":[{"subject":"국어","avg":"65.2","dist":["26.0","9.1","9.7","14.3","40.9"]},{"subject":"사회","avg":"68.1","dist":["28.6","13.0","9.7","11.0","37.7"]},{"subject":"역사","avg":"64.5","dist":["21.4","13.0","10.4","14.3","40.9"]},{"subject":"수학","avg":"64.9","dist":["32.5","11.7","8.4","5.8","41.6"]},{"subject":"과학","avg":"74.0","dist":["40.9","14.3","7.8","11.0","26.0"]},{"subject":"기술·가정","avg":"72.5","dist":["24.0","18.8","20.8","13.0","23.4"]},{"subject":"정보","avg":"75.9","dist":["32.5","20.8","11.7","12.3","22.7"]},{"subject":"영어","avg":"73.1","dist":["42.9","13.0","7.1","5.2","31.8"]}]}},"신정중":{"2025-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"83.3","dist":["49.0","21.0","10.3","7.9","11.9"]},{"subject":"도덕","avg":"78.9","dist":["31.2","24.2","16.1","16.8","11.7"]},{"subject":"역사","avg":"79.5","dist":["47.6","14.9","8.9","9.1","19.6"]},{"subject":"수학","avg":"72.3","dist":["27.5","20.3","17.9","8.4","25.9"]},{"subject":"과학","avg":"79.9","dist":["48.5","17.2","9.3","7.2","17.7"]},{"subject":"기술·가정","avg":"73.6","dist":["30.5","15.9","12.8","11.9","28.9"]},{"subject":"영어","avg":"86.8","dist":["59.4","20.5","7.2","6.3","6.5"]},{"subject":"한문","avg":"75.5","dist":["43.1","12.4","9.3","8.9","26.3"]}],"3학년":[{"subject":"국어","avg":"85.4","dist":["58.8","15.7","10.5","4.0","11.0"]},{"subject":"사회","avg":"78.7","dist":["42.4","18.8","10.5","10.0","18.3"]},{"subject":"도덕","avg":"84.8","dist":["46.9","22.6","17.6","6.2","6.7"]},{"subject":"역사","avg":"79.2","dist":["50.7","12.1","6.7","8.8","21.7"]},{"subject":"수학","avg":"78.8","dist":["45.2","20.0","9.3","7.4","18.1"]},{"subject":"과학","avg":"76.2","dist":["40.2","16.7","11.9","8.3","22.9"]},{"subject":"기술·가정","avg":"78.5","dist":["35.2","19.5","18.6","11.7","15.0"]},{"subject":"영어","avg":"82.1","dist":["51.0","18.3","12.9","4.8","13.1"]}]},"2025-2":{"1학년":[{"subject":"국어","avg":"78.5","dist":["34.3","23.1","15.2","11.7","15.7"]},{"subject":"사회","avg":"83.1","dist":["55.8","13.8","8.4","7.7","14.3"]},{"subject":"수학","avg":"76.8","dist":["29.2","31.3","11.2","9.6","18.7"]},{"subject":"과학","avg":"86.1","dist":["60.0","16.6","9.3","5.8","8.2"]},{"subject":"문제 해결과 프로그래밍","avg":"63.8","dist":["13.6","19.6","14.5","12.9","39.5"]},{"subject":"영어","avg":"83.8","dist":["54.9","18.2","10.5","4.7","11.7"]},{"subject":"한문","avg":"83.5","dist":["60.3","9.6","6.3","5.1","18.7"]}],"2학년":[{"subject":"국어","avg":"83.0","dist":["48.8","22.1","11.2","7.9","10.0"]},{"subject":"도덕","avg":"86.5","dist":["52.6","23.8","11.7","6.4","5.5"]},{"subject":"역사","avg":"82.9","dist":["60.0","8.3","8.6","7.1","16.0"]},{"subject":"수학","avg":"73.1","dist":["27.6","22.6","15.7","9.5","24.5"]},{"subject":"과학","avg":"81.7","dist":["54.3","15.5","8.3","4.5","17.4"]},{"subject":"기술·가정","avg":"75.3","dist":["28.6","20.7","20.5","11.0","19.3"]},{"subject":"영어","avg":"82.9","dist":["51.4","19.8","9.8","6.9","12.1"]},{"subject":"한문","avg":"69.0","dist":["35.0","10.0","8.1","9.3","37.6"]}],"3학년":[{"subject":"국어","avg":"75.3","dist":["32.8","20.0","14.0","10.5","22.8"]},{"subject":"사회","avg":"80.0","dist":["46.8","17.6","12.4","6.9","16.4"]},{"subject":"도덕","avg":"90.2","dist":["67.9","20.2","5.2","3.6","3.1"]},{"subject":"역사","avg":"79.7","dist":["52.5","12.8","7.8","5.7","21.1"]},{"subject":"수학","avg":"75.5","dist":["35.4","17.1","15.2","11.2","21.1"]},{"subject":"과학","avg":"77.4","dist":["40.9","17.8","11.4","8.8","21.1"]},{"subject":"기술·가정","avg":"72.4","dist":["24.5","16.9","15.9","17.6","25.2"]},{"subject":"영어","avg":"77.7","dist":["42.3","17.8","12.8","8.6","18.5"]}]},"2026-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"79.4","dist":["38.8","25.2","11.0","11.7","13.3"]},{"subject":"역사","avg":"78.1","dist":["47.0","13.6","7.7","8.9","22.9"]},{"subject":"도덕","avg":"88.0","dist":["59.1","23.6","8.6","5.1","3.5"]},{"subject":"수학","avg":"76.7","dist":["47.2","14.0","7.0","7.2","24.5"]},{"subject":"과학","avg":"74.7","dist":["36.9","21.0","9.1","7.9","25.0"]},{"subject":"기술·가정","avg":"79.8","dist":["35.0","22.7","19.6","10.3","12.4"]},{"subject":"영어","avg":"82.5","dist":["55.1","15.9","9.8","5.8","13.3"]},{"subject":"한문","avg":"75.9","dist":["50.5","7.0","7.7","4.9","29.9"]}],"3학년":[{"subject":"국어","avg":"83.1","dist":["46.4","25.6","10.9","6.2","10.9"]},{"subject":"사회","avg":"86.2","dist":["58.3","17.3","9.0","7.1","8.3"]},{"subject":"도덕","avg":"88.1","dist":["55.0","25.8","12.3","3.6","3.3"]},{"subject":"역사","avg":"76.7","dist":["46.4","14.7","7.8","5.7","25.4"]},{"subject":"수학","avg":"76.5","dist":["39.1","23.7","10.4","5.7","21.1"]},{"subject":"과학","avg":"75.0","dist":["36.3","20.9","11.8","6.6","24.4"]},{"subject":"기술·가정","avg":"77.0","dist":["33.2","18.7","14.7","14.9","18.5"]},{"subject":"영어","avg":"80.0","dist":["41.0","20.9","15.4","8.8","14.0"]}]}},"신송중":{"2025-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"84.6","dist":["50.0","21.7","12.9","8.3","7.1"]},{"subject":"도덕","avg":"79.4","dist":["31.0","27.9","18.8","10.2","12.1"]},{"subject":"역사","avg":"78.0","dist":["39.0","18.3","14.8","8.1","19.8"]},{"subject":"수학","avg":"77.0","dist":["41.0","17.6","11.4","9.0","21.0"]},{"subject":"과학","avg":"76.9","dist":["40.0","18.3","11.2","7.4","23.1"]},{"subject":"기술·가정","avg":"67.3","dist":["13.8","16.2","18.6","18.3","33.1"]},{"subject":"영어","avg":"76.7","dist":["40.0","20.2","11.0","7.4","21.4"]},{"subject":"생활 중국어","avg":"78.6","dist":["39.3","16.7","16.7","10.0","17.4"]}],"3학년":[{"subject":"국어","avg":"84.4","dist":["52.6","17.7","12.2","8.4","9.1"]},{"subject":"사회","avg":"71.6","dist":["23.7","16.7","13.6","17.7","28.2"]},{"subject":"도덕","avg":"79.7","dist":["26.3","36.1","17.9","10.3","9.3"]},{"subject":"역사","avg":"74.8","dist":["40.4","13.2","10.8","8.1","27.5"]},{"subject":"수학","avg":"74.5","dist":["39.0","16.7","10.0","7.2","27.0"]},{"subject":"과학","avg":"75.8","dist":["36.1","18.2","14.1","9.1","22.5"]},{"subject":"기술·가정","avg":"68.5","dist":["13.4","16.7","17.5","22.0","30.4"]},{"subject":"영어","avg":"79.3","dist":["38.3","22.5","12.4","10.3","16.5"]}]},"2025-2":{"1학년":[{"subject":"국어","avg":"86.8","dist":["59.1","18.8","8.5","7.1","6.6"]},{"subject":"사회","avg":"83.5","dist":["44.5","23.1","15.1","9.9","7.5"]},{"subject":"수학","avg":"80.1","dist":["44.2","18.4","12.2","7.8","17.4"]},{"subject":"과학","avg":"81.7","dist":["48.5","17.9","10.1","8.9","14.6"]},{"subject":"기술·가정","avg":"80.1","dist":["33.9","22.8","19.3","14.8","9.2"]},{"subject":"슬기로운 디지털 생활","avg":"78.9","dist":["24.7","26.4","24.5","17.2","7.3"]},{"subject":"영어","avg":"84.1","dist":["54.6","19.1","11.1","6.1","9.2"]},{"subject":"생활 중국어","avg":"74.7","dist":["30.1","19.5","12.7","12.7","24.9"]}],"2학년":[{"subject":"국어","avg":"83.5","dist":["49.3","21.1","13.3","8.1","8.3"]},{"subject":"도덕","avg":"81.2","dist":["41.5","16.8","17.5","14.0","10.2"]},{"subject":"역사","avg":"77.8","dist":["41.5","19.0","10.2","7.3","22.0"]},{"subject":"수학","avg":"77.6","dist":["38.9","23.2","11.6","6.2","20.1"]},{"subject":"과학","avg":"77.0","dist":["46.7","11.6","10.0","8.1","23.7"]},{"subject":"기술·가정","avg":"76.7","dist":["25.1","24.9","23.0","11.4","15.6"]},{"subject":"영어","avg":"76.0","dist":["37.2","22.0","12.3","6.9","21.6"]},{"subject":"생활 중국어","avg":"77.9","dist":["37.4","16.8","14.7","12.6","18.5"]}],"3학년":[{"subject":"국어","avg":"78.4","dist":["40.5","14.0","18.0","9.7","17.8"]},{"subject":"사회","avg":"75.1","dist":["32.5","17.8","14.7","12.6","22.5"]},{"subject":"도덕","avg":"86.2","dist":["55.0","22.7","10.7","5.5","6.2"]},{"subject":"역사","avg":"79.1","dist":["49.1","13.3","9.2","7.3","21.1"]},{"subject":"수학","avg":"76.8","dist":["40.3","19.7","10.4","9.0","20.6"]},{"subject":"과학","avg":"75.5","dist":["38.9","17.3","13.0","6.2","24.6"]},{"subject":"기술·가정","avg":"78.5","dist":["33.2","22.5","18.0","14.5","11.8"]},{"subject":"영어","avg":"77.9","dist":["37.4","22.3","14.9","7.3","18.0"]}]},"2026-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"83.8","dist":["51.3","17.0","13.5","8.0","10.2"]},{"subject":"역사","avg":"79.3","dist":["43.7","18.2","9.2","8.5","20.3"]},{"subject":"도덕","avg":"78.9","dist":["29.6","21.7","21.7","16.8","10.2"]},{"subject":"수학","avg":"76.6","dist":["39.5","18.4","11.6","8.0","22.5"]},{"subject":"과학","avg":"83.4","dist":["55.6","11.6","13.5","8.5","10.9"]},{"subject":"기술·가정","avg":"81.5","dist":["36.9","23.2","18.7","13.5","7.8"]},{"subject":"영어","avg":"81.1","dist":["53.4","13.5","9.0","6.6","17.5"]},{"subject":"생활 중국어","avg":"74.6","dist":["36.9","13.7","9.9","10.2","29.3"]}],"3학년":[{"subject":"국어","avg":"82.5","dist":["46.2","22.5","12.2","7.9","11.2"]},{"subject":"사회","avg":"78.7","dist":["42.8","16.7","12.7","7.4","20.3"]},{"subject":"도덕","avg":"87.6","dist":["60.3","21.8","8.6","5.0","4.3"]},{"subject":"역사","avg":"73.2","dist":["33.7","16.0","11.7","10.3","28.2"]},{"subject":"수학","avg":"72.0","dist":["28.9","21.8","12.4","9.8","27.0"]},{"subject":"과학","avg":"77.0","dist":["45.5","15.1","9.8","4.8","24.9"]},{"subject":"기술·가정","avg":"76.2","dist":["24.9","21.8","23.2","14.6","15.6"]},{"subject":"영어","avg":"85.5","dist":["60.8","17.5","5.7","4.1","12.0"]}]}},"예송중":{"2025-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"81.0","dist":["34.8","30.0","15.9","9.6","9.6"]},{"subject":"도덕","avg":"83.3","dist":["42.2","25.2","15.9","9.9","6.8"]},{"subject":"역사","avg":"75.9","dist":["34.3","15.0","14.4","15.0","21.2"]},{"subject":"수학","avg":"78.1","dist":["34.0","23.2","13.6","10.5","18.7"]},{"subject":"과학","avg":"77.7","dist":["43.6","15.6","10.2","7.1","23.5"]},{"subject":"기술·가정","avg":"81.3","dist":["41.9","19.0","15.3","10.8","13.0"]},{"subject":"영어","avg":"81.5","dist":["50.4","20.1","6.8","6.5","16.1"]},{"subject":"한문","avg":"74.6","dist":["37.1","11.9","12.5","10.5","28.0"]}],"3학년":[{"subject":"국어","avg":"86.0","dist":["56.8","20.9","8.6","7.1","6.5"]},{"subject":"사회","avg":"75.9","dist":["39.3","16.2","8.4","11.8","24.3"]},{"subject":"역사","avg":"69.2","dist":["30.6","12.0","9.2","9.9","38.2"]},{"subject":"수학","avg":"75.4","dist":["36.1","17.5","11.5","11.8","23.0"]},{"subject":"과학","avg":"74.2","dist":["31.2","21.2","12.3","9.9","25.4"]},{"subject":"기술·가정","avg":"78.9","dist":["38.0","18.1","17.5","11.5","14.9"]},{"subject":"영어","avg":"85.0","dist":["58.4","16.0","8.9","5.0","11.8"]}]},"2025-2":{"1학년":[{"subject":"국어","avg":"90.4","dist":["66.9","20.3","7.8","2.5","2.5"]},{"subject":"사회","avg":"87.5","dist":["54.7","23.8","11.6","5.3","4.7"]},{"subject":"도덕","avg":"81.2","dist":["35.9","28.1","17.5","10.0","8.4"]},{"subject":"수학","avg":"80.3","dist":["40.9","20.3","15.3","10.0","13.4"]},{"subject":"과학","avg":"82.3","dist":["48.1","19.1","12.5","8.4","11.9"]},{"subject":"문제 해결과 프로그래밍","avg":"86.7","dist":["48.4","25.0","16.6","6.9","3.1"]},{"subject":"영어","avg":"90.1","dist":["72.5","13.4","5.6","2.8","5.6"]},{"subject":"한문","avg":"87.0","dist":["61.3","13.1","8.1","7.8","9.7"]}],"2학년":[{"subject":"국어","avg":"84.4","dist":["52.1","16.6","12.6","9.2","9.5"]},{"subject":"도덕","avg":"82.6","dist":["46.4","21.5","11.7","10.9","9.5"]},{"subject":"역사","avg":"81.9","dist":["54.2","11.5","8.9","8.9","16.6"]},{"subject":"수학","avg":"78.4","dist":["37.0","23.8","12.9","6.9","19.5"]},{"subject":"과학","avg":"75.6","dist":["43.0","10.6","11.2","6.6","28.7"]},{"subject":"기술·가정","avg":"77.6","dist":["45.3","10.0","9.7","10.6","24.4"]},{"subject":"영어","avg":"79.4","dist":["46.1","22.6","8.6","5.2","17.5"]},{"subject":"한문","avg":"71.6","dist":["38.7","8.9","7.4","8.0","37.0"]}],"3학년":[{"subject":"국어","avg":"84.0","dist":["53.4","18.6","11.3","8.1","8.6"]},{"subject":"사회","avg":"76.7","dist":["42.9","13.9","10.7","8.1","24.3"]},{"subject":"역사","avg":"71.6","dist":["37.4","11.0","9.2","7.6","34.8"]},{"subject":"수학","avg":"71.7","dist":["25.9","22.5","13.1","10.2","28.3"]},{"subject":"과학","avg":"69.4","dist":["25.7","22.0","10.2","7.3","34.8"]},{"subject":"기술·가정","avg":"84.1","dist":["48.4","17.8","18.3","9.2","6.3"]},{"subject":"영어","avg":"83.2","dist":["55.2","16.2","9.2","7.3","12.0"]}]},"2026-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"83.5","dist":["47.8","21.0","14.8","7.7","8.6"]},{"subject":"역사","avg":"73.7","dist":["24.1","19.1","15.7","14.5","26.5"]},{"subject":"도덕","avg":"81.7","dist":["38.6","21.9","17.6","12.0","9.9"]},{"subject":"수학","avg":"81.0","dist":["49.7","17.6","6.8","9.3","16.7"]},{"subject":"과학","avg":"79.7","dist":["42.0","20.7","9.6","11.1","16.7"]},{"subject":"기술·가정","avg":"82.9","dist":["46.6","19.4","15.1","8.0","10.8"]},{"subject":"영어","avg":"83.2","dist":["54.3","18.5","8.3","8.0","10.8"]},{"subject":"한문","avg":"77.0","dist":["41.7","12.7","12.3","10.5","22.8"]}],"3학년":[{"subject":"국어","avg":"90.0","dist":["72.0","11.3","5.5","5.2","6.1"]},{"subject":"사회","avg":"75.8","dist":["43.1","13.6","7.8","9.8","25.7"]},{"subject":"역사","avg":"80.3","dist":["50.6","11.0","10.1","10.1","18.2"]},{"subject":"수학","avg":"74.7","dist":["37.6","19.9","9.8","7.5","25.1"]},{"subject":"과학","avg":"75.4","dist":["41.0","14.7","9.2","9.2","25.7"]},{"subject":"기술·가정","avg":"81.0","dist":["36.4","25.1","15.3","13.9","9.2"]},{"subject":"영어","avg":"79.3","dist":["37.6","28.0","9.8","8.1","16.5"]}]}},"박문중":{"2025-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"77.9","dist":["21.2","29.6","25.2","15.5","8.4"]},{"subject":"도덕","avg":"78.0","dist":["21.2","30.1","24.8","14.6","9.3"]},{"subject":"역사","avg":"74.3","dist":["35.4","15.9","12.4","8.4","27.9"]},{"subject":"수학","avg":"79.4","dist":["45.6","17.7","13.7","4.4","18.6"]},{"subject":"과학","avg":"75.1","dist":["37.2","18.1","11.5","7.1","26.1"]},{"subject":"기술·가정","avg":"76.8","dist":["31.0","17.3","17.7","18.6","15.5"]},{"subject":"영어","avg":"79.7","dist":["46.0","17.7","12.4","5.3","18.6"]},{"subject":"생활 중국어","avg":"67.4","dist":["14.6","16.4","15.0","21.2","32.7"]}],"3학년":[{"subject":"국어","avg":"81.1","dist":["35.0","28.7","18.4","11.7","6.3"]},{"subject":"사회","avg":"74.9","dist":["35.0","10.3","17.0","14.3","23.3"]},{"subject":"역사","avg":"76.4","dist":["43.5","12.1","15.2","6.7","22.4"]},{"subject":"수학","avg":"80.8","dist":["52.0","20.6","4.9","5.4","17.0"]},{"subject":"과학","avg":"72.0","dist":["30.0","21.5","8.1","12.6","27.8"]},{"subject":"기술·가정","avg":"77.0","dist":["25.1","23.8","23.8","14.3","13.0"]},{"subject":"영어","avg":"86.2","dist":["65.9","14.3","4.9","1.8","13.0"]},{"subject":"생활 중국어","avg":"64.8","dist":["20.2","14.3","12.6","10.3","42.6"]}]},"2025-2":{"1학년":[{"subject":"국어","avg":"80.6","dist":["39.1","29.2","10.7","7.4","13.7"]},{"subject":"사회","avg":"79.0","dist":["34.7","25.5","15.9","9.2","14.8"]},{"subject":"도덕","avg":"76.3","dist":["24.0","23.6","23.6","14.8","14.0"]},{"subject":"수학","avg":"76.1","dist":["38.0","22.1","8.9","7.7","23.2"]},{"subject":"과학","avg":"79.7","dist":["41.3","20.7","13.3","10.7","14.0"]},{"subject":"기술·가정","avg":"73.9","dist":["25.1","18.8","16.6","20.7","18.8"]},{"subject":"정보","avg":"72.9","dist":["9.2","22.9","28.4","27.3","12.2"]},{"subject":"영어","avg":"85.0","dist":["64.2","13.3","5.2","4.8","12.5"]}],"2학년":[{"subject":"국어","avg":"75.7","dist":["22.4","27.2","22.4","10.5","17.5"]},{"subject":"도덕","avg":"75.3","dist":["23.2","22.4","20.2","18.4","15.8"]},{"subject":"역사","avg":"74.9","dist":["43.0","13.2","9.6","7.5","26.8"]},{"subject":"수학","avg":"76.3","dist":["34.2","27.2","8.8","10.1","19.7"]},{"subject":"과학","avg":"76.5","dist":["46.9","12.3","6.6","8.8","25.4"]},{"subject":"기술·가정","avg":"78.8","dist":["25.4","26.3","27.6","13.6","7.0"]},{"subject":"영어","avg":"82.2","dist":["52.6","15.8","11.0","6.6","14.0"]},{"subject":"생활 중국어","avg":"73.1","dist":["32.0","14.5","12.3","15.4","25.9"]}],"3학년":[{"subject":"국어","avg":"73.2","dist":["26.9","20.4","13.4","13.4","25.9"]},{"subject":"사회","avg":"84.2","dist":["50.9","19.9","11.6","7.4","10.2"]},{"subject":"역사","avg":"74.3","dist":["38.9","13.0","12.0","12.5","23.6"]},{"subject":"수학","avg":"83.4","dist":["59.3","13.0","6.5","6.9","14.4"]},{"subject":"과학","avg":"63.0","dist":["25.5","10.6","11.1","5.6","47.2"]},{"subject":"기술·가정","avg":"78.0","dist":["31.5","21.3","19.9","12.5","14.8"]},{"subject":"영어","avg":"83.8","dist":["59.3","14.4","9.7","3.2","13.4"]},{"subject":"생활 중국어","avg":"75.4","dist":["42.6","10.2","11.6","11.1","24.5"]}]},"2026-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"81.1","dist":["36.3","31.5","14.7","7.7","9.9"]},{"subject":"역사","avg":"71.7","dist":["30.8","19.4","12.1","9.5","28.2"]},{"subject":"도덕","avg":"81.2","dist":["39.6","24.9","15.4","8.8","11.4"]},{"subject":"수학","avg":"79.6","dist":["44.3","22.0","10.6","7.0","16.1"]},{"subject":"과학","avg":"72.9","dist":["29.7","17.9","15.8","10.6","26.0"]},{"subject":"기술·가정","avg":"80.9","dist":["33.7","25.6","22.0","8.4","10.3"]},{"subject":"데이터 분석과 인공지능","avg":"76.9","dist":["24.5","24.9","21.6","22.3","6.6"]},{"subject":"영어","avg":"81.0","dist":["50.2","17.9","11.0","5.5","15.4"]},{"subject":"생활 중국어","avg":"74.0","dist":["26.4","22.3","14.7","13.9","22.7"]}],"3학년":[{"subject":"국어","avg":"79.2","dist":["24.6","34.6","19.7","10.5","10.5"]},{"subject":"사회","avg":"75.8","dist":["32.0","20.2","12.7","14.0","21.1"]},{"subject":"역사","avg":"71.9","dist":["35.1","13.2","11.0","11.4","29.4"]},{"subject":"수학","avg":"74.8","dist":["38.6","21.5","11.4","4.4","24.1"]},{"subject":"과학","avg":"75.2","dist":["39.5","12.3","10.1","11.0","27.2"]},{"subject":"기술·가정","avg":"77.9","dist":["21.5","21.5","34.2","13.6","9.2"]},{"subject":"영어","avg":"88.3","dist":["67.5","12.7","7.9","4.4","7.5"]},{"subject":"생활 중국어","avg":"74.8","dist":["37.7","9.6","14.0","12.7","25.9"]}]}},"해송중":{"2025-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"81.8","dist":["34.8","30.7","16.6","10.0","7.8"]},{"subject":"도덕","avg":"79.2","dist":["32.6","23.8","18.8","12.5","12.2"]},{"subject":"역사","avg":"69.4","dist":["21.9","16.9","12.5","14.1","34.5"]},{"subject":"수학","avg":"82.1","dist":["52.7","16.9","7.2","6.9","16.3"]},{"subject":"과학","avg":"74.7","dist":["30.1","23.2","13.5","7.5","25.7"]},{"subject":"기술·가정","avg":"72.6","dist":["13.8","19.4","25.1","23.2","18.5"]},{"subject":"영어","avg":"81.5","dist":["40.4","27.3","14.1","7.2","11.0"]},{"subject":"한문","avg":"66.5","dist":["22.3","15.4","11.6","9.4","41.4"]}],"3학년":[{"subject":"국어","avg":"82.3","dist":["41.4","25.8","16.2","7.6","8.9"]},{"subject":"사회","avg":"74.1","dist":["36.9","15.0","10.2","10.2","27.7"]},{"subject":"역사","avg":"80.4","dist":["49.0","15.6","9.2","8.0","18.2"]},{"subject":"수학","avg":"74.4","dist":["36.9","16.6","11.5","10.2","24.8"]},{"subject":"과학","avg":"70.2","dist":["28.7","21.7","8.9","7.0","33.8"]},{"subject":"기술·가정","avg":"69.0","dist":["20.4","13.4","15.6","18.2","32.5"]},{"subject":"영어","avg":"78.4","dist":["42.4","22.0","10.8","6.7","18.2"]}]},"2025-2":{"1학년":[{"subject":"국어","avg":"80.2","dist":["25.2","34.1","20.3","14.6","5.7"]},{"subject":"사회","avg":"74.2","dist":["22.4","18.3","22.8","17.1","19.5"]},{"subject":"도덕","avg":"83.4","dist":["42.7","22.8","16.3","11.4","6.9"]},{"subject":"수학","avg":"80.8","dist":["37.8","26.8","12.2","10.6","12.6"]},{"subject":"과학","avg":"76.9","dist":["28.9","25.6","16.3","11.0","18.3"]},{"subject":"문제 해결과 프로그래밍","avg":"87.1","dist":["42.3","40.2","14.2","2.8","0.4"]},{"subject":"영어","avg":"80.9","dist":["39.0","26.4","13.8","9.3","11.4"]}],"2학년":[{"subject":"국어","avg":"79.4","dist":["31.4","27.6","16.5","11.7","12.7"]},{"subject":"도덕","avg":"74.7","dist":["22.9","24.1","18.1","16.2","18.7"]},{"subject":"역사","avg":"68.8","dist":["34.0","12.7","7.3","7.0","39.0"]},{"subject":"수학","avg":"81.9","dist":["43.5","24.1","10.8","8.9","12.7"]},{"subject":"과학","avg":"74.9","dist":["31.4","22.9","10.2","12.4","23.2"]},{"subject":"기술·가정","avg":"70.6","dist":["21.9","13.7","16.8","16.5","31.1"]},{"subject":"영어","avg":"80.9","dist":["37.8","30.2","14.3","7.0","10.8"]},{"subject":"한문","avg":"62.6","dist":["22.5","10.8","6.3","9.5","50.8"]}],"3학년":[{"subject":"국어","avg":"75.4","dist":["26.8","23.2","18.2","10.8","21.0"]},{"subject":"사회","avg":"71.7","dist":["32.5","15.0","11.5","12.1","29.0"]},{"subject":"역사","avg":"82.5","dist":["51.9","15.3","10.2","8.9","13.7"]},{"subject":"수학","avg":"74.0","dist":["37.3","15.9","12.1","7.6","27.1"]},{"subject":"과학","avg":"64.4","dist":["22.6","16.9","10.2","7.3","43.0"]},{"subject":"기술·가정","avg":"70.6","dist":["23.6","13.7","13.1","19.4","30.3"]},{"subject":"영어","avg":"74.0","dist":["34.1","19.1","13.1","11.1","22.6"]}]},"2026-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"87.5","dist":["56.9","21.5","13.4","4.5","3.7"]},{"subject":"역사","avg":"71.8","dist":["29.7","16.3","12.2","11.8","30.1"]},{"subject":"도덕","avg":"80.6","dist":["38.2","24.0","15.4","8.9","13.4"]},{"subject":"수학","avg":"80.7","dist":["43.1","19.9","13.8","9.3","13.8"]},{"subject":"과학","avg":"72.7","dist":["19.5","20.3","20.7","18.7","20.7"]},{"subject":"기술·가정","avg":"75.0","dist":["28.9","18.7","11.8","19.5","21.1"]},{"subject":"영어","avg":"87.0","dist":["61.0","16.7","11.4","4.1","6.9"]},{"subject":"한문","avg":"78.2","dist":["39.8","16.7","11.0","13.4","19.1"]}],"3학년":[{"subject":"국어","avg":"79.6","dist":["31.6","28.5","16.5","12.7","10.8"]},{"subject":"사회","avg":"71.3","dist":["32.0","13.6","12.3","8.9","33.2"]},{"subject":"역사","avg":"78.6","dist":["43.7","12.7","12.3","13.3","18.0"]},{"subject":"수학","avg":"79.0","dist":["42.1","24.1","10.1","4.7","19.0"]},{"subject":"과학","avg":"75.0","dist":["40.5","13.6","10.1","8.5","27.2"]},{"subject":"기술·가정","avg":"73.2","dist":["18.7","21.5","17.1","20.3","22.5"]},{"subject":"영어","avg":"76.7","dist":["30.1","25.3","16.5","9.5","18.7"]}]}},"능허대중":{"2025-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"77.9","dist":["33.4","23.4","16.3","10.6","16.3"]},{"subject":"도덕","avg":"74.5","dist":["27.1","22.3","15.4","14.9","20.3"]},{"subject":"역사","avg":"68.8","dist":["25.1","11.4","15.4","14.3","33.7"]},{"subject":"수학","avg":"72.0","dist":["28.0","17.1","14.9","10.6","29.4"]},{"subject":"과학","avg":"74.0","dist":["28.9","21.1","13.4","11.4","25.1"]},{"subject":"기술·가정","avg":"85.0","dist":["59.1","18.3","5.4","5.1","12.0"]},{"subject":"영어","avg":"75.0","dist":["38.3","16.6","10.9","10.3","24.0"]},{"subject":"생활 중국어","avg":"73.8","dist":["32.6","16.9","15.1","8.6","26.9"]}],"3학년":[{"subject":"국어","avg":"80.2","dist":["35.9","25.5","18.1","10.7","9.8"]},{"subject":"사회","avg":"78.6","dist":["36.5","17.8","17.5","12.5","15.7"]},{"subject":"도덕","avg":"87.0","dist":["53.1","22.8","15.7","4.5","3.9"]},{"subject":"역사","avg":"72.0","dist":["36.2","12.5","8.6","11.3","31.5"]},{"subject":"수학","avg":"77.8","dist":["38.3","20.8","13.6","8.9","18.4"]},{"subject":"과학","avg":"74.6","dist":["31.8","18.4","16.6","10.1","23.1"]},{"subject":"영어","avg":"82.6","dist":["52.5","14.8","9.2","8.9","14.5"]},{"subject":"한문","avg":"71.4","dist":["35.3","13.6","9.8","7.7","33.5"]}]},"2025-2":{"1학년":[{"subject":"국어","avg":"76.5","dist":["23.2","25.2","20.9","16.0","14.6"]},{"subject":"사회","avg":"84.5","dist":["52.7","17.8","12.6","7.4","9.5"]},{"subject":"수학","avg":"78.8","dist":["38.7","21.8","13.8","8.9","16.9"]},{"subject":"과학","avg":"78.1","dist":["34.4","21.8","16.6","9.7","17.5"]},{"subject":"기술·가정","avg":"87.4","dist":["55.0","22.3","13.5","6.0","3.2"]},{"subject":"문제 해결과 프로그래밍","avg":"84.3","dist":["38.1","32.7","18.3","7.2","3.7"]},{"subject":"영어","avg":"81.7","dist":["46.7","21.5","11.5","6.6","13.8"]}],"2학년":[{"subject":"국어","avg":"82.6","dist":["47.9","24.4","10.3","6.3","11.2"]},{"subject":"도덕","avg":"79.4","dist":["46.4","14.3","11.5","10.0","17.8"]},{"subject":"역사","avg":"73.0","dist":["35.0","12.0","11.5","12.3","29.2"]},{"subject":"수학","avg":"69.3","dist":["22.1","16.9","16.3","14.0","30.7"]},{"subject":"과학","avg":"71.4","dist":["20.3","24.6","15.5","11.2","28.4"]},{"subject":"기술·가정","avg":"83.3","dist":["52.4","14.0","9.5","14.6","9.5"]},{"subject":"영어","avg":"78.0","dist":["47.9","14.3","10.6","6.6","20.6"]},{"subject":"생활 중국어","avg":"71.0","dist":["34.1","14.3","9.7","8.9","33.0"]}],"3학년":[{"subject":"국어","avg":"81.6","dist":["49.0","16.1","14.1","6.7","14.1"]},{"subject":"사회","avg":"80.9","dist":["44.6","17.6","17.0","7.3","13.5"]},{"subject":"도덕","avg":"85.7","dist":["48.7","25.2","17.6","4.4","4.1"]},{"subject":"역사","avg":"74.2","dist":["40.5","13.8","7.0","9.1","29.6"]},{"subject":"수학","avg":"76.5","dist":["40.5","18.8","13.8","6.5","20.5"]},{"subject":"과학","avg":"68.6","dist":["29.0","15.0","11.4","9.7","34.9"]},{"subject":"영어","avg":"81.4","dist":["52.8","13.2","9.7","9.4","15.0"]},{"subject":"한문","avg":"68.6","dist":["34.9","10.9","9.7","6.7","37.8"]}]},"2026-1":{"1학년":[],"2학년":[{"subject":"국어","avg":"79.5","dist":["37.9","21.4","15.4","10.8","14.5"]},{"subject":"역사","avg":"67.0","dist":["17.9","12.3","16.2","16.5","37.0"]},{"subject":"도덕","avg":"74.9","dist":["24.2","25.4","16.5","15.1","18.8"]},{"subject":"수학","avg":"76.5","dist":["40.5","15.1","12.8","9.1","22.5"]},{"subject":"과학","avg":"75.3","dist":["28.2","22.5","16.0","12.3","21.1"]},{"subject":"기술·가정","avg":"84.9","dist":["53.3","20.5","10.3","7.4","8.5"]},{"subject":"영어","avg":"80.8","dist":["45.6","18.8","13.4","7.1","15.1"]},{"subject":"생활 중국어","avg":"73.3","dist":["21.9","24.2","18.5","11.4","23.9"]}],"3학년":[{"subject":"국어","avg":"80.4","dist":["40.6","22.2","16.1","7.5","13.5"]},{"subject":"사회","avg":"73.5","dist":["28.2","17.0","14.4","15.0","25.4"]},{"subject":"도덕","avg":"81.2","dist":["44.7","21.3","13.8","7.2","13.0"]},{"subject":"역사","avg":"78.7","dist":["48.7","11.0","11.5","6.6","22.2"]},{"subject":"수학","avg":"70.3","dist":["28.5","19.0","12.7","6.9","32.9"]},{"subject":"과학","avg":"73.4","dist":["30.0","19.6","13.0","11.0","26.5"]},{"subject":"영어","avg":"79.8","dist":["43.8","17.9","14.1","7.2","17.0"]},{"subject":"한문","avg":"75.8","dist":["35.7","22.8","8.4","8.1","25.1"]}]}}}</script>
+<script id="middleAcademicBehavior">
+'use strict';
+(() => {
+  const schoolData = JSON.parse(document.getElementById('middleAcademicData').textContent);
+  const schoolNames = ['능허대중','해송중','예송중','신정중','신송중','박문중','은송중','현송중'];
+  const comparisonKey = '__middle_comparison__';
+  const terms = [
+    {key:'2025-1',title:'2025년 1학기'},
+    {key:'2025-2',title:'2025년 2학기'},
+    {key:'2026-1',title:'2026년 1학기'}
+  ];
+  const gradeNames = ['1학년','2학년','3학년'];
+  const options = {term:'2026-1'};
+  const termButtons = document.getElementById('middleTermTabs');
+  const view = document.getElementById('middleComparisonContent');
+  const safe = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const display = value => value === null || value === undefined || value === '' ? '–' : safe(value);
+  const getRows = (school,term,grade) => schoolData[school]?.[term]?.[grade] || [];
+
+  function renderSchool(school) {
+    const header = '<thead><tr>' +
+      '<th class="middle-grade-head" rowspan="2" scope="col">학년</th>' +
+      '<th class="middle-subject-head" rowspan="2" scope="col">과목</th>' +
+      terms.map(term => `<th class="middle-term-heading" scope="colgroup" colspan="6">${term.title}</th>`).join('') +
+      '</tr><tr>' + terms.map((term,t) => ['평균','A','B','C','D','E'].map((metric,i) =>
+        `<th scope="col"${t && i === 0 ? ' class="middle-group-first"' : ''} aria-label="${term.title} ${metric}${i ? ' 비율' : ''}">${metric}</th>`).join('')).join('') + '</tr></thead>';
+
+    const body = gradeNames.map((grade,gradeIndex) => {
+      const grouped = terms.map(term => getRows(school,term.key,grade));
+      const subjects = [...new Set(grouped.flatMap(rows => rows.map(row => row.subject)))];
+      const lookup = grouped.map(rows => new Map(rows.map(row => [row.subject,row])));
+      if (!subjects.length) {
+        return `<tr class="${gradeIndex ? 'middle-grade-start' : ''}"><th class="middle-grade-cell" scope="rowgroup">${grade}</th>` +
+          '<td class="middle-no-data" colspan="19">공개 자료 없음</td></tr>';
+      }
+      return subjects.map((subject,index) => {
+        const first = index === 0;
+        const rowClass = first && gradeIndex ? ' class="middle-grade-start"' : '';
+        const gradeCell = first ? `<th class="middle-grade-cell" scope="rowgroup" rowspan="${subjects.length}">${grade}</th>` : '';
+        const cells = lookup.map((rows,t) => {
+          const r = rows.get(subject);
+          const values = r ? [r.avg,...r.dist] : [null,null,null,null,null,null];
+          return values.map((value,i) => `<td class="${i === 0 ? 'middle-average ' : ''}${t && i === 0 ? 'middle-group-first ' : ''}${value === null || value === undefined ? 'middle-empty' : ''}">${display(value)}</td>`).join('');
+        }).join('');
+        return `<tr${rowClass}>${gradeCell}<th class="middle-subject-cell" scope="row">${safe(subject)}</th>${cells}</tr>`;
+      }).join('');
+    }).join('');
+
+    view.innerHTML = `<div class="middle-table-wrap" role="region" aria-label="${safe(school)} 1~3학년 세 학기 학업성취도 비교" tabindex="0">` +
+      `<table class="middle-table"><colgroup><col class="middle-grade-column"><col class="middle-subject-column"></colgroup>${header}<tbody>${body}</tbody></table></div>`;
+  }
+
+  function renderSchoolComparison() {
+    const period = terms.find(term => term.key === options.term);
+    const header = '<thead><tr class="group-row">' +
+      '<th class="middle-grade-head" rowspan="2" scope="col">학년</th>' +
+      '<th class="subject-head middle-subject-head" rowspan="2" scope="col">과목</th>' +
+      schoolNames.map(name => `<th scope="colgroup" colspan="2">${safe(name)}</th>`).join('') +
+      '</tr><tr class="metric-row">' + schoolNames.map(name =>
+        `<th scope="col" aria-label="${safe(name)} 평균">평균</th><th scope="col" aria-label="${safe(name)} A비율">A비율</th>`).join('') + '</tr></thead>';
+
+    // 첫 번째로 실제 표시되는 학년에는 구분선을 넣지 않습니다.
+    // 1학년이 없는 학기(2025년 1학기·2026년 1학기)에서도
+    // 머리글 바로 아래 두꺼운 가로선이 생기지 않게 합니다.
+    let hasRenderedGrade = false;
+    const body = gradeNames.map((grade,gradeIndex) => {
+      const groups = schoolNames.map(school => getRows(school,options.term,grade));
+      const lookup = groups.map(rows => new Map(rows.map(row => [row.subject,row])));
+      // 해당 학년·학기의 8개 학교 모두에 있는 과목만 비교합니다.
+      const subjects = groups.every(rows => rows.length)
+        ? groups[0].map(row => row.subject).filter(subject => lookup.every(school => school.has(subject)))
+        : [];
+      if (!subjects.length) {
+        // 시험이 없는 1학년 1학기는 표시하지 않습니다.
+        if (grade === '1학년' && options.term.endsWith('-1')) return '';
+        const sectionClass = hasRenderedGrade ? ' class="middle-grade-start"' : '';
+        hasRenderedGrade = true;
+        return `<tr${sectionClass}><th class="middle-grade-cell" scope="rowgroup">${grade}</th>` +
+          '<td class="middle-no-data" colspan="17">공개 자료 없음</td></tr>';
+      }
+      const sectionClass = hasRenderedGrade ? ' class="middle-grade-start"' : '';
+      hasRenderedGrade = true;
+      return subjects.map((subject,index) => {
+        const first = index === 0;
+        const rowClass = first ? sectionClass : '';
+        const gradeCell = first ? `<th class="middle-grade-cell" scope="rowgroup" rowspan="${subjects.length}">${grade}</th>` : '';
+        const cells = lookup.map(group => {
+          const row = group.get(subject);
+          if (!row) return '<td class="missing-cell">–</td><td class="missing-cell">–</td>';
+          return `<td class="avg-cell">${display(row.avg)}</td><td class="a-cell">${row.dist?.[0] == null ? '–' : display(row.dist[0]) + '%'}</td>`;
+        }).join('');
+        return `<tr${rowClass}>${gradeCell}<th class="middle-subject-cell" scope="row">${safe(subject)}</th>${cells}</tr>`;
+      }).join('');
+    }).join('');
+
+    view.innerHTML = `<div class="matrix-wrap" role="region" aria-label="${period.title} 중학교 1~3학년 과목 평균 및 A비율 비교" tabindex="0">` +
+      `<table class="matrix-table middle-matrix-table"><colgroup><col class="grade-col"><col class="subject-col">` +
+      schoolNames.map(() => '<col class="value-col"><col class="value-col">').join('') +
+      `</colgroup>${header}<tbody>${body}</tbody></table></div>`;
+  }
+
+  function render() {
+    const current = window.schoolPageState;
+    if (current.type !== 'middle') return;
+    const isCompare = current.school === comparisonKey;
+    document.getElementById('middleSelectedSchool').textContent = isCompare ? '중학교별 A비율' : current.school;
+    termButtons.hidden = !isCompare;
+    termButtons.querySelectorAll('[data-middle-term]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.middleTerm === options.term)));
+    if (isCompare) renderSchoolComparison();
+    else renderSchool(current.school);
+  }
+
+  termButtons.addEventListener('click',event => {
+    const button = event.target.closest('[data-middle-term]');
+    if (!button) return;
+    options.term = button.dataset.middleTerm;
+    render();
+  });
+  window.middleSchoolRenderer = render;
+})();
+</script>
+
+<script id="schoolTableStickyHeadBehavior">
+'use strict';
+(() => {
+  // overflow-x:auto 컨테이너 내부의 CSS sticky는 페이지 스크롤을 따라가지
+  // 않으므로, 표 머리글만 복제한 고정 영역을 사용합니다.
+  const selectors = '.compare-table, .matrix-table, .middle-table, .cutoff-table';
+  const pinned = new Map();
+  let scheduled = false;
+
+  function remove(table) {
+    const record = pinned.get(table);
+    if (record) record.viewport.remove();
+    pinned.delete(table);
+  }
+
+  function create(table) {
+    const sourceHead = table.tHead;
+    if (!sourceHead) return null;
+    const viewport = document.createElement('div');
+    viewport.className = 'school-sticky-head-viewport';
+    viewport.setAttribute('aria-hidden', 'true'); // 원본 머리글만 스크린리더가 읽습니다.
+    const copy = table.cloneNode(false);
+    copy.removeAttribute('id');
+    const cols = table.querySelector(':scope > colgroup');
+    if (cols) copy.append(cols.cloneNode(true));
+    copy.append(sourceHead.cloneNode(true));
+    viewport.append(copy);
+    document.body.append(viewport);
+    const record = {viewport, copy, sourceHead};
+    pinned.set(table, record);
+    return record;
+  }
+
+  function update() {
+    scheduled = false;
+    const tables = [...document.querySelectorAll(selectors)]
+      .filter(table => table.tHead && table.getClientRects().length && getComputedStyle(table).display !== 'none');
+    const current = new Set(tables);
+    for (const table of pinned.keys()) if (!current.has(table) || !table.isConnected) remove(table);
+
+    for (const table of tables) {
+      const host = table.closest('.middle-table-wrap, .matrix-wrap, .cutoff-scroll, .compare-panel') || table.parentElement;
+      const bounds = table.getBoundingClientRect();
+      const header = table.tHead.getBoundingClientRect();
+      const area = host.getBoundingClientRect();
+      const left = Math.max(0, area.left);
+      const right = Math.min(window.innerWidth, area.right);
+      const visible = header.top < -1 && bounds.bottom > header.height + 1 &&
+        right > left && area.bottom > header.height && header.height > 0;
+      let record = pinned.get(table);
+      if (!visible) {
+        if (record) record.viewport.style.display = 'none';
+        continue;
+      }
+      if (!record || record.sourceHead !== table.tHead) {
+        if (record) remove(table);
+        record = create(table);
+      }
+      if (!record) continue;
+      const {viewport, copy} = record;
+      viewport.style.display = 'block';
+      viewport.style.left = `${left}px`;
+      viewport.style.width = `${right - left}px`;
+      viewport.style.height = `${header.height}px`;
+      copy.style.width = `${bounds.width}px`;
+      copy.style.minWidth = `${bounds.width}px`;
+      // 원본과 고정 영역의 좌우 스크롤 좌표를 동일하게 유지합니다.
+      viewport.scrollLeft = host.scrollLeft || 0;
+    }
+  }
+
+  function schedule() {
+    if (!scheduled) {
+      scheduled = true;
+      requestAnimationFrame(update);
+    }
+  }
+  document.addEventListener('scroll', schedule, {capture:true, passive:true});
+  window.addEventListener('resize', schedule, {passive:true});
+  const main = document.querySelector('main');
+  if (main) new MutationObserver(schedule).observe(main, {childList:true, subtree:true});
+  if (document.fonts) document.fonts.ready.then(schedule);
+  schedule();
+})();
 </script>
 </body>
 </html>
